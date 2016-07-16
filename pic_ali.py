@@ -52,7 +52,7 @@ class getMetric(object):
         line_chart.add(txt_id, txt_a)
         line_chart.render_to_file('bar_chart.svg')
     
-def main(project="acs_ecs",metric="CPUUtilization",instanceid="i-282jajbq1"):
+def main(project="acs_ecs",metric="CPUUtilization",instanceid="XXX"):
     getresult = getMetric(project,metric,instanceid)
 
 if __name__ == "__main__":
