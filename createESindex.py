@@ -15,6 +15,7 @@ data = result.splitlines()
 d = datetime.datetime.now().strftime("%Y.%m.%d")
 l = [i for i in data if re.compile(d).search(i) is not None ]
  
+#index格式为 *-*-date
 tomorrow = str(datetime.date.today() + datetime.timedelta(days=1)).replace('-','.')
 year = str(datetime.date.today().year)
 for i in range(len(l)):
