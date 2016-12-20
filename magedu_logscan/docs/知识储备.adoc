@@ -1,0 +1,41 @@
+= 知识储备
+
+== 正则表达式
+
+* 正则表达式基础知识
+* Python中如何使用正则表达式进行匹配
+
+== inotify 与 watchdog
+
+* 使用inotify监控文件变化
+* watchdog是一个跨平台的实现，在linux下，其封装了inotify
+* 使用watchdog监控文件变化
+
+== rocksdb 与 pyrocksdb
+
+* 使用rocksdb持久化键值对
+* 使用pyrocksdb操作rocksdb
+
+== zookeeper
+
+* zookeeper基本知识
+* 使用zookeeper分发配置
+* 使用zookeeper监控心跳
+
+== tornado
+
+* tornado基本使用
+* 使用tornado开发 Restfull api
+
+
+== ES6、redux和react
+
+* ES6基本语法
+* flux架构与数据流向
+* React基础知识
+* 使用redux和React开发前端UI
+
+== graphite 和 grafana
+
+* 使用 graphite 存储监控数据
+* 使用 grafana 展示
