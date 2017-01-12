@@ -1,0 +1,10 @@
+{% if latest_artical_list %}
+    <ul>
+    {% for art in latest_artical_list%}
+        <!--<p>{{ art.content }}</p>-->
+        <li><a href="/polls/{{ art.id }}/">{{ art.content }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

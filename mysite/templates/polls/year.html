@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+
+{% block title %} Articles for {{ year }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">articles page<h1>
+{% endblock %}
+
+{% block content %}
+<h1>Articles for {{year}}</h1>
+{% for art in article_list %}
+<h2>
+  <p>{{ art.headline|upper }}</p>
+</h2>
+<h3>
+  <p>{{ art.reporter.full_name }}</p>
+</h3>
+  <p>{{ art.content }}</p>
+  <p>Published {{ art.pub_date|date:"F j, Y"}}</p>
+{% endfor %}
+{% endblock %}
