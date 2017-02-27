@@ -6,7 +6,7 @@ pip install flask
 ####提交评论
 在web页面即可提交
 也可以用下面方式导入评论数据:
-`#` ipython
+\# ipython
 In [1]: import datetime
 In [2]: from message_board import save_data
 In [3]: save_data('test','test_comment',datetime.datetime(2017,02,27,11,0,0))
