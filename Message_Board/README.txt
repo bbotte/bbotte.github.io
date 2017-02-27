@@ -1,4 +1,4 @@
-Message_Board
+Message_Board 留言板
 
 需要安装的模块
 flask
