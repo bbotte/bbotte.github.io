@@ -3,6 +3,7 @@ import shelve
 from flask import Flask,request,render_template,redirect,escape,Markup
 from datetime import datetime
 
+
 application = Flask(__name__)
 
 DATA_FILE = 'message.dat'
@@ -57,7 +58,7 @@ def nl2br_filters(s):
 #添加过滤器,评论时间显示到了毫秒
 @application.template_filter('datetime_fmt')
 def datetime_fmt_filter(dt):
-    return dt.strftime('%Y/%m/%d %H%M%S')
+    return dt.strftime('%Y/%m/%d %H:%M:%S')
 
 
 if __name__=='__main__':

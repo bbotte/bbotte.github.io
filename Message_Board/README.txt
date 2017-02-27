@@ -3,7 +3,7 @@ Message_Board
 需要安装的模块
 flask
 
-因为没做commit按钮功能,所有只能用下面方式导入评论数据:
+也可以用下面方式导入评论数据:
 # ipython
 In [2]: import datetime
 In [3]: from message_board import save_data

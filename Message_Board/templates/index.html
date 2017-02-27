@@ -11,30 +11,30 @@
         <h1>Message Board</h1>
         <div id="form-area">
             <p>please comment here:</p>
-            <from action="/post" method="post">
+            <form action="/post" method="POST">
                 <table>
                     <tr>
                         <th>Name</th>
-                            <td>
-                                <input type="text" size="20" name="name" />
-                            </td>
+                        <td>
+                            <input type="text" size="20" name="name" />
+                        </td>
                     </tr>
                     <tr>
                         <th>Comment</th>
                         <td>
-                            <textarea rows="5" cols="40" name="comments"></textarea>
+                            <textarea rows="5" cols="40" name="comments"> </textarea>
                         </td>
                     </tr>
                 </table>
                 <p><button type="submit">Commit</button></p>
-            </from>
+            </form>
         </div>
         <div id="entries-area">
             <h2>the comments history</h2>
             <div class="entry">
                 {% for greeting in greeting_list %}
-                    <h3>{{greeting.name}} commented at {{greeting.create_at|datetime_fmt }}</h3>
-                    <p>{{greeting.comment|nl2br }}</p>
+                    <h3>{{ greeting.name }} commented at {{ greeting.create_at|datetime_fmt }}</h3>
+                    <p>{{ greeting.comment|nl2br }}</p>
                 {% endfor %}
                 </p>
             </div>
