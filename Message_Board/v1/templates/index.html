@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Message Board</title>
+    <link rel="stylesheet" href="../static/main.css" type="text/css">
+</head>
+<!--将css记录的id和class设置在html指定位置-->
+<body>
+    <div id="main">
+        <h1>Message Board</h1>
+        <div id="form-area">
+            <p>please comment here:</p>
+            <from action="/post" method="post">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                            <td>
+                                <input type="text" size="20" name="name" />
+                            </td>
+                    </tr>
+                    <tr>
+                        <th>Comment</th>
+                        <td>
+                            <textarea rows="5" cols="40" name="comments"></textarea>
+                        </td>
+                    </tr>
+                </table>
+                <p><button type="submit">Commit</button></p>
+            </from>
+        </div>
+        <div id="entries-area">
+            <h2>the comments history</h2>
+            <div class="entry">
+                {% for greeting in greeting_list %}
+                    <h3>{{greeting.name}} commented at {{greeting.create_at|datetime_fmt }}</h3>
+                    <p>{{greeting.comment|nl2br }}</p>
+                {% endfor %}
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
