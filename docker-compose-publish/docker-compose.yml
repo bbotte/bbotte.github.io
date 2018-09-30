@@ -1,0 +1,48 @@
+version: '2.4'
+services:
+  system-com:
+    container_name: system-com
+    image: harbor.bbotte.com/master/system:demo-201809131041-357eee81
+    restart: always
+    volumes:
+     - /opt/log:/opt/log
+    ports:
+     - 9000:9000
+    networks:
+     - bbotte
+
+  task-com:
+    container_name: task-com
+    image: harbor.bbotte.com/master/task:demo-201809131042-ef5342ca
+    restart: always
+    volumes:
+     - /opt/log:/opt/log
+    ports:
+     - 9001:9001
+    networks:
+     - bbotte
+
+  db-com:
+    container_name: db-com
+    image: harbor.bbotte.com/master/mysql-server:0.9
+    restart: always
+    volumes:
+      - /data/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      bbotte:
+        ipv4_address: 172.17.1.100
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+      MYSQL_INNODB_BUFFER_POOL_SIZE: "16G"
+      DATADIR: "/var/lib/mysql"
+
+
+networks:
+  bbotte:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.17.1.0/24
