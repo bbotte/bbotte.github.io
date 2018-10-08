@@ -2,7 +2,7 @@
 
 harbor python脚本
 
-本脚本来源于 https://pypi.org/project/harbor-py/，有修改，在harbor 1.5测试可用
+本脚本来源于[harbor-py](https://pypi.org/project/harbor-py) 有修改，在harbor 1.5测试可用
 
 [harbor](https://github.com/vmware/harbor) is the enterprise-class registry server for docker distribution.
 
