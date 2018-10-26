@@ -1,0 +1,67 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: master-mysql
+  labels:
+    k8s-app: master-mysql
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      k8s-app: master-mysql
+  template:
+    metadata:
+      labels:
+        k8s-app: master-mysql
+    spec:
+      imagePullSecrets:
+      - name: harbor-auth
+      containers:
+      - name: master-mysql
+        imagePullPolicy: IfNotPresent
+        image: harbor.bbotte.com/devops/mysql-server:0.1
+        resources:
+          limits:
+            memory: 2Gi
+          requests:
+            memory: "0.1Gi"
+            cpu: "0.1"
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "Qwerty"
+        - name: MYSQL_INNODB_BUFFER_POOL_SIZE
+          value: "1G"
+        - name: DATADIR
+          value: /var/lib/mysql/mysqlmaster
+        volumeMounts:
+        - name: mysql-master-data
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-master-data
+        persistentVolumeClaim:
+          claimName: gfs
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: master-db-com
+  labels:
+    k8s-app: master-mysql
+spec:
+  selector:
+    k8s-app: master-mysql
+  ports:
+  - port: 3306
+    targetPort: 3306
+    nodePort: 30336
+    protocol: TCP
+  type: NodePort

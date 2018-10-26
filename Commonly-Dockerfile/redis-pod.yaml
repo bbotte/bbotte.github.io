@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: master-redis
+  labels:
+    name: master-redis
+spec:
+  initContainers:
+  - name: disable-thp
+    image: harbor.bbotte.com/devops/redis:v0.1
+    command: ['/bin/sh','-c','echo never > /sys/kernel/mm/transparent_hugepage/enabled && sysctl -w net.core.somaxconn=65535 && sleep 1']
+    imagePullPolicy: IfNotPresent
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - mountPath: /sys
+      name: mastersys
+      readOnly: false
+  containers:
+    - name: master-redis
+      image: harbor.bbotte.com/devops/redis:v0.1
+      env:
+      - name: DATADIR
+        value: /data/masterredis
+      ports:
+        - containerPort: 6379
+      resources:
+        limits:
+          cpu: "0.1"
+          memory: 1024Mi
+      volumeMounts:
+        - name: redis-master-data
+          mountPath: /data
+  imagePullSecrets:
+    - name: harbor-auth
+  volumes:
+    - name: redis-master-data
+      persistentVolumeClaim:
+        claimName: gfs
+    - name: mastersys
+      hostPath:
+        path: /sys
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: master-redis-com
+  labels:
+    name: master-redis
+spec:
+  ports:
+    - port: 6379
+      targetPort: 6379
+      protocol: TCP
+  selector:
+    name: master-redis
