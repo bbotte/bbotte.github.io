@@ -1,0 +1,338 @@
+http://jenkins-ci.org/
+http://maven.apache.org/
+# cat /etc/centos-release 
+CentOS release 6.6 (Final)
+# setenforce 0
+# service iptables stop
+# yum install vim gcc dstat lrzsz zlib-devel unzip gcc-c++ -y
+
+#安装jenkins
+# rpm -ivh jdk-7u67-linux-x64.rpm 
+Preparing...                ########################################### [100%]
+   1:jdk                    ########################################### [100%]
+Unpacking JAR files...
+	rt.jar...
+	jsse.jar...
+	charsets.jar...
+	tools.jar...
+	localedata.jar...
+	jfxrt.jar...
+# vim ~/.bashrc	
+export JAVA_HOME=/usr/java/jdk1.7.0_67
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+# . ~/.bashrc
+# java -version
+java version "1.7.0_67"
+Java(TM) SE Runtime Environment (build 1.7.0_67-b01)
+Java HotSpot(TM) 64-Bit Server VM (build 24.65-b04, mixed mode)
+# rpm -ivh jenkins-1.609.3-1.1.noarch.rpm 
+warning: jenkins-1.609.3-1.1.noarch.rpm: Header V4 DSA/SHA1 Signature, key ID d50582e6: NOKEY
+Preparing...                ########################################### [100%]
+   1:jenkins                ########################################### [100%]
+# rpm -ql jenkins
+/etc/init.d/jenkins
+/etc/logrotate.d/jenkins
+/etc/sysconfig/jenkins
+/usr/lib/jenkins
+/usr/lib/jenkins/jenkins.war
+/usr/sbin/rcjenkins
+/var/cache/jenkins
+/var/lib/jenkins
+/var/log/jenkins
+# vim /etc/sysconfig/jenkins #jinkins的配置文件
+JENKINS_PORT="9000"
+tips：
+如果需要jenkins以其他用户运行（启动是root，运行为其他用户），那么需要更改一下文件夹的权限，
+假如用户为admin
+# egrep -v "^$|^#" /etc/sysconfig/jenkins |grep USER
+JENKINS_USER="admin"
+# chown admin.admin -R /var/lib/jenkins
+# chown admin.admin -R /var/log/jenkins
+# chown admin.admin -R /var/cache/jenkins
+
+# service jenkins start
+Starting Jenkins                                           [  OK  ]
+http://IP:9000/  页面访问
+
+#安装maven
+# tar -xzf apache-maven-3.3.3-bin.tar.gz
+# mv apache-maven-3.3.3 /usr/local/maven
+# vim ~/.bashrc
+export PATH=/usr/local/maven/bin:$PATH
+. ~/.bashrc
+# mvn --version
+Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T19:57:37+08:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_67, vendor: Oracle Corporation
+Java home: /usr/java/jdk1.7.0_67/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.el6.x86_64", arch: "amd64", family: "unix"
+
+下面安装svn支持svn和http协议：
+所需的包：
+apr-1.4.6.tar.gz  apr-util-1.4.1.tar.gz  scons-2.4.1.tar.gz  
+serf-1.3.8.zip  sqlite-amalgamation-3071300.zip  subversion-1.8.9.tar.gz
+#安装svn
+# yum remove subversion
+# tar -xzf apr-1.4.6.tar.gz
+# cd apr-1.4.6
+# ./configure
+# ./configure --prefix=/usr/local/apr
+# make
+# make install
+# cd ..
+  
+# tar -xzf apr-util-1.4.1.tar.gz
+# cd apr-util-1.4.1
+# ./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr/
+# make
+# make install
+# cd ..
+
+svn 1.8版本之前的需要neon，1.8版本之后弃用neon而改使用serf
+serf需要安装scons，由scons安装serf
+# tar -xzf scons-2.4.1.tar.gz 
+# cd scons-2.4.1
+# python setup.py install
+# scons
+# yum -y install expat-devel
+#   
+# cd /data/serf-1.3.8
+# scons PREFIX=/usr/local/serf APR=/usr/local/apr APU=/usr/local/apr-util
+# scons -Y /data/serf-1.3.8
+# scons PREFIX=/usr/local/serf LIBDIR=/usr/lib64
+# scons PREFIX=/usr/local/serf install
+# 
+# tar -xzf subversion-1.8.9.tar.gz
+# wget http://www.sqlite.org/sqlite-amalgamation-3071300.zip
+# unzip sqlite-amalgamation-3071300.zip
+# mv sqlite-amalgamation-3071300 ./subversion-1.8.9/sqlite-amalgamation
+# cd subversion-1.8.9
+# ./configure --prefix=/usr/local/svn --with-apr=/usr/local/apr \
+--with-apr-util=/usr/local/apr-util/ --with-# serf=/usr/local/serf/
+# make
+# make install
+# svn help
+# svn --version
+svn, version 1.8.9 (r1591380)
+   compiled Nov 24 2015, 13:18:50 on x86_64-unknown-linux-gnu
+Copyright (C) 2014 The Apache Software Foundation.
+This software consists of contributions made by many people;
+see the NOTICE file for more information.
+Subversion is open source software, see http://subversion.apache.org/
+The following repository access (RA) modules are available:
+* ra_svn : Module for accessing a repository using the svn network protocol.
+  - handles 'svn' scheme
+* ra_local : Module for accessing a repository on local disk.
+  - handles 'file' scheme
+* ra_serf : Module for accessing a repository via WebDAV protocol using serf.
+  - using serf 1.3.8
+  - handles 'http' scheme
+  - handles 'https' scheme
+# cd ..
+# vim ~/.bashrc
+export PATH=/usr/local/svn/bin:$PATH
+# . ~/.bashrc
+# mkdir -p /data/svn
+# mkdir -p /data/www
+# svnadmin create /data/svn/
+# cd /data/svn/conf
+# vim passwd
+[users]
+bbotte = 123456
+ 
+# vim authz
+[aliases]
+[groups]
+bbottegroup = bbotte
+[/]
+@bbottegroup = rw
+* =
+ 
+# grep -v ^\# svnserve.conf
+[general]
+anon-access = none
+auth-access = write
+password-db = passwd
+authz-db = authz
+realm = /data/svn
+[sasl]
+
+# svnserve -d -r /data/svn/
+#在windows主机登录svn账号
+
+使用Maven创建Web项目：     
+1.从Maven模板创建Web应用程序
+命令格式如下：
+mvn archetype:generate -DgroupId={project-packaging} -DartifactId={project-name} \
+-DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+mvn archetype:generate  根据向导创建：
+# cd /data/www/
+# mvn archetype:generate
+Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): 650: 650
+Choose org.apache.maven.archetypes:maven-archetype-quickstart version: 
+1: 1.0-alpha-1
+2: 1.0-alpha-2
+3: 1.0-alpha-3
+4: 1.0-alpha-4
+5: 1.0
+6: 1.1
+Choose a number: 6: 6  
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/archetypes/
+maven-archetype-quickstart/1.1/maven-archetype-quickstart-1.1.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/archetypes/
+maven-archetype-quickstart/1.1/maven-archetype-quickstart-1.1.jar (7 KB at 3.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/archetypes/
+maven-archetype-quickstart/1.1/maven-archetype-quickstart-1.1.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/archetypes/
+maven-archetype-quickstart/1.1/maven-archetype-quickstart-1.1.pom (2 KB at 3.6 KB/sec)
+Define value for property 'groupId': : 650
+Define value for property 'artifactId': : CounterWebApp
+Define value for property 'version':  1.0-SNAPSHOT: : 1.1
+Define value for property 'package':  650: : com.bbotte
+Confirm properties configuration:
+groupId: 650
+artifactId: CounterWebApp
+version: 1.1
+package: com.bbotte
+ Y: : y  
+[INFO] ----------------------------------------------------------------------------
+[INFO] Using following parameters for creating project from Old (1.x) Archetype:
+ maven-archetype-quickstart:1.1
+[INFO] ----------------------------------------------------------------------------
+[INFO] Parameter: groupId, Value: 650
+[INFO] Parameter: packageName, Value: com.bbotte
+[INFO] Parameter: package, Value: com.bbotte
+[INFO] Parameter: artifactId, Value: CounterWebApp
+[INFO] Parameter: basedir, Value: /data/www
+[INFO] Parameter: version, Value: 1.1
+[INFO] project created from Old (1.x) Archetype in dir: /data/www/CounterWebApp
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:41 min
+[INFO] Finished at: 2015-09-29T10:47:15+08:00
+[INFO] Final Memory: 12M/45M
+[INFO] ------------------------------------------------------------------------
+
+# tree CounterWebApp/
+CounterWebApp/
+├── pom.xml
+└── src
+    ├── main
+    │   └── java
+    │       └── com
+    │           └── bbotte
+    │               └── App.java
+    └── test
+        └── java
+            └── com
+                └── bbotte
+                    └── AppTest.java
+
+9 directories, 3 files
+
+
+或者按如下直接创建：
+# mvn archetype:generate -DgroupId=com.bbotte -DartifactId=WebApp \
+-DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+# tree WebApp/
+WebApp/
+├── pom.xml
+└── src
+    └── main
+        ├── resources
+        └── webapp
+            ├── index.jsp
+            └── WEB-INF
+                └── web.xml
+
+此乃帮助文档： http://maven.apache.org/guides/getting-started/index.html
+把创建的项目加入svn
+# cd /data/www/CounterWebApp/
+# svn import . svn://192.168.22.130/CounterWebApp -m "initial import"
+在windows主机svn更新
+
+jenkins的设置
+http://IP:9000/
+1，新建
+左上角“新建”--构建一个maven项目
+    项目名称 -- CounterWebApp
+	源码管理--Subversion-- svn://IP/CounterWebApp -- 点击红色字体部分的enter credential链接
+            输入svn的用户名和密码(保存密码)，刷新此页面
+	
+	构建触发器 -- 选择：Build whenever a SNAPSHOT dependency is built
+	Build--Maven Version 因为Jenkins找不到maven（Jenkins needs to know where your 
+            Maven is installed. Please do so from the system configuration.）
+	点击"system configuration"配置
+	JDK 安装 
+	    别名：java
+	    JAVA_HOME：/usr/java/jdk1.7.0_67
+	Maven 安装
+	    Name：maven
+	    MAVEN_HOME：/usr/local/maven
+	
+	Post Steps -- Add post-build step --Invoke top-level Maven targets -- 
+	    Maven Version-- maven
+		Goals -- clean package
+	
+
+构建后在目录 /var/lib/jenkins/workspace/ 项目的目录下生成 target 目录，
+# tree /var/lib/jenkins/workspace/CounterWebApp/target/
+/var/lib/jenkins/workspace/CounterWebApp/target/
+├── classes
+│   └── com
+│       └── bbotte
+│           └── App.class
+├── CounterWebApp-1.1.jar
+├── maven-archiver
+│   └── pom.properties
+├── maven-status
+│   └── maven-compiler-plugin
+│       ├── compile
+│       │   └── default-compile
+│       │       ├── createdFiles.lst
+│       │       └── inputFiles.lst
+│       └── testCompile
+│           └── default-testCompile
+│               ├── createdFiles.lst
+│               └── inputFiles.lst
+├── surefire-reports
+│   ├── com.bbotte.AppTest.txt
+│   └── TEST-com.bbotte.AppTest.xml
+└── test-classes
+    └── com
+        └── bbotte
+            └── AppTest.class
+
+# tree /var/lib/jenkins/workspace/WebApp/target/
+/var/lib/jenkins/workspace/WebApp/target/
+├── classes
+├── maven-archiver
+│   └── pom.properties
+├── WebApp
+│   ├── index.jsp
+│   ├── META-INF
+│   └── WEB-INF
+│       ├── classes
+│       └── web.xml
+└── WebApp.war
+			
+			
+#安装tomcat
+wget http://mirrors.cnnic.cn/apache/tomcat/tomcat-8/v8.0.26/bin/apache-tomcat-8.0.26.tar.gz
+# tar -xzf apache-tomcat-8.0.26.tar.gz 
+# mv apache-tomcat-8.0.26 /usr/local/tomcat
+/usr/local/tomcat/bin/catalina.sh start
+http://192.168.22.130:8080/
+# cd /usr/local/tomcat/webapps
+# rm -rf *
+# cp /var/lib/jenkins/workspace/WebApp/target/WebApp.war .
+# cat /usr/local/tomcat/conf/Catalina/localhost/test.xml
+<!-- Tomcat Manager Context --> 
+     <Context path="/WebApp" docBase="WebApp" debug="0"privileged="true"/>
+# /usr/local/tomcat/bin/shutdown.sh
+# /usr/local/tomcat/bin/catalina.sh start
+http://IP:8080/WebApp/    浏览器访问

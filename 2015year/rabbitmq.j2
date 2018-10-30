@@ -1,0 +1,43 @@
+#jinja2:  variable_start_string: "[%" , variable_end_string: "%]"
+---
+  - hosts: server
+    remote_user: root
+    vars:
+      hostname: '[% host_name %]'
+    tasks:
+    - name: copy hosts file
+      copy: src=/etc/hosts dest=/etc/hosts owner=root group=root mode=0644 force='yes'
+    - name: set hostname
+      shell: 'hostname {{host_name}}'
+      register: host_name_change
+    - debug: msg='{{host_name_change.stdout}}'
+    - name: close iptables
+      service: name=iptables enabled=yes state=stopped
+    - name: copy rabbitmq rpm
+      copy: src=/root/rabbitmq-server-3.5.6-1.noarch.rpm dest=/tmp/  owner=root group=root mode=0644
+    - name: yum erlang
+      yum: name=erlang state=present
+    - name: install rabbitmq.rpm
+      yum: name=/tmp/rabbitmq-server-3.5.6-1.noarch.rpm state=present
+    - name: mkdir /var/lib/rabbitmq
+      shell: mkdir -p /var/lib/rabbitmq
+    - name: copy erlang.cookie
+      copy: src=/var/lib/rabbitmq/.erlang.cookie dest=/var/lib/rabbitmq/ owner=rabbitmq group=rabbitmq mode=0400
+    - name: kill rabbitmq
+      shell: rabbitmqctl stop; ps aux|grep rabbitmq|grep -v grep|awk '{print $2}'|xargs kill -9; rabbitmq-server -detached
+    - name: start rabbitmq
+      service: name=rabbitmq-server enabled=yes state=restarted
+    - name: rabbitmq status
+      shell: rabbitmqctl cluster_status
+      register: result
+    - debug: msg='{{result.stdout}}'
+    - name: config rabbit cluster node 1
+      shell: rabbitmqctl stop_app ;rabbitmqctl join_cluster --ram rabbit@vm01 ;rabbitmqctl start_app
+      when: ansible_hostname == "vm02"
+    - name: config rabbit cluster node 2
+      shell: rabbitmqctl stop_app ;rabbitmqctl join_cluster --ram rabbit@vm01 ;rabbitmqctl start_app
+      when: ansible_hostname == "vm03"
+    - name: rabbitmq cluster status
+      shell: rabbitmqctl cluster_status
+      register: rabbit_cluster_status
+    - debug: msg='{{rabbit_cluster_status.stdout}}'
