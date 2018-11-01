@@ -9,4 +9,4 @@ find . -name "*" -printf "%CY-%Cm-%Cd %CH:%CM:%CS %p\n"|sort -rn|awk '{print $3}
 
 
 除了最近修改的三个文件都删除，只是当前目录，没有子目录
-ls -lt|sed '1,4d'|awk '{print $3}'|xargs rm -f
+ls -lt|sed '1,4d'|awk '{print $9}'|xargs rm -f
