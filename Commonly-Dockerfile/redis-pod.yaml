@@ -7,7 +7,7 @@ metadata:
 spec:
   initContainers:
   - name: disable-thp
-    image: harbor.bbotte.com/devops/redis:v0.1
+    image: harbor.bbotte.com/devops/busybox
     command: ['/bin/sh','-c','echo never > /sys/kernel/mm/transparent_hugepage/enabled && sysctl -w net.core.somaxconn=65535 && sleep 1']
     imagePullPolicy: IfNotPresent
     securityContext:
@@ -26,7 +26,7 @@ spec:
         - containerPort: 6379
       resources:
         limits:
-          cpu: "0.1"
+          cpu: "1"
           memory: 1024Mi
       volumeMounts:
         - name: redis-master-data
