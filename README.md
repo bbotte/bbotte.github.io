@@ -30,5 +30,3 @@ nodejs_install.md        nodejs安装过程
 ```
 
 欢迎Star、Fork及建议
-
-联系微信：ma-tuo
