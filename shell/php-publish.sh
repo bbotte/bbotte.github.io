@@ -62,7 +62,7 @@ for (( i = 0; i < ${#NODES[@]}; ++i )); do
         NODE_IP=$(echo $NODE | cut -f2 -d:);
         {
                 echo "cloning directory on ${NODE_NAME} [ $NODE_IP ] and then rsync files to [ $NODE_IP ] in background";
-                ssh -p10022 root@${NODE_IP} "$command" < /dev/null && rsync ${RSYNC_OPTION} ${BASEDIR}/ rsync://${NODE_IP}/echo-api/$branch/current >> ${LOG_SYNC_PROD} 2>&1 < /dev/null;
+                ssh -p10022 root@${NODE_IP} "$command" < /dev/null && rsync ${RSYNC_OPTION} ${BASEDIR}/ rsync://${NODE_IP}/api/$branch/current >> ${LOG_SYNC_PROD} 2>&1 < /dev/null;
         }
         child_pids=("${child_pids[@]}" "$!");
 done
