@@ -25,3 +25,19 @@ built by gcc 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC)
 TLS SNI support enabled
 configure arguments: --user=nginx --group=nginx --prefix=/usr/local/nginx --with-http_lua_module --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-http_realip_module --with-http_sub_module --with-http_upstream_check_module
 ```
+
+
+
+tengine 2.3.0
+
+```
+yum install openssl-devel pcre-dev lua-devel readline-devel
+wget https://tengine.taobao.org/download/tengine-2.3.0.tar.gz
+tar -xf tengine-2.3.0.tar.gz && cd tengine-2.3.0
+wget https://ftp.pcre.org/pub/pcre/pcre-8.40.tar.gz
+tar -xf pcre-8.40.tar.gz
+./configure --prefix=/usr/local/nginx --with-http_gzip_static_module --with-http_stub_status_module --with-http_realip_module --with-http_gunzip_module --with-pcre=./pcre-8.40  --with-http_sub_module --add-module=modules/ngx_http_upstream_check_module
+make -j2
+make install
+```
+
