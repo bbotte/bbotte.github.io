@@ -15,8 +15,6 @@ for ProjectName in $ProjectList ;do
         sed -i "s/$OldVersion/$ProjectVersion/g" $base_dir/docker-compose.yml
         echo -e "\033[30;33m$ProjectName old_version:\033[0m" $OldVersion, "\033[30;32mnow_version:\033[0m" $ProjectVersion
         docker-compose up -d ${ProjectName}-com
-    else
-        echo -e "\033[36m[$ProjectName]\033[0m" not change
     fi
 done
 
