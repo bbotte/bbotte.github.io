@@ -27,8 +27,9 @@ _get_config() {
 }
 
 if [ "$1" = 'mysqld' ]; then
-    if [ "$DATADIR" ];then
-        sed -i "s#/var/lib/mysql#$DATADIR#g" /etc/my.cnf
+    dataDir=`grep datadir /etc/mysql/my.cnf|awk -F'=' '{print $2}'|xargs dirname`
+    if [ "$DATADIR" ] && [ $dataDir != "$DATADIR" ];then
+        sed -i "s#$dataDir#$DATADIR#g" /etc/mysql/my.cnf
         mkdir -p $DATADIR/{data,log}
         chown -R mysql.mysql $DATADIR
         echo "mysql data dir is $DATADIR"
@@ -36,7 +37,7 @@ if [ "$1" = 'mysqld' ]; then
         mkdir -p /var/lib/mysql/{data,log} && chown -R mysql.mysql /var/lib/mysql
         echo "mysql data dir is /var/lib/mysql"
     fi
-    if [ ! -d "$DATADIR/data/mysql" ]; then
+    if [ ! -d "$DATADIR/data/mysql" ] && [ ! -d "/var/lib/mysql/data/mysql" ]; then
         file_env 'MYSQL_ROOT_PASSWORD'
         if [ -z "$MYSQL_ROOT_PASSWORD" -a -z "$MYSQL_ALLOW_EMPTY_PASSWORD" -a -z "$MYSQL_RANDOM_ROOT_PASSWORD" ]; then
         	echo >&2 'error: database is uninitialized and password option is not specified '
@@ -46,7 +47,7 @@ if [ "$1" = 'mysqld' ]; then
         
         echo 'Initializing database'
         "$@" --initialize-insecure
-        echo 'Database initialized'
+        echo 'Database initialized, cnf file is /etc/mysql/my.cnf'
   
         SOCKET=$(_get_config 'socket' "$@")
         "$@" --skip-networking --socket="${SOCKET}" &
@@ -139,12 +140,18 @@ fi
 if [ "$1" = 'mysqld' ]; then
     file_env 'MYSQL_INNODB_BUFFER_POOL_SIZE'
     if [ "$MYSQL_INNODB_BUFFER_POOL_SIZE" ];then
-        sed -i "s#innodb_buffer_pool_size=1G#innodb_buffer_pool_size="$MYSQL_INNODB_BUFFER_POOL_SIZE"#" /etc/my.cnf
+        sed -i "s#innodb_buffer_pool_size=1G#innodb_buffer_pool_size="$MYSQL_INNODB_BUFFER_POOL_SIZE"#" /etc/mysql/my.cnf
         echo "MYSQL_INNODB_BUFFER_POOL_SIZE is $MYSQL_INNODB_BUFFER_POOL_SIZE"
     else
         echo "MYSQL_INNODB_BUFFER_POOL_SIZE is 1G"
     fi
+    file_env 'MYSQL_SERVER_ID'
+    if [ "$MYSQL_SERVER_ID" ];then
+        sed -i "s#server-id=1#server-id="$MYSQL_SERVER_ID"#" /etc/mysql/my.cnf
+        echo "MYSQL_SERVER_ID is $MYSQL_SERVER_ID"
+    else
+        echo "MYSQL_SERVER_ID is 1"
+    fi
 fi
-
 
 exec "$@" 

@@ -18,16 +18,16 @@ RUN yum install -y epel-release && \
     /usr/bin/myisam* \
     /usr/lib64/mysql/mecab \
     /usr/lib64/mysql/plugin/debug \
-	/usr/lib64/mysql/plugin/mysqlx.so
-
-ADD my.cnf /etc/my.cnf
+    /usr/lib64/mysql/plugin/mysqlx.so
 
 VOLUME /var/lib/mysql
 WORKDIR /
+RUN mkdir -p /etc/mysql
+COPY my.cnf /etc/mysql/my.cnf
 
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 EXPOSE 3306
-CMD ["mysqld"]
+CMD ["mysqld","--defaults-file=/etc/mysql/my.cnf"]

@@ -1,0 +1,19 @@
+version: '2.4'
+services:
+  db-com:
+    container_name: db-com
+    image: harbor.bbotte.com/devops/mysql-server:0.013
+    volumes:
+      - /tmp/mysql:/var/lib/mysql
+      #- ./mysql:/etc/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - bbotte
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+      MYSQL_INNODB_BUFFER_POOL_SIZE: "128M"
+      DATADIR: "/var/lib/mysql/dev"
+networks:
+  bbotte:
+    external: false
