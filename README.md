@@ -1,6 +1,16 @@
-#####欢迎访问我的博客：[linux工匠](http://bbotte.com)
+#####欢迎访问我的博客：[linux工匠](http://www.bbotte.com)
 
 
+独立项目
+
+```
+RedisSearchKey           模糊搜索redis 16个数据库中key
+Message_Board            简单的留言板
+docker-compose-publish   docker-compose项目的自动更新脚本
+magedu_logscan           搜索日志
+mysite                   学习Django的mysite
+
+```
 
 此项目为博客中用到脚本或项目，也有工作中使用的脚本，比如：
 
