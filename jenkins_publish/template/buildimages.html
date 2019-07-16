@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head lang="en">
+    <title>Publish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style>
+      .container {
+        max-width: 1000px;      }
+    </style>
+<script>
+function load()
+{
+alert("镜像同步中，请等待一段时间");
+}
+</script>
+ </head>   
+ <body>  
+  <div class="container">
+    <div class="row">
+      <h3><p class="big">构建镜像 </p></h3>
+          <form class="form-inline" method="POST" onsubmit="load()" action="/buildimages">
+            <div class="form-group">
+              <form role="form" method="POST">
+                <div class="form-group">
+                <textarea type="text" rows="15" cols="600" name="buildImages" class="form-control" id="content" style="max-width: 600px;"  placeholder="service_name   git_commit_id
+web                  1a2b3c4d5">{{ buildImages }}</textarea>
+                </div>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-default">确认构建</button>
+              </form>
+             </div>
+          </form>
+          <h5><p class="big">请等待，不要关闭此页面 </p></h5>
+          <h3><a href="/">返回主页</a></h3>
+    </div>    
+  </div>
+  <br><br>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+ </body>
+</html>

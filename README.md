@@ -4,12 +4,12 @@
 独立项目
 
 ```
+jenkins_publish          一个项目多个环境的jenkins多线程构建
 RedisSearchKey           模糊搜索redis 16个数据库中key
 Message_Board            简单的留言板
 docker-compose-publish   docker-compose项目的自动更新脚本
 magedu_logscan           搜索日志
 mysite                   学习Django的mysite
-
 ```
 
 此项目为博客中用到脚本或项目，也有工作中使用的脚本，比如：

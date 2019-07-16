@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+ <head lang="en">
+    <title>Publish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+      .container {
+        max-width: 1000px;      }
+    p.big {line-height: 150%}
+    </style>
+<script>
+function publish()
+{
+alert("发布中，请等待一段时间");
+}
+</script>
+ </head>   
+ <body>  
+  <div class="container">
+    <div class="row">
+        <h2><a href="/">发布后台</a></h2>
+          <form class="form-inline" method="POST" action="/">
+            <div class="form-group">
+              <div><h5>选择发布环境</h5></div>
+              <div class="input-group">
+                  <span class="input-group-addon">Please select</span>
+                      <select name="select" class="selectpicker form-control">
+                        {% for o in data %}
+                        <option value="{{ o.name }} {{ o.host }} {{ o.platform }}" >{{ o.host }}</option>
+                        {% endfor %}
+                      </select>
+              </div>
+              <button type="submit" class="btn btn-default">确定</button>
+            </div>
+          </form>
+
+          <form class="form-inline" method="GET" action="{{ url_for('buildimages') }}">
+            <div class="form-group">
+              <div><h3>构建服务</h3></div>
+              <div class="input-group">
+              <form role="form" method="GET">
+                <button type="submit" class="btn btn-default">构建服务</button>
+              </form> 
+              </div>
+            </div>
+          </form>
+
+    </div>
+  </div>
+  <br><br>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+ </body>
+</html>
