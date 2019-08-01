@@ -612,6 +612,7 @@ systemctl restart docker
 cd k8s/node/images/
 for i in `ls .`;do docker load < $i;done
 cd
+/bin/cp k8s/rpm/kubeadm /usr/bin/kubeadm
 systemctl enable kubelet
 
 docker login harbor.bbotte.com -u admin -p hello\!\@\%\^\&123
