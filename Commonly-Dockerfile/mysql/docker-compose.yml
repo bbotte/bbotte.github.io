@@ -1,19 +1,41 @@
 version: '2.4'
 services:
-  db-com:
-    container_name: db-com
-    image: harbor.bbotte.com/devops/mysql-server:0.013
+  db1-com:
+    container_name: db1-com
+    image: harbor.bbotte.com/devops/mysql-server:0.035
     volumes:
-      - /tmp/mysql:/var/lib/mysql
-      #- ./mysql:/etc/mysql
+      - /tmp/1:/var/lib/mysql
     ports:
-      - 3306:3306
+      - 3316:3306
     networks:
-      - bbotte
+      iris:
+        ipv4_address: 172.17.1.10
     environment:
-      MYSQL_ROOT_PASSWORD: "123456"
+      MYSQL_ROOT_PASSWORD: "bbotte.com"
       MYSQL_INNODB_BUFFER_POOL_SIZE: "128M"
-      DATADIR: "/var/lib/mysql/dev"
+      DATADIR: "/var/lib/mysql"
+
+  db2-com:
+    container_name: db2-com
+    image: harbor.bbotte.com/devops/mysql-server:0.035
+    volumes:
+      - /tmp/2:/var/lib/mysql
+    ports:
+      - 3326:3306
+    networks:
+      iris:
+        ipv4_address: 172.17.1.20
+    environment:
+      MYSQL_ROOT_PASSWORD: "bbotte.com"
+      MYSQL_INNODB_BUFFER_POOL_SIZE: "128M"
+      DATADIR: "/var/lib/mysql"
+      MYSQL_SERVER_ID: 2
+
+
 networks:
-  bbotte:
-    external: false
+  iris:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.17.1.0/24

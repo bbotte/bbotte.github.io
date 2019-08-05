@@ -27,6 +27,24 @@ _get_config() {
 }
 
 if [ "$1" = 'mysqld' ]; then
+    file_env 'MYSQL_INNODB_BUFFER_POOL_SIZE'
+    if [ "$MYSQL_INNODB_BUFFER_POOL_SIZE" ];then
+        sed -i "s#innodb_buffer_pool_size=1G#innodb_buffer_pool_size="$MYSQL_INNODB_BUFFER_POOL_SIZE"#" /etc/mysql/my.cnf
+        echo "MYSQL_INNODB_BUFFER_POOL_SIZE is $MYSQL_INNODB_BUFFER_POOL_SIZE"
+    else
+        echo "MYSQL_INNODB_BUFFER_POOL_SIZE is 1G"
+    fi
+    file_env 'MYSQL_SERVER_ID'
+    if [ "$MYSQL_SERVER_ID" ];then
+        sed -i "s#server-id=1#server-id="$MYSQL_SERVER_ID"#" /etc/mysql/my.cnf
+        if [ -z $(grep "read_only=1" /etc/mysql/my.cnf) ];then sed -i "/\[mysqld\]/aread_only=1" /etc/mysql/my.cnf;fi
+        echo "MYSQL_SERVER_ID is $MYSQL_SERVER_ID"
+    else
+        echo "MYSQL_SERVER_ID is 1"
+    fi
+fi
+
+if [ "$1" = 'mysqld' ]; then
     dataDir=`grep datadir /etc/mysql/my.cnf|awk -F'=' '{print $2}'|xargs dirname`
     if [ "$DATADIR" ] && [ $dataDir != "$DATADIR" ];then
         sed -i "s#$dataDir#$DATADIR#g" /etc/mysql/my.cnf
@@ -134,23 +152,6 @@ EOSQL
         echo
         echo 'MySQL init process done. Ready for start up.'
         echo
-        fi
-fi
-
-if [ "$1" = 'mysqld' ]; then
-    file_env 'MYSQL_INNODB_BUFFER_POOL_SIZE'
-    if [ "$MYSQL_INNODB_BUFFER_POOL_SIZE" ];then
-        sed -i "s#innodb_buffer_pool_size=1G#innodb_buffer_pool_size="$MYSQL_INNODB_BUFFER_POOL_SIZE"#" /etc/mysql/my.cnf
-        echo "MYSQL_INNODB_BUFFER_POOL_SIZE is $MYSQL_INNODB_BUFFER_POOL_SIZE"
-    else
-        echo "MYSQL_INNODB_BUFFER_POOL_SIZE is 1G"
-    fi
-    file_env 'MYSQL_SERVER_ID'
-    if [ "$MYSQL_SERVER_ID" ];then
-        sed -i "s#server-id=1#server-id="$MYSQL_SERVER_ID"#" /etc/mysql/my.cnf
-        echo "MYSQL_SERVER_ID is $MYSQL_SERVER_ID"
-    else
-        echo "MYSQL_SERVER_ID is 1"
     fi
 fi
 
