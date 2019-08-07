@@ -574,6 +574,8 @@ scp /etc/kubernetes/config.yaml k8sm3:/etc/kubernetes/
 
 ##### k8s master2 和 master3 
 
+###### 需要修改 /etc/kubernetes/config.yaml 的 nodeRegistration  name，即主机名称
+
 ```
 kubeadm init --config /etc/kubernetes/config.yaml
 ```
