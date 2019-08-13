@@ -1,0 +1,18 @@
+pt-table-checksum pt-table-sync
+
+https://www.percona.com/downloads/percona-toolkit/LATEST/
+
+主库：192.168.0.118
+从库：192.168.0.150
+
+主库添加主从同步授权
+GRANT SELECT,PROCESS, SUPER, REPLICATION SLAVE ON *.* TO 'irisrepluser'@'192.168.0.%' IDENTIFIED BY 'bbotte.com';
+flush privileges;
+
+从库检测 数据库a的表b是否数据一致
+pt-table-checksum P=3306,h=192.168.0.118,p='bbotte.com',u=irisrepluser --nocheck-replication-filters --no-check-binlog-format --replicate=test.checksums --recursion-method=processlist  --databases a --tables b
+
+pt-table-sync --replicate=test.checksums h=192.168.0.118,u=irisrepluser,p='bbotte.com',P=3306 h=192.168.0.150,u=irisrepluser,p='bbotte.com',P=3306 --recursion-method=processlist --print 
+
+pt-table-sync --replicate=test.checksums h=192.168.0.118,u=irisrepluser,p='bbotte.com',P=3306 h=192.168.0.150,u=irisrepluser,p='bbotte.com',P=3306 --recursion-method=processlist --execute
+
