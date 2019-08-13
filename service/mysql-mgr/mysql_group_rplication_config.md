@@ -5,6 +5,8 @@ mysql group replication 组复制所需条件
 
 以下docker的mysql镜像源于 <https://github.com/bbotte/bbotte.com/tree/master/Commonly-Dockerfile/mysql>
 
+下面为mgr单主模式
+
 my.cnf配置添加如下
 
 ```
