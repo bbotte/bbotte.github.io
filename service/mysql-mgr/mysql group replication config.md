@@ -1,0 +1,161 @@
+mysql group replication 组复制所需条件
+`1.只能为innodb引擎`
+`2.所有表必须有主键`
+其他限制请看官方文档
+
+以下docker的mysql镜像源于 <https://github.com/bbotte/bbotte.com/tree/master/Commonly-Dockerfile/mysql>
+
+my.cnf配置添加如下
+
+```
+[mysqld]
+read_only=1
+disabled_storage_engines="MyISAM,BLACKHOLE,FEDERATED,ARCHIVE,MEMORY"
+plugin_load_add='group_replication.so'
+transaction_write_set_extraction=XXHASH64
+loose-group_replication_group_name="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+loose-group_replication_start_on_boot=off
+loose-group_replication_bootstrap_group=off
+loose-group_replication_local_address="172.17.1.10:3317"
+loose-group_replication_group_seeds="172.17.1.10:3317,172.17.1.20:3327,172.17.1.30:3337"
+
+server_id=1
+gtid_mode=ON
+enforce_gtid_consistency=ON
+master_info_repository=TABLE
+relay_log_info_repository=TABLE
+binlog_checksum=NONE
+log_slave_updates=ON
+log_bin=binlog
+binlog_format=ROW
+
+```
+
+不同节点，group_replication_local_address、server_id 不同，需要更改
+
+配置完成后，启动3个mysql实例，并在所有库执行
+
+```
+SET SQL_LOG_BIN=0;
+CREATE USER irisrepluser@'%' IDENTIFIED BY '123456';
+GRANT REPLICATION SLAVE ON . TO irisrepluser@'%';
+FLUSH PRIVILEGES;
+SET SQL_LOG_BIN=1;
+CHANGE MASTER TO MASTER_USER='irisrepluser', MASTER_PASSWORD='123456' FOR CHANNEL 'group_replication_recovery';
+
+```
+
+主库执行
+
+```
+SET GLOBAL group_replication_bootstrap_group=ON;
+START GROUP_REPLICATION;
+SET GLOBAL group_replication_bootstrap_group=OFF;
+SELECT * FROM performance_schema.replication_group_members;
+```
+
+2个备库执行
+
+```
+set global group_replication_allow_local_disjoint_gtids_join=ON;
+START GROUP_REPLICATION;
+```
+
+一般来说，现在3个mysql节点状态都为ONLINE
+
+常用命令
+
+```
+SELECT * FROM performance_schema.replication_group_members;
+
+show global variables like '%read_only%';
+
+SELECT * FROM performance_schema.replication_group_member_stats\G
+
+SELECT * FROM performance_schema.replication_applier_status\G
+
+SELECT * FROM performance_schema.replication_connection_status\G
+
+SELECT VARIABLE_VALUE FROM performance_schema.global_status WHERE VARIABLE_NAME = 'group_replication_primary_member';
+
+SELECT MEMBER_ID, MEMBER_HOST,MEMBER_PORT,MEMBER_STATE,IF(global_status.VARIABLE_NAME IS NOT NULL,'PRIMARY','SECONDARY') AS MEMBER_ROLE FROM performance_schema.replication_group_members LEFT JOIN performance_schema.global_status ON global_status.VARIABLE_NAME = 'group_replication_primary_member' AND global_status.VARIABLE_VALUE = replication_group_members.MEMBER_ID;
+
+show global variables like '%group_replication%';
+```
+
+##### 如果mgr状态错误，参考下面几点
+
+###### 1.加载group_replication.so出错
+
+my.cnf配置中添加 plugin_load_add='group_replication.so'
+
+```
+show plugins;
+```
+
+###### 2.mysql在docker中启动组复制不能启动
+
+```
+START GROUP_REPLICATION;
+ERROR 3096 (HY000): The START GROUP_REPLICATION command failed as there was an error when initializing the group communication layer.
+[Note] Plugin group_replication reported: 'Requesting to leave the group despite of not being a member'
+```
+
+https://bugs.mysql.com/bug.php?id=86772
+用新版本mysql解决问题
+
+###### 3.由于allow_local_disjoint_gtids_join关闭状态MEMBER_STATE为RECOVERING
+
+```
+mysql> START GROUP_REPLICATION;
+ERROR 3092 (HY000): The server is not configured properly to be an active member of the group. Please see more details on error log.
+mysql> set global group_replication_allow_local_disjoint_gtids_join=ON;
+mysql> START GROUP_REPLICATION;
+```
+
+###### 4.由于从库同步点问题MEMBER_STATE为RECOVERING
+
+```
+SELECT * FROM performance_schema.replication_group_members;
+```
+
+状态是RECOVERING
+现在2个从库状态是RECOVERING，状态有问题，查日志
+
+```
+[ERROR] Slave SQL for channel 'group_replication_recovery': Worker 1 failed executing transaction 'b3b803ed-b358-11e9-85c2-0242ac11010a:1' at master log mysql-bin.000002, end_log_pos 369; Could not execute Write_rows event on table mysql.time_zone; Duplicate entry '1' for key 'PRIMARY', Error_code: 1062; handler error HA_ERR_FOUND_DUPP_KEY; the event's master log FIRST, end_log_pos 369, Error_code: 1062
+```
+
+数据库初始化完毕后，做mgr集群，遇到上面错误或者是其他错误，那么就跳过，查看主库已经执行的gtid，因为数据库是刚初始化的，所以gtid_purged为空，如果gtid_purged有值的话，就跳过gtid_purged的值。即确保数据一致的情况下开始主从同步
+主库查看现在执行过的gtid值：
+
+```
+show global variables like 'gtid_executed';
+```
+
+从库执行：
+
+```
+STOP GROUP_REPLICATION;
+reset master;
+set global gtid_purged = '主库的gtid_executed';
+START GROUP_REPLICATION;
+SELECT * FROM performance_schema.replication_group_members;
+```
+
+现在3个数据库状态都为ONLINE
+
+###### 5.由于hosts问题MEMBER_STATE为RECOVERING
+
+```
+[ERROR] Plugin group_replication reported: 'There was an error when connecting to the donor server. Please check that group_replication_recovery channel credentials and all MEMBER_HOST column values of performance_schema.replication_group_members table are correct and DNS resolvable.'
+[ERROR] Plugin group_replication reported: 'For details please check performance_schema.replication_connection_status table and error log messages of Slave I/O for channel group_replication_recovery.'
+```
+
+如果是上面的报错，那么绑定hosts，把ip和主机名绑定，MEMBER_STATE的RECOVERING状态自然就变为ONLINE
+
+参考
+https://dev.mysql.com/doc/refman/5.7/en/group-replication.html
+
+
+
