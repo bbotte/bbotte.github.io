@@ -277,6 +277,3 @@ loose-group_replication_start_on_boot=on
 
 参考
 https://dev.mysql.com/doc/refman/5.7/en/group-replication.html
-
-
-
