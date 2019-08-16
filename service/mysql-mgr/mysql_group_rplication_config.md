@@ -44,7 +44,7 @@ binlog_format=ROW
 ```
 SET SQL_LOG_BIN=0;
 CREATE USER irisrepluser@'%' IDENTIFIED BY '123456';
-GRANT REPLICATION SLAVE ON . TO irisrepluser@'%';
+GRANT REPLICATION SLAVE ON *.* TO irisrepluser@'%';
 FLUSH PRIVILEGES;
 SET SQL_LOG_BIN=1;
 CHANGE MASTER TO MASTER_USER='irisrepluser', MASTER_PASSWORD='123456' FOR CHANNEL 'group_replication_recovery';
