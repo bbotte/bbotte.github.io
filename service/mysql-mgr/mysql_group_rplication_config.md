@@ -188,7 +188,7 @@ mysql -p123456 -e "show databases;"|grep -Ev "information_schema|mysql|Database|
 ```
 
 ```
-sed -i 's#SET @@SESSION.SQL_LOG_BIN= 0;#SET @@SESSION.SQL_LOG_BIN= 1;#' all.sql
+sed -i '1,50s#SET @@SESSION.SQL_LOG_BIN= 0;#SET @@SESSION.SQL_LOG_BIN= 1;#' all.sql
 ```
 
 默认全库备份导入时不生成二进制日志，要修改导入数据生成二进制日志
