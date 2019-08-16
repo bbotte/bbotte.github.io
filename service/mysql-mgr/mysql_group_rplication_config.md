@@ -178,85 +178,25 @@ n_connection_status table and error log messages of Slave I/O for channel group_
 
 ### 线上数据库在mgr的操作
 
-数据库初始化配置完成后，启动3个mysql实例，并在所有库执行
+数据导入主节点，其他节点数据自动同步
+
+线上数据库备份脚本如下：
 
 ```
-SET SQL_LOG_BIN=0;
-CREATE USER irisrepluser@'%' IDENTIFIED BY '123456';
-GRANT REPLICATION SLAVE ON *.* TO irisrepluser@'%';
-FLUSH PRIVILEGES;
-SET SQL_LOG_BIN=1;
-CHANGE MASTER TO MASTER_USER='irisrepluser', MASTER_PASSWORD='123456' FOR CHANNEL 'group_replication_recovery';
+#!/bin/bash
+mysql -p123456 -e "show databases;"|grep -Ev "information_schema|mysql|Database|sys|performance_schema" |xargs mysqldump -p123456 -uroot --single-transaction --default-character-set=utf8 --master-data=1 --databases --triggers --routines --events > all.sql
 ```
 
-主库执行
-
 ```
-SET GLOBAL group_replication_bootstrap_group=ON;
-START GROUP_REPLICATION;
-SET GLOBAL group_replication_bootstrap_group=OFF;
-SELECT * FROM performance_schema.replication_group_members;
+sed -i 's#SET @@SESSION.SQL_LOG_BIN= 0;#SET @@SESSION.SQL_LOG_BIN= 1;#' all.sql
 ```
 
-现在只有这一个库是ONLINE，我们把线上运行的数据全库备份(mysqldump --all-databases > /root/all.sql)导入到这个mgr节点
-
-这样完整的mgr单节点做好了，再备份出来导入到其他mysql节点
-
-```
-mysqldump -p123456 --master-data=1 --single-transaction --default-character-set=utf8  --all-databases --triggers --routines --events > /root/mgr_backup.sql
-```
-
-备份主库后，在其他库导入
-
-```
-STOP GROUP_REPLICATION;
-set global read_only=0;
-reset master;
-SET SQL_LOG_BIN=0;
-CREATE USER irisrepluser@'%' IDENTIFIED BY '123456';
-GRANT REPLICATION SLAVE ON *.* TO irisrepluser@'%';
-FLUSH PRIVILEGES;
-SET SQL_LOG_BIN=1;
-CHANGE MASTER TO MASTER_USER='irisrepluser', MASTER_PASSWORD='123456' FOR CHANNEL 'group_replication_recovery';
-```
-
-现在3个mysql节点MEMBER_STATE均为ONLINE
-
-----
-
-如果不备份mgr的主节点，在其他节点source进去，而是数据导入主节点，其他节点数据自动同步呢
-
-```
-sed -i '/@@SESSION.SQL_LOG_BIN/d' /root/all.sql
-```
-
-即删除下面3行，即导入数据生成二进制日志
-
-```
-SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
-SET @@SESSION.SQL_LOG_BIN= 0;
-SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
-```
+默认全库备份导入时不生成二进制日志，要修改导入数据生成二进制日志
 
 在写节点导入线上数据库备份
 
 ```
 source /root/all.sql;
-```
-
-添加授权，因为是全库备份的，mysql.user表导入时被清空了，数据库其他授权自行添加
-
-```
-grant all on *.* to root@'%' identified by '123456';
-
-SET SQL_LOG_BIN=0;
-CREATE USER irisrepluser@'%' IDENTIFIED BY '123456';
-GRANT REPLICATION SLAVE ON *.* TO irisrepluser@'%';
-FLUSH PRIVILEGES;
-SET SQL_LOG_BIN=1;
-CHANGE MASTER TO MASTER_USER='irisrepluser', MASTER_PASSWORD='123456' FOR CHANNEL 'group_replication_recovery';
-flush privileges;
-SELECT * FROM performance_schema.replication_group_members;
 ```
 
 现在3个mysql节点MEMBER_STATE均为ONLINE
@@ -272,8 +212,6 @@ loose-group_replication_start_on_boot=on
 ```
 
 这样3个mysql节点其中一台重启，集群不受影响
-
-
 
 参考
 https://dev.mysql.com/doc/refman/5.7/en/group-replication.html
