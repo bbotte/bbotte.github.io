@@ -184,7 +184,7 @@ n_connection_status table and error log messages of Slave I/O for channel group_
 
 ```
 #!/bin/bash
-mysql -p123456 -e "show databases;"|grep -Ev "information_schema|mysql|Database|sys|performance_schema" |xargs mysqldump -p123456 -uroot --single-transaction --default-character-set=utf8 --master-data=1 --databases --triggers --routines --events > all.sql
+mysql -p123456 -e "show databases;"|grep -wEv "information_schema|mysql|Database|sys|performance_schema" |xargs mysqldump -p123456 -uroot --single-transaction --default-character-set=utf8 --master-data=1 --databases --triggers --routines --events > all.sql
 ```
 
 ```
@@ -200,7 +200,7 @@ source /root/all.sql;
 ```
 
 现在3个mysql节点MEMBER_STATE均为ONLINE
-
+为什么不做全库--all-databases备份呢，因为会包含mysql库 MyIsam引擎的表，导入的操作是先drop表(比如 mysql.userl)，再create。这样一来，数据库的授权和主从信息被删除，mgr集群出错
 
 
 更改3台mysql配置文件
