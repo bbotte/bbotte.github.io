@@ -176,6 +176,20 @@ n_connection_status table and error log messages of Slave I/O for channel group_
 [ERROR] Plugin group_replication reported: 'This member has more executed transactions than those present in the group. Local transactions:  Group transactions:
 ```
 
+###### 8.如果有节点故障，需要恢复的话，先在主写入节点备份，故障节点导入
+
+主写节点备份数据库
+```
+mysql -piris-DB_COM -e "show databases;"|grep -Evw "information_schema|mysql|Database|sys|performance_schema" |xargs mysqldump -p123456 -uroot --single-transaction --default-character-set=utf8 --master-data=1 --databases --triggers --routines --events > /root/mgr.sql
+```
+
+故障节点启动数据库后，再导入备份的数据库
+```
+reset master;
+source /root/mgr.sql;
+start group_replication;
+```
+
 ### 线上数据库在mgr的操作
 
 数据导入主节点，其他节点数据自动同步
