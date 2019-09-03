@@ -180,13 +180,16 @@ n_connection_status table and error log messages of Slave I/O for channel group_
 
 主写节点备份数据库
 ```
-mysql -piris-DB_COM -e "show databases;"|grep -Evw "information_schema|mysql|Database|sys|performance_schema" |xargs mysqldump -p123456 -uroot --single-transaction --default-character-set=utf8 --master-data=1 --databases --triggers --routines --events > /root/mgr.sql
+mysql -p123456 -e "show databases;"|grep -Evw "information_schema|mysql|Database|sys|performance_schema" |xargs mysqldump -p123456 -uroot --single-transaction --default-character-set=utf8 --master-data=1 --databases --triggers --routines --events > /root/mgr.sql
 ```
 
 故障节点启动数据库后，再导入备份的数据库
 ```
 reset master;
+stop group_replication;
+set global read_only=0;
 source /root/mgr.sql;
+set global read_only=1;
 start group_replication;
 ```
 
