@@ -494,5 +494,5 @@ DELIMITER ;
 
 mysql -uroot -p123456 -h127.1 -e "source addition_to_sys.sql;"
 
-mysql -uroot -p123456 -h127.1 -e "select * from gr_member_routing_candidate_status;"
+mysql -uroot -p123456 -h127.1 -e "select * from sys.gr_member_routing_candidate_status;"
 
