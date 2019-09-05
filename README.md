@@ -51,6 +51,8 @@ kubernetes_cluster_install_1.13.3.md   kubernetes 1.13.3 集群安装文档
 
 service
 nodejs_install.md                      nodejs安装过程
+mysql-mgr                              mysql集群 mgr
+redis-cluster                          redis集群
 
 ```
 
