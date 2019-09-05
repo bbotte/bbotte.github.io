@@ -1,0 +1,113 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-com
+  namespace: default
+spec:
+  type: ClusterIP
+  ports:
+  - port: 6379
+    targetPort: 6379
+    name: client
+  - port: 16379
+    targetPort: 16379
+    name: gossip
+  selector:
+    app: redis-cluster
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-cluster
+  namespace: default
+data:
+  update-node.sh: |+
+    #!/bin/sh
+    REDIS_NODES="/data/redis/nodes.conf"
+    sed -i -e "/myself/ s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}/${POD_IP}/" ${REDIS_NODES}
+    exec "$@"
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis-cluster
+  namespace: default
+spec:
+  serviceName: redis-com
+  replicas: 6
+  selector:
+    matchLabels:
+      app: redis-cluster
+  template:
+    metadata:
+      labels:
+        app: redis-cluster
+    spec:
+      terminationGracePeriodSeconds: 20
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - redis
+              topologyKey: kubernetes.io/hostname
+      initContainers:
+      - name: disable-thp
+        image: harbor.bbotte.com/k8s/busybox
+        command: ['/bin/sh','-c','echo never > /sys/kernel/mm/transparent_hugepage/enabled && sysctl -w net.core.somaxconn=65535 && sleep 1',"/conf/update-node.sh"]
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - mountPath: /sys
+          name: sitsys
+          readOnly: false
+      containers:
+      - name: redis
+        image: harbor.bbotte.com/devops/redis:0.11
+        ports:
+        - containerPort: 6379
+          name: client
+        - containerPort: 16379
+          name: gossip
+        env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: REDISCLUSTER
+          value: "yes"
+        - name: DATADIR
+          value: "/data/redis/"
+        volumeMounts:
+        - name: conf
+          mountPath: /conf
+          readOnly: false
+        - name: datadir
+          mountPath: /data
+          readOnly: false
+      imagePullSecrets:
+        - name: harbor-auth-def
+      volumes:
+      - name: conf
+        configMap:
+          name: redis-cluster
+          defaultMode: 0755
+      - name: sitsys
+        hostPath:
+          path: /sys
+  volumeClaimTemplates:
+  - metadata:
+      name: datadir
+    spec:
+      accessModes: [ "ReadWriteMany" ]
+      resources:
+        requests:
+          storage: 2Gi
