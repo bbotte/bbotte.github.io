@@ -1,8 +1,22 @@
 ### mgr配置
 
 mysql group replication 组复制所需条件
+
 ``1.只能为innodb引擎``
 ``2.所有表必须有主键``
+
+查看哪些表不是innodb引擎
+
+```
+select table_schema,table_name from information_schema.tables where (table_schema,table_name) not in( select distinct table_schema,table_name from information_schema.columns where COLUMN_KEY='PRI' ) and table_schema not in ('sys','mysql','information_schema','performance_schema');
+```
+
+没有主键的添加主键
+
+```
+ALTER TABLE db1.table1 ADD COLUMN `id`  varchar(240) NOT NULL FIRST , ADD PRIMARY KEY (`id`);
+```
+
 其他限制请看官方文档
 
 以下docker的mysql镜像源于 <https://github.com/bbotte/bbotte.com/tree/master/Commonly-Dockerfile/mysql>
