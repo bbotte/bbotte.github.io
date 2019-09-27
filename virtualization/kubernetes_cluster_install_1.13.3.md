@@ -315,6 +315,7 @@ rm -rf etcd-v3.3.13-linux-amd64
 chmod +x /usr/bin/etcd*
 chmod 644 /etc/etcd/ssl/*
 mkdir -p /var/lib/etcd/default.etcd
+chmod 700 /var/lib/etcd
 getent group etcd >/dev/null || groupadd -r etcd
 getent passwd etcd >/dev/null || useradd -r -g etcd -d /var/lib/etcd -s /sbin/nologin -c "etcd user" etcd
 chown etcd.etcd -R /var/lib/etcd/
