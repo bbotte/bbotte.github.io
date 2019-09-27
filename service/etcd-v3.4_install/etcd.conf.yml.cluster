@@ -77,7 +77,7 @@ strict-reconfig-check: false
 enable-v2: false
 
 # Enable runtime profiling data via HTTP server
-enable-pprof: true
+enable-pprof: false
 
 # Valid values include 'on', 'readonly', 'off'
 proxy: 'off'
