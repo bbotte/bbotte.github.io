@@ -6,6 +6,28 @@
 
 [一分钟简单了解docker和kubernetes](https://bbotte.github.io/service_config/a-minute-to-learn-about-docker-and-kubernetes)
 
+[kubernetes架构设计理论](https://bbotte.github.io/service_config/kubernetes-design-and-architecture)
+
+[helm入门学习及应用文档](https://bbotte.github.io/service_config/helm-entry-learning-and-application-documentation)
+
+[](https://bbotte.github.io/service_config/)
+
+[](https://bbotte.github.io/service_config/)
+
+[](https://bbotte.github.io/service_config/)
+
+[](https://bbotte.github.io/service_config/)
+
+[](https://bbotte.github.io/service_config/)
+
+[](https://bbotte.github.io/service_config/)
+
+[](https://bbotte.github.io/service_config/)
+
+[](https://bbotte.github.io/service_config/)
+
+
+
 python相关
 
 数据库
@@ -45,7 +67,7 @@ shell                    shell脚本
 virtualization           虚拟化，k8s、docker
 databases                数据库
 monitor_safe             监控和安全
-others                    转载和其他
+others                   转载和其他
 
 
 
