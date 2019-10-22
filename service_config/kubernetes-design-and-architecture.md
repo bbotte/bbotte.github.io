@@ -76,3 +76,5 @@ Heapster (resource monitoring)
 Dashboard (GUI)
 
 源自：[k8s架构](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture/architecture.md)
+
+2019年02月19日 于 [linux工匠](http://www.bbotte.com/) 发表

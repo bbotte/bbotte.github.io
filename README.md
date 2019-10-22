@@ -1,8 +1,8 @@
 ##### 欢迎访问我的博客：[linux工匠](http://www.bbotte.com)
 
-###### 博客文章
 
-服务配置
+
+[**服务配置**](https://bbotte.github.io/service_config/)
 
 [一分钟简单了解docker和kubernetes](https://bbotte.github.io/service_config/a-minute-to-learn-about-docker-and-kubernetes)
 
@@ -10,33 +10,33 @@
 
 [helm入门学习及应用文档](https://bbotte.github.io/service_config/helm-entry-learning-and-application-documentation)
 
-[](https://bbotte.github.io/service_config/)
+[glusterfs在kubernetes中的使用详解](https://bbotte.github.io/service_config/detailed-use-of-glusterfs-in-kubernetes)
+
+[glusterfs集群故障恢复](https://bbotte.github.io/service_config/glusterfs-cluster-failure-recovery)
+
+[kubernetes代理内部服务之websocket服务](https://bbotte.github.io/service_config/proxying-kubernetes-internal-service-websocket-instance)
+
+[kubernetes调整pod的内核参数](https://bbotte.github.io/service_config/adjust-the-kernel-parameters-of-the-pod-on-kubernetes)
+
+[harbor私有仓库镜像的推拉弹唱](https://bbotte.github.io/service_config/from-harbor-pulling-private-warehouse-image)
+
+[etcd集群故障处理](https://bbotte.github.io/service_config/etcd-cluster-troubleshooting)
+
+[Nexus Repository权限配置管理](https://bbotte.github.io/service_config/sonatype-nexus-repository-permissions-configuration-management)
 
 [](https://bbotte.github.io/service_config/)
 
-[](https://bbotte.github.io/service_config/)
-
-[](https://bbotte.github.io/service_config/)
-
-[](https://bbotte.github.io/service_config/)
-
-[](https://bbotte.github.io/service_config/)
-
-[](https://bbotte.github.io/service_config/)
-
-[](https://bbotte.github.io/service_config/)
 
 
+[**python相关**](https://bbotte.github.io/python_project)
 
-python相关
+[**数据库**](https://bbotte.github.io/databases)
 
-数据库
+[**监控和安全**](https://bbotte.github.io/monitor_safe)
 
-监控和安全
+[**虚拟化**](https://bbotte.github.io/virtualization/)
 
-虚拟化
-
-转载和其他
+[**转载和其他**](https://bbotte.github.io/others)
 
 
 
@@ -55,7 +55,7 @@ mysite                   学习Django的mysite
 此项目为博客中用到脚本或项目，也有工作中使用的脚本，比如：
 
 ```
-文件夹
+文件夹                    备注
 2015year                 2015年以前的文档
 Commonly-Dockerfile      常用服务的Dockerfile
 docker-compose-publish   docker-compose发布脚本
@@ -68,7 +68,6 @@ virtualization           虚拟化，k8s、docker
 databases                数据库
 monitor_safe             监控和安全
 others                   转载和其他
-
 
 
 shell脚本
@@ -92,12 +91,11 @@ virtualization虚拟化
 kubernetes_cluster_install_1.9.4.md    kubernetes 1.9.4 集群安装文档
 kubernetes_cluster_install_1.13.3.md   kubernetes 1.13.3 集群安装文档
 
-service
-nodejs_install.md                      nodejs安装过程
+集群安装
 mysql-mgr                              mysql集群 mgr
 redis-cluster                          redis集群
 etcd-v3.4_install                      etcd集群
 
 ```
 
-欢迎Star、Fork及建议
+欢迎Star、Fork及issues

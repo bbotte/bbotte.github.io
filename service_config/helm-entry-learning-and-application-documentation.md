@@ -500,3 +500,4 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install stable/nginx-ingress
 ```
 
+2018年09月07日 于 [linux工匠](http://www.bbotte.com/) 发表
