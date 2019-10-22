@@ -1,12 +1,19 @@
 ##### 欢迎访问我的博客：[linux工匠](http://www.bbotte.com)
 
 ###### 博客文章
+
 服务配置
-[一分钟简单了解docker和kubernetes](https://bbotte.github.io/serviceconfig/a-minute-to-learn-about-docker-and-kubernetes)
+
+[一分钟简单了解docker和kubernetes](https://bbotte.github.io/service_config/a-minute-to-learn-about-docker-and-kubernetes)
+
 python相关
+
 数据库
+
 监控和安全
+
 虚拟化
+
 转载和其他
 
 
@@ -32,10 +39,13 @@ Commonly-Dockerfile      常用服务的Dockerfile
 docker-compose-publish   docker-compose发布脚本
 harbor-py                有关harbor仓库的python脚本
 kubeadm_binary           kubeadm 10年过期时间的二进制文件
-python                   python脚本
-service                  服务配置
+python_project           python相关
+service_config           服务配置
 shell                    shell脚本
 virtualization           虚拟化，k8s、docker
+databases                数据库
+monitor_safe             监控和安全
+others                    转载和其他
 
 
 
