@@ -1,4 +1,4 @@
-##### 欢迎访问我的博客：[linux工匠](http://www.bbotte.com)
+##### 欢迎访问我的博客：[linux工匠](https://bbotte.github.io/)
 
 
 
@@ -30,7 +30,29 @@
 
 [**python相关**](https://bbotte.github.io/python_project)
 
+[python几个简单的排序算法](https://bbotte.github.io/python_project/several-simple-sorting-algorithms-in-python)
+
+[python写一个简单的留言板](https://bbotte.github.io/python_project/python-write-a-simple-message-board)
+
+[linux工匠之django入门学习](https://bbotte.github.io/python_project/tutorial-to-learning-django)
+
+[pyenv virtualenv构建独立的python环境](https://bbotte.github.io/python_project/pyenv-and-virtualenv-to-build-an-independent-python-environment)
+
+[python统计nginx日志的条数及错误率](https://bbotte.github.io/python_project/python-handler-nginx-logs-number-and-error-rate)
+
+[利用python装饰器做类型检查](https://bbotte.github.io/python_project/using-python-decorative-device-to-do-type-inspection)
+
+
+
 [**数据库**](https://bbotte.github.io/databases)
+
+[mysql组复制mysql group replication配置](https://bbotte.github.io/databases/mysql-group-replication-config)
+
+[mysql中间件proxysql](http://www.bbotte.com/databases/mysql-middleware-proxysql/)
+
+[windows主机对Mysql批量运维管理](https://bbotte.github.io/databases/mysql-batch-operation-and-maintenance-management-on-windows)
+
+
 
 [**监控和安全**](https://bbotte.github.io/monitor_safe)
 
@@ -87,15 +109,14 @@ python脚本
 DeleteElasticsearchIndices.py          删除es数据库数据
 nginx_log_error_rate_statistics.py     nginx日志错误率
 
-virtualization虚拟化
-kubernetes_cluster_install_1.9.4.md    kubernetes 1.9.4 集群安装文档
-kubernetes_cluster_install_1.13.3.md   kubernetes 1.13.3 集群安装文档
 
 集群安装
+kubernetes_cluster_install_1.9.4.md    kubernetes 1.9.4集群安装文档
+kubernetes_cluster_install_1.13.3.md   kubernetes 1.13.3集群安装文档
 mysql-mgr                              mysql集群 mgr
-redis-cluster                          redis集群
+redis-cluster                          redis cluster集群
 etcd-v3.4_install                      etcd集群
 
 ```
 
-欢迎Star、Fork及issues
+本项目属于博客，欢迎Star及issues
