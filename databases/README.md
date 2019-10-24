@@ -1,4 +1,4 @@
-[**数据库**](https://bbotte.github.io/databases)
+[**数据库**](https://bbotte.github.io/databases/)
 
 [mysql组复制mysql group replication配置](https://bbotte.github.io/databases/mysql-group-replication-config)
 

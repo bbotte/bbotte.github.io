@@ -1,4 +1,4 @@
-服务配置
+[服务配置](https://bbotte.github.io/service_config/)
 
 [一分钟简单了解docker和kubernetes](https://bbotte.github.io/service_config/a-minute-to-learn-about-docker-and-kubernetes)
 
