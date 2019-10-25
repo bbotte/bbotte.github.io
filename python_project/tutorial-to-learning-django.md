@@ -397,7 +397,7 @@ def year_archive(request, year):
 大括号百分号 block title 大括号百分号 Articles for {{ year }}大括号百分号 endblock 大括号百分号
  
 大括号百分号 block branding 大括号百分号
-<h1 id="site-name"><a href="{% url 'admin:index' %}">articles page<h1>
+<h1 id="site-name"><a href="大括号百分号 url 'admin:index' 大括号百分号">articles page<h1>
 大括号百分号 endblock 大括号百分号
  
 大括号百分号 block content 大括号百分号
