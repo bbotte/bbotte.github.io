@@ -393,9 +393,8 @@ def year_archive(request, year):
 
 ```
 # vim templates/polls/year.html
-```
 {% e.x.t.e.n.d.s "admin/base.html" %}  需要把.去掉，因为github不认 继承
-
+```
 ```
 {% block title %} Articles for {{ year }}{% endblock %}
  
