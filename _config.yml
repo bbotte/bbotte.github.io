@@ -1,3 +1,5 @@
 theme: jekyll-theme-cayman
 title: "Linux工匠"
 description: "关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构"
+github: "true"
+show_downloads: "false"
