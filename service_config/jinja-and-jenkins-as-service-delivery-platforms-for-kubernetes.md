@@ -18,10 +18,10 @@ pip install jinja2
 ```
 # cat /opt/template
 {%- if cpu|length == 0 -%}
-  {%- set cpu = '1000m' -%}
+  大括号百分号- set cpu = '1000m' -%}
 {%- endif -%}
 {%- if memory|length == 0 -%}
-  {%- set memory = '1024Mi' -%}
+  大括号百分号- set memory = '1024Mi' -%}
 {%- endif -%}
  
 kind: Deployment
