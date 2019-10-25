@@ -392,10 +392,11 @@ def year_archive(request, year):
 ```
 
 ```
-
-vim templates/polls/year.html
+# vim templates/polls/year.html
+```
 {% extends "admin/base.html" %}
- 
+
+```
 {% block title %} Articles for {{ year }}{% endblock %}
  
 {% block branding %}
@@ -415,7 +416,6 @@ vim templates/polls/year.html
   <p>Published {{ art.pub_date|date:"F j, Y"}}</p>
 {% endfor %}
 {% endblock %}
-
 ```
 
 通过访问以下链接查看结果：
