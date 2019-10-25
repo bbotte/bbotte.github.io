@@ -393,14 +393,14 @@ def year_archive(request, year):
 
 ```
 # vim templates/polls/year.html
- 大括号百分号 extends "admin/base.html" 大括号百分号
-{% block title %} Articles for {{ year }}{% endblock %}
+ 大括号百分号 extends "admin/base.html" 大括号百分号 大括号百分号 endextends 大括号百分号
+大括号百分号 block title 大括号百分号 Articles for {{ year }}大括号百分号 endblock 大括号百分号
  
-{% block branding %}
+大括号百分号 block branding 大括号百分号
 <h1 id="site-name"><a href="{% url 'admin:index' %}">articles page<h1>
-{% endblock %}
+大括号百分号 endblock 大括号百分号
  
-{% block content %}
+大括号百分号 block content 大括号百分号
 <h1>Articles for {{year}}</h1>
 {% for art in article_list %}
 <h2>
@@ -412,7 +412,7 @@ def year_archive(request, year):
   <p>{{ art.content }}</p>
   <p>Published {{ art.pub_date|date:"F j, Y"}}</p>
 {% endfor %}
-{% endblock %}
+大括号百分号 endblock 大括号百分号
 ```
 
 通过访问以下链接查看结果：
