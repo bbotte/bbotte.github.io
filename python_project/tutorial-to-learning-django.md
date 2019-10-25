@@ -393,9 +393,7 @@ def year_archive(request, year):
 
 ```
 # vim templates/polls/year.html
-```
-{ % extends "admin/base.html" % }  大括号和百分号中间没有空格
-```
+ 大括号百分号 extends "admin/base.html" 大括号百分号
 {% block title %} Articles for {{ year }}{% endblock %}
  
 {% block branding %}
