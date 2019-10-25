@@ -2,7 +2,7 @@
 
 
 
-**服务配置**
+[**服务配置**](https://bbotte.github.io/service_config/)
 
 [一分钟简单了解docker和kubernetes](https://bbotte.github.io/service_config/a-minute-to-learn-about-docker-and-kubernetes)
 
@@ -38,7 +38,7 @@
 
 
 
-**python相关**
+[**python相关**](https://bbotte.github.io/python_project/)
 
 [python几个简单的排序算法](https://bbotte.github.io/python_project/several-simple-sorting-algorithms-in-python)
 
@@ -54,7 +54,7 @@
 
 
 
-**数据库**
+[**数据库**](https://bbotte.github.io/databases/)
 
 [mysql组复制mysql group replication配置](https://bbotte.github.io/databases/mysql-group-replication-config)
 
@@ -64,11 +64,11 @@
 
 
 
-**监控和安全**
+[**监控和安全**](https://bbotte.github.io/monitor_safe)
 
-**虚拟化**
+[**虚拟化**](https://bbotte.github.io/virtualization)
 
-**转载和其他**
+[**转载和其他**](https://bbotte.github.io/others)
 
 
 
@@ -82,6 +82,16 @@ Message_Board            简单的留言板
 docker-compose-publish   docker-compose项目的自动更新脚本
 magedu_logscan           搜索日志
 mysite                   学习Django的mysite
+```
+
+集群配置
+
+```
+kubernetes_cluster_install_1.9.4.md    kubernetes 1.9.4集群安装文档
+kubernetes_cluster_install_1.13.3.md   kubernetes 1.13.3集群安装文档
+mysql-mgr                              mysql集群 mgr
+redis-cluster                          redis cluster集群
+etcd-v3.4_install                      etcd集群
 ```
 
 此项目为博客中用到脚本或项目，也有工作中使用的脚本，比如：
@@ -118,14 +128,6 @@ php-publish.sh           php发布脚本
 python脚本
 DeleteElasticsearchIndices.py          删除es数据库数据
 nginx_log_error_rate_statistics.py     nginx日志错误率
-
-
-集群安装
-kubernetes_cluster_install_1.9.4.md    kubernetes 1.9.4集群安装文档
-kubernetes_cluster_install_1.13.3.md   kubernetes 1.13.3集群安装文档
-mysql-mgr                              mysql集群 mgr
-redis-cluster                          redis cluster集群
-etcd-v3.4_install                      etcd集群
 
 ```
 
