@@ -24,7 +24,17 @@
 
 [Nexus Repository权限配置管理](https://bbotte.github.io/service_config/sonatype-nexus-repository-permissions-configuration-management)
 
-[](https://bbotte.github.io/service_config/)
+[jinja和jenkins结合做为kubernetes的服务发布平台](https://bbotte.github.io/service_config/jinja-and-jenkins-as-service-delivery-platforms-for-kubernetes)
+
+[azure微软云之权限的管理](https://bbotte.github.io/service_config/azure-cloud-permissions-management)
+
+[azure微软云之powershell创建主机](http://www.bbotte.com/server-config/azure-cloud-use-powershell-create-hosts/)
+
+[azure微软云之Azure CLI更新网络安全组](https://bbotte.github.io/service_config/azure-cli-updates-network-security-groups)
+
+[linux工匠之kubernetes使用ceph块存储](https://bbotte.github.io/service_config/kubernetes-using-ceph-storage)
+
+[linux工匠之ceph存储集群实验](https://bbotte.github.io/service_config/ceph-storage-cluster-experiment)
 
 
 
