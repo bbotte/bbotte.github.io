@@ -2,7 +2,7 @@
 
 
 
-[**服务配置**](https://bbotte.github.io/service_config/)
+**服务配置**
 
 [一分钟简单了解docker和kubernetes](https://bbotte.github.io/service_config/a-minute-to-learn-about-docker-and-kubernetes)
 
@@ -38,7 +38,7 @@
 
 
 
-[**python相关**](https://bbotte.github.io/python_project/)
+**python相关**
 
 [python几个简单的排序算法](https://bbotte.github.io/python_project/several-simple-sorting-algorithms-in-python)
 
@@ -54,7 +54,7 @@
 
 
 
-[**数据库**](https://bbotte.github.io/databases/)
+**数据库**
 
 [mysql组复制mysql group replication配置](https://bbotte.github.io/databases/mysql-group-replication-config)
 
@@ -64,11 +64,11 @@
 
 
 
-[**监控和安全**](https://bbotte.github.io/monitor_safe/)
+**监控和安全**
 
-[**虚拟化**](https://bbotte.github.io/virtualization/)
+**虚拟化**
 
-[**转载和其他**](https://bbotte.github.io/others/)
+**转载和其他**
 
 
 
