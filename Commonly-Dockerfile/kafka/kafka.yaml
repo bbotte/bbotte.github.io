@@ -1,0 +1,105 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: kafka
+  namespace: dev
+  labels:
+    k8s-app: kafka
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      k8s-app: kafka
+  template:
+    metadata:
+      labels:
+        k8s-app: kafka
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - k8sn1
+      containers:
+      - name: kafka
+        imagePullPolicy: IfNotPresent
+        image: kafka:0.1
+        resources:
+          limits:
+            memory: "2Gi"
+          requests:
+            memory: "0.1Gi"
+            cpu: "0.1"
+        ports:
+        - containerPort: 9092
+        #- containerPort: 9094
+        - containerPort: 30322
+        env:
+        - name: KAFKA_BROKER_ID
+          value: "1"
+        - name: KAFKA_CREATE_TOPICS
+          value: "test:1:1"
+        - name: KAFKA_ZOOKEEPER_CONNECT
+          value: "zookeeper-com:2181"
+        - name: KAFKA_ADVERTISED_LISTENERS
+          #value: "INSIDE://:9092,OUTSIDE://kafka-com:9094"
+          value: "INSIDE://:9092,OUTSIDE://kafka-com:30322"
+        - name: KAFKA_LISTENERS
+          #value: "INSIDE://:9092,OUTSIDE://:9094"
+          value: "INSIDE://:9092,OUTSIDE://:30322"
+        - name: KAFKA_LISTENER_SECURITY_PROTOCOL_MAP
+          value: "INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT"
+        - name: KAFKA_INTER_BROKER_LISTENER_NAME
+          value: "INSIDE" 
+
+        volumeMounts:
+        - name: kafka-data
+          mountPath: /data
+        #- name: mountdocker
+        #  mountPath: /var/run/docker.sock
+      volumes:
+      - name: kafka-data
+        persistentVolumeClaim:
+          claimName: gfsdev
+      #- name: mountdocker
+      #  hostPath:
+      #    path: "/var/run/docker.sock"        
+      imagePullSecrets:
+      - name: harbor-auth-dev
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: kafka-com
+  namespace: dev
+  labels:
+    k8s-app: kafka
+spec:
+  selector:
+    k8s-app: kafka
+  ports:
+  - port: 9092
+    name: innerport
+    targetPort: 9092
+    protocol: TCP
+  #- port: 9094
+  #  name: outport 
+  #  targetPort: 9094
+  #  protocol: TCP
+  - port: 30322
+    name: outport 
+    targetPort: 30322
+    protocol: TCP
+    nodePort: 30322
+  type: NodePort

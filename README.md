@@ -68,6 +68,8 @@
 
 [**虚拟化**](https://bbotte.github.io/virtualization)
 
+[kubernetes集群中的kafka服务配置](https://bbotte.github.io/virtualization/config_kafka_in_kubernetes)
+
 [**转载和其他**](https://bbotte.github.io/others)
 
 
