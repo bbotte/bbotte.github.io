@@ -52,7 +52,13 @@
 
 [利用python装饰器做类型检查](https://bbotte.github.io/python_project/using-python-decorative-device-to-do-type-inspection)
 
+[用python写一个复杂密码生成器](https://bbotte.github.io/python_project/write-a-password-generator-with-python)
 
+[小议python数据结构的栈及应用](https://bbotte.github.io/python_project/the-stack-and-application-of-python-data-structure)
+
+[小议python的迭代iterative和递归recursive](https://bbotte.github.io/python_project/python-iterative-and-recursive)
+
+[python插入排序算法](https://bbotte.github.io/python_project/python-insertion-sort)
 
 [**数据库**](https://bbotte.github.io/databases/)
 
@@ -62,13 +68,43 @@
 
 [windows主机对Mysql批量运维管理](https://bbotte.github.io/databases/mysql-batch-operation-and-maintenance-management-on-windows)
 
+[centos系统pyodbc+MS_ODBC连接azure的SQL Server](https://bbotte.github.io/databases/pyodbc-and-ms_odbc-connects-azure-to-sql-server-on-centos)
 
+[mongodb的单机主从和复制集](https://bbotte.github.io/databases/mongodb-replication-and-replica-set)
+
+[mysql的不常用命令](https://bbotte.github.io/databases/mysql-not-commonly-used-commands)
+
+[Mysql数据库引擎innodb转换为TokuDB](https://bbotte.github.io/databases/mysql-database-engine-innodb-is-converted-to-tokudb)
+
+[MHA-MySQL线上配置附官方文档](https://bbotte.github.io/databases/mha-mysql-online-configuration-with-official-documentss)
+
+[Multi-Master Replication Manager for MySQL(mysql-mmm)](https://bbotte.github.io/databases/multi-master-replication-manager-for-mysql)
+
+[Mysql不同步主库删除的数据](https://bbotte.github.io/databases/mysql-asynchronous-master-database-deleted-data)
 
 [**监控和安全**](https://bbotte.github.io/monitor_safe)
+
+[docker和kubernetes的监控(cadvisor+prometheus)](https://bbotte.github.io/monitor_safe/docker-monitor-with-cadvisor-and-prometheus)
+
+[阿里云和微软云openV_PN配置](https://bbotte.github.io/monitor_safe/aliyun-and-azure-openv_pn-config)
+
+[zabbix整合–获取一段时间内的监控值](https://bbotte.github.io/monitor_safe/zabbix-aggregate-get-the-monitoring-value-for-a-period-of-time)
+
+[linux工匠之java的zabbix监控](https://bbotte.github.io/monitor_safe/talking-about-zabbixs-java-monitoring)
+
+[小议java监控Java VisualVM](https://bbotte.github.io/monitor_safe/the-java-monitoring-tool-visualvm)
+
+[通过zabbix监控nginx和php状态](https://bbotte.github.io/monitor_safe/performance-monitoring-of-nginx-and-php-via-zabbix)
+
+[ossec线上安全监控的高级配置](https://bbotte.github.io/monitor_safe/advanced-configuration-of-ossec-on-line-security-monitoring)
+
+[ossec线上安全监控的配置详细文档](https://bbotte.github.io/monitor_safe/ossec-online-security-monitoring-configuration-detailed-documentation)
 
 [**虚拟化**](https://bbotte.github.io/virtualization)
 
 [kubernetes集群中的kafka服务配置](https://bbotte.github.io/virtualization/config_kafka_in_kubernetes)
+
+
 
 [**转载和其他**](https://bbotte.github.io/others)
 
