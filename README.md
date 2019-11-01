@@ -36,6 +36,8 @@
 
 [linux工匠之ceph存储集群实验](https://bbotte.github.io/service_config/ceph-storage-cluster-experiment)
 
+[prometheus对kubernetes集群的监控](https://github.com/bbotte/kube-prometheus/blob/master/manifests/kubernetes_prometheus_monitor.md)
+
 
 
 [**python相关**](https://bbotte.github.io/python_project/)
