@@ -1,4 +1,4 @@
-##### 欢迎访问我的博客：[linux工匠](https://bbotte.github.io/)
+##### 欢迎访问我的博客：[linux工匠](http://www.bbotte.com/)
 
 
 
