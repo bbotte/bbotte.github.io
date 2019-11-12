@@ -1,0 +1,90 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: kafka
+  namespace: default
+spec:
+  serviceName: "kafka-com"
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: kafka
+      annotations:
+    spec:
+      # Use the stork scheduler to enable more efficient placement of the pods
+      #schedulerName: stork
+      #terminationGracePeriodSeconds: 30
+      #affinity:
+      #  nodeAffinity:
+      #    requiredDuringSchedulingIgnoredDuringExecution:
+      #      nodeSelectorTerms:
+      #      - matchExpressions:
+      #        - key: px/running
+      #          operator: NotIn
+      #          values:
+      #          - "false"
+      #        - key: px/enabled
+      #          operator: NotIn
+      #          values:
+      #          - "false"
+      initContainers:
+      - name: init-config
+        image: kafka-init:0.1
+        env:
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        command: ['/bin/bash', '/etc/kafka-configmap/init.sh']
+        volumeMounts:
+        - name: configmap
+          mountPath: /etc/kafka-configmap
+        - name: config
+          mountPath: /etc/kafka
+      containers:
+      - name: broker
+        image: kafka-cluster:0.1
+        env:
+        - name: KAFKA_LOG4J_OPTS
+          value: -Dlog4j.configuration=file:/etc/kafka/log4j.properties
+        ports:
+        - containerPort: 9092
+        command:
+        - ./bin/kafka-server-start.sh
+        - /etc/kafka/server.properties
+        - --override
+        -   zookeeper.connect=zk-0.zk-com.default.svc.cluster.local:2181,zk-1.zk-com.default.svc.cluster.local:2181,zk-2.zk-com.default.svc.cluster.local:2181
+        - --override
+        -   log.dirs=/var/lib/kafka/data/topics
+        resources:
+          requests:
+            cpu: 100m
+            memory: 512Mi
+        readinessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - 'echo "" | nc -w 1 127.0.0.1 9092'
+        volumeMounts:
+        - name: config
+          mountPath: /etc/kafka
+        - name: data
+          mountPath: /var/lib/kafka/data
+      volumes:
+      - name: configmap
+        configMap:
+          name: broker-config
+      - name: config
+        emptyDir: {}
+      imagePullSecrets:
+        - name: harbor-auth-def
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: [ "ReadWriteMany" ]
+      resources:
+        requests:
+          storage: 1Gi

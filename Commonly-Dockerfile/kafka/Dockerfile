@@ -1,4 +1,4 @@
-FROM harbor.iris-technologies.com.cn:50505/devops/openjdk:8-jre-alpine
+FROM openjdk:8-jre-alpine
 
 ENV KAFKA_HOME=/opt/kafka
 ENV PATH=${PATH}:${KAFKA_HOME}/bin

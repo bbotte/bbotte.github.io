@@ -1,0 +1,46 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: datadir-kafka1
+  namespace: default
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  glusterfs:
+    endpoints: "defgfs-ep"
+    path: "def-redis3"
+    readOnly: false
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: datadir-kafka2
+  namespace: default
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  glusterfs:
+    endpoints: "defgfs-ep"
+    path: "def-redis4"
+    readOnly: false
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: datadir-kafka3
+  namespace: default
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  glusterfs:
+    endpoints: "defgfs-ep"
+    path: "def-redis5"
+    readOnly: false
+

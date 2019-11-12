@@ -1,0 +1,45 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: datadir-1
+  namespace: default
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  glusterfs:
+    endpoints: "defgfs-ep"
+    path: "def-redis0"
+    readOnly: false
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: datadir-2
+  namespace: default
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  glusterfs:
+    endpoints: "defgfs-ep"
+    path: "def-redis1"
+    readOnly: false
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: datadir-3
+  namespace: default
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  glusterfs:
+    endpoints: "defgfs-ep"
+    path: "def-redis2"
+    readOnly: false
