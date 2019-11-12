@@ -2,7 +2,15 @@
 
 
 
-[**服务配置**](https://bbotte.github.io/service_config/)
+## [**服务配置**](https://bbotte.github.io/service_config/)
+
+[etcd安装操作](https://bbotte.github.io/service_config/etcd-v3.4_install/etcd-install)
+
+[redis集群redis-cluster](https://bbotte.github.io/service_config/redis-cluster/redis-cluster)
+
+[mysql_group_rplication_config](https://bbotte.github.io/service_config/mysql-mgr/mysql_group_rplication_config)
+
+[mysql中间件proxysql](https://bbotte.github.io/service_config/mysql-mgr/mysql中间件proxysql)
 
 [一分钟简单了解docker和kubernetes](https://bbotte.github.io/service_config/a-minute-to-learn-about-docker-and-kubernetes)
 
@@ -38,9 +46,47 @@
 
 [prometheus对kubernetes集群的监控](https://github.com/bbotte/kube-prometheus/blob/master/manifests/kubernetes_prometheus_monitor.md)
 
+[harbor仓库简单配置说明](https://bbotte.github.io/service_config/harbor-registry-simple-configuration-instructions)
 
+[consul的ACL规则用法](https://bbotte.github.io/service_config/consul-acl-rule-usage)
 
-[**python相关**](https://bbotte.github.io/python_project/)
+[mesos marathon consul的集群试验](https://bbotte.github.io/service_config/try-on-mesos-marathon-consul-cluster)
+
+[mesos marathon和chronos构建分布式系统](https://bbotte.github.io/service_config/use-mesos-and-marathon-and-chronos-to-construction-distributed-systems)
+
+[consul集群的服务注册发现和模板使用](https://bbotte.github.io/service_config/consul-cluster-service-with-registry-and-discovery-and-template-usage)
+
+[elasticsearch创建index](https://bbotte.github.io/service_config/elasticsearch-create-index)
+
+[nginx的proxy_cache缓存使用](https://bbotte.github.io/service_config/use-nginx-proxy_cache-modules-for-cache)
+
+[flume-ng日志收集之实践操作](https://bbotte.github.io/service_config/the-practical-operation-of-flume-ng-log-collection)
+
+[flume-ng日志收集之安装配置](https://bbotte.github.io/service_config/install-configuration-log-collection-flume)
+
+[Zimbra配置邮件服务全程记录](https://bbotte.github.io/service_config/zimbra-configuration-mail-service-full-record)
+
+[web和mysql高可用集群部署文档](https://bbotte.github.io/service_config/web-service-and-mysql-high-availability-cluster-deployment-documents)
+
+[用ansible-playbook安装redis的sentinel高可用集群](https://bbotte.github.io/service_config/install-sentinel-redis-high-availability-cluster-with-ansible-playbooks)
+
+[使用ansible-playbook一键安装rabbitmq集群](https://bbotte.github.io/service_config/use-ansible-playbook-to-install-rabbitmq-cluster)
+
+[ansible的入门帮助-命令查找与使用](https://bbotte.github.io/service_config/ansible-entry-help-command-find-and-use)
+
+[Haproxy keepalived的线上高可用](https://bbotte.github.io/service_config/keepalived-and-haproxy-online-high-availability)
+
+[activemq使用中遇到的问题](https://bbotte.github.io/service_config/problems-encountered-in-use-activemq)
+
+[NAT模式的LVS和keepalived高可用](https://bbotte.github.io/service_config/nat-mode-for-lvs-and-keepalived-high-availability)
+
+[发布系统之jenkins-maven-svn](https://bbotte.github.io/service_config/use-jenkins-maven-svn-for-publish)
+
+[nginx-rewrite重定向跳转实例](https://bbotte.github.io/service_config/more-example-for-nginx-rewrite)
+
+[生产环境Centos编译安装Nginx-MySQL-php](https://bbotte.github.io/service_config/install-nginx-mysql-php-on-centos)
+
+## [**python相关**](https://bbotte.github.io/python_project/)
 
 [python几个简单的排序算法](https://bbotte.github.io/python_project/several-simple-sorting-algorithms-in-python)
 
@@ -62,9 +108,9 @@
 
 [python插入排序算法](https://bbotte.github.io/python_project/python-insertion-sort)
 
-[**数据库**](https://bbotte.github.io/databases/)
+## [**数据库**](https://bbotte.github.io/databases/)
 
-[mysql组复制mysql group replication配置](https://bbotte.github.io/databases/mysql-group-replication-config)
+[mysql组复制mgr(mysql group replication)配置](https://bbotte.github.io/databases/mysql-group-replication-config)
 
 [mysql中间件proxysql](http://www.bbotte.com/databases/mysql-middleware-proxysql/)
 
@@ -84,7 +130,7 @@
 
 [Mysql不同步主库删除的数据](https://bbotte.github.io/databases/mysql-asynchronous-master-database-deleted-data)
 
-[**监控和安全**](https://bbotte.github.io/monitor_safe)
+## [**监控和安全**](https://bbotte.github.io/monitor_safe)
 
 [docker和kubernetes的监控(cadvisor+prometheus)](https://bbotte.github.io/monitor_safe/docker-monitor-with-cadvisor-and-prometheus)
 
@@ -102,13 +148,17 @@
 
 [ossec线上安全监控的配置详细文档](https://bbotte.github.io/monitor_safe/ossec-online-security-monitoring-configuration-detailed-documentation)
 
-[**虚拟化**](https://bbotte.github.io/virtualization)
+## [**虚拟化**](https://bbotte.github.io/virtualization)
 
 [kubernetes集群中的kafka服务配置](https://bbotte.github.io/virtualization/config_kafka_in_kubernetes)
 
+[kubernetes 1.13.3集群安装步骤文档](https://github.com/bbotte/bbotte.github.io/virtualization/kubernetes_cluster_install_1.13.3)
+
+[kubernetes 1.9.4集群安装文档向导](https://github.com/bbotte/bbotte.github.io/virtualization/kubernetes_cluster_install_1.9.4)
 
 
-[**转载和其他**](https://bbotte.github.io/others)
+
+## [**转载和其他**](https://bbotte.github.io/others)
 
 
 
@@ -132,6 +182,7 @@ kubernetes_cluster_install_1.13.3.md   kubernetes 1.13.3集群安装文档
 mysql-mgr                              mysql集群 mgr
 redis-cluster                          redis cluster集群
 etcd-v3.4_install                      etcd集群
+kafka-cluster                          kafka集群
 ```
 
 此项目为博客中用到脚本或项目，也有工作中使用的脚本，比如：
@@ -164,6 +215,7 @@ java-publish-Windows.sh	 java服务发布脚本--Windows环境
 java-publish.sh	         java服务发布脚本
 mysql_status.sh	         查看mysql状态
 php-publish.sh           php发布脚本
+
 
 python脚本
 DeleteElasticsearchIndices.py          删除es数据库数据

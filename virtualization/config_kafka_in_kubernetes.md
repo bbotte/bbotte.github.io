@@ -182,6 +182,8 @@ hello123
 
 kafka集群没什么特别的，一般用到StatefulSet，存储可以参考[redis cluster](https://github.com/bbotte/bbotte.github.io/blob/master/service_config/redis-cluster/)
 
+kafka集群在kubernetes中的配置 [kubernetes中配置kafka集群](https://github.com/bbotte/bbotte.github.io/Commonly-Dockerfile/kafka-cluster)
+
 
 
 
