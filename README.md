@@ -4,8 +4,6 @@
 
 ## [**服务配置**](https://bbotte.github.io/service_config/)
 
-[etcd安装操作](https://bbotte.github.io/service_config/etcd-v3.4_install/etcd-install)
-
 [redis集群redis-cluster](https://bbotte.github.io/service_config/redis-cluster/redis-cluster)
 
 [mysql_group_rplication_config](https://bbotte.github.io/service_config/mysql-mgr/mysql_group_rplication_config)
@@ -27,6 +25,8 @@
 [kubernetes调整pod的内核参数](https://bbotte.github.io/service_config/adjust-the-kernel-parameters-of-the-pod-on-kubernetes)
 
 [harbor私有仓库镜像的推拉弹唱](https://bbotte.github.io/service_config/from-harbor-pulling-private-warehouse-image)
+
+[etcd安装操作](https://bbotte.github.io/service_config/etcd-v3.4_install/etcd-install)
 
 [etcd集群故障处理](https://bbotte.github.io/service_config/etcd-cluster-troubleshooting)
 
