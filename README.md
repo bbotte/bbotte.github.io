@@ -156,7 +156,31 @@
 
 [kubernetes 1.9.4集群安装文档向导](https://github.com/bbotte/bbotte.github.io/virtualization/kubernetes_cluster_install_1.9.4)
 
+[kubernetes内存监控面板数值的意义](https://bbotte.github.io/virtualization/the-meaning-of-the-kubernetes-memory-monitoring-panel-value)
 
+[kubeadm安装1.13.3版本kubernetes文档](https://bbotte.github.io/virtualization/kubernetes-version-1-13-3-installation-steps-by-kubeadm)
+
+[kubeadm创建的kubernetes集群证书到期后续期](https://bbotte.github.io/virtualization/kubernetes-cluster-certificate-created-by-kubeadm-expires-renewal)
+
+[kubernetes dashboard面板只读用户创建](https://bbotte.github.io/virtualization/for-kubernetes-dashboard-create-readonly-user-access)
+
+[windows主机中docker服务的运行](https://bbotte.github.io/virtualization/operation-of-the-docker-service-in-the-windows-host)
+
+[kubernetes的调度简介nodeName nodeSelector Affinity Anti-affinity Taints Tolerations](https://bbotte.github.io/virtualization/introduction-to-kubernetes-scheduling-of-nodename-nodeselector-affinity-anti-affinity-taints-tolerations)
+
+[kubernetes服务的版本回退](https://bbotte.github.io/virtualization/roll-back-for-kubernetes-deploy)
+
+[kubernetes的dashboard登录方式](https://bbotte.github.io/virtualization/kubernetes-dashboard-login-method)
+
+[kubernetes1.9版本集群配置文档](https://bbotte.github.io/virtualization/kubernetes-1-9-version-cluster-configuration-wizard)
+
+[linux工匠之kubernetes的traefik配置介绍](https://bbotte.github.io/virtualization/traefik-configuration-for-kubernetes)
+
+[inux工匠之kubernetes的ingress-nginx配置介绍](https://bbotte.github.io/virtualization/ingress-nginx-configuration-for-kubernetes)
+
+[CICD之logstash服务的Dockerfile使用Gitlab Runner打docker包](https://bbotte.github.io/virtualization/dockerfile-for-logstash-service-to-the-gitlab-runner-configuration)
+
+[](https://bbotte.github.io/virtualization/)
 
 ## [**转载和其他**](https://bbotte.github.io/others)
 
