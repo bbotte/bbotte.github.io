@@ -180,7 +180,27 @@
 
 [CICD之logstash服务的Dockerfile使用Gitlab Runner打docker包](https://bbotte.github.io/virtualization/dockerfile-for-logstash-service-to-the-gitlab-runner-configuration)
 
-[](https://bbotte.github.io/virtualization/)
+[linux工匠之heapster监控kubernetes](https://bbotte.github.io/virtualization/heapster-monitor-kubernetes)
+
+[编译kubernetes二进制文件](https://bbotte.github.io/virtualization/compile-kubernetes-binary-files)
+
+[kubeadm部署kubernetes 1.8离线安装绝对成功版](https://bbotte.github.io/virtualization/kubeadm-deployment-kubernetes-1-8-version-of-the-cluster-offline-installation-absolutely-successful)
+
+[MAC系统Docker镜像构建和私有仓库](https://bbotte.github.io/virtualization/docker-images-build-and-private-registry)
+
+[docker服务在kubernetes(k8s)中跑起来](https://bbotte.github.io/virtualization/let-docker-run-in-kubernetes-k8s)
+
+[vagrant虚拟机运行](https://bbotte.github.io/virtualization/let-vagrant-run)
+
+[kvm和Xen主机在线增加磁盘空间](https://bbotte.github.io/virtualization/kvm-and-xen-host-online-increase-disk-space)
+
+[kvm和Xen主机在线调整cpu核心数和内存大小](https://bbotte.github.io/virtualization/kvm-and-xen-online-to-adjust-the-number-of-cpu-core-and-memory-size)
+
+[虚拟化之Xen配置应用](https://bbotte.github.io/virtualization/virtualization-of-xen-project-configuration-applications)
+
+[虚拟化之KVM配置应用](https://bbotte.github.io/virtualization/virtualization-of-kvm-configuration-applications)
+
+[docker初学跟我来](https://bbotte.github.io/virtualization/flow-me-learning-docker)
 
 ## [**转载和其他**](https://bbotte.github.io/others)
 
