@@ -4,7 +4,7 @@ kubernetes集群中的kafka服务配置
 
 zookeeper Dockerfile  <https://github.com/31z4/zookeeper-docker/tree/master/3.5.6>
 
-kafka Dockerfile  <https://github.com/bbotte/bbotte.github.io/tree/master/Commonly-Dockerfile/kafka>
+kafka Dockerfile  <https://github.com/bbotte/bbotte.github.io/tree/master/Commonly-Dockerfile/kafka-cluster>
 
 如果是单机跑kafka服务，那么用docker-compose更方便，配置如下：
 
