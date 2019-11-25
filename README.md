@@ -6,7 +6,7 @@
 
 [redis集群redis-cluster](https://bbotte.github.io/service_config/redis-cluster/redis-cluster)
 
-[mysql_group_rplication_config](https://bbotte.github.io/service_config/mysql-mgr/mysql_group_rplication_config)
+[mysql集群mgr(mysql_group_rplication_config)](https://bbotte.github.io/service_config/mysql-mgr/mysql_group_rplication_config)
 
 [mysql中间件proxysql](https://bbotte.github.io/service_config/mysql-mgr/mysql中间件proxysql)
 
