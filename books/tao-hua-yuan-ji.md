@@ -1,15 +1,21 @@
-<!--
+# 桃花源记
+
+```
 author: bbotte
+
 date: 2017-2-25
+
 title: 桃花源记
+
 tags: 桃花源记
+
 category: 古文
+
 status: publish
+
 summary: 寄情于山水，故事于向往
--->
-#桃花源记
 
-
+```
 
 ####陶渊明
 
