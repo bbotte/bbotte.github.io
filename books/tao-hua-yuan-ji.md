@@ -7,9 +7,13 @@ category: 古文
 status: publish
 summary: 寄情于山水，故事于向往
 -->
-##桃花源记
+#桃花源记
+
+
 
 ####陶渊明
+
+
 
 晋太元中，武陵人捕鱼为业。缘溪行，忘路之远近。忽逢桃花林，夹岸数百步，中无杂树，芳草鲜美，落英缤纷，渔人甚异之。复前行，欲穷其林。
 
@@ -21,5 +25,7 @@ summary: 寄情于山水，故事于向往
 
 南阳刘子骥，高尚士也，闻之，欣然规往。未果，寻病终，后遂无问津者。
 
-<embed type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" quality="high" height="480" width="480" src="http://video.weibo.com/player/1034:7d416e6cdd8b5272896742025feeda64/v.swf"/>
+
+
+[桃花源记](http://video.weibo.com/player/1034:7d416e6cdd8b5272896742025feeda64/v.swf)
 

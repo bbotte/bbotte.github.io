@@ -1,4 +1,4 @@
-kubernetes安装redis cluster集群
+# kubernetes安装redis cluster集群
 
 redis cluster集群自带哨兵，自带主从切换，master节点最少3个，如果没有slave节点，那么当master节点故障后，数据就不完整
 

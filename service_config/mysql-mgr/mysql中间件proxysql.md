@@ -1,4 +1,4 @@
-mysql中间件proxysql
+# mysql中间件proxysql
 
 先说一下proxysql+MHA的做法，再讲解 proxy+mgr 配置
 
