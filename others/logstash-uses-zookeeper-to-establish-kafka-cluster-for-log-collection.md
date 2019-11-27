@@ -13,15 +13,16 @@ logstash使用zookeeper建立kafka集群对日志收集，总共分为三个步�
 2，kafka使用zookeeper集群
 3，logstash用kafka进行日志传输
 
-10.211.55.4  vm01  zookeeper1  kafka0  logstash_send
-10.211.55.5  vm02  zookeeper2  kafka1
-10.211.55.6  vm03  zookeeper3  kafka2  logstash_receive
+| 10.211.55.4 | vm01 | zookeeper1 | kafka0 | logstash_send    |
+| ----------- | ---- | ---------- | ------ | ---------------- |
+| 10.211.55.5 | vm02 | zookeeper2 | kafka1 |                  |
+| 10.211.55.6 | vm03 | zookeeper3 | kafka2 | logstash_receive |
 
 ### 一，建立zookeeper集群
 
 myid需要自定义
 
-![logstash使用zookeeper建立kafka集群对日志收集(kafka的详细配置) - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/07/zkcomponents.jpg)
+![logstash使用zookeeper建立kafka集群对日志收集-kafka的详细配置-pic1](../images/2016/07/zkcomponents.jpg)
 
 ```
 # cat /etc/centos-release
@@ -60,7 +61,7 @@ Mode: leader/follower
 
 建立自己的集群，broker.id需整数且唯一
 
-![logstash使用zookeeper建立kafka集群对日志收集(kafka的详细配置) - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/07/confluent-platform.png)
+![logstash使用zookeeper建立kafka集群对日志收集- 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/07/confluent-platform.png)
 
 ```
 # tar -xf kafka_2.10-0.10.0.0.tgz -C /usr/local/
