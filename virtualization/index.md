@@ -1,5 +1,7 @@
 ## [**虚拟化**](https://bbotte.github.io/virtualization)
 
+[swarm中的zookeeper和kafka集群配置](https://bbotte.github.io/virtualization/zookeeper-kafka-cluster-install-on-docker-swarm)
+
 [kubernetes集群中的kafka服务配置](https://bbotte.github.io/virtualization/config_kafka_in_kubernetes)
 
 [kubernetes 1.13.3集群安装步骤文档](https://github.com/bbotte/bbotte.github.io/virtualization/kubernetes_cluster_install_1.13.3)
