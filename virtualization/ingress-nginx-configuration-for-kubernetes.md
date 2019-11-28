@@ -8,7 +8,7 @@ ingress结构分为3块，ingress客户端、ingress控制端(服务端)、nginx
 
 ingress controller就是kubernetes一个外部负载均衡器，包含了nginx代理服务和控制器。控制器从 kube-apiserver获取ingress客户端信息，并通过模板生成nginx代理的配置，然后reload nginx服务。和consul+nginx作用有相似的地方，负责接受客户端提交的信息(服务发现)，从而做服务注册，利用设计好的模板，更新nginx代理的配置
 
-![linux工匠之kubernetes的ingress-nginx配置介绍 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/01/k8s-routing_ingress.png)
+![linux工匠之kubernetes的ingress-nginx配置介绍 - 第1张](../images/2018/01/k8s-routing_ingress.png)
 
 图片来源：[https://techblog.rakuten.co.jp](https://techblog.rakuten.co.jp/)
 
@@ -333,9 +333,9 @@ ingress-nginx   www.bbotte.com             80        19d
 curl --resolve www.bbotte.com:80:192.168.1.1 http://www.bbotte.com/
 ```
 
-![linux工匠之kubernetes的ingress-nginx配置介绍 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/01/k8s-routing_ingress_controller.png)
+![linux工匠之kubernetes的ingress-nginx配置介绍 - 第2张](../images/2018/01/k8s-routing_ingress_controller.png)
 
-![linux工匠之kubernetes的ingress-nginx配置介绍 - 第3张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/01/k8s-routing_pros_and_cons.png)
+![linux工匠之kubernetes的ingress-nginx配置介绍 - 第3张](../images/2018/01/k8s-routing_pros_and_cons.png)
 
 图片来源：<https://techblog.rakuten.co.jp/>
 

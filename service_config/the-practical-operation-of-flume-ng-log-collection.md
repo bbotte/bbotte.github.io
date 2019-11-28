@@ -31,7 +31,7 @@ Topic:log2     	PartitionCount:3       	ReplicationFactor:2    	Configs:
 
 ### **编辑flume的配置文件并运行**
 
-**![flume-ng日志收集之实践操作 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](http://flume.apache.org/_images/DevGuide_image00.png)**
+**![flume-ng日志收集之实践操作 - 第1张](http://flume.apache.org/_images/DevGuide_image00.png)**
 
 ### flume配置
 

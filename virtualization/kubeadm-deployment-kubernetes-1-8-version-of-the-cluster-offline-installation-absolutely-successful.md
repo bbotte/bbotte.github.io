@@ -378,7 +378,7 @@ dashboard-admin链接：https://github.com/kubernetes/dashboard/wiki/Access-cont
 
 http://master_ip/ui ，注：这个dashboard没有加入认证，直接登录
 
-![kubeadm部署kubernetes 1.8离线安装绝对成功版 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2017/12/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171213105055.png)
+![kubeadm部署kubernetes 1.8离线安装绝对成功版 - 第1张](../images/2017/12/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171213105055.png)
 
 因为80端口一般用于服务，所以dashboard中端口改为默认的8001，kubernetes-dashboard.yaml中Service服务下，spec–ports–port 这里改为8001
 

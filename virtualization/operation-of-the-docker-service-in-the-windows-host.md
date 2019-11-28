@@ -26,11 +26,11 @@ tips:
 因本机版本为14393，安装时尚的Docker for Windows不成功，提示：
 Docker doesn’t support your Windows version. Check documentation for minimum requirements
 
-![windows主机中docker服务的运行 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/11/Docker-for-Windows-error.png)
+![windows主机中docker服务的运行 - 第1张](../images/2018/11/Docker-for-Windows-error.png)
 
 所以老老实实安装DockerToolbox，virtualbox和git电脑上有安装，所以就不重复安装了。如果没有的话把√都打上
 
-![windows主机中docker服务的运行 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/11/docker-toolbox-install.png)
+![windows主机中docker服务的运行 - 第2张](../images/2018/11/docker-toolbox-install.png)
 
 安装后桌面生成2个图标
 **Kitematic (Alpha)**                      docker容器图形化管理
@@ -128,7 +128,7 @@ Starting redis-com ... done
 
 4,Kitematic查看或修改服务配置
 
-![windows主机中docker服务的运行 - 第3张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/11/Kitematic-pod.gif)
+![windows主机中docker服务的运行 - 第3张](../images/2018/11/Kitematic-pod.gif)
 
 在Kitematic管理后台可以exec到docker内部、查看pod日志、更改端口映射、磁盘映射等，也可创建在hub仓库<https://hub.docker.com/> 的镜像
 
@@ -140,15 +140,15 @@ Docker Compose volume mounts don’t work with Docker Toolbox running on Windows
 
 比如，要把D:/data映射到docker的 /opt 目录，那么首先需要把 data目录共享
 
-![windows主机中docker服务的运行 - 第4张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/11/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190409115156.png)
+![windows主机中docker服务的运行 - 第4张](../images/2018/11/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190409115156.png)
 
 然后在virtualbox中设置共享文件夹，名字为 d/data,如下图所示
 
-![windows主机中docker服务的运行 - 第5张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/11/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190409115127.png)
+![windows主机中docker服务的运行 - 第5张](../images/2018/11/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190409115127.png)
 
 再设置变量 COMPOSE_CONVERT_WINDOWS_PATHS=1，重启default虚拟机
 
-![windows主机中docker服务的运行 - 第6张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/11/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190409170703.png)
+![windows主机中docker服务的运行 - 第6张](../images/2018/11/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190409170703.png)
 
 这样，docker-compose文件中就可以直接使用了
 

@@ -26,7 +26,7 @@ cd go/src/k8s.io/kubernetes
 
 或者GitHub按版本标签下载指定版本的源码，解压后进入目录开始编译
 
-![编译kubernetes二进制文件 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2017/12/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171213100523.png)
+![编译kubernetes二进制文件 - 第1张](../images/2017/12/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171213100523.png)
 
 ```
 # KUBE_BUILD_PLATFORMS=linux/amd64 make all

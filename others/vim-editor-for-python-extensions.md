@@ -170,7 +170,7 @@ EOF
 
 编辑好.vimrc文件，打开vim，输入 :PluginInstall 即可安装模块，安装完成后就可以使用
 
-![vim编辑器对python的扩展 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2017/02/QQ20170223-174401@2x.png)
+![vim编辑器对python的扩展 - 第1张](../images/2017/02/QQ20170223-174401@2x.png)
 
 如果玩手动安装YouCompleteMe，请往下看：
 

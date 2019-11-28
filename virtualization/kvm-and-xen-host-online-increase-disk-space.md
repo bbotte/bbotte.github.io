@@ -172,7 +172,7 @@ tmpfs                    389M     0  389M   0% /run/user/0
 
 可以看到sda1是boot分区，sda2是/ 根分区，现在对这个磁盘做了扩容，总大小为100G
 
-![kvm和Xen主机在线增加磁盘空间 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180530134754.png)
+![kvm和Xen主机在线增加磁盘空间 - 第1张](../images/2016/03/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180530134754.png)
 
 ok，下面开始
 

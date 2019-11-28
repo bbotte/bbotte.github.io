@@ -228,9 +228,9 @@ nohup prometheus --config.file prometheus.yml &
 
 运行prometheus后监听在9090端口，访问http://192.168.2.1:9090/graph
 
-![linux工匠之docker和kubernetes的监控(cadvisor+prometheus-pic1](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171106180843.jpg)
+![linux工匠之docker和kubernetes的监控cadvisor+prometheus-pic1](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171106180843.jpg)
 
-![linux工匠之docker和kubernetes的监控(cadvisor+prometheus)-pic2](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171106180902.jpg)
+![linux工匠之docker和kubernetes的监控cadvisor+prometheus-pic2](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171106180902.jpg)
 
 在Status-Configuration里面可以看到配置文件，Targets里面查看已经建立的节点。普罗米修斯Graph搜索查看条件语法见 [https://prometheus.io/docs/querying/basics/ ](https://prometheus.io/docs/querying/basics/)
 
@@ -249,17 +249,17 @@ yum localinstall grafana-5.0.3-1.x86_64.rpm
 
 http://localhost:9090   proxy即可，如果不在一台主机，那么需要prometheus访问链接，access：direct
 
-![linux工匠之docker和kubernetes的监控(cadvisor+prometheus)-pic3](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171106181703.jpg)
+![linux工匠之docker和kubernetes的监控cadvisor+prometheus-pic3](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171106181703.jpg)
 
 打开Grafana Labs，查找prometheus的模板， <https://grafana.com/dashboards?dataSource=prometheus&search=docker>，每个模板都有一个id，在grafana里面输入id导入到grafana
 
 选择import，举例输入893（https://grafana.com/dashboards/893），再选择prometheus的数据源，即上面添加的top-prometheus，4170（https://grafana.com/dashboards/4170）模板也不错
 
-![linux工匠之docker和kubernetes的监控(cadvisor+prometheus)-pic4](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171106182056.jpg)
+![linux工匠之docker和kubernetes的监控cadvisor+prometheus-pic4](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171106182056.jpg)
 
 也可以自己画图：
 
-![linux工匠之docker和kubernetes的监控(cadvisor+prometheus)-pic5](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171106182314.jpg)
+![linux工匠之docker和kubernetes的监控cadvisor+prometheus-pic5](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171106182314.jpg)
 
 ```
 sort_desc(sum(rate(container_cpu_user_seconds_total{image!="",job="bbotte-test",group="test"}[1m])) by (container_label_io_kubernetes_container_name))
@@ -281,15 +281,15 @@ sort_desc(sum(rate(container_cpu_user_seconds_total{image!="",job="k8s",group="t
 
 查看cadvisor里面某一个docker服务的监控图形
 
-![linux工匠之docker和kubernetes的监控(cadvisor+prometheus)-pic6](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171107175818.jpg)
+![linux工匠之docker和kubernetes的监控cadvisor+prometheus-pic6](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171107175818.jpg)
 
 可以看到从57分到58分，一共有6次数据采集，因为每10s获取一次监控数据，此docker服务配置是2c6g，在grafana里面查看cpu的利用率，平均53.713%
 
-![linux工匠之docker和kubernetes的监控(cadvisor+prometheus)-pic7](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171107180346.jpg)
+![linux工匠之docker和kubernetes的监控cadvisor+prometheus-pic7](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171107180346.jpg)
 
 可以确定此监控是准确的
 
-![linux工匠之docker和kubernetes的监控(cadvisor+prometheus)-pic8](../images/2017/11/prometheus_grafana.png)
+![linux工匠之docker和kubernetes的监控cadvisor+prometheus-pic8](../images/2017/11/prometheus_grafana.png)
 
 
 

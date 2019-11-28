@@ -277,7 +277,7 @@ Error response from daemon: Get https://192.168.1.1:5000/v1/_ping: http: server 
 
 打开已安装的docker，点击docker的菜单‘Preference’—-‘Daemon’—-‘Insecure registries:’—-点击‘+’输入”192.168.1.1:5000″—-点击‘Apply & Restart’
 
-![MAC系统Docker镜像构建和私有仓库 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2017/04/QQ20170428-171930@2x.png)
+![MAC系统Docker镜像构建和私有仓库 - 第1张](../images/2017/04/QQ20170428-171930@2x.png)
 
 4，删除docker registry中的镜像
 

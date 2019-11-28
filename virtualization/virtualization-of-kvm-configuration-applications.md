@@ -12,7 +12,7 @@
 
 虚拟化技术有多个分类，全虚拟化（VMware workstations、KVM、Xen（HVM））、半虚拟化（Xen）、OS级别虚拟化（openVZ、lxc）、应用程序虚拟化（jvm）、库虚拟化（wine）
 
-![虚拟化之KVM配置应用 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/kvm-logo-1.png)
+![虚拟化之KVM配置应用 - 第1张](../images/2016/03/kvm-logo-1.png)
 
 网站：<http://www.linux-kvm.org/page/Main_Page>
 
@@ -30,11 +30,11 @@ virsh 管理VM的最简单的 shell
 
 一般主机都有在BIOS开启，VMware配置是在每个虚拟机面板的”Edit virtual machine settings”–“Processors”–“Virtualization engine”–“Virtualize Intel VT-x/EPT or AMD-V/RVI”  在前面框打钩即可
 
-![虚拟化之KVM配置应用 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/vmware.png)
+![虚拟化之KVM配置应用 - 第2张](../images/2016/03/vmware.png)
 
 VirtualBox设置
 
-![虚拟化之KVM配置应用 - 第3张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/virtualbox.jpg)
+![虚拟化之KVM配置应用 - 第3张](../images/2016/03/virtualbox.jpg)
 
 下面演示系统为Centos 6.7 X86_64
 

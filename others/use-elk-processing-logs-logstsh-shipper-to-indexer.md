@@ -96,6 +96,6 @@ nohup logstash -f logstash-indexer.conf  >/dev/null 2>&1 &
 
 还是那句老话，日志格式根据自己实际日志来匹配，type、tags、index可随便定义，引用[Ian Unruh](https://ianunruh.com/)大神的一个图片https://ianunruh.com/
 
-![ELK日志服务使用-shipper-to-indexer - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/02/8iyv9g1.png)
+![ELK日志服务使用-shipper-to-indexer - 第1张](../images/2016/02/8iyv9g1.png)
 
 2016年02月26日 于 [linux工匠](http://www.bbotte.com/) 发表

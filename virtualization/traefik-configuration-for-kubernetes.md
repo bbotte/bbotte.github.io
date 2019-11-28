@@ -298,7 +298,7 @@ curl --resolve www.bbotte.com:80:192.168.22.78 http://www.bbotte.com/
 
 traefik-ui链接即traefik-ui.yaml配置中域名 http://traefik-ui.bbotte.com
 
-![linux工匠之kubernetes的traefik配置介绍 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/01/treafik_ui.png)
+![linux工匠之kubernetes的traefik配置介绍 - 第1张](../images/2018/01/treafik_ui.png)
 
 上述treafik配置和docker镜像链接：https://pan.baidu.com/s/1cNV9JS 密码：mi7f
 

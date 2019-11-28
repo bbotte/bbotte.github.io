@@ -131,7 +131,7 @@ roleRef:
 
 这样default和dev namespace都有权限查看k8s服务状态
 
-![kubernetes dashboard面板只读用户创建 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/11/k8s-dashboard-readonly.png)
+![kubernetes dashboard面板只读用户创建 - 第1张](../images/2018/11/k8s-dashboard-readonly.png)
 
 那么，如果对所有namespace都要有查看权限呢
 

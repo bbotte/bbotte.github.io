@@ -150,7 +150,7 @@ output { elasticsearch { hosts => localhost } }
 \# curl ‘http://localhost:9200/_plugin/kopf/’  #显示插件的页面，不过这个看不到东西
 \#在浏览器访问192.168.10.1:9200/_plugin/kopf/ 会打开如下界面,浏览保存在Elasticsearch中的数据，设置及映射
 
-![ELK日志服务使用-基本安装 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160223173431.png)
+![ELK日志服务使用-基本安装 - 第2张](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160223173431.png)
 
 另，还有好多很不错的插件，都可以安装上去：
 **es_head**: 这个主要提供的是健康状态查询，当然标签页里也提供了简单的form给你提交API请求。es_head现在可以直接通过 elasticsearch/bin/plugin -install mobz/elasticsearch-head 安装，然后浏览器里直接输入http://$eshost:9200/_plugin/head/ 就可以看到cluster/node/index/shards的状态了
@@ -277,11 +277,11 @@ multiline：将汇多个事件中数据汇总为一个单一的行。比如：ja
 
 当运行kibana的时候，会在elasticsearch中新建.kibana的索引index，如果你的elasticsearch之前已经在跑其他的业务，请手动建立.kibana的index。在电脑打开 http://IP:5601/
 
-![ELK日志服务使用-基本安装 - 第3张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160223173656.png)
+![ELK日志服务使用-基本安装 - 第3张](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160223173656.png)
 
-![ELK日志服务使用-基本安装 - 第4张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160223174623.png)
+![ELK日志服务使用-基本安装 - 第4张](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160223174623.png)
 
-![ELK日志服务使用-基本安装 - 第5张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160223174659.png)
+![ELK日志服务使用-基本安装 - 第5张](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160223174659.png)
 
 另，kibana有经常退出的情况，这里用一个shell脚本
 

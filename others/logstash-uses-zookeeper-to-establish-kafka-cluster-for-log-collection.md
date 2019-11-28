@@ -61,7 +61,7 @@ Mode: leader/follower
 
 建立自己的集群，broker.id需整数且唯一
 
-![logstash使用zookeeper建立kafka集群对日志收集- 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/07/confluent-platform.png)
+![logstash使用zookeeper建立kafka集群对日志收集- 第2张](../images/2016/07/confluent-platform.png)
 
 ```
 # tar -xf kafka_2.10-0.10.0.0.tgz -C /usr/local/

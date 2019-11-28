@@ -118,7 +118,7 @@ ansible web2 -m copy -a "src=$DIR dest=$DIR"
 esac
 ```
 
-![ansible的入门帮助-命令查找与使用 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/04/ansible-1.jpg)
+![ansible的入门帮助-命令查找与使用 - 第1张](../images/2016/04/ansible-1.jpg)
 
 上面是简单的入门，目的是找到想要使用的模块，并且从帮助信息获得模块的使用方式，并且ansible有setup命令，可以查看主机的状态和变量
 

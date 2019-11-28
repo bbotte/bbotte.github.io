@@ -14,7 +14,7 @@ docker单独使用比较简单明了，可参看上一篇[docker初学跟我来]
 
 kubernetes(k8s)是docker容器用来编排和管理的工具，就像openstack对于kvm来说一个意思。组织结构如下
 
-![linux工匠之docker服务在kubernetes(k8s)中跑起来 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/11/QQ20161127-0@2x.png)
+![linux工匠之docker服务在kubernetes(k8s)中跑起来 - 第1张](../images/2016/11/QQ20161127-0@2x.png)
 
 我们通过kubectl向k8s Master发出指令。kubernetes Master主要是提供API Server、Scheduler、Controller组件，接收kubectl的命令，从Node节点获取Node的资源信息，并发出调度任务。Node节点提供kubelet、kube-proxy，每个node节点都安装docker，是实际的执行者。kubernetes不负责网络，所以一般是用flannel或者weave。etcd负责服务发现和node信息存储，下面开始：
 
@@ -36,7 +36,7 @@ Server Version: version.Info{Major:"1", Minor:"2", GitVersion:"v1.2.0", GitCommi
 
 ### **一，kubernetes(k8s)的安装**
 
-![linux工匠之docker服务在kubernetes(k8s)中跑起来 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/11/kubernetes_design.png)
+![linux工匠之docker服务在kubernetes(k8s)中跑起来 - 第2张](../images/2016/11/kubernetes_design.png)
 
 2台或者3台，一台作为kubernetes(k8s)的Master主，其他作为运行docker容器的节点(kubernetes Node节点)，下面以2台主机为例
 
@@ -79,7 +79,7 @@ flannel is a virtual network that gives a subnet to each host for use with conta
 
 Platforms like Kubernetes assume that each container (pod) has a unique, routable IP inside the cluster. The advantage of this model is that it reduces the complexity of doing port mapping.
 
-![linux工匠之docker服务在kubernetes(k8s)中跑起来 - 第3张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/11/QQ20161129-2@2x.png)
+![linux工匠之docker服务在kubernetes(k8s)中跑起来 - 第3张](../images/2016/11/QQ20161129-2@2x.png)
 
 - **Node**: A Node is a system providing the run-time environments for the containers. A set of container pods can span multiple nodes.
 
@@ -511,9 +511,9 @@ kubectl -n kube-system delete $(kubectl -n kube-system get pod -o name | grep da
 
 附kubernetes(k8s)的dashboard
 
-![linux工匠之docker服务在kubernetes(k8s)中跑起来 - 第4张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/11/QQ20161127-1@2x.png)
+![linux工匠之docker服务在kubernetes(k8s)中跑起来 - 第4张](../images/2016/11/QQ20161127-1@2x.png)
 
-![linux工匠之docker服务在kubernetes(k8s)中跑起来 - 第5张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/11/QQ20161127-2@2x.png)
+![linux工匠之docker服务在kubernetes(k8s)中跑起来 - 第5张](../images/2016/11/QQ20161127-2@2x.png)
 
 红帽的[getting started with kubernetes](https://access.redhat.com/documentation/en/red-hat-enterprise-linux-atomic-host/7/paged/getting-started-with-kubernetes/chapter-1-get-started-orchestrating-containers-with-kubernetes)
 

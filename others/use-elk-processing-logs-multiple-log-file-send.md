@@ -6,7 +6,7 @@
 说明页面 <https://www.elastic.co/guide/en/logstash/2.2/deploying-and-scaling.html#deploying-filebeat>
 <https://www.elastic.co/guide/en/beats/filebeat/current/index.html>
 
-![ELK日志服务使用-filebeat多文件发送 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/filebeat.png)
+![ELK日志服务使用-filebeat多文件发送pic1](../images/2016/03/filebeat.png)
 
 上图来自官网
 
@@ -159,7 +159,7 @@ Starting stale files cleanup cycle {:files=>{"/tmp/test.log"=>#<IOWriter:0x65c68
 Wed Mar  9 21:25:54 CST 2016 this is filebeat log test%
 ```
 
-![ELK日志服务使用-filebeat多文件发送 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/QQ%E6%88%AA%E5%9B%BE20160309212759.png)
+![ELK日志服务使用-filebeat多文件发送 - 第2张](../images/2016/03/QQ%E6%88%AA%E5%9B%BE20160309212759.png)
 
 最后，对elasticsearch加载索引模板
 
@@ -288,7 +288,7 @@ Starting stale files cleanup cycle {:files=>{"/tmp/first.log"=>#<IOWriter:0x3236
 
 kibana 中 Configure an index pattern 索引写定义的 first-*  、second-*
 
-![ELK日志服务使用-filebeat多文件发送 - 第3张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/logstash-filebeat1.png)
+![ELK日志服务使用-filebeat多文件发送 - 第3张](../images/2016/03/logstash-filebeat1.png)
 
 就酱紫，完美的解决了多个日志的input和output。也建议大家使用此方式
 

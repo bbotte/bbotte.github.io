@@ -51,7 +51,7 @@ kubelet发现本地插件(比如容器存储接口CSI, GPU)功能 stable
 
 etcd 版本为3.3.11，有bug，不要使用
 
-![kubeadm安装1.13.3版本kubernetes步骤 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2019/02/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190710105346.png)
+![kubeadm安装1.13.3版本kubernetes步骤 - 第1张](../images/2019/02/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190710105346.png)
 
 https://github.com/kubernetes/kubernetes/issues/70082
 
@@ -59,7 +59,7 @@ https://github.com/etcd-io/etcd/issues/10860
 
 因为etcd长时间没有响应，所以controller-manager  、 scheduler多次重启
 
-![kubeadm安装1.13.3版本kubernetes步骤 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2019/02/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190710105636.png)
+![kubeadm安装1.13.3版本kubernetes步骤 - 第2张](../images/2019/02/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190710105636.png)
 
 etcd-v3.3.13版本此bug已修复，测试环境和生产建议用大于等于3.3.13版本的etcd
 

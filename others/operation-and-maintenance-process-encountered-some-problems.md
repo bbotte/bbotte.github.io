@@ -4,32 +4,34 @@
 
 ##### 日常操作难免会遇到各种不好的情况，记录如下，不定期更新：
 
-![运维过程中遇到的一些问题 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2017/07/kaifashuaiguo2.jpg)
+![运维过程中遇到的一些问题-pic1](../images/2017/07/kaifashuaiguo2.jpg)
 
  
 
-![运维过程中遇到的一些问题 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2017/07/kaifashuaiguo.jpg)
+![运维过程中遇到的一些问题-pic2](../images/2017/07/kaifashuaiguo.jpg)
 
+```
 rsync –delete   加delete参数就是删除咯，一致性同步
 rsync + inotify  达到文件数量限制，日志会有提醒
 /proc/sys/fs/inotify/max_user_instances：每个用户可创建的inotify实例最大上限数量
 /proc/sys/fs/inotify/max_user_watches：每个inotify实例可监听的最大上限数量
 /proc/sys/fs/inotify/max_queued_events：对应的inotify实例队列可容纳的最大上限事件数量
-
+```
  
 
 rm -f  (ln 文件夹不能加/)
 
- 
 
 php-fpm.conf里面用静态，把数量调高，比如1000，重启后，内存小的话直接溢出，因为一个php-fpm进程占用内存为35M，1000个进程就是35G，单用户登录修改php的配置即可
 
  
 
 net.nf_conntrack_max 参数小
+
+```
 sysctl -a|egrep “net.nf_conntrack_max|net.netfilter.nf_conntrack_max”
 cat /proc/net/ip_conntrack | cut -d ‘ ‘ -f 10 | cut -d ‘=’ -f 2 | sort | uniq -c | sort -nr | head -n 10
-
+```
  
 
 nginx的日志格式一般都是多行，如果最后一行最后面少了;    nginx -t 检查也是ok，不过日志是有问题的
@@ -43,8 +45,10 @@ ELK中如果日志从应用直接进入到kafka集群，logstash从kafka获取�
  
 
 使用系统自带的time查看curl一个链接的时间
-for i in {0..9};do (time -p curl -s bbotte.com) 2>&1 >/dev/null|grep real|cut -d’ ‘ -f2;sleep 5;done
 
+```
+for i in {0..9};do (time -p curl -s bbotte.com) 2>&1 >/dev/null|grep real|cut -d' ' -f2;sleep 5;done
+```
  
 
 zabbix import templates导入模板不能超过2M”File is too big, max upload size is 2097152 bytes.”，官方也不会修复这个bug，<https://support.zabbix.com/browse/ZBX-8381>，如果用yum安装的php和http是会出现这样的问题，解决方法是自己安装php+nginx

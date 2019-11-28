@@ -136,7 +136,7 @@ host => "localhost"
 Thu Feb 25 16:30:51 CST 2016 this is test message
 ```
 
-![ELK日志服务使用-rsyslog传输日志 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160225163209.png)
+![ELK日志服务使用-rsyslog传输日志 - 第1张](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160225163209.png)
 
 附nginx的配置，配置文件不用改动，例子：
 

@@ -17,7 +17,7 @@ elasticsearch update mapping and template on existing index,就是给字段添�
 
 可以做这个字段的统计，比如根据IP地址生成报表
 
-![elasticsearch的template和mapping - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/08/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180202101027.png)
+![elasticsearch的template和mapping - 第1张](../images/2016/08/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180202101027.png)
 
 ### **一，更改template**
 
@@ -116,7 +116,7 @@ ls /var/lib/elasticsearch/elasticsearch/nodes/0/indices/
 
 在kibana刷新此index
 
-![elasticsearch的template和mapping - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/08/QQ20160812-0@2x.png)
+![elasticsearch的template和mapping - 第2张](../images/2016/08/QQ20160812-0@2x.png)
 因为我们这里对template并木有做更改，所以日志不会有变化,查看template会有显示
 
 ```
@@ -336,6 +336,6 @@ document_type可以从已有的template或mapping中获取，避免错误
 
 最后我们得到的结果：
 
-![elasticsearch的template和mapping - 第3张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/08/QQ20160826-1@2x.png)
+![elasticsearch的template和mapping - 第3张](../images/2016/08/QQ20160826-1@2x.png)
 
 2016年08月12日 于 [linux工匠](http://www.bbotte.com/) 发表

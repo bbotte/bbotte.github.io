@@ -12,11 +12,11 @@
 <https://github.com/bbotte>
 或者扫描下方添加QQ：
 
-![关于此linux工匠网站 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/02/qrcode_1454333129795.jpg)
+![关于此linux工匠网站 - 第1张](../images/2016/02/qrcode_1454333129795.jpg)
 
 qq: 517766237
 
-![关于此linux工匠网站 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/02/weixin.jpg)
+![关于此linux工匠网站 - 第2张](../images/2016/02/weixin.jpg)
 
 微信:  ma-tuo
 

@@ -8,7 +8,7 @@
 6. 打包容器
 7. Dockerfile
 
-![docker初学跟我来 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/docker-learn.png)
+![docker初学跟我来 - 第1张](../images/2016/03/docker-learn.png)
 
 ### 说明
 
@@ -91,7 +91,7 @@ docker version  查看版本
 
 docker –help   查看docker的命令
 
-![docker初学跟我来 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/docker_command.png)
+![docker初学跟我来 - 第2张](../images/2016/03/docker_command.png)
 
 ### **安装一个docker容器**
 

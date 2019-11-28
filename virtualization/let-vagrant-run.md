@@ -119,7 +119,7 @@ VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component Consol
 
 parallels虚拟机开启虚拟化，VMware或者virtualbox也有开启的选项
 
-![linux工匠之vagrant虚拟机运行 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/10/QQ20161019-0@2x.png)
+![linux工匠之vagrant虚拟机运行 - 第1张](../images/2016/10/QQ20161019-0@2x.png)
 
 ```
 [root@vm01 ~]# VBoxManage list vms

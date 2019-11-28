@@ -12,7 +12,7 @@ kubernetes dashboard login method:
 
 dashboard安装报错？下面介绍3种方式，无密码登录，token登录，dashboard客户端查看
 
-![kubernetes的dashboard登录方式 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/06/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180601104734.png)
+![kubernetes的dashboard登录方式 - 第1张](../images/2018/06/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180601104734.png)
 
 ```
 # cat kubernetes-dashboard.yaml
@@ -429,9 +429,9 @@ kubecfg.p12就是生成的个人证书
 
 下面是Chrome和Firefox浏览器导入证书
 
-![kubernetes的dashboard登录方式 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/06/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180601103450.png)
+![kubernetes的dashboard登录方式 - 第2张](../images/2018/06/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180601103450.png)
 
-![kubernetes的dashboard登录方式 - 第3张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/06/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180601103711.png)
+![kubernetes的dashboard登录方式 - 第3张](../images/2018/06/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180601103711.png)
 
 在Chrome或者Firefox添加 kubecfg.p12 个人证书，再次使用令牌访问，提示。。。等等一堆错误：
 
@@ -457,7 +457,7 @@ https://kubernetic.com/ 下载客户端
 
 把master节点 .kube/config 放到 C:\Users\用户名\.kube 目录下，打开kubernetic即可
 
-![kubernetes的dashboard登录方式 - 第4张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/06/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180601152524.png)
+![kubernetes的dashboard登录方式 - 第4张](../images/2018/06/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180601152524.png)
 
 参考：
 

@@ -12,7 +12,8 @@ for ProjectName in $ProjectList ;do
     OldVersion=`grep -w "$ProjectName" $base_dir/docker-compose.yml|grep "image:"|awk -F':' '{print $4}'`
     if [[ ! -n $OldVersion ]];then echo $ProjectName version is null, please write casual, like 1234 ;exit 1;fi
     if [[ -n $ProjectVersion && $ProjectVersion != $OldVersion ]];then
-        sed -i "s/$OldVersion/$ProjectVersion/g" $base_dir/docker-compose.yml
+        ChangeLine=`grep -wn "$ProjectName" $base_dir/docker-compose.yml|grep image:|awk -F':' '{print $1}'`
+        sed -i "${ChangeLine}s/$OldVersion/$ProjectVersion/" $base_dir/docker-compose.yml
         echo -e "\033[30;33m$ProjectName old_version:\033[0m" $OldVersion, "\033[30;32mnow_version:\033[0m" $ProjectVersion
         docker-compose up -d ${ProjectName}-com
     fi

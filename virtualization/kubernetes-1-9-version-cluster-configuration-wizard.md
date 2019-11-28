@@ -973,7 +973,7 @@ wget https://docs.projectcalico.org/v3.0/getting-started/kubernetes/installation
 
 calico插件离线tar包链接：https://pan.baidu.com/s/1XFY6O5GMPj7X5nzZgB_iHA 密码：985d
 
-![kubernetes1.9版本集群配置向导 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2018/03/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180727094123.png)
+![kubernetes1.9版本集群配置向导 - 第1张](../images/2018/03/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180727094123.png)
 
 ### 遇到的错误
 

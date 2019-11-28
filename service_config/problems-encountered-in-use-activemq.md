@@ -14,7 +14,7 @@ activemq提供消息队列，公司用的是activemq 5.10.0版本，和zookeeper
 <http://zookeeper.apache.org/>
 <http://dubbo.io/Home-zh.htm>
 
-![activemq使用中遇到的问题 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/activemq_logo.png)
+![activemq使用中遇到的问题 - 第1张](../images/2016/03/activemq_logo.png)
 
 第一次故障原因，
 
@@ -204,7 +204,7 @@ I can reproduce this consistently on 5.9 and the latest 5.10
 the zookeeper logs that reflect the time where the cluster starts having issues.
 ```
 
-![activemq使用中遇到的问题 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/QQ%E5%9B%BE%E7%89%8720160310155301.png)
+![activemq使用中遇到的问题 - 第2张](../images/2016/03/QQ%E5%9B%BE%E7%89%8720160310155301.png)
 
 这个bug在activemq单机模式下不会出现，只有在集群模式，并且安稳运行两周左右凸显，暂时的解决方式是每周在业务量最低的时候重启一次集群，等待新版本的发布
 

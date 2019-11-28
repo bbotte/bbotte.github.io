@@ -11,7 +11,7 @@
 
 本文讲述Xen服务在CentOS平台安装、dom0虚拟主机安装、控制台管理等基础功能的使用
 
-![虚拟化之Xen配置应用 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](http://bbotte.com/wp-content/uploads/2016/03/xen-logo.png)
+![虚拟化之Xen配置应用 - 第1张](http://bbotte.com/wp-content/uploads/2016/03/xen-logo.png)
 
 Xen Project是领先的开源虚拟化平台，已在全球最大的云服务平台应用。亚马逊，阿里云，Rackspace公共云，Verizon云平台和许多托管服务都使用Xen项目。另外，它被集成到多个云解决方案项目，如OpenStack。Xen官网<http://www.xenproject.org/>
 

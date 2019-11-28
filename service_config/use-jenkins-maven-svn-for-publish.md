@@ -30,7 +30,7 @@ CentOS release 6.6 (Final)
 
 ### **安装jenkins**
 
-![发布系统之jenkins-maven-svn - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/jinkins.png)
+![发布系统之jenkins-maven-svn - 第1张](../images/2016/03/jinkins.png)
 
 ```
 #安装jenkins
@@ -456,7 +456,7 @@ http://IP:9000/
 
 ### 一，系统设置
 
-jenkins–系统管理–系统设置–设置jdk和maven的安装路径![发布系统之jenkins-maven-svn - 第3张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/QQ20160811-0@2x.png)
+jenkins–系统管理–系统设置–设置jdk和maven的安装路径![发布系统之jenkins-maven-svn - 第3张](../images/2016/03/QQ20160811-0@2x.png)
 
 ### 二，jenkins配置
 
@@ -464,23 +464,23 @@ jenkins–系统管理–系统设置–设置jdk和maven的安装路径![发布
 
 1，源码管理–Subversion–Repository URL 这里写项目的svn地址，就是包含pom.xml文件的svn地址。有红色的错误是因为svn没有认证，enter credential链接输入svn的用户名和密码(保存密码)，刷新此页面
 
-2，设置maven打包命令![发布系统之jenkins-maven-svn - 第4张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/QQ20160811-1@2x.png)
+2，设置maven打包命令![发布系统之jenkins-maven-svn - 第4张](../images/2016/03/QQ20160811-1@2x.png)
 
 3，打包之后的操作
 
 在maven打包完成后，可以执行rsync或者scp删除远程服务器的包，并且把新生成的包发送过去，可以用execute shell,把传输的shell脚本放里面
 
-![发布系统之jenkins-maven-svn - 第5张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/QQ20160811-8@2x.png)
+![发布系统之jenkins-maven-svn - 第5张](../images/2016/03/QQ20160811-8@2x.png)
 
 构建后操作–增加构建后操作步骤，如果是下面这种方式，需要安装Publish over SSH插件，并且在系统管理–系统设置–Publish over SSH配置主机的信息，私钥的密码，私钥地址，私钥，下面是用此私钥登录远程服务器的ip，用户名，端口等信息，比如
 
-![发布系统之jenkins-maven-svn - 第6张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/QQ20160811-5@2x.png)
+![发布系统之jenkins-maven-svn - 第6张](../images/2016/03/QQ20160811-5@2x.png)
 
 上面对web1的配置，有一个remote directory，所以下面的配置/tmp/work就覆盖了此目录
 
-![发布系统之jenkins-maven-svn - 第7张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/QQ20160811-6@2x.png)
+![发布系统之jenkins-maven-svn - 第7张](../images/2016/03/QQ20160811-6@2x.png)
 
-![发布系统之jenkins-maven-svn - 第8张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](http://bbotte.com/wp-content/uploads/2016/03/QQ20160811-7@2x.png)
+![发布系统之jenkins-maven-svn - 第8张](http://bbotte.com/wp-content/uploads/2016/03/QQ20160811-7@2x.png)
 
 ### **使用tomcat查看**
 
@@ -518,7 +518,7 @@ Subversion Plug-in
 3，如果有测试，按整个组发布；如果木有测试，先发web组的一台机，在ELK后台查看日志，没问题再按组发
 4，用shell写个邮件，发布完成，邮件通知大家发布完成，这一步可以忽略
 
-![发布系统之jenkins-maven-svn - 第9张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/QQ20160815-2@2x.png)
+![发布系统之jenkins-maven-svn - 第9张](../images/2016/03/QQ20160815-2@2x.png)
 
 每一个项目中，可以添加多台服务器（SSH Publishers），这样不至于烦死
 最后，记得给jenkins添加密码

@@ -276,7 +276,7 @@ rabbitmq的文档<http://www.rabbitmq.com/documentation.html>
 
 <http://mysql.taobao.org/index.php?title=Rabbitmq>
 
-![使用ansible-playbook一键安装rabbitmq集群 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/04/QQ20170308-102849@2x.png)
+![使用ansible-playbook一键安装rabbitmq集群 - 第1张](../images/2016/04/QQ20170308-102849@2x.png)
 
 在rabbitmq上面截图的两个RAM节点有遇到: Node statistics not available,在两个RAM节点执行下面即可
 

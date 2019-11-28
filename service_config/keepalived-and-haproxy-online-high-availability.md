@@ -24,7 +24,7 @@ eth0 192.168.10.2 backup     外网  eth1 192.168.22.118/24
 192.168.10.3   web1   静态
 192.168.10.4   web2   动态
 
-![Haproxy keepalived的线上高可用 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/haproxy-keepalived.png)
+![Haproxy keepalived的线上高可用 - 第1张](../images/2016/03/haproxy-keepalived.png)
 
 ### **安装软件包**
 
@@ -187,7 +187,7 @@ LogFormat "%{CLIENTIP}e %D %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\
 
 http://192.168.22.26:8080/haproxy?stats 这个页面查看haproxy的后台状态
 
-![Haproxy keepalived的线上高可用 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/haproxy-stats.jpg)
+![Haproxy keepalived的线上高可用 - 第2张](../images/2016/03/haproxy-stats.jpg)
 
 ### **配置keepalived**
 
@@ -403,11 +403,11 @@ virtual_ipaddress {
 在manager上把haproxy服务停止，查看节点ip地址，和keepalived日志，此时VIP192.168.22.249就会转移到backup上面,日志就不贴了
 manager网卡：
 
-![Haproxy keepalived的线上高可用 - 第3张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/haproxy-manager.jpg)
+![Haproxy keepalived的线上高可用 - 第3张](../images/2016/03/haproxy-manager.jpg)
 
 backup网卡
 
-![Haproxy keepalived的线上高可用 - 第4张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/03/haproxy-backup.jpg)
+![Haproxy keepalived的线上高可用 - 第4张](../images/2016/03/haproxy-backup.jpg)
 
 haproxy在公司内常用于负载均衡，配置的强大和灵活、不出故障。官方介绍haproxy主要特点：
 

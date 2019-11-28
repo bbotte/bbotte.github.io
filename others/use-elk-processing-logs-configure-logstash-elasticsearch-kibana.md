@@ -120,7 +120,7 @@ elasticsearch：把日志格式化处理后，交给elasticsearch，index根据�
 
 上面两种写法都可以，参考：<http://grokconstructor.appspot.com/RegularExpressionSyntax.txt>
 
-![ELK日志服务使用-服务配置 - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/02/QQ20160802-0@2x.png)
+![ELK日志服务使用-服务配置 - 第1张](../images/2016/02/QQ20160802-0@2x.png)
 
 ### **elasticsearch的配置**
 
@@ -192,9 +192,9 @@ server {
 
 在kibana首页，一般会遇到下面的疑问，不清楚index为啥是灰色，不能出来展示日志的页面，是因为你在logstash的配置output中，自定义了index，所以要写你自定义的，如果不写，默认是logstash。如果还是灰色，建议就写个*放这里吧，先能用，再一步一步调试，如下：
 
-![ELK日志服务使用-服务配置 - 第3张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160309101917.png)
+![ELK日志服务使用-服务配置 - 第3张](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160309101917.png)
 
-![ELK日志服务使用-服务配置 - 第4张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160309151737.png)
+![ELK日志服务使用-服务配置 - 第4张](../images/2016/02/QQ%E6%88%AA%E5%9B%BE20160309151737.png)
 
 **logstash检测配置**文件正确性：
 

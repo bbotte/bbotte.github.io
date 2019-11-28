@@ -68,7 +68,7 @@ Starting to serve on 192.168.0.238:20080
 
 所用到的yaml和docker images附度娘网盘，链接：https://pan.baidu.com/s/1jHSHsCe 密码：uu06
 
-![linux工匠之heapster监控kubernetes - 第1张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2017/12/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171214190515.jpg)
+![linux工匠之heapster监控kubernetes - 第1张](../images/2017/12/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171214190515.jpg)
 
 
 
