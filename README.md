@@ -86,6 +86,10 @@
 
 [生产环境Centos编译安装Nginx-MySQL-php](https://bbotte.github.io/service_config/install-nginx-mysql-php-on-centos)
 
+[nodejs install](https://bbotte.github.io/service_config/nodejs_install)
+
+[tengine install](https://bbotte.github.io/service_config/tengine-install)
+
 ## [**python相关**](https://bbotte.github.io/python_project/)
 
 [python几个简单的排序算法](https://bbotte.github.io/python_project/several-simple-sorting-algorithms-in-python)
@@ -242,8 +246,7 @@
 
 
 
-
-独立项目
+# 独立项目
 
 ```
 jenkins_publish          一个项目多个环境的jenkins多线程构建
@@ -254,7 +257,7 @@ magedu_logscan           搜索日志
 mysite                   学习Django的mysite
 ```
 
-集群配置
+# 集群配置
 
 ```
 kubernetes_cluster_install_1.9.4.md    kubernetes 1.9.4集群安装文档

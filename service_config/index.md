@@ -2,7 +2,7 @@
 
 [redis集群redis-cluster](https://bbotte.github.io/service_config/redis-cluster/redis-cluster)
 
-[mysql_group_rplication_config](https://bbotte.github.io/service_config/mysql-mgr/mysql_group_rplication_config)
+[mysql集群mgr(mysql_group_rplication_config)](https://bbotte.github.io/service_config/mysql-mgr/mysql_group_rplication_config)
 
 [mysql中间件proxysql](https://bbotte.github.io/service_config/mysql-mgr/mysql中间件proxysql)
 
@@ -81,3 +81,7 @@
 [nginx-rewrite重定向跳转实例](https://bbotte.github.io/service_config/more-example-for-nginx-rewrite)
 
 [生产环境Centos编译安装Nginx-MySQL-php](https://bbotte.github.io/service_config/install-nginx-mysql-php-on-centos)
+
+[nodejs install](https://bbotte.github.io/service_config/nodejs_install)
+
+[tengine install](https://bbotte.github.io/service_config/tengine-install)
