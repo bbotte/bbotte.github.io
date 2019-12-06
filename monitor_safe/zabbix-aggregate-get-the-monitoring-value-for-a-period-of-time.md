@@ -107,6 +107,10 @@ systemctl enable grafana-server
 /etc/init.d/grafana-server restart
 ```
 
+如果安装某一个版本的zabbix插件，比如3.4的版本：  grafana-cli plugins install alexanderzobnin-zabbix-app 3.4.0
+
+![grafana-install-zabbix-plugin](../images/2017/04/grafana-install-zabbix-plugin.png)
+
 这样grafana-zabbix就安装完毕，下面进入grafana配置，分2步
 
 grafana首页–Configuration–Plugins–搜索 zabbix–打开zabbix插件–enable开启zabbix插件
