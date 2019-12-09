@@ -1,4 +1,6 @@
-#### install etcd 3.4
+# install etcd 3.4
+
+[etcd-v3.4 install](https://github.com/bbotte/bbotte.github.io/tree/master/service_config/etcd-v3.4_install)
 
 etcd cluster config file is **etcd.conf.yml.cluster**, and standalone mode config is **etcd.conf.yml.single**
 
