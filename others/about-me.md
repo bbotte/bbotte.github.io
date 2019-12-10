@@ -20,3 +20,16 @@ qq: 517766237
 
 微信:  ma-tuo
 
+
+
+![www.bbotte.com in wordpress](../images/2019/10/wp_index.png)
+
+
+
+
+
+![bbotte blog in 51cto](../images/2019/10/51cto_index.png)
+
+
+
+![blog in sina](../images/2019/10/sina_index.png)

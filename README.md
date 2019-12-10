@@ -308,3 +308,4 @@ nginx_log_error_rate_statistics.py     nginx日志错误率
 
 本项目属于博客，欢迎Star及issues
 
+[关于我](http://www.bbotte.com/others/about-me)
