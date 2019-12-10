@@ -14,11 +14,10 @@
 
 ![关于此linux工匠网站 - 第1张](../images/2016/02/qrcode_1454333129795.jpg)
 
-qq: 517766237
+
 
 ![关于此linux工匠网站 - 第2张](../images/2016/02/weixin.jpg)
 
-微信:  ma-tuo
 
 
 
