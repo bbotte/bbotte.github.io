@@ -1,0 +1,27 @@
+version: '3.5'
+services:
+  zookeeper1:
+    container_name: zookeeper1
+    image: zookeeper:3.4.14.1
+    hostname: zookeeper1
+    ports:
+     - 2181:2181
+    networks:
+     - iris
+    environment:
+      MY_ID: "1"
+      ZOO_SERVERS: "server.1=0.0.0.0:2888:3888 "
+    volumes:
+      - /tmp/zk/:/var/lib/zookeeper/data
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.hostname == master1]
+      resources:
+        limits:
+          memory: 2024M
+
+networks:
+  iris:
+    external: false
+
