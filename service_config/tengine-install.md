@@ -1,5 +1,7 @@
 #### tengine install
 
+小于2.3版本tengine
+
 ```
 yum install openssl-devel pcre-dev lua-devel
 tar -xf tengine-2.2.3.tar.gz
@@ -26,12 +28,12 @@ TLS SNI support enabled
 configure arguments: --user=nginx --group=nginx --prefix=/usr/local/nginx --with-http_lua_module --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-http_realip_module --with-http_sub_module --with-http_upstream_check_module
 ```
 
-
+大于2.3版本tengine
 
 tengine 2.3.0
 
 ```
-yum install openssl-devel pcre-dev lua-devel readline-devel
+yum install openssl-devel pcre-dev lua-devel readline-devel gcc-c++ gcc -y
 wget https://tengine.taobao.org/download/tengine-2.3.0.tar.gz
 tar -xf tengine-2.3.0.tar.gz && cd tengine-2.3.0
 wget https://ftp.pcre.org/pub/pcre/pcre-8.40.tar.gz
@@ -62,3 +64,7 @@ ExecStop=/bin/kill -s TERM $MAINPID
 [Install]
 WantedBy=multi-user.target
 ```
+
+systemctl enable nginx
+
+systemctl start nginx
