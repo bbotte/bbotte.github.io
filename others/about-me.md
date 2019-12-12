@@ -12,11 +12,11 @@
 <https://github.com/bbotte>
 或者扫描下方添加QQ：
 
-![关于此linux工匠网站 - 第1张](../images/2016/02/qrcode_1454333129795.jpg)
+<img src="../images/2016/02/qrcode_1454333129795.jpg" alt="drawing" style="width:200px;"/>
+
+<img src="../images/2016/02/weixin.jpg" alt="drawing" style="width:200px;"/>
 
 
-
-![关于此linux工匠网站 - 第2张](../images/2016/02/weixin.jpg)
 
 
 
