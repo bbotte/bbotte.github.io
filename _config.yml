@@ -5,3 +5,4 @@ show_downloads: "true"
 github:
   zip_url: http://www.bbotte.com/
   another_url: http://www.bbotte.com/
+  tar_url: http://www.bbotte.com/
