@@ -32,6 +32,12 @@ gluster volume info gfs-volume
 其他主机挂载gfs
 
 ```
+yum install centos-release-gluster -y
+yum install -y glusterfs-fuse
+
+cat /etc/hosts
+192.168.1.1 master
+
 cat > /etc/fstab <<EOF
 master:gfs-volume /opt glusterfs defaults,_netdev 0 0
 EOF
