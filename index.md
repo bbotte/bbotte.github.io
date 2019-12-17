@@ -1,3 +1,8 @@
+---
+layout: default
+---
+
+
 ##### 欢迎访问我的博客：[linux工匠](http://www.bbotte.com/)
 
 | 标签                    | 文章                                       | 标签          | 文章                                       |
