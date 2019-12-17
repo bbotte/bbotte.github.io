@@ -3,6 +3,6 @@ title: "Linux工匠"
 description: "www.bbotte.com 关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构"
 show_downloads: "true"
 github:
-  zip_url: http://www.bbotte.com/
-  another_url: http://www.bbotte.com/
+  zip_url: https://www.bbotte.com/
+  another_url: https://www.bbotte.com/
   tar_url: https://github.com/bbotte/bbotte.github.io
