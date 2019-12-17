@@ -4,19 +4,19 @@ layout: default
 
 # linux工匠之ceph存储集群实验
 
-1. [ceph存储集群实验](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#ceph)
-2. [集群主机初始化](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#i)
-3. [创建集群](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#i-2)
-4. [配置初始 monitor](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#_monitor)
-5. [部署OSD节点](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#OSD)
-6. [激活OSD](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#OSD-2)
-7. [添加元数据服务器](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#i-3)
-8. [添加RGW配置](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#RGW)
-9. [测试集群](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#i-4)
-10. [ceph块设备](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#ceph-2)
-11. [文件系统](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#i-5)
-12. [对象存储](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#i-6)
-13. [ceph S3接口](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#ceph_S3)
+1. ceph存储集群实验
+2. 集群主机初始化
+3. 创建集群
+4. 配置初始 monitor
+5. 部署OSD节点
+6. 激活OSD
+7. 添加元数据服务器
+8. 添加RGW配置
+9. 测试集群
+10. ceph块设备
+11. 文件系统
+12. 对象存储
+13. ceph S3接口
 
 ### **ceph存储集群实验**
 

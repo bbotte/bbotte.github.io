@@ -36,7 +36,7 @@ layout: default
 
 [azure微软云之权限的管理](https://bbotte.github.io/service_config/azure-cloud-permissions-management)
 
-[azure微软云之powershell创建主机](http://www.bbotte.com/server-config/azure-cloud-use-powershell-create-hosts/)
+[azure微软云之powershell创建主机](http://www.bbotte.com/server-config/azure-cloud-use-powershell-create-hosts)
 
 [azure微软云之Azure CLI更新网络安全组](https://bbotte.github.io/service_config/azure-cli-updates-network-security-groups)
 
@@ -68,7 +68,7 @@ layout: default
 
 [web和mysql高可用集群部署文档](https://bbotte.github.io/service_config/web-service-and-mysql-high-availability-cluster-deployment-documents)
 
-[用ansible-playbook安装redis的sentinel高可用集群](https://bbotte.github.io/service_config/install-sentinel-redis-high-availability-cluster-with-ansible-playbooks)
+[用ansible-playbook安装redis的sentinel高可用集群](https://bbotte.github.io/service_config/install-sentinel-redis-high-availability-cluster-with-ansible-playbook)
 
 [使用ansible-playbook一键安装rabbitmq集群](https://bbotte.github.io/service_config/use-ansible-playbook-to-install-rabbitmq-cluster)
 

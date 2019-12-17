@@ -6,7 +6,7 @@ layout: default
 
 [mysql组复制mgr(mysql group replication)配置](https://bbotte.github.io/databases/mysql-group-replication-config)
 
-[mysql中间件proxysql](http://www.bbotte.com/databases/mysql-middleware-proxysql/)
+[mysql中间件proxysql](http://www.bbotte.com/databases/mysql-middleware-proxysql)
 
 [windows主机对Mysql批量运维管理](https://bbotte.github.io/databases/mysql-batch-operation-and-maintenance-management-on-windows)
 
@@ -18,7 +18,7 @@ layout: default
 
 [Mysql数据库引擎innodb转换为TokuDB](https://bbotte.github.io/databases/mysql-database-engine-innodb-is-converted-to-tokudb)
 
-[MHA-MySQL线上配置附官方文档](https://bbotte.github.io/databases/mha-mysql-online-configuration-with-official-documentss)
+[MHA-MySQL线上配置附官方文档](https://bbotte.github.io/databases/mha-mysql-online-configuration-with-official-documents)
 
 [Multi-Master Replication Manager for MySQL(mysql-mmm)](https://bbotte.github.io/databases/multi-master-replication-manager-for-mysql)
 
