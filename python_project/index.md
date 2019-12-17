@@ -1,3 +1,8 @@
+---
+layout: default
+---
+
+
 ## [**python相关**](https://bbotte.github.io/python_project/)
 
 [python几个简单的排序算法](https://bbotte.github.io/python_project/several-simple-sorting-algorithms-in-python)

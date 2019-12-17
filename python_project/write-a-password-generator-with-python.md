@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 用python写一个复杂密码生成器
 
 我们来用python写一个密码生成器，用random随机从a-z挑选，实现随机数第一版：

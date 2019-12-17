@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # python几个简单的排序算法
 
 python几个简单的排序算法

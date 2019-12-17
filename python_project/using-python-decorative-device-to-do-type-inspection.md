@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 利用python装饰器做类型检查
 
 python的装饰器使用方式有多种，在[小议python的迭代iterative和递归recursive](http://bbotte.com/python-dev/python-iterative-and-recursive/)中使用装饰器得出python脚本的执行时间，下面说一下对输入类型做检查

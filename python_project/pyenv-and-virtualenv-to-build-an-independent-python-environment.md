@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # pyenv virtualenv构建独立的python环境
 
 不管是线上还是开发环境都需要根据python版本设置独立的环境，避免与系统环境交叉而出错，pyenv和插件virtualenv刚好建立隔离的python环境，ipython又方便https://pypi.python.org/pypi 安装包的自动安装

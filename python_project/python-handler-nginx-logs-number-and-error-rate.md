@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # python统计nginx日志的条数及错误率
 
 以下内容为马哥教育comyn讲师讲解python的片段

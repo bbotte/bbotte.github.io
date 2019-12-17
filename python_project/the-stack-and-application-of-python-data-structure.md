@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 小议python数据结构的栈及应用
 
 堆栈ADT（abstract data type 抽象数据类型）一般提供以下接口：

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # python写一个简单的留言板
 
 用python练个手，写个最简单的留言板，用flask框架，shelve存储

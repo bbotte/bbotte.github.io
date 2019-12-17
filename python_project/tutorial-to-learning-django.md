@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # linux工匠之django入门学习
 
 一，创建project 启动django应用
