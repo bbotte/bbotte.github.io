@@ -4,9 +4,9 @@
 
 [kubernetes集群中的kafka服务配置](https://bbotte.github.io/virtualization/config_kafka_in_kubernetes)
 
-[kubernetes 1.13.3集群安装步骤文档](https://github.com/bbotte/bbotte.github.io/virtualization/kubernetes_cluster_install_1.13.3)
+[kubernetes 1.13.3集群安装步骤文档](https://github.com/bbotte/bbotte.github.io/virtualization/kubernetes_cluster_install_1-13-3)
 
-[kubernetes 1.9.4集群安装文档向导](https://github.com/bbotte/bbotte.github.io/virtualization/kubernetes_cluster_install_1.9.4)
+[kubernetes 1.9.4集群安装文档向导](https://github.com/bbotte/bbotte.github.io/virtualization/kubernetes_cluster_install_1-9-4)
 
 [kubernetes内存监控面板数值的意义](https://bbotte.github.io/virtualization/the-meaning-of-the-kubernetes-memory-monitoring-panel-value)
 
