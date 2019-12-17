@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 ## kubernetes集群安装步骤(Version:1.9.4)
 
 ###### 备注：centos 7.4 最小化安装

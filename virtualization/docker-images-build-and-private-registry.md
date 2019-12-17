@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # MAC系统Docker镜像构建和私有仓库
 
 ### 说明

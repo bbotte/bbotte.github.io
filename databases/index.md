@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 ## [**数据库**](https://bbotte.github.io/databases/)
 
 [mysql组复制mgr(mysql group replication)配置](https://bbotte.github.io/databases/mysql-group-replication-config)

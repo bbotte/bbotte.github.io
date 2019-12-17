@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # mesos marathon和chronos构建分布式系统
 
 一，系统说明

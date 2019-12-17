@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # swarm中的zookeeper和kafka集群配置
 
 docker安装完毕后，需要初始化swarm，swarm的节点分manager和worker，manager具有投票选举、调度服务功能，并且manager可降级为worker节点，反之亦然。manager节点包含worker节点功能，所以服务运行在manager节点没问题。swarm包含etcd数据库和traefik代理，是个mini k8s工具

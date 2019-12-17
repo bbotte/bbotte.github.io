@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Container Linux with systemd
 ---
 

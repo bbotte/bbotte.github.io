@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Benchmarking etcd v2.1.0
 ---
 

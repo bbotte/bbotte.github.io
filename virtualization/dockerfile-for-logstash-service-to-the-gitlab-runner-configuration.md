@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # CICD之logstash服务的Dockerfile使用Gitlab Runner打docker包
 
 gitlab提交代码后，经gitlab Runner打docker包，推送到docker仓库，然后kubernetes选择版本更新

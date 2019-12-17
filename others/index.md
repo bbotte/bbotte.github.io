@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 ## [**其他**](https://bbotte.github.io/others)
 
 [ELK5完整部署](https://bbotte.github.io/others/elasticsearch-logstash-kibana-version5-install-and-configure)

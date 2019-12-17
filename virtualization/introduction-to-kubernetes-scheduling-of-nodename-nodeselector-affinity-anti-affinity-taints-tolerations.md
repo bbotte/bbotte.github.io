@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kubernetes的调度简介nodeName nodeSelector Affinity Anti-affinity Taints Tolerations
 
 1.nodeName和nodeSelector

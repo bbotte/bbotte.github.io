@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # helm入门学习及应用文档
 
 helm是kubernetes配置的包管理器，相当于centos的rpm，Debian的apk。可以使用网上已配置的模板或自己制作的模板构建服务，并做服务的版本管理，发布、回滚等。先决条件为kubernetes集群已建立，版本大于1.6。chart、helm和tiller关系可以理解如下：

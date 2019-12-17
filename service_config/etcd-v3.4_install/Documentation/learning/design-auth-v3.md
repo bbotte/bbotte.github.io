@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 ﻿---
 title: etcd v3 authentication design
 ---

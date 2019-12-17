@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kubernetes1.9版本集群配置文档
 
 1. 说明

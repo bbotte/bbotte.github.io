@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # mgr(mysql group replication)配置
 
 mysql group replication 组复制所需条件

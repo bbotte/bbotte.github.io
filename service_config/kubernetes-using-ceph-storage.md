@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # linux工匠之kubernetes使用ceph块存储
 
 ### 说明

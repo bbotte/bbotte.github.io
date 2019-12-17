@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 虚拟化之KVM配置应用
 
 1. kvm说明

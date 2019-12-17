@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Design of runtime reconfiguration
 ---
 

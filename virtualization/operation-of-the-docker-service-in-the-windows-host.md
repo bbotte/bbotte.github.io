@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # windows主机中docker服务的运行
 
 尽管这个docker服务用起来方便，只是在生产环境中遇到一个大的麻烦，virtualbox CPU飙升（72核256G Windows 2012）

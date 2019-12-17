@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # flume-ng日志收集之实践操作
 
 1. kafka创建一个topic

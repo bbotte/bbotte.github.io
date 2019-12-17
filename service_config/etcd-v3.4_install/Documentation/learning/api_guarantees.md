@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: KV API guarantees
 ---
 

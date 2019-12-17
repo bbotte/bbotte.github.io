@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 ## [**服务配置**](https://bbotte.github.io/service_config/)
 
 [redis集群redis-cluster](https://bbotte.github.io/service_config/redis-cluster/redis-cluster)

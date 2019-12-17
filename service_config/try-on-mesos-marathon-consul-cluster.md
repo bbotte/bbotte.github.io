@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # linux工匠之mesos marathon consul的集群试验
 
 1. 服务说明

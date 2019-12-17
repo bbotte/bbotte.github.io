@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # elasticsearch5安装和配置
 
 1. es的安装

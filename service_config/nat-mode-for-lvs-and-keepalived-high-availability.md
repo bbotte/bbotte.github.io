@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # NAT模式的LVS和keepalived高可用
 
 1. 说明

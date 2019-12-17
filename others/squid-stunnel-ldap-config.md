@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # squid+stunnel+ldap距离网络更近一步
 
 目的：为公司人员提供更便捷的网络服务

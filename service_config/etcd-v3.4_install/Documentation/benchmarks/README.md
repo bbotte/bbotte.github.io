@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Benchmarks
 
 etcd benchmarks will be published regularly and tracked for each release below:

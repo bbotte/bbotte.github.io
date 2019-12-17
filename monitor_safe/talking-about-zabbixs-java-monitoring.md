@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # linux工匠之java的zabbix监控
 
 1. 开启zabbix_java服务

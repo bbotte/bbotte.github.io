@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # logstash使用zookeeper建立kafka集群对日志收集
 
 1. 建立zookeeper集群

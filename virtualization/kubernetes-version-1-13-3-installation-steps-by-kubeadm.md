@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kubeadm安装1.13.3版本kubernetes步骤
 
 1. kubernetes 1.13版本功能更新

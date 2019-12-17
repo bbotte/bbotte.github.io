@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 #docker或kubernetes集群的监控（cadvisor+prometheus）
 
 docker或kubernetes集群的监控有多种，比如：

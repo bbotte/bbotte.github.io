@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 
 # 归去来兮辞
 

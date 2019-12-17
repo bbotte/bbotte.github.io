@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 ## [**虚拟化**](https://bbotte.github.io/virtualization)
 
 [swarm中的zookeeper和kafka集群配置](https://bbotte.github.io/virtualization/zookeeper-kafka-cluster-install-on-docker-swarm)

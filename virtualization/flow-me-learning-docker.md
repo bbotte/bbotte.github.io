@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # docker初学跟我来
 
 1. docker安装

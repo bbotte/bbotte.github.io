@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: etcd v3 API
 ---
 

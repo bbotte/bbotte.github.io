@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # ELK5完整部署
 
 1. 结构图

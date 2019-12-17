@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Migrate applications from using API v2 to API v3
 ---
 

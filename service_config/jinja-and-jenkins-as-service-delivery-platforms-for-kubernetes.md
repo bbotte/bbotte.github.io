@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # jinja和jenkins结合做为kubernetes的服务发布平台
 
 公司使用java开发语言，使用kubernetes集群运行这些java服务，为了试发布便捷，使用jenkins构建，利用jinja对模板渲染，利用Jenkins做一套kubernetes的发布平台。流程如下：

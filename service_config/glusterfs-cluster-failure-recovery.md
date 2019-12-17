@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # glusterfs集群故障恢复
 
 glusterfs集群故障恢复

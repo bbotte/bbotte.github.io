@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: etcd learner design
 ---
 

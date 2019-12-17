@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kubernetes架构设计理论
 
 kubernetes架构设计

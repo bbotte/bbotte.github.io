@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # linux工匠之kubernetes的traefik配置介绍
 
 traefik <https://traefik.io/>同音于traffic，作为kubernetes服务官方反向代理，作用和ingress一样，支持Docker, Swarm mode, Kubernetes, Marathon, Consul, Etcd, Rancher, Amazon ECS等后端服务，可以说是一个神器

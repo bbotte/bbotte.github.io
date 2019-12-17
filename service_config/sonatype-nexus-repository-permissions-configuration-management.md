@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Nexus Repository权限配置管理
 
 java仓库nexus的权限配置管理，比如开通nexus仓库只读权限给指定的开发者

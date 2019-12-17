@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kvm和Xen主机在线增加磁盘空间
 
 1. Xen guest主机扩充磁盘空间

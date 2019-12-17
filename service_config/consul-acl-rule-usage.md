@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # consul的ACL规则用法
 
 使用consul的ACL遇到些问题，比如

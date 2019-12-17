@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Haproxy keepalived的线上高可用
 
 1. 配置说明

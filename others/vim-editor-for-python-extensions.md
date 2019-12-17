@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # vim编辑器对python的扩展
 
 vim是我最常用的编辑器，功能足够丰富，并且支持扩展，下面对vim加一个[Vundle](https://github.com/VundleVim/Vundle.vim)插件。Vundle对应vim，就像pip对于python一样，是可以装其他plugin的管理器。再通过Vundle安装[YouCompleteMe](https://github.com/Valloric/YouCompleteMe) engine

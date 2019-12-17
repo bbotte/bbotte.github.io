@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Run etcd clusters inside containers
 ---
 

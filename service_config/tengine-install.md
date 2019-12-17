@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 #### tengine install
 
 小于2.3版本tengine

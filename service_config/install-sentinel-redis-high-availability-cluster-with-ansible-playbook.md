@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 用ansible-playbook安装redis的sentinel高可用集群
 
 redis的高可用集群方案一般来说分为下面几种,

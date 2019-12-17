@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kubernetes dashboard面板只读用户创建
 
 kubernetes dashboard默认的用户kubernetes-dashboard拥有最大的权限，使用过程中需要对公司人员开通其中一个namespace的只读权限，下面是role和binding的关系，即把用户(sa)绑定(binding)规则(role)到资源(resources)上

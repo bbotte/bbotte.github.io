@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 ### etcd API Reference
 
 

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # nginx的proxy_cache缓存使用
 
 ### nginx设置缓存

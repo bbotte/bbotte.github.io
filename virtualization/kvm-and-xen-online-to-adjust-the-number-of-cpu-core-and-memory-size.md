@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kvm和Xen主机在线调整cpu核心数和内存大小
 
 1. kvm的cpu和内存调整

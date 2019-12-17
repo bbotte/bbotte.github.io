@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Multi-Master Replication Manager for MySQL(mysql-mmm)
 
 1. 配置说明

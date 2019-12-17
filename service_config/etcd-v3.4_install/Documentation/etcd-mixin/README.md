@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Prometheus Monitoring Mixin for etcd
 
 > NOTE: This project is *alpha* stage. Flags, configuration, behaviour and design may change significantly in following releases.

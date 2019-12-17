@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 升级glibc解决GLIBC_2.14 not found
 
 使用hadoop命令时候，总会遇到GLIBC_2.14 not found 如下提示，需要升级glibc的版本

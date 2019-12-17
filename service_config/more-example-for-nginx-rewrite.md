@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # nginx-rewrite重定向跳转实例
 
 工作中常用到nginx的rewrite，网上许多文章也写了一些，不过实用性的话，还是往下看吧。

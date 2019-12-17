@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 虚拟化之Xen配置应用
 
 1. Xen说明

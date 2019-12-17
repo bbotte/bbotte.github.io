@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Runtime reconfiguration
 ---
 

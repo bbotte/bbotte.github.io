@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 发布系统之jenkins-maven-svn
 
 1. 说明

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # web和mysql高可用集群部署文档
 
 项目需求

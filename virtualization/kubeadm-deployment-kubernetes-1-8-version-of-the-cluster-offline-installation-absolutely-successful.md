@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kubeadm部署kubernetes 1.8离线安装绝对成功版
 
 1. 版本说明

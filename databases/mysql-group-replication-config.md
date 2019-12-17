@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # mysql组复制mysql group replication配置
 
 mgr和proxysql更配哦

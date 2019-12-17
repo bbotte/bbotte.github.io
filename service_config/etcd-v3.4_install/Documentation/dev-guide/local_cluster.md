@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Set up a local cluster
 ---
 

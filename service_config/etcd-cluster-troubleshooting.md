@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # etcd集群故障处理
 
 ### etcd安装

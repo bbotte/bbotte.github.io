@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # mongodb的单机主从和复制集
 
 - mongodb单机

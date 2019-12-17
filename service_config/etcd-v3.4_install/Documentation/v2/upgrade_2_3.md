@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Upgrade etcd from 2.2 to 2.3
 ---
 

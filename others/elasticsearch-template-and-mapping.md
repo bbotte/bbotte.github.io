@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # elasticsearch的template和mapping
 
 ### mapping说明

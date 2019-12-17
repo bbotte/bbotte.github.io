@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # zabbix整合–获取一段时间内的监控值(附grafana的zabbix插件)
 
 1. 需求说明

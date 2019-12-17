@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # consul集群的服务注册发现和模板使用
 
 1. consul说明

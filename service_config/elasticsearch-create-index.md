@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # elasticsearch创建index
 
 遇到一个奇怪的问题，每天早上8点就会收到elasticsearch报警

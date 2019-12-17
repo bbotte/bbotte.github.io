@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kubernetes代理内部服务之websocket服务
 
 kubernetes对内部服务的代理一般用traefik、flannel、calico等，特殊情况特殊待遇，k8s并提供了NodePort从node节点直接把服务暴露出来，和external IPs使用自定义一个内网IP转发请求到内部服务等方式。下面以研发做了一个基于websocket协议的聊天服务为例，websocket服务需要外网能够直接访问，并且im服务和其他服务也有相互调用，线上服务用的kubernetes集群，之所以写这篇文章是尝试了很多方法解决websocket服务出来的实验，比如使用traefik、clusterIP、nginx、nginx+websockt多种方法都无济于事。因为service是4层，traefik是7层，加上nginx代理也提示

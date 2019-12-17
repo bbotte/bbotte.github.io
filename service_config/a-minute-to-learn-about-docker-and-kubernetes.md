@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 一分钟简单了解docker和kubernetes
 
 

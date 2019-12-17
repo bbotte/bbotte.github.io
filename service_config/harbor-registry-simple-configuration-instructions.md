@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # harbor仓库简单配置说明
 
 1. 说明

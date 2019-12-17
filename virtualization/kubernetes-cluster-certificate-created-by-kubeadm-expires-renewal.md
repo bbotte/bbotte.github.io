@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kubeadm创建的kubernetes集群证书到期后续期
 
 1.编译kubeadm

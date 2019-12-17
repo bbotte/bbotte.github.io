@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 编译kubernetes二进制文件
 
 编译kubectl、kubelet、kubeadm等二进制命令

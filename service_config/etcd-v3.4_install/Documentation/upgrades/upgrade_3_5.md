@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Upgrade etcd from 3.4 to 3.5
 ---
 

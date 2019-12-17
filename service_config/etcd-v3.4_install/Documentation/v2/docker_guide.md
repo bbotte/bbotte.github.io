@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Running etcd under Docker
 ---
 

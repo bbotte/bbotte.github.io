@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # windows主机对Mysql批量运维管理
 
 Windows主机上跑了一个mysql服务，因为没有bash命令行，仅适用cmd命令太麻烦，于是安装Git Bash <https://gitforwindows.org/> 带有linux内核的git操作软件。于是乎，所有的操作步骤变为和linux环境相似。

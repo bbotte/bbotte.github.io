@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # mysql中间件proxysql
 
 主库鸭梨大，需要做主从分离，现在数据库结构为mha，添加mysql主从分离中间件

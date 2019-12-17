@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # linux工匠之ceph存储集群实验
 
 1. [ceph存储集群实验](http://www.bbotte.com/server-config/ceph-storage-cluster-experiment/#ceph)

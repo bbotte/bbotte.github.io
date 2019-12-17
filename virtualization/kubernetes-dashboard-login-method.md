@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kubernetes的dashboard登录方式
 
 kubernetes dashboard login method:

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kubernetes调整pod的内核参数
 
 经常遇到需要修改 kubernetes pod 中的内核参数，比如 sysctl 中 net.core.somaxconn，还有redis、MongoDB的transparent_hugepage。如果在 Dockerfile 中定义或者更改了这些参数，服务启动后，也是不生效的。如果用下面这种方式

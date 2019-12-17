@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: etcd versus other key-value stores
 ---
 

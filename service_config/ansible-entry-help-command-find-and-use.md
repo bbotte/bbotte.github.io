@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # ansible的入门帮助-命令查找与使用
 
 ### 说明

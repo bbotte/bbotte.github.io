@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Interacting with etcd
 ---
 

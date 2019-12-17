@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # [linux工匠的书架](https://bbotte.github.io/books/)
 
 [大学章句](https://bbotte.github.io/books/da-xue-zhang-ju)

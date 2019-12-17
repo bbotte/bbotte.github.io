@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 通过zabbix监控nginx和php状态
 
 1. nginx和php的status

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # install etcd 3.4
 
 [etcd-v3.4 install](https://github.com/bbotte/bbotte.github.io/tree/master/service_config/etcd-v3.4_install)

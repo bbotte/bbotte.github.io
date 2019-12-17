@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # flume-ng日志收集之安装配置
 
 1. 环境说明

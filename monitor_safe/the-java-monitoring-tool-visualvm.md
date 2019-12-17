@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 小议java监控Java VisualVM
 
 对java来说，自带查看进程、调试、监控的工具挺丰富的，下面是官方介绍

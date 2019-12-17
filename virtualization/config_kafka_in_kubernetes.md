@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kubernetes集群中的kafka服务配置
 
 kubernetes集群中的kafka服务配置

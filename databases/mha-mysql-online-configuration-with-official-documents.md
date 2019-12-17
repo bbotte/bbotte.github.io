@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # MHA-MySQL线上配置附官方文档
 
 说明

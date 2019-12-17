@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Mysql数据库引擎innodb转换为TokuDB
 
 一，先安装带有tokudb引擎的mariadb数据库

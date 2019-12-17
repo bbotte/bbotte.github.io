@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # centos系统pyodbc+MS_ODBC连接azure的SQL Server
 
 centos系统pyodbc+MS_ODBC连接azure的SQL Server

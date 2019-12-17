@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: v2 Auth and Security
 ---
 

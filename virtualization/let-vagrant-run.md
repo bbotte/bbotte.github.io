@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # vagrant虚拟机运行
 
 1. vagrant说明

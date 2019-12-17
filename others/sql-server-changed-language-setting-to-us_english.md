@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # SQL Server Changed language setting to us_english
 
 avicat connect sql server

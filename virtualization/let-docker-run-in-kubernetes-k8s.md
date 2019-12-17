@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # docker服务在kubernetes(k8s)中跑起来
 
 1. 说明

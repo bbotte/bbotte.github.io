@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Upgrading etcd clusters and applications
 ---
 

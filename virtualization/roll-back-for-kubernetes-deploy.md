@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # kubernetes服务的版本回退
 
 下面简单说一下kubernetes的版本回退，因为已经在线上使用挺久的时间了，是利用kubernetes deployment的rollout histrory回退到指定版本，这篇是在[jinja和jenkins结合做为kubernetes的服务发布平台](http://bbotte.com/server-config/jinja-and-jenkins-as-service-delivery-platforms-for-kubernetes/)基础之上做的回滚，当然可以单独浏览

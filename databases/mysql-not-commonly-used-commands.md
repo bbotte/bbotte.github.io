@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # mysql的不常用命令
 
 1,登录mysql:

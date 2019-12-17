@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # azure微软云之Azure CLI更新网络安全组
 
 ### **安装 Azure CLI**

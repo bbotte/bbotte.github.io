@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 生产环境Centos编译安装Nginx-MySQL-php
 
 LNMP安装是对系统服务熟悉的一个入门，想起来当时接触linux的时候，花了2个月时间一步一步编译安装成功，把lnmp作为一个基础，收获较大，现在php很少来用了，此文致予刚步入linux系统的新手，希望在编译安装使用过程中了解linux的应用和乐趣。

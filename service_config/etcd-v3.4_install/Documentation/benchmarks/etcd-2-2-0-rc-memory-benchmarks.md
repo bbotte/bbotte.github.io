@@ -1,4 +1,8 @@
 ---
+layout: default
+---
+
+---
 title: Benchmarking etcd v2.2.0-rc-memory
 ---
 

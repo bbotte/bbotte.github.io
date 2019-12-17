@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # 阿里云和微软云openV_PN配置
 
 阿里云aliyun和微软云azure OpenV_PN配置

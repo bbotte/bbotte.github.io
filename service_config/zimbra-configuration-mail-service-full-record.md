@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Zimbra配置邮件服务全程记录
 
 1. 说明

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 ### etcd concurrency API Reference
 
 

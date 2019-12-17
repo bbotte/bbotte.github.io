@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # inux工匠之kubernetes的ingress-nginx配置介绍
 
 kubernetes创建服务后，需要把服务暴露出来，这样客户才能够访问到，ingress就可以完美的完成此任务。github链接:[ingress-nginx](https://github.com/kubernetes/ingress-nginx)  [ingress-gce](https://github.com/kubernetes/ingress-gce)，觉得看ingress-gce文档更详细一些
