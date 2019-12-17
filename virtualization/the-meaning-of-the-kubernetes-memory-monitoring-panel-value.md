@@ -8,7 +8,7 @@ Usage,Working Set,Limit,Request
 随着pod、service、deployment、replcat、StatefulSet的create、update、delete动作增长或下降。那么这些指标是监控什么的，哪些指标是pod真正使用，哪些是可以节省出来的内存，为什么Usage和Working Set差距那么大（超过90G内存），我的kubernetes集群到底需要多大内存才能保证正常运行？
 先上几张图，如果都明白的话不用继续看下面文章
 
-![kubernetes内存监控面板数值的意义 - 第1张](../images/2019/04/k8s-monitor-memory1.png) ![kubernetes内存监控面板数值的意义 - 第2张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2019/04/k8s-monitor-memory3.png) ![kubernetes内存监控面板数值的意义 - 第3张  | linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](../images/2019/04/k8s-monitor-memory2.png)
+![kubernetes内存监控面板数值的意义-pic1](../images/2019/04/k8s-monitor-memory1.png) ![kubernetes内存监控面板数值的意义-pic2](../images/2019/04/k8s-monitor-memory3.png) ![kubernetes内存监控面板数值的意义 - 第3张](../images/2019/04/k8s-monitor-memory2.png)
 
 监控面板中内存减少一方面是资源删除，另一方面是gc，这个垃圾回收kubernetes官方文档解释是kubelet garbage-collection，而这2个操作经常是同步进行的，即资源删除后kubelet也会gc来回收内存。
 

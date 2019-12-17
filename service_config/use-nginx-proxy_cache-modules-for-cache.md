@@ -223,5 +223,5 @@ welcome to bbotte.com
 
 [tengine ngx_http_lua_module ](https://github.com/alibaba/tengine/tree/master/modules/ngx_http_lua_module)
 
-2016年09月20日 于 [linux工匠|关注运维自动化|Python开发|linux高可用集群|数据库维护|性能提优|系统架构](http://www.bbotte.com/) 发表
+2016年09月20日 于 [linux工匠](http://www.bbotte.com/) 发表
 
