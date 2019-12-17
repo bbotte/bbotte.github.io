@@ -51,7 +51,7 @@ layout: default
 
 [azure微软云之权限的管理](https://bbotte.github.io/service_config/azure-cloud-permissions-management)
 
-[azure微软云之powershell创建主机](http://www.bbotte.com/server-config/azure-cloud-use-powershell-create-hosts/)
+[azure微软云之powershell创建主机](http://www.bbotte.com/server-config/azure-cloud-use-powershell-create-hosts)
 
 [azure微软云之Azure CLI更新网络安全组](https://bbotte.github.io/service_config/azure-cli-updates-network-security-groups)
 
@@ -143,7 +143,7 @@ layout: default
 
 [Mysql数据库引擎innodb转换为TokuDB](https://bbotte.github.io/databases/mysql-database-engine-innodb-is-converted-to-tokudb)
 
-[MHA-MySQL线上配置附官方文档](https://bbotte.github.io/databases/mha-mysql-online-configuration-with-official-documentss)
+[MHA-MySQL线上配置附官方文档](https://bbotte.github.io/databases/mha-mysql-online-configuration-with-official-documents)
 
 [Multi-Master Replication Manager for MySQL(mysql-mmm)](https://bbotte.github.io/databases/multi-master-replication-manager-for-mysql)
 
