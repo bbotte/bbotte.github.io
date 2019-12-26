@@ -403,6 +403,62 @@ select active,hits,mysql_query_rules.rule_id, schemaname, match_digest, match_pa
 
 **mysql group replication 和proxysql结合的操作**
 
+上面proxysql的配置是在文件内，如果不存放于配置文件中
+
+```
+# egrep -v "^#|^$" /etc/proxysql.cnf
+datadir="/var/lib/proxysql"
+admin_variables=
+{
+	admin_credentials="admin:admin"
+	mysql_ifaces="0.0.0.0:6032"
+}
+mysql_variables=
+{
+	threads=10
+	max_connections=2048
+	default_query_delay=0
+	default_query_timeout=36000000
+	have_compress=true
+	poll_timeout=2000
+	interfaces="0.0.0.0:3306"
+	default_schema="information_schema"
+	stacksize=1048576
+	server_version="5.7.21"
+	connect_timeout_server=3000
+	monitor_username="monitor"
+	monitor_password="monitor"
+	monitor_history=600000
+	monitor_connect_interval=60000
+	monitor_ping_interval=10000
+	monitor_read_only_interval=1500
+	monitor_read_only_timeout=500
+	ping_interval_server_msec=120000
+	ping_timeout_server=500
+	commands_stats=true
+	sessions_sort=true
+	connect_retries_on_failure=10
+}
+mysql_servers =
+(
+)
+mysql_users:
+(
+)
+mysql_query_rules:
+(
+)
+scheduler=
+(
+)
+mysql_replication_hostgroups=
+(
+)
+
+```
+
+monitor用户是在数据库授权，用于查看主从
+
 ```
 insert into mysql_servers (hostgroup_id,hostname,port,weight) values (2,'192.168.0.187',3306,1);
 insert into mysql_servers (hostgroup_id,hostname,port,weight) values (2,'192.168.0.188',3306,1);
