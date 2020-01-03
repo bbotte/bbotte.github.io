@@ -109,7 +109,7 @@ show global variables like '%group_replication%';
 
 ### mgr状态错误
 
-###### 1.加载group_replication.so出错
+##### 1.加载group_replication.so出错
 
 my.cnf配置中添加 plugin_load_add='group_replication.so'
 
@@ -117,7 +117,7 @@ my.cnf配置中添加 plugin_load_add='group_replication.so'
 show plugins;
 ```
 
-###### 2.mysql在docker中启动组复制不能启动
+##### 2.mysql在docker中启动组复制不能启动
 
 ```
 START GROUP_REPLICATION;
@@ -128,7 +128,7 @@ ERROR 3096 (HY000): The START GROUP_REPLICATION command failed as there was an e
 https://bugs.mysql.com/bug.php?id=86772
 用新版本mysql解决问题
 
-###### 3.由于allow_local_disjoint_gtids_join关闭状态MEMBER_STATE为RECOVERING
+##### 3.由于allow_local_disjoint_gtids_join关闭状态MEMBER_STATE为RECOVERING
 
 ```
 mysql> START GROUP_REPLICATION;
@@ -137,7 +137,7 @@ mysql> set global group_replication_allow_local_disjoint_gtids_join=ON;
 mysql> START GROUP_REPLICATION;
 ```
 
-###### 4.由于从库同步点问题MEMBER_STATE为RECOVERING
+##### 4.由于从库同步点问题MEMBER_STATE为RECOVERING
 
 ```
 SELECT * FROM performance_schema.replication_group_members;
@@ -169,7 +169,7 @@ SELECT * FROM performance_schema.replication_group_members;
 
 现在3个数据库状态都为ONLINE
 
-###### 5.由于hosts问题MEMBER_STATE为RECOVERING
+##### 5.由于hosts问题MEMBER_STATE为RECOVERING
 
 ```
 [ERROR] Plugin group_replication reported: 'There was an error when connecting to the donor server. Please check that group_replication_recovery channel credentials and all MEMBER_HOST column values of performance_schema.replication_group_members table are correct and DNS resolvable.'
@@ -178,7 +178,7 @@ SELECT * FROM performance_schema.replication_group_members;
 
 如果是上面的报错，那么绑定hosts，把ip和主机名绑定，MEMBER_STATE的RECOVERING状态自然就变为ONLINE
 
-###### 6.由于主库没有创建同步账号irisrepluser导致不能同步数据
+##### **6.由于主库没有创建同步账号irisrepluser导致不能同步数据**
 
 ```
 [ERROR] Plugin group_replication reported: 'There was an error when connecting to the donor server
@@ -188,13 +188,13 @@ group_members table are correct and DNS resolvable.'
 n_connection_status table and error log messages of Slave I/O for channel group_replication_recovery.'
 ```
 
-###### 7.数据库没有reset master导致日志有错误提示，可忽略
+##### **7.数据库没有reset master导致日志有错误提示，可忽略**
 
 ```
 [ERROR] Plugin group_replication reported: 'This member has more executed transactions than those present in the group. Local transactions:  Group transactions:
 ```
 
-###### 8.如果有节点故障，需要恢复的话，先在主写入节点备份，故障节点导入
+##### **8.如果有节点故障，需要恢复的话，先在主写入节点备份，故障节点导入**
 
 主写节点备份数据库
 ```
@@ -226,11 +226,23 @@ mysql -p123456 -e "show databases;"|grep -wEv "information_schema|mysql|Database
 sed -i '1,20s#SET @@SESSION.SQL_LOG_BIN= 0;#SET @@SESSION.SQL_LOG_BIN= 1;#' all.sql
 ```
 
-默认全库备份导入时不生成二进制日志，要修改导入数据生成二进制日志
+默认全库备份导入时不生成二进制日志，要修改导入数据生成二进制日志，或者导入sql备份时候，在前面加上
+
+```
+SET @@SESSION.SQL_LOG_BIN= 1;
+```
+
+导入完成后，再设置为 
+
+```
+SET @@SESSION.SQL_LOG_BIN= 0;
+```
 
 在写节点导入线上数据库备份
 
 ```
+mysql -uroot -p123456 -e "show databases\G"|grep Database|awk '{print $2}' |egrep -w -v "information_schema|mysql|percona|performance_schema|sys" |while read i ;do mysql -uroot -p123456 -e "drop database $i;";done
+
 source /root/all.sql;
 ```
 
@@ -247,6 +259,12 @@ loose-group_replication_start_on_boot=on
 ```
 
 这样3个mysql节点其中一台重启，集群不受影响
+
+最后确认mgr状态
+
+```
+SELECT MEMBER_ID, MEMBER_HOST,MEMBER_PORT,MEMBER_STATE,IF(global_status.VARIABLE_NAME IS NOT NULL,'PRIMARY','SECONDARY') AS MEMBER_ROLE FROM performance_schema.replication_group_members LEFT JOIN performance_schema.global_status ON global_status.VARIABLE_NAME = 'group_replication_primary_member' AND global_status.VARIABLE_VALUE = replication_group_members.MEMBER_ID;
+```
 
 参考
 https://dev.mysql.com/doc/refman/5.7/en/group-replication.html
