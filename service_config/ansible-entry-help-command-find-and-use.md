@@ -185,29 +185,7 @@ i_im_var: 'hello'
 # ansible-playbook -i hosts bbotte.yml
 ```
 
-cat bbotte/bbotte.j2
-{% for host in groups['web1'] %}
-{{ host }}
-{% endfor %}
-
-{% for host in groups['web1'] %}
-{{ "".join(host.split('.')) }}
-{% endfor %}
-
-{% for host in groups['web1'] %}
-{{ "".join(host.split('.')) }} tcp@{{ host }}:8000
-{% endfor %}
-
-
-{{ group_names }}
-{{ play_hosts }}
-{{ inventory_hostname }}
-
-{{ host_name }}
-
-{{ hostvars[inventory_hostname] }}
-
-{{ i_im_var }}
+![bbotte.j2](../images/2020/01/20200108091406.png)
 
 ansible的变量还是挺有意思的，尤其是hosts文件不能添加变量、ansible-playbook命令执行的时候不想后面–extra-vars 追加变量的时候，可以在host_vars文件夹内用主机ip作为文件名来使用，同理group_vars文件夹也如此
 
