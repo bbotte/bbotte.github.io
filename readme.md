@@ -17,7 +17,7 @@ layout: default
 
 
 
-## [**服务配置**](https://bbotte.github.io/service_config/)
+# [**服务配置**](https://bbotte.github.io/service_config/)
 
 [redis集群redis-cluster](https://bbotte.github.io/service_config/redis-cluster/redis-cluster)
 
@@ -105,7 +105,7 @@ layout: default
 
 [tengine install](https://bbotte.github.io/service_config/tengine-install)
 
-## [**python相关**](https://bbotte.github.io/python_project/)
+# [**python相关**](https://bbotte.github.io/python_project/)
 
 [python几个简单的排序算法](https://bbotte.github.io/python_project/several-simple-sorting-algorithms-in-python)
 
@@ -127,7 +127,7 @@ layout: default
 
 [python插入排序算法](https://bbotte.github.io/python_project/python-insertion-sort)
 
-## [**数据库**](https://bbotte.github.io/databases/)
+# [**数据库**](https://bbotte.github.io/databases/)
 
 [mysql组复制mgr(mysql group replication)配置](https://bbotte.github.io/databases/mysql-group-replication-config)
 
@@ -149,7 +149,7 @@ layout: default
 
 [Mysql不同步主库删除的数据](https://bbotte.github.io/databases/mysql-asynchronous-master-database-deleted-data)
 
-## [**监控和安全**](https://bbotte.github.io/monitor_safe)
+# [**监控和安全**](https://bbotte.github.io/monitor_safe)
 
 [docker和kubernetes的监控(cadvisor+prometheus)](https://bbotte.github.io/monitor_safe/docker-monitor-with-cadvisor-and-prometheus)
 
@@ -167,7 +167,7 @@ layout: default
 
 [ossec线上安全监控的配置详细文档](https://bbotte.github.io/monitor_safe/ossec-online-security-monitoring-configuration-detailed-documentation)
 
-## [**虚拟化**](https://bbotte.github.io/virtualization)
+# [**虚拟化**](https://bbotte.github.io/virtualization)
 
 [swarm中的zookeeper和kafka集群配置](https://bbotte.github.io/virtualization/zookeeper-kafka-cluster-install-on-docker-swarm)
 
@@ -223,7 +223,7 @@ layout: default
 
 [docker初学跟我来](https://bbotte.github.io/virtualization/flow-me-learning-docker)
 
-## [**其他**](https://bbotte.github.io/others)
+# [**其他**](https://bbotte.github.io/others)
 
 [ELK5完整部署](https://bbotte.github.io/others/elasticsearch-logstash-kibana-version5-install-and-configure)
 
