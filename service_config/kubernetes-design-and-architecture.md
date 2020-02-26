@@ -75,9 +75,14 @@ API准入控制可能会拒绝pod或向其添加额外的调度约束，但Kubel
 #### 附加组件
 
 DNS
+
 Ingress controller
+
 Heapster (resource monitoring)
+
 Dashboard (GUI)
+
+
 
 源自：[k8s架构](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture/architecture.md)
 
