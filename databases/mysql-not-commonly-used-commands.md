@@ -135,6 +135,19 @@ gpgcheck=1
 
 
 
+15,修复损坏的表结构
+
+![](../images/2020/01/20200226172801.png)
+
+```
+移动坏表的 frm到其他目录，
+重启mysql，
+移动frm到对应目录，（如果没有正确的frm文件，那么新建表结构一致的表）
+登录数据库修复表：
+repair table newdb.table1;
+ALTER TABLE newdb.table1 IMPORT TABLESPACE;
+```
+
 
 
 
