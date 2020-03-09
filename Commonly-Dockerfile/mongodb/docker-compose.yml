@@ -1,0 +1,15 @@
+version: '2.4'
+services:
+  mongodb-com:
+    container_name: mongodb-com
+    image: harbor.bbotte.com/devops/mongodb:0.7
+    restart: always
+    volumes:
+     - /tmp/mongo:/data
+    ports:
+     - 27017:27017
+    networks:
+     - bbotte
+networks:
+  bbotte:
+    external: false

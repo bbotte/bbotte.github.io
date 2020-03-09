@@ -1,0 +1,85 @@
+version: '2.4'
+services:
+  r1-com:
+    container_name: r1-com
+    image: harbor.bbotte.com/devops/redis:0.0083
+    volumes:
+      - /tmp/a:/data/redis
+      - ./1:/etc/redis
+    ports:
+      - 6379:6379
+      - 16379:16379
+    networks:
+      iris:
+        ipv4_address: 172.17.1.10
+  r2-com:
+    container_name: r2-com
+    image: harbor.bbotte.com/devops/redis:0.0083
+    volumes:
+      - /tmp/b:/data/redis
+      - ./2:/etc/redis
+    ports:
+      - 6479:6479
+      - 16479:16479
+    networks:
+      iris:
+        ipv4_address: 172.17.1.20
+  r3-com:
+    container_name: r3-com
+    image: harbor.bbotte.com/devops/redis:0.0083
+    volumes:
+      - /tmp/c:/data/redis
+      - ./3:/etc/redis
+    ports:
+      - 6579:6579
+      - 16579:16579
+    networks:
+      iris:
+        ipv4_address: 172.17.1.30
+  r4-com:
+    container_name: r4-com
+    image: harbor.bbotte.com/devops/redis:0.0083
+    volumes:
+      - /tmp/d:/data/redis
+      - ./4:/etc/redis
+    ports:
+      - 6679:6679
+      - 16679:16679
+    networks:
+      iris:
+        ipv4_address: 172.17.1.40
+    sysctls:
+      net.core.somaxconn: 65535
+  r5-com:
+    container_name: r5-com
+    image: harbor.bbotte.com/devops/redis:0.0083
+    volumes:
+      - /tmp/e:/data/redis
+      - ./5:/etc/redis
+    ports:
+      - 6779:6779
+      - 16779:16779
+    networks:
+      iris:
+        ipv4_address: 172.17.1.50
+  r6-com:
+   container_name: r6-com
+   image: harbor.bbotte.com/devops/redis:0.0083
+   volumes:
+     - /tmp/f:/data/redis
+     - ./6:/etc/redis
+   ports:
+     - 6879:6879
+     - 16879:16879
+   networks:
+     iris:
+       ipv4_address: 172.17.1.60
+ 
+
+networks:
+  iris:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.17.1.0/24

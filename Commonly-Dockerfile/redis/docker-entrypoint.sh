@@ -10,10 +10,17 @@ else
     echo "redis data dir is /data/redis"
 fi
 echo -e "if redis is set slave, please set docker-compose.yaml \n  environment:\n    SLAVEIP: "172.17.1.101""
-if [ "${SLAVEIP}" ];then
-    sed -i "281 aslaveof ${SLAVEIP} 6379" /etc/redis/redis.conf
+if [ "${MASTERIP}" ];then
+    sed -i "281 aslaveof ${MASTERIP} 6379" /etc/redis/redis.conf
     sed -i 's/slave-read-only\ yes/slave-read-only\ no/' /etc/redis/redis.conf
+    if [ "${PASSWD}" ];then
+        sed -i "288 amasterauth ${PASSWD} " /etc/redis/redis.conf
+    fi
 fi
+if [ "${PASSWD}" ];then
+    sed -i "500 arequirepass ${PASSWD} " /etc/redis/redis.conf
+fi
+
 if [ "${REDISCLUSTER}" ];then
     sed -i "814 acluster-enabled yes" /etc/redis/redis.conf
 fi 

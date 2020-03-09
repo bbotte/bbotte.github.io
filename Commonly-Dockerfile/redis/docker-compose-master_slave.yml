@@ -1,0 +1,41 @@
+version: '2.4'
+services:
+# redis master
+  redis-master:
+    container_name: redis-master
+    image: harbor.bbotte.com/devops/redis:0.1
+    restart: always
+    volumes:
+     - /opt:/opt
+    ports:
+     - 6379:6379
+    environment:
+      DATADIR: "/opt/redis" 
+      PASSWD: 'A#B!12345'
+    networks:
+     - bbotte
+
+# redis slave
+  redis-slave:
+    container_name: redis-slave
+    mem_limit: 1024M
+    image: harbor.bbotte.com/devops/redis:0.1
+    restart: always
+    volumes:
+      - /opt:/opt
+    ports:
+      - 6380:6379
+    sysctls:
+      net.core.somaxconn: 65535
+    environment:
+      DATADIR: "/opt/redisslave"
+      PASSWD: 'A#B!12345'
+      MASTERIP: "172.31.11.7"
+    networks:
+      - bbotte
+
+
+networks:
+  bbotte:
+    external: false
+
