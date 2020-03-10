@@ -482,9 +482,17 @@ jenkins–系统管理–系统设置–设置jdk和maven的安装路径![发布
 
 上面对web1的配置，有一个remote directory，所以下面的配置/tmp/work就覆盖了此目录
 
+比如我们生成了一个jar包，路径为 /var/lib/jenkins/workspace/external/external-service/target/external.jar
+
+Source files:  直接写jar包或者war包名称，  **/external.jar
+
+Remove profix:  即生成的jar包或war包路径，是在jenkins的workspace项目文件夹下路径， external-service/target
+
+Remote directory:  上传到远程服务器路径
+
 ![发布系统之jenkins-maven-svn - 第7张](../images/2016/03/QQ20160811-6@2x.png)
 
-![发布系统之jenkins-maven-svn - 第8张](http://bbotte.com/wp-content/uploads/2016/03/QQ20160811-7@2x.png)
+![发布系统之jenkins-maven-svn - 第8张](../images/2016/03/QQ20160811-7@2x.png)
 
 ### **使用tomcat查看**
 

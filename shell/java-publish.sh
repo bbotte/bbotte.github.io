@@ -16,7 +16,7 @@ base_dir=$(dirname $0)
 
 ServiceFileName() {
     JavaServiceName=
-    JavaServiceName=`find ${WORKSPACE} -name "${ServiceName}*"`
+    JavaServiceName=`find ${WORKSPACE} -name "${ServiceName}*.jar"`
 }
 
 javaopts() {
@@ -48,7 +48,7 @@ start() {
       javaopts
       ServiceFileName
       if [ -n "$JavaServiceName" ];then
-          nohup java $JAVA_OPTS -jar $JavaServiceName > /dev/null 2>&1 &
+          nohup java -jar $JavaServiceName $JAVA_OPTS > /dev/null 2>&1 &
           sleep 5
           checkpid
           if [ $psid -ne 0 ]; then
