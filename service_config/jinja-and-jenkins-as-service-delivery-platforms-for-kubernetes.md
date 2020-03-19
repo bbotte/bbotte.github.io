@@ -19,6 +19,12 @@ pip install jinja2
 
 ### kubernetes pod的jinja模板
 
+配置文件还是看github吧，这里变量都不显示了，
+
+<https://github.com/bbotte/bbotte.github.io/blob/master/service_config/jinja-and-jenkins-as-service-delivery-platforms-for-kubernetes.md>
+
+
+
 ```
 # cat /opt/template
 {%- if cpu|length == 0 -%}
