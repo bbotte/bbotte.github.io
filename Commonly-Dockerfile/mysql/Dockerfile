@@ -1,8 +1,10 @@
 FROM centos:centos7
-COPY mysql57-community-release-el7-11.noarch.rpm /mysql57-community.rpm
+COPY mysql-community.repo /etc/yum.repos.d/mysql-community.repo
+#COPY CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
+#https://mirror.tuna.tsinghua.edu.cn/help/mysql/
 #https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
-RUN yum install -y epel-release && \
-    rpm -ivh /mysql57-community.rpm && \
+RUN yum makecache && \
+    yum install -y epel-release && \
     yum list mysql-community-server --showduplicates && \
     rm -f /etc/localtime && \
     ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
