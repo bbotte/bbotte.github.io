@@ -102,6 +102,15 @@ ln -s /opt/elasticsearch-1.7.3/ /opt/elasticsearch
 
 ### 安装elasticsearch插件
 
+elasticsearch 6的版本插件命令已更新，比如es 6.5.1安装 ik分词插件：
+
+```
+./bin/elasticsearch-plugin install  https://github.com/medcl/elasticsearch-analy
+sis-ik/releases/download/v6.5.1/elasticsearch-analysis-ik-6.5.1.zip
+```
+
+es 2版本安装插件：
+
 ```
 # cd /opt/elasticsearch
 # ./bin/plugin -install lmenezes/elasticsearch-kopf
