@@ -171,6 +171,8 @@ SELECT * FROM performance_schema.replication_group_members;
 
 ##### 5.由于hosts问题MEMBER_STATE为RECOVERING
 
+
+
 ```
 [ERROR] Plugin group_replication reported: 'There was an error when connecting to the donor server. Please check that group_replication_recovery channel credentials and all MEMBER_HOST column values of performance_schema.replication_group_members table are correct and DNS resolvable.'
 [ERROR] Plugin group_replication reported: 'For details please check performance_schema.replication_connection_status table and error log messages of Slave I/O for channel group_replication_recovery.'
@@ -226,17 +228,9 @@ mysql -p123456 -e "show databases;"|grep -wEv "information_schema|mysql|Database
 sed -i '1,20s#SET @@SESSION.SQL_LOG_BIN= 0;#SET @@SESSION.SQL_LOG_BIN= 1;#' all.sql
 ```
 
-默认全库备份导入时不生成二进制日志，要修改导入数据生成二进制日志，或者导入sql备份时候，在前面加上
+默认全库备份导入时不生成二进制日志，要修改导入数据生成二进制日志，否则其他2个节点数据不会同步
 
-```
-SET @@SESSION.SQL_LOG_BIN= 1;
-```
 
-导入完成后，再设置为 
-
-```
-SET @@SESSION.SQL_LOG_BIN= 0;
-```
 
 在写节点导入线上数据库备份
 
