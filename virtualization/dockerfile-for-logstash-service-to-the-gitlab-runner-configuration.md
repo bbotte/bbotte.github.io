@@ -238,4 +238,4 @@ logstash$ ls -a
 ..  Dockerfile            .gitlab-ci.yml  logstash-shipper.conf
 ```
 
-2018年01月08日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年01月08日 于 [linux工匠](https://bbotte.github.io/) 发表

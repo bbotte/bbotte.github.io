@@ -95,7 +95,7 @@ docker images|sort -rn|grep harbor.bbotte.com|grep -v k8s|awk '{print $1,$2,$3}'
 <https://segmentfault.com/a/1190000008339064>
 <https://kubernetes.io/zh/docs/concepts/configuration/manage-compute-resources-container/>
 
-2019年04月03日 于 [linux工匠](http://www.bbotte.com/) 发表
+2019年04月03日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

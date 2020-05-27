@@ -263,7 +263,7 @@ flume参考文章
 
 <http://shiyanjun.cn/archives/915.html>
 
-2016年08月15日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年08月15日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

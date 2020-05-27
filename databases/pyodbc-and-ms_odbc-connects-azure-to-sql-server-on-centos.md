@@ -256,4 +256,4 @@ if __name__ == '__main__':
 <https://docs.microsoft.com/zh-cn/sql/connect/odbc/linux-mac/installing-the-driver-manager>
 <https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/system-requirements>
 
-2017年09月06日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年09月06日 于 [linux工匠](https://bbotte.github.io/) 发表

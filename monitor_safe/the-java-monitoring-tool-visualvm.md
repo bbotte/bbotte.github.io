@@ -112,5 +112,5 @@ export JAVA_OPTS="$JAVA_OPTS -Dcom.sun.management.jmxremote.port=9998 \
 
 对java程序的zabbix监控请看这里 [小议java的zabbix监控](http://bbotte.com/monitor-safe/talking-about-zabbixs-java-monitoring/)
 
-2016年04月07日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年04月07日 于 [linux工匠](https://bbotte.github.io/) 发表
 

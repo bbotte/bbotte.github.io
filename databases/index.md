@@ -6,7 +6,7 @@ layout: default
 
 [mysql组复制mgr(mysql group replication)配置](https://bbotte.github.io/databases/mysql-group-replication-config)
 
-[mysql中间件proxysql](http://www.bbotte.com/databases/mysql-middleware-proxysql)
+[mysql中间件proxysql](https://bbotte.github.io/databases/mysql-middleware-proxysql)
 
 [windows主机对Mysql批量运维管理](https://bbotte.github.io/databases/mysql-batch-operation-and-maintenance-management-on-windows)
 

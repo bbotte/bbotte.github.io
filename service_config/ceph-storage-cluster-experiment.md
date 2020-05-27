@@ -1104,4 +1104,4 @@ res, err = red:eval(
 
 ceph基础应用如上，下一篇介绍作为kubernetes的存储使用
 
-2018年02月08日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年02月08日 于 [linux工匠](https://bbotte.github.io/) 发表

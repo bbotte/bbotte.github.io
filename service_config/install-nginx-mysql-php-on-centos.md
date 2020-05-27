@@ -601,7 +601,7 @@ InstallNginx  2>&1 |tee -a /tmp/lnmp-install.log
 
 请根据自己实际情况更改
 
-2016年02月28日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年02月28日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

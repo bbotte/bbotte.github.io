@@ -115,7 +115,7 @@ total time: 0.00012040138244628906
 
 看到时间，差距还是挺明显的
 
-2016年03月31日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月31日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

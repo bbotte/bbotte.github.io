@@ -535,7 +535,7 @@ Subversion Plug-in
 每一个项目中，可以添加多台服务器（SSH Publishers），这样不至于烦死
 最后，记得给jenkins添加密码
 
-2016年03月02日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月02日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

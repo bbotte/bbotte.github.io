@@ -36,7 +36,7 @@ layout: default
 
 [azure微软云之权限的管理](https://bbotte.github.io/service_config/azure-cloud-permissions-management)
 
-[azure微软云之powershell创建主机](http://www.bbotte.com/server-config/azure-cloud-use-powershell-create-hosts)
+[azure微软云之powershell创建主机](https://bbotte.github.io/server-config/azure-cloud-use-powershell-create-hosts)
 
 [azure微软云之Azure CLI更新网络安全组](https://bbotte.github.io/service_config/azure-cli-updates-network-security-groups)
 

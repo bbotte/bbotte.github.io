@@ -462,4 +462,4 @@ haproxy在公司内常用于负载均衡，配置的强大和灵活、不出故�
 
 
 
-2016年03月18日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月18日 于 [linux工匠](https://bbotte.github.io/) 发表

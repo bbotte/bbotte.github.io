@@ -120,7 +120,7 @@ system
 
 还需要什么包就用pip安装吧
 
-2017年01月06日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年01月06日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

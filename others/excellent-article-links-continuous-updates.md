@@ -26,4 +26,4 @@ layout: default
 
 
 
-2016年07月19日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年07月19日 于 [linux工匠](https://bbotte.github.io/) 发表

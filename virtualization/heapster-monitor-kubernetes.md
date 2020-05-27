@@ -76,7 +76,7 @@ Starting to serve on 192.168.0.238:20080
 
 
 
-2017年12月14日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年12月14日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

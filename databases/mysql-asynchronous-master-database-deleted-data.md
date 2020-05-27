@@ -177,4 +177,4 @@ sleep5
 /usr/local/mysql/bin/mysql -e "slave start;"
 ```
 
-2016年03月14日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月14日 于 [linux工匠](https://bbotte.github.io/) 发表

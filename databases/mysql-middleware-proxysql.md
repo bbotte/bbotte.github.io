@@ -486,4 +486,4 @@ select * from mysql_server_group_replication_log order by time_start_us desc lim
 select hostgroup,digest_text from stats_mysql_query_digest;
 ```
 
-2019年07月11日 于 [linux工匠](http://www.bbotte.com/) 发表
+2019年07月11日 于 [linux工匠](https://bbotte.github.io/) 发表

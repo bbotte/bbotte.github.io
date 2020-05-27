@@ -527,4 +527,4 @@ pdf英文文档链接：https://pan.baidu.com/s/1jIhVoTS
 
 度娘网盘链接：https://pan.baidu.com/s/1dGtFguX 密码: 5dut
 
-2016年11月27日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年11月27日 于 [linux工匠](https://bbotte.github.io/) 发表

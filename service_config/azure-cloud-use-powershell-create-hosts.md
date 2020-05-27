@@ -206,7 +206,7 @@ for ($i = 1; $i -lt 1; $i += 1)
 
 如果有提示接口出错，那么升级powershell，有遇到powershell新版本不兼容老版本
 
-2018年03月02日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年03月02日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

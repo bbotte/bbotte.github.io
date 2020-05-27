@@ -287,5 +287,5 @@ spec:
 
 也是用到了特权模式，不过这种方式只能修改 kernel sysctl 参数，其他参数不能修改，比如透明大页transparent_hugepage，有一定的局限性，线上根据自身配置更改就好。
 
-2018年07月06日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年07月06日 于 [linux工匠](https://bbotte.github.io/) 发表
 

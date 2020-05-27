@@ -189,7 +189,7 @@ i_im_var: 'hello'
 
 ansible的变量还是挺有意思的，尤其是hosts文件不能添加变量、ansible-playbook命令执行的时候不想后面–extra-vars 追加变量的时候，可以在host_vars文件夹内用主机ip作为文件名来使用，同理group_vars文件夹也如此
 
-2016年04月29日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年04月29日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

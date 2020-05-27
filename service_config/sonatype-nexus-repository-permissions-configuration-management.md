@@ -57,4 +57,4 @@ nexus新版本增加了上传jar包的功能，不用命令行也可上传
 
 http://nexu_IP:8081/#browse/upload:maven-releases
 
-2018年09月06日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年09月06日 于 [linux工匠](https://bbotte.github.io/) 发表

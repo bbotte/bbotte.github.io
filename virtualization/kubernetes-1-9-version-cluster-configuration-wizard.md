@@ -1098,4 +1098,4 @@ libcrc32c              12644  4 xfs,ip_vs,nf_nat,nf_conntrack
 
 
 
-2018年03月16日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年03月16日 于 [linux工匠](https://bbotte.github.io/) 发表

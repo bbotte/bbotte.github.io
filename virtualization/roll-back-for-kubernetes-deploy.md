@@ -104,7 +104,7 @@ kubectl rollout undo daemonset/webservice --to-revision=56
 
 这样就回退到56的版本
 
-2018年07月01日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年07月01日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

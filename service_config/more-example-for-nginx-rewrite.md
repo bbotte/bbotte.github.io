@@ -132,7 +132,7 @@ location / {
     }
 ```
 
-17,访问http://www.abc.com?url=http://www.bbotte.com 301到 http://www.bbotte.com
+17,访问http://www.abc.com?url=https://bbotte.github.io 301到 https://bbotte.github.io
 
 ```
 if ($request_uri ~ "/\?url\=(.*)"){ return 301 $1 ;}
@@ -245,5 +245,5 @@ location ~.*\(htm|html|gif|jpg|jpeg|png|bmp|swf|js|css)$ {
   }
 ```
 
-2016年03月01日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月01日 于 [linux工匠](https://bbotte.github.io/) 发表
 

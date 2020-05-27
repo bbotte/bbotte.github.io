@@ -462,4 +462,4 @@ mysql-mmm模拟master2(读)执行的时候加锁lock，往master1(写)插入数�
 <http://code.openark.org/blog/mysql/problems-with-mmm-for-mysql>
 <http://www.xaprb.com/blog/2011/05/04/whats-wrong-with-mmm/>
 
-2016年03月16日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月16日 于 [linux工匠](https://bbotte.github.io/) 发表

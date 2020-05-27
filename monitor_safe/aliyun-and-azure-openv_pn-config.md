@@ -202,4 +202,4 @@ explicit-exit-notify 1
 
 客户端配置只有外网ip和上述阿里云不一致
 
-2017年09月29日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年09月29日 于 [linux工匠](https://bbotte.github.io/) 发表

@@ -511,4 +511,4 @@ partprobe /dev/sdb
 
 参考 [gluster docs](https://github.com/gluster/gluster-kubernetes/blob/master/docs/examples/dynamic_provisioning_external_gluster/README.md)
 
-2018年08月24日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年08月24日 于 [linux工匠](https://bbotte.github.io/) 发表

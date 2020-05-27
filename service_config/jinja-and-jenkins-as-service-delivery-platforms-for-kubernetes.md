@@ -296,7 +296,7 @@ kubectl apply -f /opt/yaml/$8-$1.yaml --record=false
 
 上面配置即可完成Jenkins调用gitlab，通过maven打包后，发送给自建的docker仓库，并传送变量生成kubernetes deployment配置模板，从而创建服务的需要
 
-2018年03月10日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年03月10日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

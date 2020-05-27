@@ -103,4 +103,4 @@ GLIBC_PRIVATE
 
 因为glibc版本问题hadoop或者adb的使用都会有遇到，记下来以供分享
 
-2016年08月24日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年08月24日 于 [linux工匠](https://bbotte.github.io/) 发表

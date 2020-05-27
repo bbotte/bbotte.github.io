@@ -353,7 +353,7 @@ server {
 
 以此，consul对服务的健康检查和通过模板更改配置文件已经完成
 
-2016年11月29日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年11月29日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

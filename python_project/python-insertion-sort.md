@@ -74,4 +74,4 @@ print(l1)
 
 摘自网易公开课-可汗学院公开课：计算机科学
 
-2016年03月25日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月25日 于 [linux工匠](https://bbotte.github.io/) 发表

@@ -189,4 +189,4 @@ java -jar /root/cmdline-jmxclient-0.10.3.jar - 10.211.55.4:9999 java.lang:type=T
 
 zabbix模板 https://share.zabbix.com/
 
-2016年09月08日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年09月08日 于 [linux工匠](https://bbotte.github.io/) 发表

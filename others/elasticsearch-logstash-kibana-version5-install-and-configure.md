@@ -389,4 +389,4 @@ logstash的indexer.conf和shipper.conf配置同时在/etc/logstash/conf.d/ ,同�
 
 
 
-2017年10月13日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年10月13日 于 [linux工匠](https://bbotte.github.io/) 发表

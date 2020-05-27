@@ -221,4 +221,4 @@ loose-group_replication_start_on_boot=on
 参考
 <https://dev.mysql.com/doc/refman/5.7/en/group-replication.html>
 
-2019年08月13日 于 [linux工匠](http://www.bbotte.com/) 发表
+2019年08月13日 于 [linux工匠](https://bbotte.github.io/) 发表

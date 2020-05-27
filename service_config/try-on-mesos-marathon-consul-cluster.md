@@ -213,7 +213,7 @@ round-trip min/avg/max/stddev = 0.366/0.366/0.366/0.000 ms
 
 你会发现，在docker中已经可以访问consul服务注册的域名，这个才是重要的结果。我们不是常常用一个域名反代多个主机提供的服务来做集群的吗，consul正合适！
 
-2016年12月08日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年12月08日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

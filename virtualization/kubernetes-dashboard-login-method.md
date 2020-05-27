@@ -471,4 +471,4 @@ https://kubernetic.com/ 下载客户端
 
 
 
-2018年06月01日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年06月01日 于 [linux工匠](https://bbotte.github.io/) 发表

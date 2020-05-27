@@ -127,5 +127,5 @@ grafana首页–Configuration–Data Sources–Add data source–Type选zabbix�
 
 ok，在grafana中展示了zabbix的数据
 
-2017年04月19日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年04月19日 于 [linux工匠](https://bbotte.github.io/) 发表
 

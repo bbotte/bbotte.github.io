@@ -1146,4 +1146,4 @@ kubernetes dashboard界面参考
 
 [https://github.com/kubernetes/dashboard/wiki/Accessing-Dashboard—1.7.X-and-above](https://github.com/kubernetes/dashboard/wiki/Accessing-Dashboard---1.7.X-and-above)
 
-2017年12月12日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年12月12日 于 [linux工匠](https://bbotte.github.io/) 发表

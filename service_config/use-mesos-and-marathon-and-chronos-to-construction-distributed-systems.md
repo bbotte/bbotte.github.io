@@ -317,4 +317,4 @@ mesos marathon和chronos构建分布式系统是一个平台，所以可以做�
 # curl -X DELETE http://0.0.0.0:8080/v2/apps/bbotte | python -m json.tool
 ```
 
-2016年12月06日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年12月06日 于 [linux工匠](https://bbotte.github.io/) 发表

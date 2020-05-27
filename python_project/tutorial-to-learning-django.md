@@ -431,5 +431,5 @@ http://10.211.55.4:8000/polls/articles/2016/
 
 代码在[mysite example github](https://github.com/bbotte/bbotte.github.io/tree/master/mysite)
 
-2017年01月10日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年01月10日 于 [linux工匠](https://bbotte.github.io/) 发表
 

@@ -296,4 +296,4 @@ kibana 中 Configure an index pattern 索引写定义的 first-*  、second-*
 
 就酱紫，完美的解决了多个日志的input和output。也建议大家使用此方式
 
-2016年03月09日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月09日 于 [linux工匠](https://bbotte.github.io/) 发表

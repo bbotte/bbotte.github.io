@@ -525,7 +525,7 @@ xl: Xen Project management tool, based on LibXenlight  xl是xm的升级版，许
 
 xm top  查看主机和各个虚拟机的资源利用情况
 
-- 2016年03月23日 于 [linux工匠](http://www.bbotte.com/) 发表
+- 2016年03月23日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

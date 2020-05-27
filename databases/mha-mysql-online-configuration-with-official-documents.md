@@ -908,7 +908,7 @@ mysql-mha官方文档，<https://code.google.com/p/mysql-master-ha/> 自己手�
 
 
 
-2016年03月17日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月17日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

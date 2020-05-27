@@ -297,5 +297,5 @@ The following plugins have been enabled:
 Applying plugin configuration to rabbit@vm02... started 6 plugins.
 ```
 
-2016年04月29日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年04月29日 于 [linux工匠](https://bbotte.github.io/) 发表
 

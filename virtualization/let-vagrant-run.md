@@ -287,4 +287,4 @@ db  web
 
 vagrant虚拟机还是很轻便的，比VMware轻，比docker重
 
-2016年10月19日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年10月19日 于 [linux工匠](https://bbotte.github.io/) 发表

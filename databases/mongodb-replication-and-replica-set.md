@@ -421,4 +421,4 @@ mongo --host 192.168.1.1:27017 -u admin -p 'password' --authenticationDatabase a
 
 mongo用 –eval 参数传递命令
 
-2017年09月05日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年09月05日 于 [linux工匠](https://bbotte.github.io/) 发表

@@ -102,4 +102,4 @@ nohup logstash -f logstash-indexer.conf  >/dev/null 2>&1 &
 
 ![ELK日志服务使用-shipper-to-indexer - 第1张](../images/2016/02/8iyv9g1.png)
 
-2016年02月26日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年02月26日 于 [linux工匠](https://bbotte.github.io/) 发表

@@ -201,5 +201,5 @@ python message_board.py
 
 ![simple message board](../images/2017/02/simple_message_board.png)
 
-2017年02月27日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年02月27日 于 [linux工匠](https://bbotte.github.io/) 发表
 

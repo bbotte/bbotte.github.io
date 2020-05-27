@@ -65,4 +65,4 @@ winpty /c/Program\ Files/MySQL/MySQL\ Server\ 5.7/bin/mysql.exe -uroot -p123456
 
 以上步骤可满足数据库环境不一致，大版本更新等
 
-2019年03月25日 于 [linux工匠](http://www.bbotte.com/) 发表
+2019年03月25日 于 [linux工匠](https://bbotte.github.io/) 发表

@@ -319,5 +319,5 @@ define ('DB_NAME_O', 'ossec');
 
 ossec的高级使用部分将在下一篇继续介绍 <http://bbotte.com/monitor-safe/advanced-configuration-of-ossec-on-line-security-monitoring/>。
 
-2016年03月14日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月14日 于 [linux工匠](https://bbotte.github.io/) 发表
 

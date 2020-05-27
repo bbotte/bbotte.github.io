@@ -71,7 +71,7 @@ if not isinstance(arg, allowed_type):
     kwargs[arg_name]=allowed_type(kwargs[arg_name])
 ```
 
-2016年07月02日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年07月02日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

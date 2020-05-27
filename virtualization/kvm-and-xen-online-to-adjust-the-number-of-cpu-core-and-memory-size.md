@@ -134,7 +134,7 @@ xm top                                        #查看当前各主机的状态
 
 虚拟主机改变配置就是这么方便 ^_^
 
-2016年03月28日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月28日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

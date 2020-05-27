@@ -15,4 +15,4 @@ Error 01000: [Microsoft][SQL Server Native Client 10.0][SQL Server] Changed lang
 
 <https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms>
 
-2017年09月07日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年09月07日 于 [linux工匠](https://bbotte.github.io/) 发表

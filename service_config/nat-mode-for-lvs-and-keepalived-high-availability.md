@@ -334,7 +334,7 @@ Prot LocalAddress:Port Scheduler Flags
 
 把MASTER重启，在重启的期间，一直打开VIP首页查看，MASTER重启后，keepalived开机启动，继续由MASTER提供服务
 
-2016年03月09日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月09日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

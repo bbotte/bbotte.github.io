@@ -119,4 +119,4 @@ kafka-master01    42.1.1.1   1170
 
 如果登录到期，那么需要重新登录一次
 
-2018年03月01日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年03月01日 于 [linux工匠](https://bbotte.github.io/) 发表

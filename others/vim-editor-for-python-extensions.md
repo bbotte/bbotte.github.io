@@ -180,5 +180,5 @@ EOF
 
 vim插件按自己的要求安装，不过上面一般够用了
 
-2017年02月23日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年02月23日 于 [linux工匠](https://bbotte.github.io/) 发表
 

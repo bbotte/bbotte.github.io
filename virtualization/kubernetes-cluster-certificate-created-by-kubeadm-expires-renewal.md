@@ -468,4 +468,4 @@ kube-controller-manager 默认签发证书时间是1年，所以要更改时间�
 支持外部自签名的证书（避免更换一次证书）
 支持自定义镜像仓库（避免从谷歌拉取不到镜像）
 
-2019年02月20日 于 [linux工匠](http://www.bbotte.com/) 发表
+2019年02月20日 于 [linux工匠](https://bbotte.github.io/) 发表

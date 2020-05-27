@@ -174,7 +174,7 @@ Last contact: Thu Aug 11 01:24:35 CST 2016
 
 浏览器打开http://IP:50070/可以查看hadoop的状态等信息
 
-2016年08月13日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年08月13日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

@@ -126,7 +126,7 @@ V7grHw3h
 
 译自<http://interactivepython.org/runestone/static/everyday/2013/01/3_password.html> 
 
-2016年05月12日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年05月12日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

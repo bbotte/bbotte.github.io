@@ -152,4 +152,4 @@ ALTER TABLE newdb.table1 IMPORT TABLESPACE;
 
 
 
-2017年03月26日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年03月26日 于 [linux工匠](https://bbotte.github.io/) 发表

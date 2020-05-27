@@ -158,4 +158,4 @@ accept  = 0.0.0.0:23456   #client用户连接的端口
 
 ![squid+stunnel+ldap距离网络更近一步 - 第1张](../images/2017/11/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171126164309.png)
 
-2017年11月26日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年11月26日 于 [linux工匠](https://bbotte.github.io/) 发表

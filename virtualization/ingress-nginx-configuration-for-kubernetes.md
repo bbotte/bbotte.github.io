@@ -334,7 +334,7 @@ nginx        ClusterIP   10.96.112.23   <none>        80/TCP    19d       app=ng
 NAME            HOSTS              ADDRESS   PORTS     AGE
 ingress-nginx   www.bbotte.com             80        19d
  
-curl --resolve www.bbotte.com:80:192.168.1.1 http://www.bbotte.com/
+curl --resolve www.bbotte.com:80:192.168.1.1 https://bbotte.github.io/
 ```
 
 ![linux工匠之kubernetes的ingress-nginx配置介绍 - 第2张](../images/2018/01/k8s-routing_ingress_controller.png)
@@ -345,7 +345,7 @@ curl --resolve www.bbotte.com:80:192.168.1.1 http://www.bbotte.com/
 
 上述配置文件和docker包链接：https://pan.baidu.com/s/1bq7oJPd 密码：buye
 
-2018年01月10日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年01月10日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

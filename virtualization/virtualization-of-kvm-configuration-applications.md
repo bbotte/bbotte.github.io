@@ -341,4 +341,4 @@ virsh snapshot-revert bbotte 1414228756（快照的TAG）
 完事需要把时间同步为准确的时间
 ntpdate ntp1.aliyun.com ;hwclock -w
 
-2016年03月22日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月22日 于 [linux工匠](https://bbotte.github.io/) 发表

@@ -156,5 +156,5 @@ key "test" { policy = "write" }
 
 总结一下，就是(server端)服务端先设置acl_master_token，作为服务端选举的令牌。在ui界面的ACL新建acl_tokey，并配置权限，然后在agent端应用此配置。
 
-2017年05月10日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年05月10日 于 [linux工匠](https://bbotte.github.io/) 发表
 

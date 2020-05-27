@@ -394,5 +394,5 @@ lsof -i:61616
 
 如果activemq集群故障，比如启动不起来，报种种日志，着急的话修改brokerName马上启动
 
-2016年03月10日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月10日 于 [linux工匠](https://bbotte.github.io/) 发表
 

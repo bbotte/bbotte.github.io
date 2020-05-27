@@ -452,4 +452,4 @@ xvdb1 : 0 4294961622 /dev/xvdb 63
 
 qcow2文件只能增大不能减小，一般的线上服务，都有高可用，磁盘不够用了，直接重做guest，简单粗暴
 
-2016年03月28日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年03月28日 于 [linux工匠](https://bbotte.github.io/) 发表

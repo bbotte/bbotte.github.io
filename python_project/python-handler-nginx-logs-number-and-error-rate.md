@@ -168,7 +168,7 @@ influxdb数据库名称写mydb，下面用户名密码就是admin，admin。数�
 
 添加3个field，count、error_rate，traffic，把group by删除就会看到图形化的展示，上面执行的数据库语句为 SELECT “count”, “error_rate”, “traffic” FROM “access_log” WHERE $timeFilter ，修改完毕保存即可
 
-2016年08月18日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年08月18日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

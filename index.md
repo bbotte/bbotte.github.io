@@ -3,7 +3,7 @@ layout: default
 ---
 
 
-##### 欢迎访问我的博客：[linux工匠](http://www.bbotte.com/)
+##### 欢迎访问我的博客：[linux工匠](https://bbotte.github.io/)
 
 | 标签                    | 文章                                       | 标签          | 文章                                       |
 | --------------------- | :--------------------------------------- | ----------- | ---------------------------------------- |
@@ -13,7 +13,7 @@ layout: default
 | **high availability** | [redis-cluster](https://bbotte.github.io/service_config/redis-cluster/redis-cluster) &nbsp; [Haproxy keepalived](https://bbotte.github.io/service_config/keepalived-and-haproxy-online-high-availability) &nbsp;  [LVS和keepalived](https://bbotte.github.io/service_config/nat-mode-for-lvs-and-keepalived-high-availability)  &nbsp; [MHA](https://bbotte.github.io/databases/mha-mysql-online-configuration-with-official-documents) | **kafka**   | [zookeeper和kafka集群](https://bbotte.github.io/virtualization/zookeeper-kafka-cluster-install-on-docker-swarm)   [kafka配置](https://bbotte.github.io/virtualization/config_kafka_in_kubernetes) |
 | **nginx**             | [proxy_cache缓存](https://bbotte.github.io/service_config/use-nginx-proxy_cache-modules-for-cache)  &nbsp; [nginx-rewrite](https://bbotte.github.io/service_config/more-example-for-nginx-rewrite) | **etcd**    | [etcd安装](https://bbotte.github.io/service_config/etcd-v3.4_install/etcd-install) |
 | **storage**           | [glusterfs](https://bbotte.github.io/service_config/detailed-use-of-glusterfs-in-kubernetes)  &nbsp; [ceph块存储](https://bbotte.github.io/service_config/kubernetes-using-ceph-storage)  &nbsp;[ceph实验](https://bbotte.github.io/service_config/ceph-storage-cluster-experiment) | **trouble** | [glusterfs故障恢复](https://bbotte.github.io/service_config/glusterfs-cluster-failure-recovery)  &nbsp;[etcd集群故障](https://bbotte.github.io/service_config/etcd-cluster-troubleshooting) &nbsp;[activemq](https://bbotte.github.io/service_config/problems-encountered-in-use-activemq) |
-| **configure**         | [LNMP](https://bbotte.github.io/service_config/install-nginx-mysql-php-on-centos)  [mysql中间件proxysql](http://www.bbotte.com/databases/mysql-middleware-proxysql) | **python**  | [排序算法](https://bbotte.github.io/python_project/several-simple-sorting-algorithms-in-python)  [django入门](https://bbotte.github.io/python_project/tutorial-to-learning-django) |
+| **configure**         | [LNMP](https://bbotte.github.io/service_config/install-nginx-mysql-php-on-centos)  [mysql中间件proxysql](https://bbotte.github.io/databases/mysql-middleware-proxysql) | **python**  | [排序算法](https://bbotte.github.io/python_project/several-simple-sorting-algorithms-in-python)  [django入门](https://bbotte.github.io/python_project/tutorial-to-learning-django) |
 
 
 
@@ -51,7 +51,7 @@ layout: default
 
 [azure微软云之权限的管理](https://bbotte.github.io/service_config/azure-cloud-permissions-management)
 
-[azure微软云之powershell创建主机](http://www.bbotte.com/server-config/azure-cloud-use-powershell-create-hosts)
+[azure微软云之powershell创建主机](https://bbotte.github.io/server-config/azure-cloud-use-powershell-create-hosts)
 
 [azure微软云之Azure CLI更新网络安全组](https://bbotte.github.io/service_config/azure-cli-updates-network-security-groups)
 
@@ -131,7 +131,7 @@ layout: default
 
 [mysql组复制mgr(mysql group replication)配置](https://bbotte.github.io/databases/mysql-group-replication-config)
 
-[mysql中间件proxysql](http://www.bbotte.com/databases/mysql-middleware-proxysql)
+[mysql中间件proxysql](https://bbotte.github.io/databases/mysql-middleware-proxysql)
 
 [windows主机对Mysql批量运维管理](https://bbotte.github.io/databases/mysql-batch-operation-and-maintenance-management-on-windows)
 
@@ -323,4 +323,4 @@ nginx_log_error_rate_statistics.py     nginx日志错误率
 
 本项目属于博客，欢迎Star及issues
 
-[关于我](http://www.bbotte.com/others/about-me)
+[关于我](https://bbotte.github.io/others/about-me)

@@ -123,4 +123,4 @@ export GOTPAHT = {源代码路径，src的上一级文件夹}
 export GOROOT=目录路径
 ```
 
-2017年12月13日 于 [linux工匠](http://www.bbotte.com/) 发表
+2017年12月13日 于 [linux工匠](https://bbotte.github.io/) 发表

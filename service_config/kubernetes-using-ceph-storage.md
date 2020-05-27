@@ -633,4 +633,4 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 
 [Kubernetes Storage Class](https://jicki.me/2017/09/11/kubernetes-storageclass/)
 
-2018年02月27日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年02月27日 于 [linux工匠](https://bbotte.github.io/) 发表

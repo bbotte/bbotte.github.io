@@ -103,4 +103,4 @@ testim-service         ClusterIP   10.102.64.27     192.168.0.150   9080/TCP    
 
 loadBalancerIP是云厂商使用的，比如GCE、AWS、阿里云，IDC搭建的k8s集群不能使用，感觉externalIPs是内部网络的loadBalancerIP，都是提供一个固定IP
 
-2018年07月23日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年07月23日 于 [linux工匠](https://bbotte.github.io/) 发表

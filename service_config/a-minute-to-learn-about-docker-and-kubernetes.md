@@ -85,4 +85,4 @@ k8s集群并没有提供原生的dns、存储、网络、日志收集、监控�
 
 从linux内核namespace和cgroup功能衍生出容器这个产品，并由谷歌做出kubernetes平台负责对容器的调度，简单的关系就是这样
 
-2019年06月14日 于 [linux工匠](http://www.bbotte.com/) 发表
+2019年06月14日 于 [linux工匠](https://bbotte.github.io/) 发表

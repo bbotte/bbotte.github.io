@@ -160,7 +160,7 @@ zabbix Error in query [INSERT INTO applications (name,hostid,applicationid) VALU
 
 原因：在zabbix–组态Configuration–模板–分类 里面是否有重复的键，修改此选项即可
 
-2016年04月06日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年04月06日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 

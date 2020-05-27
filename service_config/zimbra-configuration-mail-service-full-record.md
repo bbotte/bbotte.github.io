@@ -586,4 +586,4 @@ zimbra_mysql_password =
 
 6，zimbra后台自带的邮件迁移，默认支持微软的exchange迁移到zimbra
 
-2016年07月01日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年07月01日 于 [linux工匠](https://bbotte.github.io/) 发表

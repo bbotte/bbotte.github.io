@@ -341,4 +341,4 @@ https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/dns/kube-dns
 
 <https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/podaffinity.md>
 
-2018年09月12日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年09月12日 于 [linux工匠](https://bbotte.github.io/) 发表

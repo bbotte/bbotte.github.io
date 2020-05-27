@@ -451,5 +451,5 @@ kubectl apply -f coredns.yaml
 
 其他配置和kubernetes 1.9的版本没太大区别
 
-2019年02月28日 于 [linux工匠](http://www.bbotte.com/) 发表
+2019年02月28日 于 [linux工匠](https://bbotte.github.io/) 发表
 

@@ -309,4 +309,4 @@ done
 
 etcd理论 [手把手教你学习 etcd](https://mp.weixin.qq.com/s?__biz=MzA5OTAyNzQ2OA==&mid=2649698318&idx=1&sn=3daa95ab6d891d269b25b0bc3fce4f90&chksm=88930f6dbfe4867be4c7aae46c7fd332e1211bf38e116d25d166eba90ea1e7e20073143a1bfc&scene=0#rd)
 
-2018年06月24日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年06月24日 于 [linux工匠](https://bbotte.github.io/) 发表

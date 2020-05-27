@@ -250,4 +250,4 @@ tokudb_cache_size=物理内存的60%
 [RDS MySQL空间优化最佳实践](https://yq.aliyun.com/articles/55594)
 [Percona TokuDB – Documentation](https://www.percona.com/doc/percona-tokudb/index.html)
 
-2016年07月16日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年07月16日 于 [linux工匠](https://bbotte.github.io/) 发表

@@ -342,4 +342,4 @@ document_type可以从已有的template或mapping中获取，避免错误
 
 ![elasticsearch的template和mapping - 第3张](../images/2016/08/QQ20160826-1@2x.png)
 
-2016年08月12日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年08月12日 于 [linux工匠](https://bbotte.github.io/) 发表

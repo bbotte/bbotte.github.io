@@ -145,5 +145,5 @@ gluster volume add-brick gfs-volume replica 2 slave:/data
 [Managing GlusterFS Volumes](https://docs.gluster.org/en/latest/Administrator%20Guide/Managing%20Volumes/)
 [GlusterFS Architecture](https://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/)
 
-2018年08月06日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年08月06日 于 [linux工匠](https://bbotte.github.io/) 发表
 

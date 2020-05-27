@@ -297,7 +297,7 @@ kubernetes-dashboard      ClusterIP   10.111.134.20    <none>        9090/TCP   
 traefik-ingress-service   NodePort    10.103.136.170   <none>        80:30754/TCP,8080:30020/TCP   3h
 traefik-web-ui            ClusterIP   10.105.231.246   <none>        80/TCP                        3h
  
-curl --resolve www.bbotte.com:80:192.168.22.78 http://www.bbotte.com/
+curl --resolve www.bbotte.com:80:192.168.22.78 https://bbotte.github.io/
 ```
 
 traefik-ui链接即traefik-ui.yaml配置中域名 http://traefik-ui.bbotte.com
@@ -670,4 +670,4 @@ Flags:
 
 
 
-2018年01月11日 于 [linux工匠](http://www.bbotte.com/) 发表
+2018年01月11日 于 [linux工匠](https://bbotte.github.io/) 发表

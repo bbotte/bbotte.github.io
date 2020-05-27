@@ -151,7 +151,7 @@ if __name__ == '__main__':
 
 1个学习python的网址 <http://interactivepython.org/runestone/static/pythonds/index.html>
 
-2016年05月04日 于 [linux工匠](http://www.bbotte.com/) 发表
+2016年05月04日 于 [linux工匠](https://bbotte.github.io/) 发表
 
 
 
