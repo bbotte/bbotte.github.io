@@ -265,18 +265,21 @@ http://localhost:9090   proxy即可，如果不在一台主机，那么需要pro
 
 ![linux工匠之docker和kubernetes的监控cadvisor+prometheus-pic5](../images/2017/11/QQ%E6%88%AA%E5%9B%BE20171106182314.jpg)
 
+每个服务一个曲线线上状态：
+
 ```
-sort_desc(sum(rate(container_cpu_user_seconds_total{image!="",job="bbotte-test",group="test"}[1m])) by (container_label_io_kubernetes_container_name))
+sort_desc(sum(rate(container_cpu_usage_seconds_total{image!="",job="swarm",group="prod-swarm"}[1m])) by (container_label_com_docker_swarm_service_name))
  
-{{container_label_io_kubernetes_container_name}}
+\{\{container_label_com_docker_swarm_service_name\}\}
  
 container_cpu_user_seconds_total
 ```
 
 ```
 如果需要查看每个pod的状态，可以配置如下：
-sort_desc(sum(rate(container_cpu_user_seconds_total{image!="",job="k8s",group="test",container_label_io_kubernetes_pod_namespace="default"}[1m])) by (container_label_io_kubernetes_container_name))
-{{container_label_io_kubernetes_container_name}}
+sort_desc(sum(rate(container_cpu_usage_seconds_total{image!="",job="swarm",group="prod-swarm"}[1m])) by (name))
+
+\{\{name\}\}
 ```
 
 详细的监控和报警请查阅官方文档，照步骤操作
