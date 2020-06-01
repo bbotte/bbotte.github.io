@@ -23,27 +23,25 @@ pip install jinja2
 
 <https://github.com/bbotte/bbotte.github.io/blob/master/service_config/jinja-and-jenkins-as-service-delivery-platforms-for-kubernetes.md>
 
-
-
 ```
 # cat /opt/template
-{%- if cpu|length == 0 -%}
-  大括号百分号- set cpu = '1000m' -%}
-{%- endif -%}
-{%- if memory|length == 0 -%}
-  大括号百分号- set memory = '1024Mi' -%}
-{%- endif -%}
+\{%- if cpu|length == 0 -%\}
+  \{%- set cpu = '1000m' -%\}
+\{%- endif -%\}
+\{%- if memory|length == 0 -%\}
+  \{%- set memory = '1024Mi' -%\}
+\{%- endif -%\}
  
 kind: Deployment
 apiVersion: apps/v1beta2
 metadata:
-  name: {{ name }}
+  name: \{\{ name \}\}
   labels:
-    k8s-app: {{ name }}
+    k8s-app: \{\{ name \}\}
   annotations:
-    kubernetes.io/change-cause: {{ version }}
+    kubernetes.io/change-cause: \{\{ version \}\}
 spec:
-  replicas: {{ replicas_num }}
+  replicas: \{\{ replicas_num \}\}
   revisionHistoryLimit: 1
   strategy:
     rollingUpdate:
@@ -51,34 +49,34 @@ spec:
       maxUnavailable: 1
   selector:
     matchLabels:
-      k8s-app: {{ name }}
+      k8s-app: \{\{ name \}\}
   template:
     metadata:
       labels:
-        k8s-app: {{ name }}
+        k8s-app: \{\{ name \}\}
     spec:
       containers:
-      - name: {{ name }}
-        image: {{ image -}}:{{ version }}
+      - name: \{\{ name \}\}
+        image: \{\{ image -\}\}:\{\{ version \}\}
         imagePullPolicy: IfNotPresent
         resources:
           limits:
-            memory: {{ memory }}Mi
-            #cpu: {{ cpu }}
+            memory: \{\{ memory \}\}Mi
+            #cpu: \{\{ cpu \}\}
         ports:
-        - containerPort: {{ port }}
+        - containerPort: \{\{ port \}\}
         livenessProbe:
           tcpSocket:
-            port: {{ port }}
+            port: \{\{ port \}\}
           initialDelaySeconds: 15
           periodSeconds: 20
         volumeMounts:
-          - name: {{branch}}-{{ name }}-data-storage
+          - name: \{\{branch\}\}-\{\{ name \}\}-data-storage
             mountPath: /opt
       imagePullSecrets:
         - name: harbor-auth
       volumes:
-      - name: {{branch}}-{{ name }}-data-storage
+      - name: \{\{branch\}\}-\{\{ name \}\}-data-storage
         hostPath:
           path: "/tmp/data"   #线上为gfs集群，非本地存储
  
@@ -86,15 +84,15 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: {{ name }}-com
+  name: \{\{ name \}\}-com
   labels:
-    k8s-app: {{ name }}
+    k8s-app: \{\{ name \}\}
 spec:
   selector:
-    k8s-app: {{ name }}
+    k8s-app: \{\{ name \}\}
   ports:
-  - port: {{ port }}
-    targetPort: {{ port }}
+  - port: \{\{ port \}\}
+    targetPort: \{\{ port \}\}
 ```
 
 简单说明一下上面deployment配置:
@@ -106,7 +104,7 @@ cpu不做限制是因为限制了cpu核数，服务启动会特别慢
 kubernetes内部各个服务中调用是通过{{name}}-com, 要全部小写，并且不能有特殊字符和 .，这是因为DNS的限制，因为实际DNS内部地址是
 
 ```
-{{name}}-com.default.svc.cluster.local
+\{\{name\}\}-com.default.svc.cluster.local
 ```
 
 程序之间相互调用是{{ name }}-com:{{ port }}
