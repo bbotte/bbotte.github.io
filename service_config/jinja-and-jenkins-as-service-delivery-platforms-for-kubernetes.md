@@ -25,13 +25,19 @@ pip install jinja2
 
 ```
 # cat /opt/template
-\{%- if cpu|length == 0 -%\}
-  \{%- set cpu = '1000m' -%\}
-\{%- endif -%\}
-\{%- if memory|length == 0 -%\}
-  \{%- set memory = '1024Mi' -%\}
-\{%- endif -%\}
- 
+\{\%- if replicas_num|length == 0 -\%\}
+  \{\%- set replicas_num = 2 -\%\}
+\{\%- endif -\%\}
+\{\%- if cpu|length == 0 -\%\}
+  \{\%- set cpu = '1000m' -\%\}
+\{\%- endif -\%\}
+\{\%- if memory|length == 0 -\%\}
+  \{\%- set memory = '1024Mi' -\%\}
+\{\%- endif -\%\}
+\{\%- if script|length == 0 -\%\}
+  \{\%- set script = "" -\%\}
+\{\%- endif -\%\}
+
 kind: Deployment
 apiVersion: apps/v1beta2
 metadata:
