@@ -4,6 +4,8 @@ layout: default
 
 ## [**数据库**](https://bbotte.github.io/databases/)
 
+[xtrabackup备份](https://bbotte.github.io/databases/xtrabackup-for-mysql)
+
 [mysql组复制mgr(mysql group replication)配置](https://bbotte.github.io/databases/mysql-group-replication-config)
 
 [mysql中间件proxysql](https://bbotte.github.io/databases/mysql-middleware-proxysql)
