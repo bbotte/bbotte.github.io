@@ -11,10 +11,10 @@ sqlsize=`du -sh /data/bak/xtra*|tail -n 5|awk '{print $1}'|grep -o [[:alpha:]]|g
 sqlparameter="--defaults-file=/opt/shell/my.cnf -p123456 -H127.0.0.1 -uroot"
 mkdir /data/bak/xtra${today}
 allBak(){
-    xtrabackup $sqlparameter --backup --target-dir=/data/bak/xtra${today} 2>> /tmp/xtra.log
+    xtrabackup $sqlparameter --backup --parallel=2 --target-dir=/data/bak/xtra${today} 2>> /tmp/xtra.log
 }
 appendBak(){
-    xtrabackup $sqlparameter --backup --target-dir=/data/bak/xtra${today} --incremental-basedir=/data/bak/xtra${yesterday} 2>> /tmp/xtra.log
+    xtrabackup $sqlparameter --backup --parallel=2 --target-dir=/data/bak/xtra${today} --incremental-basedir=/data/bak/xtra${yesterday} 2>> /tmp/xtra.log
 }
 if [[ -z $sqlsize ]];then
     allBak
