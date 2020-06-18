@@ -71,7 +71,7 @@ layout: default
 
 [consul集群的服务注册发现和模板使用](https://bbotte.github.io/service_config/consul-cluster-service-with-registry-and-discovery-and-template-usage)
 
-[elasticsearch创建index](https://bbotte.github.io/service_config/elasticsearch-create-index)
+[elasticsearch创建index](https://bbotte.github.io/service_config/elasticsearch-create-Indexes)
 
 [nginx的proxy_cache缓存使用](https://bbotte.github.io/service_config/use-nginx-proxy_cache-modules-for-cache)
 
