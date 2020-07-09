@@ -46,9 +46,6 @@ ENV  NODE_NAME="" \
 
 COPY config/elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml
 
-RUN mkdir -p /data/elasticsearch/{data,logs}
-RUN chown -R elasticsearch:elasticsearch /data/elasticsearch
-
 COPY docker-entrypoint.sh /
 COPY Shanghai /etc/localtime
 RUN apk add --no-cache curl
