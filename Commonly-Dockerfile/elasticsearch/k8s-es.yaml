@@ -1,0 +1,68 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: es
+  namespace: default
+  labels:
+    k8s-app: es
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      k8s-app: es
+  template:
+    metadata:
+      labels:
+        k8s-app: es
+    spec:
+      containers:
+      - name: es
+        imagePullPolicy: IfNotPresent
+        image: harbor.bbotte.com/ops/elasticsearch:v0.2
+        resources:
+          limits:
+            memory: 4Gi
+          requests:
+            memory: "0.1Gi"
+            cpu: "0.1"
+        ports:
+        - containerPort: 9200
+          name: es-http
+        - containerPort: 9300
+          name: es-transport
+        volumeMounts:
+        - name: es-data
+          mountPath: /data
+      volumes:
+      - name: es-data
+        persistentVolumeClaim:
+          claimName: gfsdefault
+      imagePullSecrets:
+      - name: harbor-auth-default
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: es
+  namespace: default
+  labels:
+    k8s-app: es
+spec:
+  selector:
+    k8s-app: es
+  ports:
+  - port: 9200
+    name: es-http
+    targetPort: 9200
+    nodePort: 30392
+    protocol: TCP
+  - port: 9300
+    name: es-transport
+  type: NodePort
