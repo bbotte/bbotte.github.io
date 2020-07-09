@@ -11,13 +11,9 @@ fi
 # allow the container to be started with `--user`
 if [ "$1" = 'elasticsearch' -a "$(id -u)" = '0' ]; then
 	# Change the ownership of user-mutable directories to elasticsearch
-#	for path in \
-#		/data/elasticsearch/data \
-#		/data/elasticsearch/logs \
-#	; do
-#		chown -R elasticsearch:elasticsearch "$path"
-#	done
-	
+        if [ ! -d "/data/elasticsearch/data" ];then 
+	mkdir -p /data/elasticsearch/{data,logs} && chown -R elasticsearch.elasticsearch /data/elasticsearch/
+	fi
 	set -- su-exec elasticsearch "$@"
 	#exec su-exec elasticsearch "$BASH_SOURCE" "$@"
 fi
