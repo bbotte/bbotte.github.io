@@ -1,0 +1,15 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dev-eureka-web
+  namespace: dev
+spec:
+  rules:
+  - host: eureka.bbotte.com
+    http:
+      paths:
+      - backend:
+          serviceName: tfs-eureka-com
+          servicePort: 9151
+        path: /

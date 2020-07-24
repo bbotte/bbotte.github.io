@@ -1,0 +1,98 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: eureka
+  namespace: dev
+spec:
+  serviceName: "tfs-eureka-com"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: eureka
+  template:
+    metadata:
+      labels:
+        app: eureka
+    spec:
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: eureka
+        image: harbor.bbotte.com/dev/tfs-eureka:dev-202007211459-a7c209bg
+        ports:
+        - containerPort: 9151
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1300Mi"
+        env:
+        - name: EUREKA_SERVER_PORT
+          value: "9151"
+        - name: MY_NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: MY_POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: MY_POD_NAMESPACE 
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: MY_IN_SERVICE_NAME 
+          value: tfs-eureka-com
+        - name: EUREKA_APPLICATION_NAME
+          value: eureka
+        - name: EUREKA_REPLICAS
+          value: "3"
+        - name: JAVA_OPTIONS
+          value: "-Xms1g -Xmx1g"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 9151
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          timeoutSeconds: 20
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 9151
+          initialDelaySeconds: 30
+          periodSeconds: 20
+          timeoutSeconds: 30
+ 
+     #   volumeMounts:
+     #   - name: eurekadata
+     #     mountPath: /data
+     #     readOnly: false
+      imagePullSecrets:
+        - name: harbor-auth-dev
+      #volumes:
+      #- name: eurekadata
+      #  persistentVolumeClaim:
+      #    claimName: gfsdeveureka
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tfs-eureka-com
+  namespace: dev
+  labels:
+    app: eureka
+spec:
+  selector:
+    app: eureka
+  type: NodePort
+  ports:
+  - port: 9151
+    targetPort: 9151
+    nodePort: 30151
