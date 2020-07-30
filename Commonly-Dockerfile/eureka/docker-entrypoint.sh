@@ -13,6 +13,7 @@ BOOL_FETCH="true"
 if [ ! -n "$EUREKA_REPLICAS" ]; then EUREKA_REPLICAS=1 ;fi
 
 # 根据副本数进行相关设置
+if [ ! -z $MY_IN_SERVICE_NAME ];then
 if [ $EUREKA_REPLICAS -eq 1 ]; then
     export EUREKA_URL_LIST="http://$MY_POD_NAME.$MY_IN_SERVICE_NAME:$EUREKA_SERVER_PORT/eureka/,"
     echo " Set the EUREKA_URL_LIST is $EUREKA_URL_LIST" | tee -a $EUREKALOG
@@ -27,6 +28,7 @@ fi
 
 #去除结尾的逗号
 export EUREKA_URL_LIST=${EUREKA_URL_LIST%?}
+fi
 
 echo "MY_NODE_NAME=$MY_NODE_NAME" >> $EUREKALOG
 echo "MY_POD_NAME=$MY_POD_NAME" >> $EUREKALOG

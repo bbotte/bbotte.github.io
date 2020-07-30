@@ -20,7 +20,7 @@ eureka:
     lease-expiration-duration-in-seconds: 90
   client:
     service-url:
-      defaultZone: ${EUREKA_URL_LIST:http://${MY_POD_NAME:localhost}.${MY_IN_SERVICE_NAME:localhost}:${EUREKA_SERVER_PORT:9151}/eureka/}
+      defaultZone: ${EUREKA_URL_LIST:http://${MY_POD_NAME:${HOSTNAME}}.${MY_IN_SERVICE_NAME:}:${EUREKA_SERVER_PORT:9151}/eureka/}
     register-with-eureka: ${BOOL_REGISTER:true}
     fetch-registry: ${BOOL_FETCH:true}
     healthcheck:
