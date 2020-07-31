@@ -1,0 +1,109 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: es
+  namespace: default
+spec:
+  serviceName: "es-com"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: es
+  template:
+    metadata:
+      labels:
+        app: es
+    spec:
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: es
+        image: harbor.bbotte.com/devops/es6:0.6
+        securityContext:
+          privileged: true 
+        ports:
+        - containerPort: 9200
+        - containerPort: 9300
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1300Mi"
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: DIS_HOSTS      #${POD_NAME}.${SERVICE_NAME}
+          value: es-0.es-com,es-1.es-com,es-2.es-com
+        - name: SERVICE_NAME
+          value: es-com
+        - name: DIS_NUMBER
+          value: "2"
+        - name: ES_JAVA_OPTS
+          value: "-Xms1g -Xmx1g"
+        - name: MEMORY_LOCK
+          value: "true"
+        readinessProbe:
+          httpGet:
+            path: /_cluster/health
+            port: 9200
+          initialDelaySeconds: 5
+          periodSeconds: 30
+          timeoutSeconds: 20
+        livenessProbe:
+          httpGet:
+            path: /_cluster/health?local=true
+            port: 9200
+          initialDelaySeconds: 90
+          periodSeconds: 40
+          timeoutSeconds: 20
+        volumeMounts:
+        - name: esdata
+          mountPath: /data
+          readOnly: false
+      initContainers:
+      - image: harbor.iris-technologies.com.cn:50505/k8s/busybox
+        command: ["sysctl", "-w", "vm.max_map_count=262144"]
+        name: es-init
+        securityContext:
+          privileged: true 
+      imagePullSecrets:
+        - name: harbor-auth-def
+      volumes:
+      #- name: esdata
+      #  persistentVolumeClaim:
+      #    claimName: gfsdeves
+      - name: esdata
+        hostPath:
+          path: "/tmp/6"
+  #volumeClaimTemplates:
+  #- metadata:
+  #    name: esdata
+  #  spec:
+  #    accessModes: [ "ReadWriteMany" ]
+  #    resources:
+  #      requests:
+  #        storage: 2Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: es-com
+  namespace: default
+  labels:
+    app: es
+spec:
+  selector:
+    app: es
+  type: NodePort
+  ports:
+  - port: 9200
+    targetPort: 9200
+    nodePort: 30152
