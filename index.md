@@ -264,6 +264,7 @@ layout: default
 # 独立项目
 
 ```
+Commonly-Dockerfile      常用服务如mysql、redis、zookeeper、kafka、elasticsearch、eureka的Dockerfile、docker-compose、kubernetes配置
 jenkins_publish          一个项目多个环境的jenkins多线程构建
 RedisSearchKey           模糊搜索redis 16个数据库中key
 Message_Board            简单的留言板
@@ -288,7 +289,7 @@ kafka-cluster                          kafka集群
 ```
 文件夹                    备注
 2015year                 2015年以前的文档
-Commonly-Dockerfile      常用服务的Dockerfile,包含elasticsearch、mysql、eureka、zookeeper、kafka、                           redis、nginx、java、mongodb等Dockerfile
+Commonly-Dockerfile      常用服务的Dockerfile,包含elasticsearch、mysql、eureka、zookeeper、kafka、redis、nginx、java、mongodb等Dockerfile
 docker-compose-publish   docker-compose发布脚本
 harbor-py                有关harbor仓库的python脚本
 kubeadm_binary           kubeadm 10年过期时间的二进制文件
