@@ -5,10 +5,11 @@ path.logs: /data/elasticsearch/logs
 http.cors.enabled: true
 http.cors.allow-origin: "*" 
 
-xpack.ml.enabled: false
-xpack.monitoring.enabled: false
-xpack.security.enabled: false
-xpack.watcher.enabled: false
+xpack.ml.enabled: ${XPACKML:false}
+xpack.monitoring.enabled: ${XPACKMONITORING:false}
+xpack.security.enabled: ${XPACKSEC:false}
+xpack.watcher.enabled: ${XPACKWATCHER:false}
+xpack.monitoring.collection.enabled: ${XPACKCOLLECTION:false}
 
 node.name: ${POD_NAME:${HOSTNAME}}
 bootstrap.memory_lock: ${MEMORY_LOCK:true}

@@ -11,7 +11,7 @@ eureka:
   environment: ${ENVIRONMENT:dev}
   instance:
     hostname: ${MY_POD_NAME:eureka}.${MY_IN_SERVICE_NAME:localhost}
-    appname: ${MY_IN_SERVICE_NAME:spring.application.name}
+    appname: ${MY_IN_SERVICE_NAME:${spring.application.name}}
     prefer-ip-address: false
     instance-id: ${MY_POD_NAME:${spring.application.name}}:${MY_IN_SERVICE_NAME:localhost}:${EUREKA_SERVER_PORT:9151}
     #服务刷新时间配置，每隔这个时间会主动心跳一次 默认 30秒

@@ -8,6 +8,8 @@ services:
       - DIS_HOSTS=es-0,es-1,es-2
       - MEMORY_LOCK=true
       - DIS_NUMBER=2
+      - XPACKMONITORING=true
+      - XPACKCOLLECTION=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
@@ -27,6 +29,8 @@ services:
       - DIS_HOSTS=es-0,es-1,es-2
       - MEMORY_LOCK=true
       - DIS_NUMBER=2
+      - XPACKMONITORING=true
+      - XPACKCOLLECTION=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
@@ -44,6 +48,8 @@ services:
       - DIS_HOSTS=es-0,es-1,es-2
       - MEMORY_LOCK=true
       - DIS_NUMBER=2
+      - XPACKMONITORING=true
+      - XPACKCOLLECTION=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
