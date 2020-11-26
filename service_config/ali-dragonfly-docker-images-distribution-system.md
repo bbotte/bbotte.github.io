@@ -4,6 +4,8 @@
 
 #####0.3版本
 
+
+
 ```
 docker run --name dragonfly-supernode --restart=always -d -p 8001:8001 -p 8002:8002 -v /opt/dragonfly/:/home/admin/supernode dragonflyoss/supernode:0.3.0 -Dsupernode.advertiseIp=192.168.0.151
 ```
@@ -17,6 +19,8 @@ supernode.advertiseIp为服务端ip，这个ip需要客户端能访问，这里�
 ```
 
 #####0.4版本
+
+
 
 ```
 docker run -d --name supernode --restart=always -p 8001:8001 -p 8002:8002 -v /opt/dragonfly:/home/admin/supernode dragonflyoss-supernode:0.4.3 --download-port=8001
@@ -47,7 +51,7 @@ EOD
 docker run -d --name dfclient --restart=always -p 65001:65001 -v /etc/dragonfly.conf:/etc/dragonfly.conf dragonflyoss-dfclient:0.4.3 --registry http://harbor.bbotte.com --node 192.168.0.151
 ```
 
-需要设置docker的登录，拉取镜像使用http://127.0.0.1:65001代替原来的http://harbor.bbotte.com
+需要设置docker的登录，拉取镜像使用http://127.0.0.1:65001 代替原来的 http://harbor.bbotte.com
 
 ```
 # cat /etc/docker/daemon.json 
