@@ -5,7 +5,7 @@ docker images|sort -rn|grep harbor.bbotte.com|grep -v k8s|awk '{print $1,$2,$3}'
 # 为了避免删镜像的时候磁盘IO过高，所以加sleep
 #docker images|sort -rn|grep harbor.bbotte.com|grep -v k8s|awk '{print $1,$2,$3}'|awk -F'-' 'gsub(/[[:blank:]]*/,"",$2){print $1,$2,"    ",$NF}'|awk '{print $2,$NF}'|awk 'x[$1]++' |awk '{print $2}'|uniq -c|awk '{print $2}'|while read i;do docker rmi $i;sleep 0.5;done
 
-# 也可以使用docker 系统命令删除
+# /var/lib/docker/overlay2 文件夹占用磁盘大，可以使用docker 系统命令删除
 docker system df -v
 
 docker system prune
