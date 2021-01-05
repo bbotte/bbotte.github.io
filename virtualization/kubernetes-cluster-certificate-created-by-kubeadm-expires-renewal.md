@@ -327,7 +327,7 @@ Run 'kubectl get nodes' on the master to see this node join the cluster.
 discovery-token 不记得？
 
 ```
-[root@node ~]# grep token\: /etc/kubernetes/bootstrap-kubelet.conf
+[root@node ~]# kubeadm token generate
 ```
 
 discovery-token-ca-cert-hash 忘了的话
