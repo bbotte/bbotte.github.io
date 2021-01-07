@@ -1,7 +1,7 @@
 version: '2.4'
 services:
-  system-com:
-    container_name: system-com
+  system:
+    container_name: system
     image: harbor.bbotte.com/master/system:demo-201809131041-357eee81
     restart: always
     volumes:
@@ -11,9 +11,9 @@ services:
     networks:
      - bbotte
 
-  task-com:
-    container_name: task-com
-    image: harbor.bbotte.com/master/task:demo-201809131042-ef5342ca
+  market:
+    container_name: market
+    image: harbor.bbotte.com/master/market:demo-201809131042-ef5342ca
     restart: always
     volumes:
      - /opt/log:/opt/log
@@ -22,8 +22,8 @@ services:
     networks:
      - bbotte
 
-  db-com:
-    container_name: db-com
+  db:
+    container_name: db
     image: harbor.bbotte.com/master/mysql-server:0.9
     restart: always
     volumes:
