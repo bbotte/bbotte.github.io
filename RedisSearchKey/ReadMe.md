@@ -1,5 +1,9 @@
 ## Redis Search Key
 
+请使用redis官方工具redisinsight，docker地址： redislabs/redisinsight:latest
+
+
+
 为什么用这个工具：redis多数客户端并不支持在16个db中查询一个键的功能
 
 用途：查询redis 16个数据库里面某些key的值
