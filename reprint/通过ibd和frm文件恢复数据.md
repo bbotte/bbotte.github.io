@@ -1,4 +1,4 @@
-# 通过ibd和frm文件恢复数据
+# (转载)通过ibd和frm文件恢复数据
 
 沈刚 原文链接 http://www.woqutech.com/docs_info.php?id=383
 
