@@ -275,6 +275,8 @@ layout: default
 
 [异地多活设计难-其实是你陷入了这四大误区出不来](https://bbotte.github.io/reprint/异地多活设计难-其实是你陷入了这四大误区出不来)
 
+[通过ibd和frm文件恢复数据](https://bbotte.github.io/reprint/通过ibd和frm文件恢复数据)
+
 
 
 

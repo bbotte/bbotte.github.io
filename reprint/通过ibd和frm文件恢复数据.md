@@ -26,12 +26,6 @@ innodb_file_per_table
 
 <img src="../images/2020/12/20200203223041_79420.png" alt="drawing"  style="width:400px;"/>
 
-将新建表的ibd文件以及frm文件拷贝到tmp目录下备份，假如是message_index表
-
-```
-# cp message_index.* /tmp/
-```
-
 使用被恢复的frm文件替换新创建的同名表的frm文件
 
 ```
@@ -49,7 +43,7 @@ cp：是否覆盖"./message_index.frm"？ y
 查看error.log，获取被恢复表的字段数
 错误日志中会打印我们需要恢复的表的字段数，这边可以看到我们需要恢复的表中含有6个字段
 
-<img src="../images/2020/12/20200203223137_65013.png" alt="drawing"  style="width:800px;"/>
+<img src="../images/2020/12/20200203223137_65013.png" alt="drawing"  style="width:900px;"/>
 
 删除message_index表，并重新创建message_index表
 从上面的步骤中我们知道被恢复表中含有6个字段，所以重新创建的message_index表需要含有6个字段，字段名以及字段类型不限制
@@ -73,9 +67,16 @@ cp：是否覆盖"./message_index.frm"？ y
 **2.3、表数据恢复**
 拿到表结构之后，表数据恢复步骤相对表结构恢复步骤而言会简单一些
 
-将innodb_force_recovery=6从配置文件中去掉、使用/tmp目录下的ibd文件以及frm文件覆盖当前的对应文件、重启数据库
+将innodb_force_recovery=6从配置文件中注释，重启数据库
 
-在数据库中按照获取到的表结构新建一张message_index表
+拿到message_index表的表结构后，把原来的表清理，再根据表结构新建这个表
+
+```
+mysql> drop table message_index;
+mysql> CREATE TABLE `message_index` ( *******); -- 根据上面的表结构创建表，现在是空表，只有结构没数据
+mysql> select * from message_index;
+Empty set (0.00 sec)
+```
 
 执行alter table discard tablespace语句
 
@@ -86,6 +87,7 @@ mysql> alter table message_index discard tablespace;
 将要恢复的表的ibd文件拷贝到当前库下，并更改属主以及属组
 
 ```
+# cp /data2/message_index.ibd ./
 # chown -R mysql:mysql ./*
 ```
 
