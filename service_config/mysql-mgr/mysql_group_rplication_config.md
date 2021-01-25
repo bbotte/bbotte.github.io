@@ -260,5 +260,45 @@ loose-group_replication_start_on_boot=on
 SELECT MEMBER_ID, MEMBER_HOST,MEMBER_PORT,MEMBER_STATE,IF(global_status.VARIABLE_NAME IS NOT NULL,'PRIMARY','SECONDARY') AS MEMBER_ROLE FROM performance_schema.replication_group_members LEFT JOIN performance_schema.global_status ON global_status.VARIABLE_NAME = 'group_replication_primary_member' AND global_status.VARIABLE_VALUE = replication_group_members.MEMBER_ID;
 ```
 
+
+
+如果是断电导致数据库都停止，那么把数据库启动后，设置一下就可以
+
+3台数据库my.conf配置
+
+```
+[mysqld]
+read_only=1
+disabled_storage_engines="BLACKHOLE,FEDERATED,ARCHIVE,MEMORY"
+plugin_load_add='group_replication.so'
+transaction_write_set_extraction=XXHASH64
+loose-group_replication_group_name="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+#loose-group_replication_start_on_boot=off
+loose-group_replication_bootstrap_group=off
+loose-group_replication_local_address="192.168.0.188:3316"
+loose-group_replication_group_seeds="192.168.0.187:3316,192.168.0.188:3316,192.168.0.189:3316"
+
+loose-group_replication_allow_local_disjoint_gtids_join=on
+loose-group_replication_start_on_boot=on
+```
+
+主库执行
+
+```
+SET GLOBAL group_replication_bootstrap_group=ON;
+START GROUP_REPLICATION;
+SET GLOBAL group_replication_bootstrap_group=OFF;
+SELECT * FROM performance_schema.replication_group_members;
+```
+
+另外2个库执行
+
+```
+set global group_replication_allow_local_disjoint_gtids_join=ON;
+START GROUP_REPLICATION;
+```
+
+
+
 参考
 https://dev.mysql.com/doc/refman/5.7/en/group-replication.html
