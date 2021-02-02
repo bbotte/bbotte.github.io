@@ -2,6 +2,8 @@
 
 seanlook.com  原文链接 http://seanlook.com/2018/03/11/mysql-replication-error-and-idempotent/
 
+好像链接变为 http://xgknight.com/2018/03/11/mysql-replication-error-and-idempotent/
+
 
 
 # 1. slave_exec_mode 参数作用
