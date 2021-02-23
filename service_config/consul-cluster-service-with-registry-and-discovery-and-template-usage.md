@@ -27,9 +27,15 @@ consol客户端      |     | consul服务端      |    |nginx代理      |    |�
 
 ### **consul集群服务建立**
 
+
+
 vm01  server    10.211.55.4   agent-one
+
 vm02  client     10.211.55.5   agent-two
+
 vm03  client     10.211.55.6   agent-three
+
+
 
 ```
 [root@vm01 ~]# unzip consul_0.7.0_linux_amd64.zip -d /opt/
