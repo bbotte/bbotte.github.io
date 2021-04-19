@@ -8,17 +8,18 @@ RUN yum install -y java-1.8.0-openjdk
 RUN groupadd -g 1000 elasticsearch && \
     adduser -u 1000 -g 1000 -d /usr/share/elasticsearch elasticsearch
 
-ENV ESVERSION 6.8.10
+ENV ESVERSION 6.8.13
 WORKDIR /usr/share/elasticsearch
 ENV PATH /usr/share/elasticsearch/bin:$PATH
 ENV ELASTICSEARCH_PATH /usr/share/elasticsearch/bin
 
-COPY elasticsearch-$ESVERSION.tar.gz /elasticsearch-$ESVERSION.tar.gz
+#COPY elasticsearch-$ESVERSION.tar.gz /elasticsearch-$ESVERSION.tar.gz
 RUN set -ex; \
         dir="$(dirname "$ELASTICSEARCH_PATH")"; \
         mkdir -p "$dir" ; \
-    #wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$ESVERSION.tar.gz -o /elasticsearch-$ESVERSION.tar.gz && \
-    tar -xf /elasticsearch-$ESVERSION.tar.gz --strip-components=1 -C "$dir"; \
+    wget https://repo.huaweicloud.com/elasticsearch/$ESVERSION/elasticsearch-$ESVERSION.tar.gz -O /elasticsearch.tar.gz ; ls -alh /elasticsearch.tar.gz ;\
+    tar -xf /elasticsearch.tar.gz --strip-components=1 -C "$dir" ; \
+    rm -f /elasticsearch.tar.gz ; \
     chown elasticsearch.elasticsearch -R "$dir"/config "$dir"/logs
 
 ENV ES_TMPDIR="/tmp"

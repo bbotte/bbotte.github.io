@@ -50,8 +50,7 @@ make install
 start on power on
 
 ```
-# cat nginx.service
-#/usr/lib/systemd/system/nginx.service
+# cat cat /etc/systemd/system/multi-user.target.wants/nginx.service
 [Unit]
 Description=nginx - high performance web server
 Documentation=http://nginx.org/en/docs/
