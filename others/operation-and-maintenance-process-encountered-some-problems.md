@@ -162,8 +162,21 @@ repair table newdb.table1;
 ALTER TABLE newdb.table1 IMPORT TABLESPACE;
 ```
 
+### nginx或tengine代理https
 
+nginx或者tengine proxy_pass 一个https的链接，请求一直没响应
 
+```
+     proxy_set_header Host $host;
+     proxy_set_header Host $http_host;
+     proxy_set_header Host $host:$server_port;
+```
+
+```
+proxy_set_header X-Forwarded-Proto https;
+```
+
+要么把proxy_set_header 去掉，要么在location里面添加 X-Forwarded-Proto https
 
 
 2017年07月21日 于 [linux工匠](https://bbotte.github.io/) 发表
