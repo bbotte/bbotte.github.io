@@ -12,6 +12,7 @@ kubectl create secret docker-registry SECRET_NAME --namespace=NAME_SPACE --docke
 ```
 
 这里没有采用上面方式，下面是创建拉取私有镜像的2种方式
+
 1,首先命令行登录harbor，查看docker登录的信息
 
 ```
@@ -31,6 +32,7 @@ docker login harbor.bbotte.com:5000 -u admin -p haha\!@%^
 ```
 
 可以看一下记录的密码： echo AAABBBCCCDDD |base64 -d
+
 2,获取docker-registry经base64加密的字符串
 
 ```
@@ -80,6 +82,7 @@ spec:
 ```
 
 也有说把.docker目录复制到kubelet就可以，node节点比较多，没测试
+
 cp /root/.docker /var/lib/kubelet/
 
 harbor结构：
