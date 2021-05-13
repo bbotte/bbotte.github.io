@@ -23,9 +23,25 @@ elasticsearch update mapping and template on existing index,就是给字段添�
 
 ![elasticsearch的template和mapping - 第1张](../images/2016/08/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180202101027.png)
 
-### **一，更改template**
 
-从一个indices导出模板，再导入另一个indices
+
+步骤总的来说，从现有的index导出模板，把现有的删除，修改这个模板后再导入到es，
+
+对于mapping也一样，比如www-2020.01.01,先导出这个已有的mapping
+
+curl "http://localhost:9200/www-*/_mapping?pretty" > 1.json
+
+删除现在已经创建的index: www-2020.01.01
+
+修改1.json的mapping
+
+再PUT上去名字为www-2020.01.01的index
+
+curl -XPUT "http://localhost:9200/www-2020.01.01" -H 'Content-Type: application/json' -d @1.json
+
+最后刷新kibana的 index
+
+### **一，更改template**
 
 先说几个常用的请求，以最原始的logstash-*索引为例：
 
