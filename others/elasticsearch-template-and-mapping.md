@@ -23,6 +23,41 @@ elasticsearch update mapping and template on existing index,就是给字段添�
 
 ![elasticsearch的template和mapping - 第1张](../images/2016/08/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180202101027.png)
 
+[geoip.location is not of type geo_point] Index pattern does not contain any of the following field types: geo_point  这个问题是需要更新geoip的type，"type": "geo_point" ,这个类型是动态的，因为经纬度带小数点，所以会识别为float
+
+```
+            "location": {
+              "properties": {
+                "lat": {
+                  "type": "float"
+                },
+                "lon": {
+                  "type": "float"
+                }
+              }
+            },
+```
+
+
+
+```
+{           
+  "www-2020.01.01" : {  #删除
+    "mappings" : {
+      "doc" : { 
+        "properties" : {
+        ...  # 省略
+          "geoip" : {
+            "dynamic": "true",
+            "properties" : {
+            ...  # 省略
+              "location" : {
+                "type": "geo_point"  #修改
+              },
+            ...  # 省略
+}  #删除
+```
+
 
 
 步骤总的来说，从现有的index导出模板，把现有的删除，修改这个模板后再导入到es，
