@@ -140,6 +140,15 @@ this.base_uri = this.config.base_uri || this.prefs.get("app-base_uri") || "http:
 npm run start
 ```
 
+如果浏览器打开head插件连不上es数据库，提示 Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:9200，那么在 /etc/elasticsearch/elasticsearch.yml 配置中添加：
+
+```
+http.cors.enabled : true
+http.cors.allow-origin: "*"
+```
+
+
+
 ### 服务启动及关闭
 
 ```
@@ -166,6 +175,23 @@ app-server生成log  |    |          |    |                 |    |              
                   |----|kafka     |----|logstash indexer |----|elasticsearch db |
 logstash shipper  |    |          |    |                 |    |                 |
 ------------------     -----------      -----------------     ------------------
+```
+
+
+
+另: 更改默认的 shards 数量，之后新建的index就是设置的数量
+
+```
+curl -XPUT "http://127.0.0.1:9200/_template/index_defaults" -H 'Content-Type: application/json' -d '
+{
+    "index_patterns": "*", 
+    "settings" : {
+        "index" : {
+            "number_of_shards" : 2,
+            "number_of_replicas" : 1
+        }
+    }
+}'
 ```
 
 
