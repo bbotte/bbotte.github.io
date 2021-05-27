@@ -29,7 +29,7 @@ pip install jinja2
   \{\%- set replicas_num = 2 -\%\}
 \{\%- endif -\%\}
 \{\%- if cpu|length == 0 -\%\}
-  \{\%- set cpu = '1000m' -\%\}
+  \{\%- set cpu = '1000' -\%\}
 \{\%- endif -\%\}
 \{\%- if memory|length == 0 -\%\}
   \{\%- set memory = '1024Mi' -\%\}
@@ -68,7 +68,7 @@ spec:
         resources:
           limits:
             memory: \{\{ memory \}\}Mi
-            #cpu: \{\{ cpu \}\}
+            #cpu: \{\{ cpu \}\}m
         ports:
         - containerPort: \{\{ port \}\}
         livenessProbe:

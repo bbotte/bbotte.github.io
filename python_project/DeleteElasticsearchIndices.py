@@ -8,7 +8,7 @@ import re
 from elasticsearch import Elasticsearch
 
 
-daysToKeep = 90
+daysToKeep = 30
 es = Elasticsearch('localhost:9200',timeout=60.0)
 keep_time = (datetime.datetime.now() - datetime.timedelta(days=daysToKeep)).strftime("%Y.%m.%d")
 
@@ -16,9 +16,9 @@ keep_time = (datetime.datetime.now() - datetime.timedelta(days=daysToKeep)).strf
 indices_list = []
 result = es.cat.indices()
 data = result.splitlines()
-#过滤.kibana的indices
-del_kibana = re.compile('kibana')
-lines = [line for line in data if del_kibana.search(line) is None ]
+#过滤业务的indices
+app_service = re.compile('service')  #service 为index中包含字段，例 abc-system-service-2018.01.01
+lines = [line for line in data if del_kibana.search(line) is not None ]
 #print(lines)
 
 for i in range(len(lines)):
@@ -30,7 +30,8 @@ print(indices_list)
 #for i in range(len(lines)):
 #    index_list.append(index_data[i]["_id"])
 
-#一次跑太多会提示out of range，所以分每50个一批跑，下面try/except是因为indices格式有*-*-date，*-date
+#一次跑太多会提示out of range，所以分每50个一批跑，
+#下面try/except是因为indices格式有*-*-date, *-*-*-date
 times = len(indices_list)/50
 x = 1
 while x <= times:
@@ -38,27 +39,17 @@ while x <= times:
     index_min = 50*(x-1)
     for y in range(index_min,index_max):
         try:
-            idx_date = re.split(r'\-',indices_list[y])[4]
+            idx_date = re.split(r'\-',indices_list[y])[2]
         except:
-            print(idx_date)
+            idx_date = re.split(r'\-',indices_list[y])[3]
         else:
             if idx_date < keep_time:
                 print "Deleting index: %s" % (indices_list[y])
                 es.indices.delete(index=indices_list[y])
     x = x+1
 
-#因为到最后x又加了1，所以下面减去1
-for i in range((x-1)*50,len(indices_list)):
-    try:
-        idx_date = re.split(r'\-',indices_list[i])[3]
-    except:
-        print(idx_date)
-    else:
-        if idx_date < keep_time:
-            print "Deleting index: %s" % (indices_list[i])
-            es.indices.delete(index=indices_list[i])
 
-#下面是system-ngxaccess,web-ngxaccess 保留7天
+#下面是system-ngxaccess-2018.01.01,web-ngxaccess-2018.01.01 保留7天
 access_date = 7
 access_keep_time = (datetime.datetime.now() - datetime.timedelta(days=access_date)).strftime("%Y.%m.%d")
 save_access = re.compile('ngxaccess')
