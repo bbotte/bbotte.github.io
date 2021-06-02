@@ -6,7 +6,7 @@ layout: default
 
 ##### 鉴于网络上多数istio版本较老，本文用新版k8s和istio做测试小结，目的是节省看官方文档时间，尽快明白istio的运行
 
-2台虚拟机，内存均为4296，小于4G内存pod经常出问题
+2台虚拟机，内存均为4296m，小于4G内存pod经常出问题
 
 | 版本号     |                 |
 | ---------- | --------------- |
@@ -515,22 +515,83 @@ control plane version: 1.10.0
 data plane version: 1.10.0
 ```
 
+附：加个istio-ingressgateway使用阿里云私有SLB配置，
+
+```
+# cat istio-ingressgateway.yaml 
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/alicloud-loadbalancer-address-type: intranet
+    service.beta.kubernetes.io/alicloud-loadbalancer-force-override-listeners: 'true'
+    service.beta.kubernetes.io/alicloud-loadbalancer-id: lb-uf**********  #私网SLB名称
+  labels:
+    app: istio-ingressgateway
+    install.operator.istio.io/owning-resource: unknown
+    install.operator.istio.io/owning-resource-namespace: istio-system
+    istio: ingressgateway
+    istio.io/rev: default
+    operator.istio.io/component: IngressGateways
+    operator.istio.io/managed: Reconcile
+    operator.istio.io/version: 1.10.0
+    release: istio
+  name: istio-ingressgateway
+  namespace: istio-system
+spec:
+  ports:
+  - name: status-port
+    nodePort: 32045
+    port: 15021
+    protocol: TCP
+    targetPort: 15021
+  - name: http2
+    nodePort: 30080
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  - name: https
+    nodePort: 30443
+    port: 443
+    protocol: TCP
+    targetPort: 8443
+  selector:
+    app: istio-ingressgateway
+    istio: ingressgateway
+  sessionAffinity: None
+  type: LoadBalancer
+  externalTrafficPolicy: "Local"
+status:
+  loadBalancer:
+    ingress:
+    - ip: 172.16.*.*  #私网SLB
+```
+
+先把现在使用公网SLB的服务删除，在apply上面私网SLB配置即可
+
+```
+kubectl delete svc -n istio-system istio-ingressgateway
+```
+
+dns指向内部的私网SLB IP，访问域名即可打开部署的服务。因为kiali、grafana、jaeger使用的是NodePort，所以以http://k8s_node_ip:NodePort/ 打开连接访问，访问不到的话需要加一层nginx代理
+
 #### 测试istio功能
 
 这样istio就安装完成，对default 命名空间默认启用istio服务网格，这样就不用  kubectl apply -f <(istioctl kube-inject -f  someone.yaml)
 
 ```
 kubectl label namespace default istio-injection=enable
+kubectl get namespace -L istio-injection
 ```
 
-以bookinfo为例
+如果没有injection，那么 kubectl label namespace default istio-injection=enabled --overwrite ，以bookinfo为例
 
 ```
 kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 ```
 
-安装好了看一下状态，都是2/2 ，说明服务运行分了2个阶段，第一个阶段是istio注入，第二阶段是服务启动
+安装好了看一下状态，都是2/2 ，说明服务运行分了2个阶段，第一个阶段是istio注入，第二阶段是服务启动。如果是1/1肯定是istio还没用注入
 
 ```
 # kubectl get po
