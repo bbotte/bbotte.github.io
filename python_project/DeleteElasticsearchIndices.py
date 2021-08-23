@@ -16,7 +16,7 @@ indices_list = []
 result = es.cat.indices()
 data = result.splitlines()
 
-test_kibana = re.compile(r'test1')  #筛选包含test1的index
+test1_kibana = re.compile(r'test1')   #筛选包含test1的index
 test2_kibana = re.compile(r'test2')   #筛选包含test2的index
 lines = [line for line in data if test1_kibana.search(line) is not None or test2_kibana.search(line) is not None ]
 
