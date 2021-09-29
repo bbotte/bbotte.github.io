@@ -9,7 +9,7 @@ ProjectList="system market "
 if [ ! -f $base_dir/ServiceVersion ];then echo ServiceVersion file is not find;exit 1;fi
 for ProjectName in $ProjectList ;do
     ProjectVersion=`grep -w $ProjectName $base_dir/ServiceVersion|awk -F':' '{print $2}'`
-    OldVersion=`grep -w "$ProjectName" $base_dir/docker-compose.yml|grep "image:"|awk -F':' '{print $4}'`
+    OldVersion=`grep -w "$ProjectName" $base_dir/docker-compose.yml|egrep "image:|#"|awk -F':' '{print $NF}'`
     if [[ ! -n $OldVersion ]];then echo $ProjectName version is null, please write casual, like 1234 ;exit 1;fi
     if [[ -n $ProjectVersion && $ProjectVersion != $OldVersion ]];then
         ChangeLine=`grep -wn "$ProjectName" $base_dir/docker-compose.yml|grep image:|awk -F':' '{print $1}'`
