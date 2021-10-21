@@ -297,5 +297,17 @@ The following plugins have been enabled:
 Applying plugin configuration to rabbit@vm02... started 6 plugins.
 ```
 
+
+
+##### rabbitmq的HA
+
+rabbitmq的HA高可用需要设置policy
+
+![rabbitmq集群设置policy](../images/2021/05/rabbitmq-cluster-policy.png)
+
+virtual host选自建的，下面name名字随意起的，pattern 为 ^ 表示匹配所有，下面ha-mode选all，这样node1节点故障，queue会在其他节点上继续运行，不会出现 queue down的情况
+
+
+
 2016年04月29日 于 [linux工匠](https://bbotte.github.io/) 发表
 

@@ -45,12 +45,12 @@ fork=true
 服务的启动和停止
 
 ```
-service start
+服务启动
 mongod -f /etc/mongod.conf
-login
+登录
 mongo
  
-service stop
+服务停止
 mongo 127.0.0.1:27017/admin --eval "db.shutdownServer()"
 或者 
 ps aux|grep [m]ongod.conf|awk '{print $2}'|xargs kill -2
@@ -73,7 +73,7 @@ db.createUser({ 'user' : 'admin', 'pwd' : 'bbotte.com', 'roles':[ {role:'root',d
 
 关闭mongodb
 
-更改配置文件，**开启auth=true密码认证**
+更改配置文件，**开启auth=true密码认证**，对testdb数据库添加用户
 
 ```
 use admin
@@ -89,7 +89,7 @@ db.createUser({ 'user':'testmongo', 'pwd':'books.bbotte.com', 'roles':[ { role:'
 ```
 use testdb
 db.auth('testmongo','books.bbotte.com')
-db.toptest.insert({testdb:'this is test'})
+db.testdb.insert({testdb:'this is test'})
 show collections
 db.testdb.find()
 ```
