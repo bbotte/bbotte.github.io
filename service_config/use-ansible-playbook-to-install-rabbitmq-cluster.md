@@ -227,6 +227,10 @@ PLAY RECAP *********************************************************************
 
 Consider using file module with state=directory rather than running mkdir的提示是说：最好用 state=directory 代替mkdir
 
+
+
+### rabbitmq界面
+
 我们要查看rabbitmq的界面，需要启用图形化界面插件，并且设置登录的用户名、密码和权限
 
 ```
@@ -299,13 +303,15 @@ Applying plugin configuration to rabbit@vm02... started 6 plugins.
 
 
 
-##### rabbitmq的HA
+### rabbitmq的HA
 
 rabbitmq的HA高可用需要设置policy
 
 ![rabbitmq集群设置policy](../images/2021/05/rabbitmq-cluster-policy.png)
 
 virtual host选自建的，下面name名字随意起的，pattern 为 ^ 表示匹配所有，下面ha-mode选all，这样node1节点故障，queue会在其他节点上继续运行，不会出现 queue down的情况
+
+ha-sync-mode 选automatic，默认新加入的镜像不会同步消息，即默认的选项是manual，如果不加此选项，rabbitmq node节点重启后，会提示unsynchronised mirrors
 
 
 
