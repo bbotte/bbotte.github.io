@@ -177,13 +177,13 @@ layout: default
 
 [kubernetes集群中的kafka服务配置](https://bbotte.github.io/virtualization/config_kafka_in_kubernetes)
 
+[kubeadm安装1.13.3版本kubernetes文档](https://bbotte.github.io/virtualization/kubernetes-version-1-13-3-installation-steps-by-kubeadm)
+
 [kubernetes 1.13.3集群安装步骤文档](https://bbotte.github.io/virtualization/kubernetes_cluster_install_1-13-3)
 
 [kubernetes 1.9.4集群安装文档向导](https://bbotte.github.io/virtualization/kubernetes_cluster_install_1-9-4)
 
 [kubernetes内存监控面板数值的意义](https://bbotte.github.io/virtualization/the-meaning-of-the-kubernetes-memory-monitoring-panel-value)
-
-[kubeadm安装1.13.3版本kubernetes文档](https://bbotte.github.io/virtualization/kubernetes-version-1-13-3-installation-steps-by-kubeadm)
 
 [kubeadm创建的kubernetes集群证书到期后续期](https://bbotte.github.io/virtualization/kubernetes-cluster-certificate-created-by-kubeadm-expires-renewal)
 

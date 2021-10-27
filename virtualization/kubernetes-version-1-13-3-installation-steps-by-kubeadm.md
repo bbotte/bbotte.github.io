@@ -212,6 +212,10 @@ clusterDNS:
 - 10.200.0.10
 ```
 
+默认配置可以用print打印：   kubeadm config print init-defaults > def.yaml 
+
+
+
 ### kubeadm初始化集群
 
 用已生成的证书或者直接以上面配置文件初始化都可以
@@ -309,6 +313,26 @@ kubernetes 1.13版本支持自定义证书，即自己创建有关kubernetes的�
 /bin/cp /etc/kubernetes/admin.conf $HOME/.kube/config
 kubectl get cs
 ```
+
+
+
+#### 另：kubernetes 1.20的coredns问题：network: open /run/flannel/subnet.env: no such file or directory
+
+```
+  Warning  FailedCreatePodSandBox  1s (x4 over 8s)    kubelet            (combined from similar events): Failed to create pod sandbox: rpc error: code = Unknown desc = failed to set up sandbox container 'xxxx' network for pod "coredns-54d67798b7-db6c8": networkPlugin cni failed to set up pod "coredns-54d67798b7-db6c8_kube-system" network: open /run/flannel/subnet.env: no such file or directory
+```
+
+如果是上述网络配置，那么添加flannel的subnet.env文件后，coredns服务才能启动
+
+```
+# cat /run/flannel/subnet.env 
+FLANNEL_NETWORK=10.100.0.0/17
+FLANNEL_SUBNET=10.100.0.1/19
+FLANNEL_MTU=1450
+FLANNEL_IPMASQ=true
+```
+
+
 
 ### 安装网络插件kube-router
 
