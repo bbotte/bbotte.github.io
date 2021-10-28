@@ -407,6 +407,8 @@ ETCD_PEER_AUTO_TLS="true"
 EOF
 ```
 
+3.3版本的etcd service
+
 ```
 cat >> etcd.service <<EOF
 [Unit]
@@ -428,6 +430,27 @@ LimitNOFILE=65536
 [Install]
 WantedBy=multi-user.target
 EOF
+```
+
+3.4版本的etcd service，提示 conflicting environment variable "ETCD_NAME" is shadowed by corresponding command-line flag ，是因为3.4版本的etcd启动时候会自动查找ETCD_NAME等环境变量，如果etcd.service也有配置的话，就重复了
+
+```
+[Unit]
+Description=Etcd Server
+After=network.target
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+EnvironmentFile=-/etc/etcd/etcd.conf
+ExecStart=/usr/bin/etcd
+User=etcd
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
 ```
 
 

@@ -316,7 +316,7 @@ kubectl get cs
 
 
 
-#### 另：kubernetes 1.20的coredns问题：network: open /run/flannel/subnet.env: no such file or directory
+#### 另：kubernetes 1.20的coredns问题：network: open /run/flannel/subnet.env: no such file or directory,如果用的网络插件是flannel
 
 ```
   Warning  FailedCreatePodSandBox  1s (x4 over 8s)    kubelet            (combined from similar events): Failed to create pod sandbox: rpc error: code = Unknown desc = failed to set up sandbox container 'xxxx' network for pod "coredns-54d67798b7-db6c8": networkPlugin cni failed to set up pod "coredns-54d67798b7-db6c8_kube-system" network: open /run/flannel/subnet.env: no such file or directory
