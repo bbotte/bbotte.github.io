@@ -312,7 +312,7 @@ cd k8s/etcd
 tar -xf etcd-v3.3.13-linux-amd64.tar.gz
 cp etcd.conf /etc/etcd/
 # change etcd.conf configure
-cp etcd.service /usr/lib/systemd/system/etcd.service
+cp etcd.service /etc/systemd/system/multi-user.target.wants/etcd.service
 cp etcd-v3.3.13-linux-amd64/etcd /usr/bin/
 cp etcd-v3.3.13-linux-amd64/etcdctl /usr/bin/
 rm -rf etcd-v3.3.13-linux-amd64

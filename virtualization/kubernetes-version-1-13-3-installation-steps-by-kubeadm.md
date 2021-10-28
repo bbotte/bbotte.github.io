@@ -19,7 +19,7 @@ layout: default
 
 kubeadm安装1.13.3版本kubernetes步骤
 
-文档也可以看github <https://github.com/bbotte/bbotte.github.io/blob/master/virtualization/kubernetes_cluster_install_1.13.3.md>
+文档也可以看github <https://bbotte.github.io/virtualization/kubernetes_cluster_install_1-13-3>
 
 ### kubernetes 1.13版本功能更新
 
