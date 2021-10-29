@@ -73,6 +73,16 @@ HEAD is now at bee2d15... Merge pull request #61045 from liggitt/subpath-1.9
 源码在这里
 <https://github.com/kubernetes/kubernetes/blob/release-1.9/staging/src/k8s.io/client-go/util/cert/cert.go#L107>
 
+
+
+现在1.22的版本还需要更改一个文件中的时间
+
+```
+staging/src/k8s.io/client-go/util/cert/cert.go
+```
+
+
+
 如果修改错误，编译完成的话，先清理，再次编译即可
 
 ```

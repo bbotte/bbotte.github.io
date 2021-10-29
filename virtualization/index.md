@@ -4,6 +4,8 @@ layout: default
 
 ## [**虚拟化**](https://bbotte.github.io/virtualization)
 
+[kubernetes 1.20版本集群安装](https://bbotte.github.io/virtualization/kubernetes-cluster-1-22-install)
+
 [kubernetes和istio开箱测试](https://bbotte.github.io/virtualization/kubernetes_and_istio_config_beginning)
 
 [swarm中的zookeeper和kafka集群配置](https://bbotte.github.io/virtualization/zookeeper-kafka-cluster-install-on-docker-swarm)
