@@ -1883,7 +1883,7 @@ spec:
             name: traefik-config
 ```
 
-最后dashboard访问web页面
+最后dashboard访问web页面，参考 https://doc.traefik.io/traefik/operations/api/#configuration
 
 ```
 vim traefik-dashboard.yaml
