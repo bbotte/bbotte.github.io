@@ -1657,6 +1657,16 @@ rules:
       - get
       - list
       - watch
+      
+  - apiGroups: ["networking.x-k8s.io"]
+    resources:
+      - tcproutes
+      - httproutes
+      - tlsroutes
+      - gatewayclasses
+      - gateways
+      - httproutes
+    verbs: ["get","list","watch"]
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
