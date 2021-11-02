@@ -6,7 +6,7 @@ layout: default
 
 [traefik 2.5版本的安装配置](https://bbotte.github.io/virtualization/traefik-2-5-install-and-config)
 
-[kubernetes 1.20版本集群安装](https://bbotte.github.io/virtualization/kubernetes-cluster-1-22-install)
+[kubernetes 1.22版本集群安装](https://bbotte.github.io/virtualization/kubernetes-cluster-1-22-install)
 
 [kubernetes和istio开箱测试](https://bbotte.github.io/virtualization/kubernetes_and_istio_config_beginning)
 
