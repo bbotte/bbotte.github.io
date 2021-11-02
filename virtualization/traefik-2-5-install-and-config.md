@@ -6,7 +6,7 @@ kubernetes的安装配置 <https://bbotte.github.io/virtualization/kubernetes-cl
 
 traefik2.5版本和之前配置不一样，因此下面记录配置步骤
 
-先设置crd，参考链接https://doc.traefik.io/traefik/user-guides/crd-acme/#ingressroute-definition，修改了最后的namespace
+先设置crd 和 rbac，参考链接https://doc.traefik.io/traefik/user-guides/crd-acme/#ingressroute-definition，修改了最后的namespace
 
 ```
 vim traefik-crd.yaml
@@ -1686,77 +1686,7 @@ subjects:
 
 
 
-接下来配置rbac，参考 https://doc.traefik.io/traefik/reference/dynamic-configuration/kubernetes-crd/#rbac，注意namespace
-
-```
-vim traefik-rbac.yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: traefik-ingress-controller
-  namespace: kube-system
-
-rules:
-  - apiGroups:
-      - ""
-    resources:
-      - services
-      - endpoints
-      - secrets
-    verbs:
-      - get
-      - list
-      - watch
-  - apiGroups:
-      - extensions
-      - networking.k8s.io
-    resources:
-      - ingresses
-      - ingressclasses
-    verbs:
-      - get
-      - list
-      - watch
-  - apiGroups:
-      - extensions
-    resources:
-      - ingresses/status
-    verbs:
-      - update
-  - apiGroups:
-      - traefik.containo.us
-    resources:
-      - middlewares
-      - middlewaretcps
-      - ingressroutes
-      - traefikservices
-      - ingressroutetcps
-      - ingressrouteudps
-      - tlsoptions
-      - tlsstores
-      - serverstransports
-    verbs:
-      - get
-      - list
-      - watch
-
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: traefik-ingress-controller
-  namespace: kube-system
-
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: traefik-ingress-controller
-subjects:
-  - kind: ServiceAccount
-    name: traefik-ingress-controller
-    namespace: kube-system
-
-```
+rbac上面已经配置了，参考 https://doc.traefik.io/traefik/reference/dynamic-configuration/kubernetes-crd/#rbac，注意namespace
 
 然后设置traefik的配置文件
 
@@ -1941,7 +1871,12 @@ spec:
 
 ```
 
-浏览器访问node节点IP:30088即可
+浏览器访问node节点IP:30088
 
 ![traefik-2.5](../images/2021/05/traefik-2.5.png)
 
+绑定hosts文件或者使用dns解析，域名映射到node节点，访问域名即可
+
+
+
+curl --resolve traefik.bbotte.com:80:192.168.3.14 http://traefik.bbotte.com/
