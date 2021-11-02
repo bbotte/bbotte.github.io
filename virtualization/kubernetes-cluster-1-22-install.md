@@ -1,4 +1,4 @@
-## kubernetes 1.20版本集群安装
+## kubernetes 1.22版本集群安装
 
 
 
@@ -9,7 +9,7 @@
 | 系统      | CentOS 7.8      |
 | k8s       | 1.22.2          |
 | 网络插件  | flannel v0.15.0 |
-| etcd      | 3.4.13          |
+| etcd      | 3.4.14          |
 | docker-ce | 20.10.8         |
 
 k8s api的VIP使用keepalived，
