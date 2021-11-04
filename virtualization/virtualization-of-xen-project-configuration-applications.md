@@ -15,7 +15,7 @@ layout: default
 
 本文讲述Xen服务在CentOS平台安装、dom0虚拟主机安装、控制台管理等基础功能的使用
 
-![虚拟化之Xen配置应用 - 第1张](http://bbotte.com/wp-content/uploads/2016/03/xen-logo.png)
+![虚拟化之Xen配置应用 - 第1张](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww-archive.xenproject.org%2Fimages%2Flogos%2FXenDirections_Logo.jpg&refer=http%3A%2F%2Fwww-archive.xenproject.org&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1638605530&t=53613c3f44b698e4bb1389223fc9dfc9)
 
 Xen Project是领先的开源虚拟化平台，已在全球最大的云服务平台应用。亚马逊，阿里云，Rackspace公共云，Verizon云平台和许多托管服务都使用Xen项目。另外，它被集成到多个云解决方案项目，如OpenStack。Xen官网<http://www.xenproject.org/>
 
@@ -23,7 +23,7 @@ Xen Project是领先的开源虚拟化平台，已在全球最大的云服务平
 
 OS：CentOS-6.7-x86_64-minimal.iso
 
-默认已经开启了cpu的虚拟化(参考[虚拟化之KVM配置应用](http://bbotte.com/kvm-xen/virtualization-of-kvm-configuration-applications/)中**开启虚拟化**)，系统已经关闭selinux（setenforce 0;sed -i ‘s/SELINUX=enforcing/SELINUX=disabled/g’ /etc/selinux/config）
+默认已经开启了cpu的虚拟化(参考[虚拟化之KVM配置应用](https://bbotte.github.io/virtualization/virtualization-of-kvm-configuration-applications)中**开启虚拟化**)，系统已经关闭selinux（setenforce 0;sed -i ‘s/SELINUX=enforcing/SELINUX=disabled/g’ /etc/selinux/config）
 
 ```
 # yum install gcc gcc-c++ vim wget lrzsz ntpdate sysstat dstat wget -y
@@ -201,7 +201,7 @@ libvirtd (pid  1908) is running...
 
 ### **安装一台虚拟机**
 
-下面是用自己设置http服务的系统源来做的，参考[虚拟化之KVM配置应用](http://bbotte.com/kvm-xen/virtualization-of-kvm-configuration-applications/)中**配置安装虚拟机的源**
+下面是用自己设置http服务的系统源来做的，参考[虚拟化之KVM配置应用](https://bbotte.github.io/virtualization/virtualization-of-kvm-configuration-applications)中**配置安装虚拟机的源**
 
 virt-install安装guest：
 

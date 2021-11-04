@@ -15,7 +15,7 @@ layout: default
 
 consul的ACL网址https://www.consul.io/docs/guides/acl.html 写的比较简单，下面再详细说明一下，简便起见，在ui下操作，下面是一主一从
 
-server端运行进程为，可查看[consul集群的服务注册发现和模板使用](http://bbotte.com/server-config/consul-cluster-service-with-registry-and-discovery-and-template-usage/)：
+server端运行进程为，可查看[consul集群的服务注册发现和模板使用](https://bbotte.github.io/service_config/consul-cluster-service-with-registry-and-discovery-and-template-usage/)：
 
 ```
 cat /etc/consul.d/acl.json

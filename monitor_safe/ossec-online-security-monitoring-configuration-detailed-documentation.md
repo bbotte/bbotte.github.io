@@ -284,7 +284,7 @@ Options -MultiViews
 </Directory>
 ```
 
-此时，ossec的图形化界面可以打开展示 [bbotte.com](http://bbotte.com/)
+此时，ossec的图形化界面可以打开展示 [bbotte.com](https://bbotte.github.io/)
 
 ![ossec线上安全监控的配置详细文档-pic3](../images/2016/03/%E5%9B%BE%E7%89%872.png)
 

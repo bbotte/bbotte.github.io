@@ -14,7 +14,7 @@ layout: default
 
 ### 说明
 
-上一篇文章[ossec线上安全监控的配置详细文档](http://bbotte.com/monitor-safe/ossec%E7%BA%BF%E4%B8%8A%E5%AE%89%E5%85%A8%E7%9B%91%E6%8E%A7%E7%9A%84%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E6%96%87%E6%A1%A3/) 写了ossec的安装应用、web界面，这一篇写ossec的高级用法，主要是批量部署管理
+上一篇文章[ossec线上安全监控的配置详细文档](https://bbotte.github.io/monitor_safe/ossec%E7%BA%BF%E4%B8%8A%E5%AE%89%E5%85%A8%E7%9B%91%E6%8E%A7%E7%9A%84%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E6%96%87%E6%A1%A3/) 写了ossec的安装应用、web界面，这一篇写ossec的高级用法，主要是批量部署管理
 
 需要修改的参数
 默认支持256个客户机，编译时候 make setmaxagents

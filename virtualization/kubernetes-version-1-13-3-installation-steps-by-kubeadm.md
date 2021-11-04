@@ -69,7 +69,7 @@ etcd-v3.3.13版本此bug已修复，测试环境和生产建议用大于等于3.
 
 ### 系统初始化
 
-参考[kubernetes1.9版本集群配置向导](http://bbotte.com/kvm-xen/kubernetes-1-9-version-cluster-configuration-wizard/)
+参考[kubernetes1.9版本集群配置向导](https://bbotte.github.io/virtualization/kubernetes-1-9-version-cluster-configuration-wizard)
 
 ```
 yum install ipvsadm ipset -y

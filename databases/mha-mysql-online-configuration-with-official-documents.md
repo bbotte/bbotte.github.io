@@ -904,7 +904,7 @@ sub usage {
 
 mysql-mha官方文档，<https://code.google.com/p/mysql-master-ha/> 自己手动粘贴下来的，链接: http://pan.baidu.com/s/1nu0kW2H 密码: 4cg7
 
-[mysql-mmm的配置介绍请点我](http://bbotte.com/databases/multi-master-replication-manager-for-mysql/)
+[mysql-mmm的配置介绍请点我](https://bbotte.github.io/databases/multi-master-replication-manager-for-mysql/)
 
 
 

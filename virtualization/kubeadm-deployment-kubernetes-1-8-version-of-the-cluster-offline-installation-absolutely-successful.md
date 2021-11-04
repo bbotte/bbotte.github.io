@@ -465,7 +465,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 192.168.79 node
 ```
 
-1，配置keepalived，参考[kubernetes1.9版本集群配置向导](http://bbotte.com/kvm-xen/kubernetes-1-9-version-cluster-configuration-wizard/)
+1，配置keepalived，参考[kubernetes1.9版本集群配置向导](https://bbotte.github.io/virtualization/kubernetes-1-9-version-cluster-configuration-wizard/)
 
 2，kubeadm init初始化使用配置文件
 

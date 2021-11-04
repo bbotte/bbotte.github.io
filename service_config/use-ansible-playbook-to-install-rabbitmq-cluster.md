@@ -4,7 +4,7 @@ layout: default
 
 # 使用ansible-playbook一键安装rabbitmq集群
 
-上一篇文章写了[ansible的入门帮助-命令查找与使用](http://bbotte.com/server-config/ansible-entry-help-command-find-and-use/)，通过ansible的帮助文档找到自己所需要的命令使用方法。这次用一个实例演示一下，使用ansible-playbook安装rabbitmq，下面直接放脚本
+上一篇文章写了[ansible的入门帮助-命令查找与使用](https://bbotte.github.io/service_config/ansible-entry-help-command-find-and-use/)，通过ansible的帮助文档找到自己所需要的命令使用方法。这次用一个实例演示一下，使用ansible-playbook安装rabbitmq，下面直接放脚本
 
 ```
 # egrep -v "^#|^$" /etc/ansible/hosts

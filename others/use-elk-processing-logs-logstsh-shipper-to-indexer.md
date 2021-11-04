@@ -4,7 +4,7 @@ layout: default
 
 # ELK日志服务使用-shipper-to-indexer
 
-上一篇文章写了用[rsyslog同步日志到elk服务器](http://bbotte.com/logs-service/use-elk-processing-logs-use-rsyslog-transmission-logs/)，可以同步nginx的日志文件，或者直接通过rsyslog到elk主机的某一个端口，用logstash定义的syslog接收两种方式。这篇讲[用logstash的shipper to indexer传送日志](http://bbotte.com/logs-service/use-elk-processing-logs-logstsh-shipper-to-indexer/)。
+上一篇文章写了用[rsyslog同步日志到elk服务器](https://bbotte.github.io/others/use-elk-processing-logs-use-rsyslog-transmission-logs/)，可以同步nginx的日志文件，或者直接通过rsyslog到elk主机的某一个端口，用logstash定义的syslog接收两种方式。这篇讲[用logstash的shipper to indexer传送日志](https://bbotte.github.io/others/use-elk-processing-logs-logstsh-shipper-to-indexer/)。
 logstash的type说明：
 type
 1.Value type is string

@@ -13,7 +13,7 @@ layout: default
 
 我们今天做mesos、marathon和consul的集成试验，通过consul的自动发现，配合named服务，在docker容器中能够自动识别服务的域名，以便在mesos+marathon中部署docker实例能够通过域名互通。也就是consul在docker容器中的自动发现。
 
-如果是线上，consul server最少是3台做集群，consul client是每个mesos-slave上跑一个，mesos-master也最少3台集群，marathon和zookeeper、bind都应该是集群的模式。集群配置在前两篇博文有说明，[consul集群的服务注册发现和模板使用](http://bbotte.com/server-config/consul-cluster-service-with-registry-and-discovery-and-template-usage/)  [小议mesos marathon和chronos构建分布式系统](http://bbotte.com/server-config/use-mesos-and-marathon-and-chronos-to-construction-distributed-systems/)，请予查看。
+如果是线上，consul server最少是3台做集群，consul client是每个mesos-slave上跑一个，mesos-master也最少3台集群，marathon和zookeeper、bind都应该是集群的模式。集群配置在前两篇博文有说明，[consul集群的服务注册发现和模板使用](https://bbotte.github.io/service_config/consul-cluster-service-with-registry-and-discovery-and-template-usage/)  [小议mesos marathon和chronos构建分布式系统](https://bbotte.github.io/service_config/use-mesos-and-marathon-and-chronos-to-construction-distributed-systems/)，请予查看。
 
 ```
 # cat /etc/centos-release

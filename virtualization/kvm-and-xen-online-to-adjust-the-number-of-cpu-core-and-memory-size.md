@@ -13,7 +13,7 @@ layout: default
 
 因为线上经常会遇到资源分配不均衡，我认为使用虚拟化主机主要原因：一是资源隔离，每台机负载一块任务，多台虚拟主机在资源有限情况下可以做到高可用； 二是尽可能的利用服务器的硬件资源，避免某些物理服务器异常繁忙或没有负载。 我一般的把服务器刚开始设置较低的配置，根据服务的运行负载情况调整cpu & mem
 
-[kvm的安装配置](http://bbotte.com/kvm-xen/virtualization-of-kvm-configuration-applications/)应用  &  [xen主机的安装配置应用](http://bbotte.com/kvm-xen/virtualization-of-xen-project-configuration-applications/)  & [kvm&Xen主机在线增加磁盘空间](http://bbotte.com/kvm-xen/kvm-and-xen-host-online-increase-disk-space/)
+[kvm的安装配置](https://bbotte.github.io/virtualization/virtualization-of-kvm-configuration-applications)应用  &  [xen主机的安装配置应用](https://bbotte.github.io/virtualization/virtualization-of-xen-project-configuration-applications/)  & [kvm&Xen主机在线增加磁盘空间](https://bbotte.github.io/virtualization/kvm-and-xen-host-online-increase-disk-space/)
 
 ### **kvm的cpu和内存调整**
 

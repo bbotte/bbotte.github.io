@@ -4,7 +4,7 @@ layout: default
 
 # linux工匠之heapster监控kubernetes
 
-接着[kubeadm部署kubernetes 1.8离线安装绝对成功版](http://bbotte.com/kvm-xen/kubeadm-deployment-kubernetes-1-8-version-of-the-cluster-offline-installation-absolutely-successful/)，需要对kubernetes做监控。 [docker的监控(cadvisor+prometheus)](http://bbotte.com/monitor-safe/docker-monitor-with-cadvisor-and-prometheus/) 有写用cadvisor和prometheus监控kubernetes的docker服务，在kubernetes中更常用的是heapster，已经和kubernetes结合为一块了
+接着[kubeadm部署kubernetes 1.8离线安装绝对成功版](https://bbotte.github.io/virtualization/kubeadm-deployment-kubernetes-1-8-version-of-the-cluster-offline-installation-absolutely-successful/)，需要对kubernetes做监控。 [docker的监控(cadvisor+prometheus)](https://bbotte.github.io/monitor_safe/docker-monitor-with-cadvisor-and-prometheus/) 有写用cadvisor和prometheus监控kubernetes的docker服务，在kubernetes中更常用的是heapster，已经和kubernetes结合为一块了
 
 首先下载heapster的yaml配置，依赖influxdb数据库和grafana图形展示
 

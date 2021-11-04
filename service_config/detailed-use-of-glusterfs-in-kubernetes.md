@@ -5,7 +5,7 @@ layout: default
 # glusterfs在kubernetes中的使用详解
 
 kubernetes集群的存储用什么，glusterfs、ceph、nfs、fastdfs？选择多了就会有困扰，各个集群都有自己的特点，gfs便于创建、维护，ceph支持比较广泛，nfs是许多存储自带的功能。我这里选择glusterfs，集群方式和RAID模式的原理一样，便于维护
-下面为glusterfs集群创建完毕，可参考 [glusterfs集群故障恢复](http://bbotte.com/server-config/glusterfs-cluster-failure-recovery/) ，先用静态模式做示例，再用动态模式storageclass示例，满足线上使用情况。
+下面为glusterfs集群创建完毕，可参考 [glusterfs集群故障恢复](https://bbotte.github.io/service_config/glusterfs-cluster-failure-recovery) ，先用静态模式做示例，再用动态模式storageclass示例，满足线上使用情况。
 
 ### **glusterfs静态配置**
 

@@ -94,7 +94,7 @@ location ~ /www/log/123.log {
      }
 ```
 
-13, <http://bbotte.com/>news/activies/2014-08-26/123.html 跳转为 http://a.com/news/activies/123.html
+13, 将http://bbotte.com/news/activies/2014-08-26/123.html 跳转为 http://a.com/news/activies/123.html
 
 ```
 rewrite ^/news/activies/2014\-([0-9]+)\-([0-9]+)/(.*)$ http://a.com/news/activies/$3 permanent;

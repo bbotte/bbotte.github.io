@@ -10,7 +10,7 @@ layout: default
 4. KVM的guest热扩充磁盘
 5. 重启方式增大磁盘空间
 
-上一篇文章写了[kvm&Xen主机在线调整cpu核心数和内存大小](http://bbotte.com/kvm-xen/kvm-and-xen-online-to-adjust-the-number-of-cpu-core-and-memory-size/)，现在说一下扩充KVM和Xen虚拟主机的磁盘空间，利用lvm磁盘格式，增加磁盘的大小。[kvm的安装配置](http://bbotte.com/kvm-xen/virtualization-of-kvm-configuration-applications/)应用   [xen主机的安装配置应用](http://bbotte.com/kvm-xen/virtualization-of-xen-project-configuration-applications/)
+上一篇文章写了[kvm&Xen主机在线调整cpu核心数和内存大小](https://bbotte.github.io/virtualization/kvm-and-xen-online-to-adjust-the-number-of-cpu-core-and-memory-size/)，现在说一下扩充KVM和Xen虚拟主机的磁盘空间，利用lvm磁盘格式，增加磁盘的大小。[kvm的安装配置](https://bbotte.github.io/virtualization/virtualization-of-kvm-configuration-applications/)应用   [xen主机的安装配置应用](https://bbotte.github.io/virtualization/virtualization-of-xen-project-configuration-applications/)
 
 ### **Xen guest主机扩充磁盘空间**
 

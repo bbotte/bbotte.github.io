@@ -218,7 +218,7 @@ virt-install -v -n bbotte -r 512 --vcpus=4 -l http://mirrors.sohu.com/centos/6.7
 
 下面就开始安装了:  
 
-安装步骤参考[虚拟化之Xen配置应用](http://bbotte.com/kvm-xen/virtualization-of-xen-project-configuration-applications/)
+安装步骤参考[虚拟化之Xen配置应用](https://bbotte.github.io/virtualization/virtualization-of-xen-project-configuration-applications)
 
 1，选择语言
 2，选择安装方式，用自己配置的http，所以选最下面的URL

@@ -18,7 +18,7 @@ layout: default
 
 ### **一，创建project 启动django应用**
 
-继续python学习，配置完[pyenv建立独立的python环境](http://bbotte.com/python-dev/pyenv-and-virtualenv-to-build-an-independent-python-environment/)后新建django应用
+继续python学习，配置完[pyenv建立独立的python环境](https://bbotte.github.io/python_project/pyenv-and-virtualenv-to-build-an-independent-python-environment/)后新建django应用
 
 ```
 [root@vm01 ~]# cd /data/

@@ -253,7 +253,7 @@ flume起来
 -rw-r--r--   1 root supergroup        825 2016-08-15 16:45 /log2/events-.1471250733274
 ```
 
-通过上面对文件夹的日志收集，flume使用kafka传输，对确定日志文件的传送，获取对应用flume有相应的认识，by [bbotte.com](http://bbotte.com/)
+通过上面对文件夹的日志收集，flume使用kafka传输，对确定日志文件的传送，获取对应用flume有相应的认识，by https://bbotte.github.io/
 
 flume参考文章
 

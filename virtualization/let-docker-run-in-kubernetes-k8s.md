@@ -14,7 +14,7 @@ layout: default
 
 ### 说明
 
-docker单独使用比较简单明了，可参看上一篇[docker初学跟我来](http://bbotte.com/kvm-xen/flow-me-learning-docker/)，是关于docker命令的使用方法，包括镜像拉取、容器运行、打包等。
+docker单独使用比较简单明了，可参看上一篇[docker初学跟我来](https://bbotte.github.io/virtualization/flow-me-learning-docker)，是关于docker命令的使用方法，包括镜像拉取、容器运行、打包等。
 
 kubernetes(k8s)是docker容器用来编排和管理的工具，就像openstack对于kvm来说一个意思。组织结构如下
 

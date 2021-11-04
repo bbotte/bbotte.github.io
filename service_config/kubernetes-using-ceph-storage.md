@@ -6,7 +6,7 @@ layout: default
 
 ### 说明
 
-接上篇文章[linux工匠之ceph存储集群实验](http://bbotte.com/server-config/ceph-storage-cluster-experiment/)，ceph官方文档中介绍Ceph FS 还不像 Ceph 块设备和 Ceph 对象存储那么稳定，所以我们用ceph块存储作为kubernetes的存储
+接上篇文章[linux工匠之ceph存储集群实验](https://bbotte.github.io/service_config/ceph-storage-cluster-experiment/)，ceph官方文档中介绍Ceph FS 还不像 Ceph 块设备和 Ceph 对象存储那么稳定，所以我们用ceph块存储作为kubernetes的存储
 
 kubernetes node节点主机操作：
 kubernetes node节点需要安装ceph，

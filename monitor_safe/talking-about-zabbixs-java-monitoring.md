@@ -11,7 +11,7 @@ layout: default
 
 老生常谈一个问题，zabbix对java程序的监控，下面以新版的zookeeper和kafka举例
 
-[使用VisualVM](http://bbotte.com/monitor-safe/the-java-monitoring-tool-visualvm/)可以直接看到性能的图形变化，java自带的jconsole可以显示项目运行状态的数值，从而提供给zabbix得以出图
+[使用VisualVM](https://bbotte.github.io/monitor_safe/the-java-monitoring-tool-visualvm/)可以直接看到性能的图形变化，java自带的jconsole可以显示项目运行状态的数值，从而提供给zabbix得以出图
 
 ### **一，开启zabbix_java服务**
 

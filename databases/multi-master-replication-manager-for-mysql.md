@@ -14,7 +14,7 @@ layout: default
 
 ### 配置说明
 
-mysql-mmm和mha是公司常用的数据库高可用方案，这一篇写[mysql-mmm](http://bbotte.com/databases/multi-master-replication-manager-for-mysql/)，下一篇写[mysql-mha](http://bbotte.com/databases/mha-mysql-online-configuration-with-official-documents/)，每一种高可用方案思路各有不同，下面来看mysql-mmm
+mysql-mmm和mha是公司常用的数据库高可用方案，这一篇写[mysql-mmm](mhttps://bbotte.github.io/databases/ulti-master-replication-manager-for-mysql/)，下一篇写[mysql-mha](https://bbotte.github.io/databases/mha-mysql-online-configuration-with-official-documents/)，每一种高可用方案思路各有不同，下面来看mysql-mmm
 
 MMM (**M**ulti-**M**aster Replication **M**anager for MySQL) is a set of flexible scripts to perform monitoring/failover and management of MySQL master-master replication configurations (with only one node writable at any time).
 

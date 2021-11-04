@@ -18,7 +18,7 @@ flume-ng日志收集之flume和hadoop的安装配置
 logs ----> flume -----------> hadoop
 ```
 
-在上一篇[logstash使用zookeeper建立kafka集群对日志收集](http://bbotte.com/logs-service/logstash-uses-zookeeper-to-establish-kafka-cluster-for-log-collection/)中有写zookeeper和kafka的安装配置，这里略过。通常的做法是flume采集日志，通过kafka这个消息队列传输给hadoop存储到硬盘落地。
+在上一篇[logstash使用zookeeper建立kafka集群对日志收集](https://bbotte.github.io/others/logstash-uses-zookeeper-to-establish-kafka-cluster-for-log-collection/)中有写zookeeper和kafka的安装配置，这里略过。通常的做法是flume采集日志，通过kafka这个消息队列传输给hadoop存储到硬盘落地。
 
 ```
 [root@vm01 ~]# cat /etc/centos-release
