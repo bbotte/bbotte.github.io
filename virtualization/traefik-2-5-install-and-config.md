@@ -1880,3 +1880,31 @@ spec:
 
 
 curl --resolve traefik.bbotte.com:80:192.168.3.14 http://traefik.bbotte.com/
+
+
+
+对于k8s中的服务，traefik已经可以代理了，如果不想把traefik直接暴露到公网，前面多加一层nginx，这么配置：
+
+```
+upstream traefik_com {
+  server 192.168.3.13;   #这3个是node节点，因为traefik以domoset方式部署在node节点上
+  server 192.168.3.14;
+  server 192.168.3.15;
+}
+server {
+    listen       80;
+    server_name  _;
+
+    access_log  /var/log/nginx/host.access.log  main;
+    location / {
+      proxy_pass http://traefik_com;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection 'upgrade';
+      proxy_set_header Host $host;
+      proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+这样子，dns所有域名都指向此nginx的ip，只要是80端口的请求都会通过nginx转到traefik（node节点的80端口），traefik再去找k8s service通信，对流量的限制或者ip黑名单都可以在nginx上配置
