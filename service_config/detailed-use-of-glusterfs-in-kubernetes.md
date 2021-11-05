@@ -17,61 +17,57 @@ CentOS Linux release 7.5.1804 (Core)
 192.168.0.204 gfs2
 ```
 
-先创建一个namespace，kubernetes默认的namespace为default，下面为bbotte
-
-```
-# kubectl create namespace bbotte
-```
+先创建一个namespace，kubernetes默认的namespace为default
 
 ```
 # cat gfs.yaml
 apiVersion: v1
 kind: Endpoints
 metadata:
-  name: bbottegfs-ep
-  namespace: bbotte
+  name: gfs-ep
+  namespace: default
 subsets:
 - addresses:
-  - ip: 192.168.0.133
-  - ip: 192.168.0.134
+  - ip: 192.168.3.100
+  - ip: 192.168.3.101
+  - ip: 192.168.3.102
   ports:
   - port: 10
     protocol: TCP
-
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: gfsbbotte
-  namespace: bbotte
-spec:
-  accessModes:
-    - ReadWriteMany
-  volumeName: gluster-bbotte-volume
-  resources:
-    requests:
-      storage: 50Gi
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: gluster-bbotte-volume
-  namespace: bbotte
+  name: glusterpv-def
+  namespace: default
 spec:
   capacity:
-    storage: 50Gi
+    storage: 100Gi
   accessModes:
     - ReadWriteMany
   glusterfs:
-    endpoints: "bbottegfs-ep"
-    path: "gfs-bbotte"
+    endpoints: "gfs-ep"  # 上面 Endpoints 名称
+    path: "gfs"      # gluster volume create NAME, gfs创建存储的名字
     readOnly: false
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: gfspvc-def
+  namespace: default
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeName: glusterpv-def
+  resources:
+    requests:
+      storage: 100Gi
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: bbottegfs-svc
-  namespace: bbotte
+  name: gfsdef-svc
+  namespace: default
 spec:
   ports:
   - port: 10
@@ -86,8 +82,7 @@ path是glusterfs的Volume Name(**gluster volume info 查看，或者 gluster vol
 pv定义的name和pvc的volumeName保持一致
 
 ```
-# kubectl get pv |grep  bbotte
-# kubectl get pvc -n bbotte
+# kubectl get pv,pvc
 ```
 
 这时候，pvc就可以提供给kubernetes使用了，比如创建一个deployment的配置片段：
@@ -97,7 +92,7 @@ kind: Deployment
 apiVersion: apps/v1beta2
 metadata:
   name: something
-  namespace: bbotte
+  namespace: default
   labels:
     k8s-app: something
 spec:
@@ -122,7 +117,7 @@ spec:
       volumes:
       - name: something-data-storage
         persistentVolumeClaim:
-          claimName: gfsbbotte
+          claimName: gfspvc-def
 ```
 
 ### **glusterfs动态配置**
