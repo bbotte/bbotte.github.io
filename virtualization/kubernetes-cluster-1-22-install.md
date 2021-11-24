@@ -8,11 +8,11 @@
 | --------- | --------------- |
 | 系统      | CentOS 7.8      |
 | k8s       | 1.22.2          |
-| 网络插件  | flannel v0.15.0 |
+| 网络插件  | flannel v0.15.1 |
 | etcd      | 3.4.14          |
 | docker-ce | 20.10.8         |
 
-k8s api的VIP使用keepalived，
+k8s api的VIP使用keepalived，flannel v0.15.0 有bug啊，坑死人 https://issueexplorer.com/issue/flannel-io/flannel/1474
 
 ### 系统参数调整
 

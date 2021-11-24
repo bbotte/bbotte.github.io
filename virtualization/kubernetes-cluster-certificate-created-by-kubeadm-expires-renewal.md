@@ -340,6 +340,12 @@ discovery-token 不记得？
 [root@node ~]# kubeadm token generate
 ```
 
+或者 
+
+```
+kubeadm token create --ttl 0
+```
+
 discovery-token-ca-cert-hash 忘了的话
 
 ```
