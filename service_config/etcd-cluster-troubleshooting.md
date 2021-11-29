@@ -27,6 +27,10 @@ hosts如下
 
 etcd02配置如下，详细见[kubernetes1.9版本集群配置向导](https://bbotte.github.io/virtualization/kubernetes_cluster_install_1.9.4)
 
+注意这里：**ETCD_INITIAL_CLUSTER_STATE="existing"**
+
+因为集群已经存在，所以是existing，如果是新集群，那么是new
+
 ```
 # egrep -v "^$|^#" /etc/etcd/etcd.conf 
 ETCD_DATA_DIR="/var/lib/etcd/"
