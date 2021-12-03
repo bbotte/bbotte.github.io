@@ -580,7 +580,7 @@ dns指向内部的私网SLB IP，访问域名即可打开部署的服务。因�
 这样istio就安装完成，对default 命名空间默认启用istio服务网格，这样就不用  kubectl apply -f <(istioctl kube-inject -f  someone.yaml)
 
 ```
-kubectl label namespace default istio-injection=enable
+kubectl label namespace default istio-injection=enabled
 kubectl get namespace -L istio-injection
 ```
 
