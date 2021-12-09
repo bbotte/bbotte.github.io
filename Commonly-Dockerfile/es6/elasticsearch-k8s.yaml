@@ -68,7 +68,7 @@ spec:
           mountPath: /data
           readOnly: false
       initContainers:
-      - image: harbor.iris-technologies.com.cn:50505/k8s/busybox
+      - image: harbor.bbotte.github.io:50505/k8s/busybox
         command: ["sysctl", "-w", "vm.max_map_count=262144"]
         name: es-init
         securityContext:

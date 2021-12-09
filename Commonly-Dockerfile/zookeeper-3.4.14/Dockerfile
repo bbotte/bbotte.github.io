@@ -1,4 +1,4 @@
-FROM harbor.iris-technologies.com.cn:50505/devops/openjdk:8-alpine
+FROM harbor.bbotte.github.io:50505/devops/openjdk:8-alpine
 
 ENV ZK_USER=root \
     ZK_DATA_DIR=/var/lib/zookeeper/data \

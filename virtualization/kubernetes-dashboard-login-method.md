@@ -325,7 +325,7 @@ spec:
       containers:
       - name: kubernetes-dashboard
         #image: k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3
-        image: harbor.iris-technologies.com.cn:50505/k8s/kubernetes-dashboard-amd64:v1.8.3
+        image: harbor.bbotte.github.io:50505/k8s/kubernetes-dashboard-amd64:v1.8.3
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8443

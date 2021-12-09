@@ -24,7 +24,7 @@ spec:
       containers:
       - name: zk
         imagePullPolicy: IfNotPresent
-        image: harbor.iris-technologies.com.cn:50505/devops/zookeeper:0.1
+        image: harbor.bbotte.github.io:50505/devops/zookeeper:0.1
         resources:
           requests:
             memory: "1Gi"
