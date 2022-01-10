@@ -7,16 +7,33 @@ layout: default
 redis cluster集群自带哨兵，自带主从切换，master节点最少3个，如果没有slave节点，那么当master节点故障后，数据就不完整
 
 不管是gfs或者nfs首先要创建volume
-假如gfs是2个节点，并且节点名字为k8sgfs1、k8sgfs2
+假如gfs是3个节点，并且节点名字为k8sgfs1、k8sgfs2，k8sgfs3
 
-```
-for i in {0..5};do gluster volume create def-redis${i} replica 2 transport tcp k8sgfs1:/data/defredis${i} k8sgfs2:/data/defredis${i} force;done
+```bash
+for i in {0..5};do gluster volume create def-redis${i} replica 3 transport tcp k8sgfs1:/data/defredis${i} k8sgfs2:/data/defredis${i} k8sgfs3:/data/defredis${i} force;done
 for i in {0..5};do gluster volume start def-redis${i};done
 ```
+
+
 
 再创建pv
 
 ```
+# cat def-ep.yaml
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: defgfs-ep
+  namespace: default
+subsets:
+- addresses:
+  - ip: 192.168.3.100
+  - ip: 192.168.3.101
+  - ip: 192.168.3.102
+  ports:
+  - port: 10
+    protocol: TCP
+
 # cat def-pv.yaml 
 ---
 apiVersion: v1
@@ -258,7 +275,6 @@ service/redis-com    ClusterIP   10.200.29.208   <none>        6379/TCP,16379/TC
 
 NAME                             READY   AGE
 statefulset.apps/redis-cluster   6/6     81m
-
 ```
 
 redis集群创建完毕，那么需要做集群初始化，如果redis版本大于5
@@ -413,4 +429,3 @@ for i in {0..5};do kubectl delete pvc datadir-redis-cluster-${i};done
 kubectl delete -f def-pv.yaml 
 清空gfs磁盘文件
 ```
-
