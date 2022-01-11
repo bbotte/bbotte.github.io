@@ -305,28 +305,35 @@ spec:
 
 这时候，3个mq的pod已经创建，那么让这3个pod成为一个集群，进入rabbitmq-1
 
-`kubectl exec -it rabbitmq-1 bash
-rabbitmqctl stop_app ;rabbitmqctl join_cluster --disc rabbit@rabbitmq-0.rabbitmq-svc.default.svc.cluster.local ;rabbitmqctl start_app`
+```
+kubectl exec -it rabbitmq-1 bash
+rabbitmqctl stop_app ;rabbitmqctl join_cluster --disc rabbit@rabbitmq-0.rabbitmq-svc.default.svc.cluster.local ;rabbitmqctl start_app
+```
 
 进入rabbitmq-2，并配置ha策略
 
-`kubectl exec -it rabbitmq-2 bash
+```
+kubectl exec -it rabbitmq-2 bash
 rabbitmqctl stop_app ;rabbitmqctl join_cluster --disc rabbit@rabbitmq-0.rabbitmq-svc.default.svc.cluster.local ;rabbitmqctl start_app
 rabbitmqctl cluster_status
 
-rabbitmqctl --erlang-cookie ${RABBITMQ_ERLANG_COOKIE} set_policy --vhost uclass_pd mq-ha "^" '{"ha-mode":"all","ha-sync-mode":"automatic"}'`
+rabbitmqctl --erlang-cookie ${RABBITMQ_ERLANG_COOKIE} set_policy --vhost uclass_pd mq-ha "^" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
+```
 
 
 
 last，删除rabbitmq集群：
 
-`kubectl delete -f rabbitmq-statefulset.yaml  还有 rbac，configmap的yaml
+```
+kubectl delete -f rabbitmq-statefulset.yaml  还有 rbac，configmap的yaml
 kubectl delete pvc/mq-data-rabbitmq-2
 kubectl delete pvc/mq-data-rabbitmq-1
 kubectl delete pvc/mq-data-rabbitmq-0
 kubectl delete pv/pv-mq3
 kubectl delete pv/pv-mq2
-kubectl delete pv/pv-mq1`
+kubectl delete pv/pv-mq1
+
+```
 
 
 参考 [diy-kubernetes-examples](https://github.com/rabbitmq/diy-kubernetes-examples)
