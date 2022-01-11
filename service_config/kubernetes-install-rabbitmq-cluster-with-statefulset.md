@@ -329,5 +329,6 @@ kubectl delete pv/pv-mq2
 kubectl delete pv/pv-mq1`
 
 
+参考 [diy-kubernetes-examples](https://github.com/rabbitmq/diy-kubernetes-examples)
 
 2021年01月11日 于 [linux工匠](https://bbotte.github.io/) 发表
