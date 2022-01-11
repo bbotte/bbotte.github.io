@@ -4,6 +4,8 @@ layout: default
 
 ## [**服务配置**](https://bbotte.github.io/service_config/)
 
+[在kubernetes中statefu方式安装rabbitmq集群](https://bbotte.github.io/service_config/kubernetes-install-rabbitmq-cluster-with-statefulset)
+
 [redis集群redis-cluster](https://bbotte.github.io/service_config/redis-cluster/redis-cluster)
 
 [mysql集群mgr(mysql_group_rplication_config)](https://bbotte.github.io/service_config/mysql-mgr/mysql_group_rplication_config)
