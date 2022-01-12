@@ -1,9 +1,9 @@
-
 ---
 layout: default
 ---
 
-# 在kubernetes中statefu方式安装elasticsearch-6
+
+# 在kubernetes中statefu方式安装elasticsearch-6集群
 
 存储使用glusterfs，3个节点，es的service名称为 es-svc,es版本是6
 
