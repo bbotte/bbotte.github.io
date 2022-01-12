@@ -4,6 +4,8 @@ layout: default
 
 ## [**服务配置**](https://bbotte.github.io/service_config/)
 
+[在kubernetes中statefu方式安装elasticsearch-6](https://bbotte.github.io/service_config/kubernetes-install-elasticsearch-6-with-statefulset)
+
 [在kubernetes中statefu方式安装rabbitmq集群](https://bbotte.github.io/service_config/kubernetes-install-rabbitmq-cluster-with-statefulset)
 
 [redis集群redis-cluster](https://bbotte.github.io/service_config/redis-cluster/redis-cluster)

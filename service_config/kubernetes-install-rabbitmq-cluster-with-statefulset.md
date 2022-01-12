@@ -4,8 +4,9 @@ layout: default
 
 # 在kubernetes中statefu方式安装rabbitmq集群
 
+为何不用rabbitmq官方的[RabbitMQ Cluster Operator](https://www.rabbitmq.com/kubernetes/operator/operator-overview.html)? 因为官方的operator比较复杂，哪怕使用了bitnami的charts（helm）， 比如需求是更改服务名称、更改mq的一个参数、每次重启pod存储目录不变。如果认为官方的更好用，下面文字可忽略
 
-下面创建的rabbitmq集群，服务名为 rabbitmq-svc，改为你自己所需要的service name
+下面创建的rabbitmq集群，服务名为 rabbitmq-svc，namespace为 default，改为你自己所需要的service name，k8s集群中的rabbitmq，添加了rabbitmq_peer_discovery_k8s 插件，见 [peer-discovery-k8s](https://www.rabbitmq.com/cluster-formation.html#peer-discovery-k8s)
 
 statefulset需要使用动态pv，那么先创建pv，加入使用存储为glusterfs
 
@@ -258,7 +259,7 @@ spec:
           - name: mq-data
             mountPath: /var/lib/rabbitmq
       imagePullSecrets:
-        - name: harbor-pxx
+        - name: harbor-bbotte
   volumeClaimTemplates:
   - metadata:
       name: mq-data
@@ -334,7 +335,6 @@ kubectl delete pv/pv-mq2
 kubectl delete pv/pv-mq1
 
 ```
-
 
 参考 [diy-kubernetes-examples](https://github.com/rabbitmq/diy-kubernetes-examples)
 
