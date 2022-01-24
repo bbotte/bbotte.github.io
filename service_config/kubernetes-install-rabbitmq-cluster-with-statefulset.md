@@ -315,13 +315,34 @@ rabbitmqctl stop_app ;rabbitmqctl join_cluster --disc rabbit@rabbitmq-0.rabbitmq
 
 ```
 kubectl exec -it rabbitmq-2 bash
-rabbitmqctl stop_app ;rabbitmqctl join_cluster --disc rabbit@rabbitmq-0.rabbitmq-svc.default.svc.cluster.local ;rabbitmqctl start_app
-rabbitmqctl cluster_status
+root@rabbitmq-2:/# rabbitmqctl stop_app ;rabbitmqctl join_cluster --disc rabbit@rabbitmq-0.rabbitmq-svc.default.svc.cluster.local ;rabbitmqctl start_app
 
-rabbitmqctl --erlang-cookie ${RABBITMQ_ERLANG_COOKIE} set_policy --vhost uclass_pd mq-ha "^" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
+root@rabbitmq-2:/# rabbitmqctl --erlang-cookie ${RABBITMQ_ERLANG_COOKIE} set_policy --vhost rabbitmq_vhost mq-ha "^" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
+
+root@rabbitmq-2:/#  查看rabbitmq集群状态
+root@rabbitmq-2:/# rabbitmqctl cluster_status|head -n 20
+Cluster status of node rabbit@rabbitmq-2.uclass-rabbitmq-svc.default.svc.cluster.local ...
+Basics
+
+Cluster name: rabbit@rabbitmq-0.uclass-rabbitmq-svc.default.svc.cluster.local
+
+Disk Nodes
+
+rabbit@rabbitmq-0.uclass-rabbitmq-svc.default.svc.cluster.local
+rabbit@rabbitmq-1.uclass-rabbitmq-svc.default.svc.cluster.local
+rabbit@rabbitmq-2.uclass-rabbitmq-svc.default.svc.cluster.local
+
+Running Nodes
+
+rabbit@rabbitmq-0.uclass-rabbitmq-svc.default.svc.cluster.local
+rabbit@rabbitmq-1.uclass-rabbitmq-svc.default.svc.cluster.local
+rabbit@rabbitmq-2.uclass-rabbitmq-svc.default.svc.cluster.local
+
+Versions
+
+rabbit@rabbitmq-0.uclass-rabbitmq-svc.default.svc.cluster.local: RabbitMQ 3.8.5 on Erlang 23.0.3
+
 ```
-
-
 
 last，删除rabbitmq集群：
 

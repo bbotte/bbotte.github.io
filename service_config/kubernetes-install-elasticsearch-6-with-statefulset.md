@@ -329,13 +329,30 @@ spec:
 
 ```
 
-服务已经完成，查看创建的pod
+服务已经完成，查看创建的pod，查看集群是否正常
 
 ```
 # kubectl get po|grep es
 es-0                                     1/1     Running   0              9m5s
 es-1                                     1/1     Running   0              8m3s
 es-2                                     1/1     Running   0              7m41s
+
+# kubectl exec -it es-0 bash
+[root@es-0 elasticsearch]# curl -XGET 'http://localhost:9200/_cluster/stats?human&pretty'|head
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  3496  100  3496    0     0  85684      0 --:--:-- --:--:-- --:--:-- 87400
+{
+  "_nodes" : {
+    "total" : 3,
+    "successful" : 3,
+    "failed" : 0
+  },
+  "cluster_name" : "es-cluster",
+  "cluster_uuid" : "ra0XTldhQRWxHXzG_X9YM0",
+  "timestamp" : 1641970728295,
+  "status" : "green",
+
 ```
 
 删除集群
