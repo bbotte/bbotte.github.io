@@ -1,4 +1,4 @@
----
+table: meter_oap_instance_trace_latency_percentile does not exist. OAP is running in 'no-init' mode, waiting... retry 3s later---
 layout: default
 ---
 
@@ -282,8 +282,6 @@ spec:
   template:
     metadata:
       name: oap-init-job
-      annotations:
-        sidecar.istio.io/inject: "false"
     spec:
       serviceAccountName: skywalking-sa-cluster
       restartPolicy: Never
@@ -315,8 +313,6 @@ spec:
     metadata:
       labels:
         app: skywalking
-      annotations:
-        sidecar.istio.io/inject: "false"
     spec:
       initContainers:
         - name: wait-for-oap-init
@@ -423,7 +419,14 @@ spec:
 
 ```
 
-安装skywalking遇到奇奇怪怪的错误，都是因为配置的问题
+安装skywalking遇到奇奇怪怪的错误，多是因为配置的问题，还有skywalking init缺少表的,先把deploy的skywalking no-init改为 init，删掉deploy，再apply deploy一次解决
+
+```
+table: meter_oap_instance_trace_latency_percentile does not exist. OAP is running in 'no-init' mode, waiting... retry 3s later
+
+table: alarm_record does not exist. OAP is running in 'no-init' mode, waiting... retry 3s later
+
+```
 
 参考 
 - [skywalking-showcase](https://github.com/apache/skywalking-showcase/tree/main/deploy/platform/kubernetes)
