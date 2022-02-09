@@ -1,4 +1,3 @@
-table: meter_oap_instance_trace_latency_percentile does not exist. OAP is running in 'no-init' mode, waiting... retry 3s later---
 layout: default
 ---
 
