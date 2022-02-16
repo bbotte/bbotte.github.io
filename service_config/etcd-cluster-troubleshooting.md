@@ -92,7 +92,7 @@ etcd: error validating peerURLs {ClusterID:194cd14a48430083 Members:[&{ID:1ce6d6
 etcd: the member has been permanently removed from the cluster the data-dir used by this member must be removed
 ```
 
-### etcd恢复数据
+### etcd恢复数据(错误示范)
 
 在etcd02节点恢复一下数据试试：
 
@@ -151,7 +151,27 @@ etcd: request cluster ID mismatch (got 194cd14a48430083 want cdf818194e3a8c32)
 
 发现步骤顺序错误，应该是先添加到etcd集群，再启动etcd服务，我们现在先启动etcd服务，就是一个etcd单点
 
-### etcd节点加入集群
+还有其他报错：
+
+```
+# etcdctl snapshot restore etcdback.db --skip-hash-check=true
+Error: data-dir "default.etcd" exists
+```
+
+那么添加参数后恢复数据
+
+```
+# etcdctl snapshot restore etcdback.db --skip-hash-check=true --name etcd02 --initial-cluster etcd01=https://192.168.0.100:2380,etcd02=https://192.168.0.101:2380,etcd03=https://192.168.0.102:2380 --initial-cluster-token etcd-cluster --data-dir /var/lib/etcd/default.etcd --initial-advertise-peer-urls https://192.168.0.101:2380
+
+# systemctl start etcd
+启动报错：
+etcd: error listing data dir: /var/lib/etcd/default.etcd
+
+# chown etcd.etcd -R /var/lib/etcd/
+再次启动正常
+```
+
+### etcd节点加入集群(正确步骤)
 
 故障的etcd主机：
 
@@ -184,10 +204,6 @@ ETCD_INITIAL_CLUSTER_STATE="existing"
 # etcdctl endpoint health
 127.0.0.1:2379 is healthy: successfully committed proposal: took = 24.52485ms
 ```
-
-$$
-
-$$
 
 ```
 # etcdctl member list
