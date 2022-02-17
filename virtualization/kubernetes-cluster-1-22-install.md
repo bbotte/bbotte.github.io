@@ -389,6 +389,78 @@ kubeadm join 192.168.3.12:6443 --token pnfw5a.1111222200001111 \
 
 这里已经有master节点的添加方式，直接添加master节点和node节点就行
 
+添加其他master节点：
+
+```
+[root@k8s-master01 ~]# scp initk8s.yaml k8s-master02:/root/
+[root@k8s-master01 ~]# scp -r /etc/kubernetes/pki/* k8s-master02:/etc/kubernetes/pki/
+
+在master02上执行
+[root@k8s-master02 ~]# kubeadm init --config initk8s.yaml
+再执行k8s-master01
+[root@k8s-master02 ~]# kubeadm join 192.168.3.12:6443 --token pnfw5a.1111222200001111 \
+	--discovery-token-ca-cert-hash sha256:cc7e8f0481a40f06e1d12363f9a5052ce9443fb2355a37fef991e9c56f76bd71 \
+	--control-plane
+
+[preflight] Running pre-flight checks
+error execution phase preflight: [preflight] Some fatal errors occurred:
+        [ERROR DirAvailable--etc-kubernetes-manifests]: /etc/kubernetes/manifests is not empty
+        [ERROR FileAvailable--etc-kubernetes-kubelet.conf]: /etc/kubernetes/kubelet.conf already exists
+        [ERROR Port-10250]: Port 10250 is in use
+[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
+To see the stack trace of this error execute with --v=5 or higher
+
+[root@k8s-master02 ~]# cp /etc/kubernetes/admin.conf $HOME/.kube/config
+[root@k8s-master02 ~]# kubectl get no
+NAME           STATUS   ROLES                  AGE     VERSION
+k8s-master01   Ready    control-plane,master   21h     v1.22.2
+k8s-master02   Ready    control-plane,master   1m      v1.22.2
+
+[root@k8s-master02 ~]# cat /etc/cni/net.d/10-flannel.conflist
+{
+  "name": "cbr0",
+  "cniVersion": "0.3.1",
+  "plugins": [
+    {
+      "type": "flannel",
+      "delegate": {
+        "hairpinMode": true,
+        "isDefaultGateway": true
+      }
+    },
+    {
+      "type": "portmap",
+      "capabilities": {
+        "portMappings": true
+      }
+    }
+  ]
+}
+
+三个master节点都按照完成
+[root@k8s-master01 ~]# kubectl get no
+NAME           STATUS   ROLES                  AGE     VERSION
+k8s-master01   Ready    control-plane,master   21h     v1.22.2
+k8s-master02   Ready    control-plane,master   4h31m   v1.22.2
+k8s-master03   Ready    control-plane,master   4h15m   v1.22.2
+[root@k8s-master01 ~]# kubectl get po -n kube-system
+NAME                                   READY   STATUS    RESTARTS   AGE
+coredns-7d89d9b6b8-9bx28               1/1     Running   0          21h
+coredns-7d89d9b6b8-j6lw2               1/1     Running   0          21h
+kube-apiserver-k8s-master01            1/1     Running   0          21h
+kube-apiserver-k8s-master02            1/1     Running   0          4h31m
+kube-apiserver-k8s-master03            1/1     Running   0          4h15m
+kube-controller-manager-k8s-master01   1/1     Running   0          21h
+kube-controller-manager-k8s-master02   1/1     Running   0          4h31m
+kube-controller-manager-k8s-master03   1/1     Running   0          4h15m
+kube-proxy-5hf87                       1/1     Running   0          4h31m
+kube-proxy-6z9zd                       1/1     Running   0          21h
+kube-proxy-rxmpc                       1/1     Running   0          4h15m
+kube-scheduler-k8s-master01            1/1     Running   0          21h
+kube-scheduler-k8s-master02            1/1     Running   0          4h31m
+kube-scheduler-k8s-master03            1/1     Running   0          4h15m
+```
+
 查看证书时间
 
 ```
@@ -427,6 +499,5 @@ deployment.apps/coredns edited
 [root@k8s-master01 tmp]# kubectl get po -n kube-system 
 
 ```
-
 
 
