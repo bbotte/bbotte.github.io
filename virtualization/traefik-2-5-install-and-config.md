@@ -1908,3 +1908,5 @@ server {
 ```
 
 这样子，dns所有域名都指向此nginx的ip，只要是80端口的请求都会通过nginx转到traefik（node节点的80端口），traefik再去找k8s service通信，对流量的限制或者ip黑名单都可以在nginx上配置
+
+2021年11月01日 于 [linux工匠](https://bbotte.github.io/) 发表

@@ -397,18 +397,6 @@ kubeadm join 192.168.3.12:6443 --token pnfw5a.1111222200001111 \
 
 在master02上执行
 [root@k8s-master02 ~]# kubeadm init --config initk8s.yaml
-再执行k8s-master01
-[root@k8s-master02 ~]# kubeadm join 192.168.3.12:6443 --token pnfw5a.1111222200001111 \
-	--discovery-token-ca-cert-hash sha256:cc7e8f0481a40f06e1d12363f9a5052ce9443fb2355a37fef991e9c56f76bd71 \
-	--control-plane
-
-[preflight] Running pre-flight checks
-error execution phase preflight: [preflight] Some fatal errors occurred:
-        [ERROR DirAvailable--etc-kubernetes-manifests]: /etc/kubernetes/manifests is not empty
-        [ERROR FileAvailable--etc-kubernetes-kubelet.conf]: /etc/kubernetes/kubelet.conf already exists
-        [ERROR Port-10250]: Port 10250 is in use
-[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
-To see the stack trace of this error execute with --v=5 or higher
 
 [root@k8s-master02 ~]# cp /etc/kubernetes/admin.conf $HOME/.kube/config
 [root@k8s-master02 ~]# kubectl get no
@@ -437,28 +425,43 @@ k8s-master02   Ready    control-plane,master   1m      v1.22.2
   ]
 }
 
-三个master节点都按照完成
+三个master节点都按照完成，并安装了flannal网络插件，traefik
 [root@k8s-master01 ~]# kubectl get no
-NAME           STATUS   ROLES                  AGE     VERSION
-k8s-master01   Ready    control-plane,master   21h     v1.22.2
-k8s-master02   Ready    control-plane,master   4h31m   v1.22.2
-k8s-master03   Ready    control-plane,master   4h15m   v1.22.2
+NAME           STATUS   ROLES                  AGE    VERSION
+k8s-master01   Ready    control-plane,master   15m    v1.22.2
+k8s-master02   Ready    control-plane,master   14m    v1.22.2
+k8s-master03   Ready    control-plane,master   13m    v1.22.2
+k8s-worker01   Ready    <none>                 9m1s   v1.22.2
+k8s-worker02   Ready    <none>                 105s   v1.22.2
+k8s-worker03   Ready    <none>                 43s    v1.22.2
 [root@k8s-master01 ~]# kubectl get po -n kube-system
-NAME                                   READY   STATUS    RESTARTS   AGE
-coredns-7d89d9b6b8-9bx28               1/1     Running   0          21h
-coredns-7d89d9b6b8-j6lw2               1/1     Running   0          21h
-kube-apiserver-k8s-master01            1/1     Running   0          21h
-kube-apiserver-k8s-master02            1/1     Running   0          4h31m
-kube-apiserver-k8s-master03            1/1     Running   0          4h15m
-kube-controller-manager-k8s-master01   1/1     Running   0          21h
-kube-controller-manager-k8s-master02   1/1     Running   0          4h31m
-kube-controller-manager-k8s-master03   1/1     Running   0          4h15m
-kube-proxy-5hf87                       1/1     Running   0          4h31m
-kube-proxy-6z9zd                       1/1     Running   0          21h
-kube-proxy-rxmpc                       1/1     Running   0          4h15m
-kube-scheduler-k8s-master01            1/1     Running   0          21h
-kube-scheduler-k8s-master02            1/1     Running   0          4h31m
-kube-scheduler-k8s-master03            1/1     Running   0          4h15m
+NAME                                   READY   STATUS     RESTARTS   AGE
+coredns-7d89d9b6b8-p2mg5               1/1     Running    0          15m
+coredns-7d89d9b6b8-qg2lg               1/1     Running    0          15m
+kube-apiserver-k8s-master01            1/1     Running    0          15m
+kube-apiserver-k8s-master02            1/1     Running    0          15m
+kube-apiserver-k8s-master03            1/1     Running    0          14m
+kube-controller-manager-k8s-master01   1/1     Running    0          15m
+kube-controller-manager-k8s-master02   1/1     Running    0          15m
+kube-controller-manager-k8s-master03   1/1     Running    0          14m
+kube-flannel-ds-4g2gp                  1/1     Running    0          2m4s
+kube-flannel-ds-8x5pk                  1/1     Running    0          11m
+kube-flannel-ds-ghh4q                  1/1     Running    0          11m
+kube-flannel-ds-jmndc                  1/1     Running    0          9m20s
+kube-flannel-ds-wjmqc                  1/1     Running    0          11m
+kube-flannel-ds-xx2rz                  0/1     Init:1/2   0          62s
+kube-proxy-4bnxt                       1/1     Running    0          2m4s
+kube-proxy-f99l4                       1/1     Running    0          15m
+kube-proxy-l5pnp                       1/1     Running    0          62s
+kube-proxy-pdl7t                       1/1     Running    0          15m
+kube-proxy-pqmf5                       1/1     Running    0          14m
+kube-proxy-zhmt6                       1/1     Running    0          9m20s
+kube-scheduler-k8s-master01            1/1     Running    0          15m
+kube-scheduler-k8s-master02            1/1     Running    0          15m
+kube-scheduler-k8s-master03            1/1     Running    0          14m
+traefik-ingress-controller-6t9q7       1/1     Running    0          51s
+traefik-ingress-controller-gkhdn       1/1     Running    0          114s
+traefik-ingress-controller-t2pd2       1/1     Running    0          9m9s
 ```
 
 查看证书时间
@@ -501,3 +504,4 @@ deployment.apps/coredns edited
 ```
 
 
+2021年10月29日 于 [linux工匠](https://bbotte.github.io/) 发表
