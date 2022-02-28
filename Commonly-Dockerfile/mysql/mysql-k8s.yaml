@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: default
+  labels:
+    k8s-app: mysql
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      k8s-app: mysql
+  template:
+    metadata:
+      labels:
+        k8s-app: mysql
+    spec:
+      containers:
+      - name: mysql
+        imagePullPolicy: IfNotPresent
+        image: bbotte.harbor.com:10000/ops/mysql:5.7.21
+        resources:
+          limits:
+            memory: 3Gi
+          requests:
+            memory: "0.1Gi"
+            cpu: "0.1"
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "12345678"
+        - name: MYSQL_INNODB_BUFFER_POOL_SIZE
+          value: "2G"
+        - name: DATADIR
+          value: /var/lib/mysql/mysql
+        - name: MYSQL_INNODB_THREAD_CONCURRENCY
+          value: '4'
+#        volumeMounts:
+#        - name: mysql-data
+#          mountPath: /var/lib/mysql
+#      volumes:
+#      - name: mysql-data
+#        persistentVolumeClaim:
+#          claimName: pvc-def
+      imagePullSecrets:
+      - name: harbor-sec
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: db-com
+  namespace: default
+  labels:
+    k8s-app: mysql
+spec:
+  selector:
+    k8s-app: mysql
+  ports:
+  - port: 3306
+    targetPort: 3306
+    nodePort: 30306
+    protocol: TCP
+  type: NodePort

@@ -1,0 +1,250 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-primary
+  namespace: default
+  labels:
+    k8s-app: mongodb-primary
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      k8s-app: mongodb-primary
+  template:
+    metadata:
+      labels:
+        k8s-app: mongodb-primary
+    spec:
+      hostname: mongo-svc-primary
+      containers:
+      - name: mongodb-primary
+        imagePullPolicy: IfNotPresent
+        image: bitnami/mongodb:4.4.10
+        resources:
+          limits:
+            cpu: 4
+            memory: 2096Mi
+          requests:
+            memory: 64Mi
+            cpu: 0.1
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGODB_ROOT_PASSWORD
+          value: mongodb
+        - name: MONGODB_EXTRA_FLAGS
+          value: "--wiredTigerCacheSizeGB=2"
+        - name: MONGODB_ENABLE_DIRECTORY_PER_DB
+          value: "yes"
+        - name: MONGODB_PORT_NUMBER
+          value: "27017"
+        - name: MONGODB_REPLICA_SET_MODE
+          value: primary
+        - name: MONGODB_ADVERTISED_HOSTNAME
+          value: mongo-svc-primary
+        - name: MONGODB_ADVERTISED_PORT_NUMBER
+          value: "27017"
+        - name: MONGODB_INITIAL_PRIMARY_PORT_NUMBER
+          value: "27017"
+        - name: MONGODB_REPLICA_SET_KEY
+          value: "123456789"
+        volumeMounts:
+        - name: mongodb-primary-data
+          mountPath: /bitnami
+      volumes:
+      - name: mongodb-primary-data
+        hostPath:
+          path: /data/mongo-primary
+      #  persistentVolumeClaim:
+      #    claimName: gfspvc-def
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mongo-svc-primary
+  namespace: default
+  labels:
+    k8s-app: mongodb-primary
+spec:
+  selector:
+    k8s-app: mongodb-primary
+  ports:
+  - port: 27017
+    targetPort: 27017
+    nodePort: 30317
+    protocol: TCP
+  type: NodePort
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-secondary
+  namespace: default
+  labels:
+    k8s-app: mongodb-secondary
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      k8s-app: mongodb-secondary
+  template:
+    metadata:
+      labels:
+        k8s-app: mongodb-secondary
+    spec:
+      hostname: mongo-svc-secondary
+      containers:
+      - name: mongodb-secondary
+        imagePullPolicy: IfNotPresent
+        image: bitnami/mongodb:4.4.10
+        resources:
+          limits:
+            cpu: 4
+            memory: 2096Mi
+          requests:
+            memory: 64Mi
+            cpu: 0.1
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGODB_EXTRA_FLAGS
+          value: "--wiredTigerCacheSizeGB=2"
+        - name: MONGODB_ENABLE_DIRECTORY_PER_DB
+          value: "yes"
+        - name: MONGODB_PORT_NUMBER
+          value: "27017"
+        - name: MONGODB_REPLICA_SET_MODE
+          value: secondary
+        - name: MONGODB_ADVERTISED_HOSTNAME
+          value: mongo-svc-secondary
+        - name: MONGODB_ADVERTISED_PORT_NUMBER
+          value: "27017"
+        - name: MONGODB_REPLICA_SET_KEY
+          value: "123456789"
+        - name: MONGODB_INITIAL_PRIMARY_HOST
+          value: mongo-svc-primary
+        - name: MONGODB_INITIAL_PRIMARY_PORT_NUMBER
+          value: "27017"
+        - name: MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD
+          value: mongodb
+        volumeMounts:
+        - name: mongodb-secondary-data
+          mountPath: /bitnami
+      volumes:
+      - name: mongodb-secondary-data
+        hostPath:
+          path: /data/mongo-secondary
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mongo-svc-secondary
+  namespace: default
+  labels:
+    k8s-app: mongodb-secondary
+spec:
+  type: NodePort
+  selector:
+    k8s-app: mongodb-secondary
+  ports:
+  - port: 27017
+    targetPort: 27017
+    protocol: TCP
+    nodePort: 30318
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-arbiter
+  namespace: default
+  labels:
+    k8s-app: mongodb-arbiter
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      k8s-app: mongodb-arbiter
+  template:
+    metadata:
+      labels:
+        k8s-app: mongodb-arbiter
+    spec:
+      hostname: mongo-svc-arbiter
+      containers:
+      - name: mongodb-arbiter
+        imagePullPolicy: IfNotPresent
+        image: bitnami/mongodb:4.4.10
+        resources:
+          limits:
+            cpu: 4
+            memory: 2096Mi
+          requests:
+            memory: 64Mi
+            cpu: 0.1
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGODB_EXTRA_FLAGS
+          value: "--wiredTigerCacheSizeGB=2"
+        - name: MONGODB_ENABLE_DIRECTORY_PER_DB
+          value: "yes"
+        - name: MONGODB_PORT_NUMBER
+          value: "27017"
+        - name: MONGODB_REPLICA_SET_MODE
+          value: arbiter
+        - name: MONGODB_ADVERTISED_HOSTNAME
+          value: mongo-svc-arbiter
+        - name: MONGODB_REPLICA_SET_KEY
+          value: "123456789"
+        - name: MONGODB_INITIAL_PRIMARY_HOST
+          value: mongo-svc-primary
+        - name: MONGODB_INITIAL_PRIMARY_PORT_NUMBER
+          value: "27017"
+        - name: MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD
+          value: mongodb
+        volumeMounts:
+        - name: mongodb-arbiter-data
+          mountPath: /bitnami
+      volumes:
+      - name: mongodb-arbiter-data
+        hostPath:
+          path: /data/mongo-arbiter
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mongo-svc-arbiter
+  namespace: default
+  labels:
+    k8s-app: mongodb-arbiter
+spec:
+  selector:
+    k8s-app: mongodb-arbiter
+  ports:
+  - port: 27017
+    targetPort: 27017
+    protocol: TCP

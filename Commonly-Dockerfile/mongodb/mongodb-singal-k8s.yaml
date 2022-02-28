@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  namespace: default
+  labels:
+    k8s-app: mongodb
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      k8s-app: mongodb
+  template:
+    metadata:
+      labels:
+        k8s-app: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        imagePullPolicy: IfNotPresent
+        image: bitnami/mongodb:4.4.10
+        resources:
+          limits:
+            cpu: 4
+            memory: 4096Mi
+          requests:
+            memory: 64Mi
+            cpu: 0.1
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: root
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: mongodb
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        - name: MONGODB_EXTRA_FLAGS
+          value: "--wiredTigerCacheSizeGB=2"
+        - name: MONGODB_ENABLE_DIRECTORY_PER_DB
+          value: "yes"
+        - name: MONGODB_PORT_NUMBER
+          value: "27017"
+        volumeMounts:
+        - name: mongodb-data
+          mountPath: /bitnami
+      volumes:
+      - name: mongodb-data
+        persistentVolumeClaim:
+          claimName: gfspvc-def
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: uclass-mongo-svc
+  namespace: default
+  labels:
+    k8s-app: mongodb
+spec:
+  type: NodePort
+  selector:
+    k8s-app: mongodb
+  ports:
+  - port: 27017
+    targetPort: 27017
+    nodePort: 30317
+    protocol: TCP
+

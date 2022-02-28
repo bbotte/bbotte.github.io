@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: gfs-ep
+  namespace: default
+subsets:
+- addresses:
+  - ip: 192.168.3.100
+  - ip: 192.168.3.101
+  - ip: 192.168.3.102
+  ports:
+  - port: 10
+    protocol: TCP
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-mq1
+  namespace: default
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  glusterfs:
+    endpoints: "gfs-ep"
+    path: "mq-cluster0"    # gluster volume create NAME
+    readOnly: false
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-mq2
+  namespace: default
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  glusterfs:
+    endpoints: "gfs-ep"
+    path: "mq-cluster1"    # gluster volume create NAME
+    readOnly: false
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-mq3
+  namespace: default
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  glusterfs:
+    endpoints: "gfs-ep"
+    path: "mq-cluster2"    # gluster volume create NAME
+    readOnly: false
+

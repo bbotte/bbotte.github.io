@@ -1,0 +1,121 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: es1
+  namespace: default
+  labels:
+    k8s-app: es1
+  annotations:
+    kubernetes.io/change-cause: pre-2021042
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      k8s-app: es1
+  template:
+    metadata:
+      labels:
+        k8s-app: es1
+    spec:
+     # affinity:
+     #   nodeAffinity:
+     #     requiredDuringSchedulingIgnoredDuringExecution:
+     #       nodeSelectorTerms:
+     #       - matchExpressions:
+     #         - key: kubernetes.io/hostname
+     #           operator: In
+     #           values:
+     #           - cn-shanghai.10.100.200.93
+
+     # initContainers:
+     # - name: init
+     #   image: busybox
+     #   command: ['/bin/sh','-c','sysctl -w vm.max_map_count=262144 && sleep 1']
+     #   imagePullPolicy: IfNotPresent
+     #   securityContext:
+     #     privileged: true
+     #   volumeMounts:
+     #   - mountPath: /sys
+     #     name: init
+     #     readOnly: false
+      containers:
+      - name: es1
+        image: elasticsearch:6.8.13
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: 2504Mi
+          requests:
+            cpu: 500m
+            memory: 512Mi
+        ports:
+        - containerPort: 9200
+        - containerPort: 9300
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 9200
+          initialDelaySeconds: 5
+          periodSeconds: 30
+          timeoutSeconds: 20
+       # livenessProbe:
+       #   httpGet:
+       #     path: /_cluster/health?local=true
+       #     port: 9200
+       #   initialDelaySeconds: 90
+       #   periodSeconds: 40
+       #   timeoutSeconds: 20
+#        volumeMounts:
+#          - name: es-data
+#            mountPath: /usr/share/elasticsearch/data
+#          - name: es-plugins
+#            mountPath: /usr/share/elasticsearch/plugins
+        env:
+        - name: node.name
+          value: es1
+        - name: cluster.name
+          value: docker-cluster
+        #- name: discovery.zen.ping.unicast.hosts
+        #  value: "es1,es2,es3"
+        - name: discovery.type
+          value: single-node
+        - name: ES_JAVA_OPTS
+          value: "-Xms2g -Xmx2g"
+        - name: MEMORY_LOCK
+          value: "true"
+      imagePullSecrets:
+        - name: harbor-sec
+#      volumes:
+#      - name: es-data
+#        persistentVolumeClaim:
+#          claimName: pvc
+#      - name: es-plugins
+#        persistentVolumeClaim:
+#          claimName: es-plugin
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: es-svc
+  namespace: default
+  labels:
+    k8s-app: es1
+spec:
+  type: NodePort
+  selector:
+    k8s-app: es1
+  ports:
+  - port: 9200
+    name: es9200
+    targetPort: 9200
+    nodePort: 30920
+  - port: 9300
+    name: es9300
+    targetPort: 9300

@@ -1,0 +1,255 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper-1
+  namespace: default
+  labels:
+    k8s-app: zookeeper-1
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      k8s-app: zookeeper-1
+  template:
+    metadata:
+      labels:
+        k8s-app: zookeeper-1
+    spec:
+      nodeSelector:
+        deploytype: normal
+      containers:
+      - name: zookeeper-1
+        imagePullPolicy: IfNotPresent
+        image: zookeeper:3.6.2
+        resources:
+          limits:
+            cpu: 2
+            memory: 2096Mi
+          requests:
+            memory: 64Mi
+            cpu: 0.1
+        ports:
+        - containerPort: 2181
+        - containerPort: 2888
+        - containerPort: 3888
+        env:
+        - name: ZOO_MY_ID
+          value: "1"
+        - name: ZOO_SERVERS
+          value: "server.1=0.0.0.0:2888:3888;2181 server.2=zookeeper-svc-2:2888:3888;2181 server.3=zookeeper-svc-3:2888:3888;2181"
+        - name: ZOO_DATA_DIR
+          value: /data/zookeeper/data
+        - name: ZOO_DATA_LOG_DIR
+          value: /data/zookeeper/log
+        volumeMounts:
+        - name: zookeeper-data-1
+          mountPath: /data
+      volumes:
+      - name: zookeeper-data-1
+        persistentVolumeClaim:
+          claimName: pvczk1
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: zookeeper-svc-1
+  namespace: default
+  labels:
+    k8s-app: zookeeper-1
+spec:
+  type: NodePort
+  selector:
+    k8s-app: zookeeper-1
+  ports:
+  - port: 2181
+    targetPort: 2181
+    protocol: TCP
+    nodePort: 32181
+    name: zkport
+  - port: 2888
+    targetPort: 2888
+    protocol: TCP
+    name: tans
+  - port: 3888
+    targetPort: 3888
+    protocol: TCP
+    name: election
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper-2
+  namespace: default
+  labels:
+    k8s-app: zookeeper-2
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      k8s-app: zookeeper-2
+  template:
+    metadata:
+      labels:
+        k8s-app: zookeeper-2
+    spec:
+      nodeSelector:
+        deploytype: normal
+      containers:
+      - name: zookeeper-2
+        imagePullPolicy: IfNotPresent
+        image: zookeeper:3.6.2
+        resources:
+          limits:
+            cpu: 2
+            memory: 2096Mi
+          requests:
+            memory: 64Mi
+            cpu: 0.1
+        ports:
+        - containerPort: 2181
+        - containerPort: 2888
+        - containerPort: 3888
+        env:
+        - name: ZOO_MY_ID
+          value: "2"
+        - name: ZOO_SERVERS
+          value: "server.1=zookeeper-svc-1:2888:3888;2181 server.2=0.0.0.0:2888:3888;2181 server.3=zookeeper-svc-3:2888:3888;2181"
+        - name: ZOO_DATA_DIR
+          value: /data/zookeeper/data
+        - name: ZOO_DATA_LOG_DIR
+          value: /data/zookeeper/log
+        volumeMounts:
+        - name: zookeeper-data-2
+          mountPath: /data
+      volumes:
+      - name: zookeeper-data-2
+        persistentVolumeClaim:
+          claimName: pvczk2
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: zookeeper-svc-2
+  namespace: default
+  labels:
+    k8s-app: zookeeper-2
+spec:
+  type: NodePort
+  selector:
+    k8s-app: zookeeper-2
+  ports:
+  - port: 2181
+    targetPort: 2181
+    protocol: TCP
+    name: zkport
+    nodePort: 32182
+  - port: 2888
+    targetPort: 2888
+    protocol: TCP
+    name: trans
+  - port: 3888
+    targetPort: 3888
+    protocol: TCP
+    name: election
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper-3
+  namespace: default
+  labels:
+    k8s-app: zookeeper-3
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      k8s-app: zookeeper-3
+  template:
+    metadata:
+      labels:
+        k8s-app: zookeeper-3
+    spec:
+      nodeSelector:
+        deploytype: normal
+      containers:
+      - name: zookeeper-3
+        imagePullPolicy: IfNotPresent
+        image: zookeeper:3.6.2
+        resources:
+          limits:
+            cpu: 2
+            memory: 2096Mi
+          requests:
+            memory: 64Mi
+            cpu: 0.1
+        ports:
+        - containerPort: 2181
+        - containerPort: 2888
+        - containerPort: 3888
+        env:
+        - name: ZOO_MY_ID
+          value: "3"
+        - name: ZOO_SERVERS
+          value: "server.1=zookeeper-svc-1:2888:3888;2181 server.2=zookeeper-svc-2:2888:3888;2181 server.3=0.0.0.0:2888:3888;2181"
+        - name: ZOO_DATA_DIR
+          value: /data/zookeeper/data
+        - name: ZOO_DATA_LOG_DIR
+          value: /data/zookeeper/log
+        volumeMounts:
+        - name: zookeeper-data-3
+          mountPath: /data
+      volumes:
+      - name: zookeeper-data-3
+        persistentVolumeClaim:
+          claimName: pvczk3
+      imagePullSecrets:
+      - name: harbor-pxx
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: zookeeper-svc-3
+  namespace: default
+  labels:
+    k8s-app: zookeeper-3
+spec:
+  type: NodePort
+  selector:
+    k8s-app: zookeeper-3
+  ports:
+  - port: 2181
+    targetPort: 2181
+    protocol: TCP
+    name: zkport
+    nodePort: 32183
+  - port: 2888
+    targetPort: 2888
+    protocol: TCP
+    name: trans
+  - port: 3888
+    targetPort: 3888
+    protocol: TCP
+    name: election
+

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rabbitmq-config
+  namespace: default
+data:
+  enabled_plugins: |
+    [rabbitmq_peer_discovery_k8s, rabbitmq_management, rabbitmq_prometheus].
+  rabbitmq.conf: |
+    cluster_formation.peer_discovery_backend = k8s
+    cluster_formation.k8s.host = kubernetes.default.svc.cluster.local
+    cluster_formation.k8s.address_type = hostname
+    cluster_formation.k8s.service_name = uclass-rabbitmq-svc
+    cluster_formation.k8s.hostname_suffix = .uclass-rabbitmq-svc.default.svc.cluster.local
+    queue_master_locator=min-masters
+    cluster_formation.node_cleanup.interval = 30
+    loopback_users.guest = false
+    vm_memory_high_watermark.relative = 0.6

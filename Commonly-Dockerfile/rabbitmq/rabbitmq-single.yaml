@@ -1,0 +1,99 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: rabbitmq
+  namespace: default
+  labels:
+    k8s-app: rabbitmq
+  annotations:
+    kubernetes.io/change-cause: pre-2021042
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      k8s-app: rabbitmq
+  template:
+    metadata:
+      labels:
+        k8s-app: rabbitmq
+    spec:
+      hostname: rabbitmq1
+      containers:
+      - name: rabbitmq
+        image: rabbitmq:3.8.5-management
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: 4
+            memory: 1304Mi
+          requests:
+            cpu: 0.1
+            memory: 128Mi
+        ports:
+        - containerPort: 5672
+        - containerPort: 15672
+        - containerPort: 4369
+        - containerPort: 25672
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 15672
+          initialDelaySeconds: 20
+          periodSeconds: 30
+          timeoutSeconds: 20
+        env:
+        - name: RABBITMQ_DEFAULT_VHOST
+          value: 'rabbitmq'
+        - name: RABBITMQ_DEFAULT_USER
+          value: admin
+        - name: RABBITMQ_DEFAULT_PASS
+          value: rabbitmq
+        - name: RABBITMQ_LOGS
+          value: /var/lib/rabbitmq/rabbitmq/rabbitmq.log
+        - name: RABBITMQ_SASL_LOGS
+          value: /var/lib/rabbitmq/rabbitmq/rabbitmq-sasl.log
+        - name: TZ
+          value: 'Asia/Shanghai'
+        - name: RABBITMQ_ERLANG_COOKIE
+          value: PXX-RABBITMQ-SECRET-KEY
+        volumeMounts:
+          - name: mq-data
+            mountPath: /var/lib/rabbitmq
+      volumes:
+      - name: mq-data
+        hostPath:
+          path: /data/rabbitmq
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: rabbitmq-svc
+  namespace: default
+  labels:
+    k8s-app: rabbitmq
+spec:
+  type: NodePort
+  selector:
+    k8s-app: rabbitmq
+  ports:
+  - port: 5672
+    name: mq5672
+    targetPort: 5672
+    nodePort: 30672
+  - port: 15672
+    name: mqweb
+    targetPort: 15672
+    nodePort: 31672
+  - port: 4369
+    name: epmd
+    targetPort: 4369
+  - port: 25672
+    name: mq25672
+    targetPort: 25672

@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper
+  namespace: default
+  labels:
+    k8s-app: zookeeper
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      k8s-app: zookeeper
+  template:
+    metadata:
+      labels:
+        k8s-app: zookeeper
+    spec:
+      containers:
+      - name: zookeeper
+        imagePullPolicy: IfNotPresent
+        image: zookeeper:3.6.2
+        resources:
+          limits:
+            cpu: 2
+            memory: 2096Mi
+          requests:
+            memory: 64Mi
+            cpu: 0.1
+        ports:
+        - containerPort: 2181
+        env:
+        - name: MY_ID
+          value: "1"
+        - name: ZOO_SERVERS
+          value: "server.1=0.0.0.0:2888:3888;2181 "
+        - name: ZOO_DATA_DIR
+          value: /data/zookeeper/data
+        - name: ZOO_DATA_LOG_DIR
+          value: /data/zookeeper/log
+        volumeMounts:
+        - name: zookeeper-data
+          mountPath: /data
+      volumes:
+      - name: zookeeper-data
+        hostPath:
+          path: /data/zookeeper
+      imagePullSecrets:
+      - name: harbor-pxx
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: uclass-zookeeper-svc
+  namespace: default
+  labels:
+    k8s-app: zookeeper
+spec:
+  selector:
+    k8s-app: zookeeper
+  ports:
+  - port: 2181
+    targetPort: 2181
+    nodePort: 30218
+    protocol: TCP
+  type: NodePort

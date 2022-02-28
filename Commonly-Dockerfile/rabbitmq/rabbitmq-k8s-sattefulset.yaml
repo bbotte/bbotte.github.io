@@ -1,0 +1,178 @@
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: rabbitmq
+  namespace: default
+spec:
+  serviceName: uclass-rabbitmq-svc
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rabbitmq
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      nodeSelector:
+        deploytype: normal
+  #    affinity:
+  #      podAntiAffinity:
+  #        preferredDuringSchedulingIgnoredDuringExecution:
+  #        - weight: 100
+  #          podAffinityTerm:
+  #            labelSelector:
+  #              matchExpressions:
+  #              - key: deploytype
+  #                operator: In
+  #                values:
+  #                - normal
+  #            topologyKey: kubernetes.io/hostname
+      initContainers:
+      - name: "rabbitmq-config"
+        image: busybox:1.32.0
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: rabbitmq-config
+          mountPath: /tmp/rabbitmq
+        - name: rabbitmq-config-rw
+          mountPath: /etc/rabbitmq
+        command:
+        - sh
+        - -c
+        - cp /tmp/rabbitmq/rabbitmq.conf /etc/rabbitmq/rabbitmq.conf && echo '' >> /etc/rabbitmq/rabbitmq.conf;
+          cp /tmp/rabbitmq/enabled_plugins /etc/rabbitmq/enabled_plugins
+      volumes:
+      - name: rabbitmq-config
+        configMap:
+          name: rabbitmq-config
+          optional: false
+          items:
+          - key: enabled_plugins
+            path: "enabled_plugins"
+          - key: rabbitmq.conf
+            path: "rabbitmq.conf"
+      - name: rabbitmq-config-rw
+        emptyDir: {}
+#      - name: rabbitmq-data
+#        persistentVolumeClaim:
+#          claimName: rabbitmq-data
+      serviceAccount: rabbitmq
+      containers:
+      - name: rabbitmq
+        image: registry.cn-beijing.aliyuncs.com/pxxtest/rabbitmq:3.8.5-management
+        #image: rabbitmq:3.8.5
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: 4
+            memory: 2048Mi
+          requests:
+            cpu: 0.1
+            memory: 128Mi
+        ports:
+            - name: epmd
+              protocol: TCP
+              containerPort: 4369
+            - name: amqp
+              protocol: TCP
+              containerPort: 5672
+            - name: http
+              protocol: TCP
+              containerPort: 15672
+            - name: prometheus
+              protocol: TCP
+              containerPort: 15692
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 15672
+          initialDelaySeconds: 5
+          periodSeconds: 15
+          timeoutSeconds: 10
+       # livenessProbe:
+       #   httpGet:
+       #     path: /_cluster/health?local=true
+       #     port: 9200
+       #   initialDelaySeconds: 90
+       #   periodSeconds: 40
+       #   timeoutSeconds: 20
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: RABBITMQ_NODENAME
+          value: rabbit@$(POD_NAME).uclass-rabbitmq-svc.$(POD_NAMESPACE).svc.cluster.local
+        - name: RABBITMQ_USE_LONGNAME
+          value: "true"
+        - name: RABBITMQ_DEFAULT_VHOST
+          value: 'uclass_pd'
+        - name: RABBITMQ_DEFAULT_USER
+          value: admin
+        - name: RABBITMQ_DEFAULT_PASS
+          value: rabbitmq
+        - name: RABBITMQ_LOGS
+          value: /var/lib/rabbitmq/rabbitmq/rabbitmq.log
+        - name: RABBITMQ_SASL_LOGS
+          value: /var/lib/rabbitmq/rabbitmq/rabbitmq-sasl.log
+        - name: TZ
+          value: 'Asia/Shanghai'
+        - name: RABBITMQ_ERLANG_COOKIE
+          value: PXX-RABBITMQ-SECRET-KEY
+        #- name: RABBITMQ_MNESIA_BASE
+        #  value: /var/lib/rabbitmq/rabbitmq
+        volumeMounts:
+          - name: rabbitmq-config-rw
+            mountPath: "/etc/rabbitmq"
+#          - name: rabbitmq-data
+#            mountPath: "/var/lib/rabbitmq/mnesia"
+          - name: mq-data
+            mountPath: /var/lib/rabbitmq
+      imagePullSecrets:
+        - name: harbor-pxx
+  volumeClaimTemplates:
+  - metadata:
+      name: mq-data
+    spec:
+      accessModes: [ "ReadWriteMany" ]
+      resources:
+        requests:
+          storage: 50Gi
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: uclass-rabbitmq-svc
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    app: rabbitmq
+  ports:
+  - port: 5672
+    name: mq5672
+    targetPort: 5672
+    nodePort: 30572
+  - port: 15672
+    name: mqweb
+    targetPort: 15672
+    nodePort: 31572
+  - port: 15692
+    name: prometheus
+    targetPort: 15692
+    nodePort: 31592
+  - port: 4369
+    name: epmd
+    targetPort: 4369
+  - port: 25672
+    name: mq25672
+    targetPort: 25672
