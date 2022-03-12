@@ -113,6 +113,7 @@ layout: default
 
 [tengine install](https://bbotte.github.io/service_config/tengine-install)
 
+
 # [**python相关**](https://bbotte.github.io/python_project/)
 
 [python几个简单的排序算法](https://bbotte.github.io/python_project/several-simple-sorting-algorithms-in-python)
@@ -134,6 +135,7 @@ layout: default
 [小议python的迭代iterative和递归recursive](https://bbotte.github.io/python_project/python-iterative-and-recursive)
 
 [python插入排序算法](https://bbotte.github.io/python_project/python-insertion-sort)
+
 
 # [**数据库**](https://bbotte.github.io/databases/)
 
@@ -157,6 +159,7 @@ layout: default
 
 [Mysql不同步主库删除的数据](https://bbotte.github.io/databases/mysql-asynchronous-master-database-deleted-data)
 
+
 # [**监控和安全**](https://bbotte.github.io/monitor_safe)
 
 [docker和kubernetes的监控(cadvisor+prometheus)](https://bbotte.github.io/monitor_safe/docker-monitor-with-cadvisor-and-prometheus)
@@ -174,6 +177,7 @@ layout: default
 [ossec线上安全监控的高级配置](https://bbotte.github.io/monitor_safe/advanced-configuration-of-ossec-on-line-security-monitoring)
 
 [ossec线上安全监控的配置详细文档](https://bbotte.github.io/monitor_safe/ossec-online-security-monitoring-configuration-detailed-documentation)
+
 
 # [**虚拟化**](https://bbotte.github.io/virtualization)
 
@@ -237,6 +241,7 @@ layout: default
 
 [docker初学跟我来](https://bbotte.github.io/virtualization/flow-me-learning-docker)
 
+
 # [**其他**](https://bbotte.github.io/others)
 
 [ELK5完整部署](https://bbotte.github.io/others/elasticsearch-logstash-kibana-version5-install-and-configure)
@@ -271,6 +276,7 @@ layout: default
 
 [关于此linux工匠网站](https://bbotte.github.io/others/about-me)
 
+
 # [**转载文章**](https://bbotte.github.io/reprint)
 
 [JAVA服务治理实践之无侵入的应用服务监控](https://bbotte.github.io/reprint/JAVA服务治理实践之无侵入的应用服务监控)
@@ -288,6 +294,8 @@ layout: default
 [异地多活设计难-其实是你陷入了这四大误区出不来](https://bbotte.github.io/reprint/异地多活设计难-其实是你陷入了这四大误区出不来)
 
 [通过ibd和frm文件恢复数据](https://bbotte.github.io/reprint/通过ibd和frm文件恢复数据)
+
+[Nginx代理解决跨域问题分析](https://bbotte.github.io/reprint/Nginx代理解决跨域问题分析)
 
 
 
