@@ -419,13 +419,23 @@ spec:
 
 ```
 
-安装skywalking遇到奇奇怪怪的错误，多是因为配置的问题，还有skywalking init缺少表的,先把deploy的skywalking no-init改为 init，删掉deploy，再apply deploy一次解决
+安装skywalking遇到奇奇怪怪的错误，多是因为配置的问题，还有skywalking init缺少表的,先把skysalking的Deployment containers 中 -Dmode=no-init改为 -Dmode=init，kubectl apply 这个yaml文件后，等pod启动完毕再把配置修改回来，再次kubectl apply yaml文件，可以解决问题
 
 ```
-table: meter_oap_instance_trace_latency_percentile does not exist. OAP is running in 'no-init' mode, waiting... retry 3s later
+Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.16/security-minimal-setup.html to enable security."],[299 Elasticsearch-7.16.2-2b937c44140b6559905130a8650c64dbd0879cfb "[ignore_throttled] parameter is deprecated because frozen indices have been deprecated. Consider cold or frozen tiers in place of frozen indices."
+
+org.apache.skywalking.oap.server.core.storage.model.ModelInstaller -330978 [main] INFO  [] - table: meter_oap_instance_trace_latency_percentile does not exist. OAP is running in 'no-init' mode, waiting... retry 3s later.
 
 table: alarm_record does not exist. OAP is running in 'no-init' mode, waiting... retry 3s later
 
+```
+
+对于elasticsearch提示安全的问题，可以在deployment env中加配置项：
+
+```
+env:
+  - name: 'xpack.security.enabled'
+    value: 'false'
 ```
 
 参考 
