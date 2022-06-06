@@ -159,6 +159,26 @@ Password:
 Error response from daemon: Get https://192.168.22.69/v1/users/: dial tcp 192.168.22.69:443: getsockopt: connection refused<br>
 ```
 
+```
+docker login -u admin -p passwd http://harbor.bbotte.com
+Error response from daemon: Get http://harbor.bbotte.com/v2/: unauthorized: authentication required
+
+解决方法：
+# egrep -v ".*#|^$" harbor.yml|head
+hostname: harbor.bbotte.com
+http:
+  port: 80
+external_url: http://harbor.bbotte.com
+harbor_admin_password: passwd
+database:
+  password: root123
+  max_idle_conns: 100
+  max_open_conns: 900
+data_volume: /data
+
+修改 external_url 项
+```
+
 在docker的daemon.json添加安全的仓库ip或者域名
 
 ```
