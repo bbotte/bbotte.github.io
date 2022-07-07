@@ -4,6 +4,8 @@ layout: default
 
 ## [**虚拟化**](https://bbotte.github.io/virtualization)
 
+[服务网格Linkerd安装初试](https://bbotte.github.io/virtualization/linkerd-install)
+
 [traefik 2.5版本的安装配置](https://bbotte.github.io/virtualization/traefik-2-5-install-and-config)
 
 [kubernetes 1.22版本集群安装](https://bbotte.github.io/virtualization/kubernetes-cluster-1-22-install)
