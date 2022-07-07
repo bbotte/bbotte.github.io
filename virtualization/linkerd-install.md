@@ -7,6 +7,7 @@ layout: default
 linkerd性能比istio要高许多，所以再测一下linkerd服务，[kubernetes和istio开箱测试](https://bbotte.github.io/virtualization/kubernetes_and_istio_config_beginning)
 
 **版本信息**
+
 此linkerd版本为stable-2.11.3
 k8s版本为 1.22.2
 
@@ -21,6 +22,7 @@ Server Version: v1.22.2
 ![Linkerd’s architecture](https://linkerd.io/images/architecture/control-plane.png)
 
 **安装linkerd2**
+
 下载linkerd2-cli客户端
 
 ```
@@ -206,13 +208,15 @@ kubectl get -n emojivoto deploy -o yaml | linkerd inject - | kubectl apply -f -
 ```
 
 linkerd控制平面已经对这个namespace完成，可以检查一下现在的情况
+
 ```
 # linkerd -n emojivoto check --proxy
-
 ```
+
 **linkerd dashboard**
 
-istio有dashboard面板，可以看到流量的情况，在linkerd中安装viz 插件也可以,是dashboard面板，可以显示metric  
+istio有dashboard面板，可以看到流量的情况，在linkerd中安装viz 插件也可以,是dashboard面板，可以显示metric
+
 ```
 # linkerd viz install | kubectl apply -f -
 
@@ -232,17 +236,20 @@ web-76b9d5c8d9-b9dgw           2/2     Running   0          75s
 ```
 kubectl port-forward --address='0.0.0.0' -n linkerd-viz service/web 8084:8084
 ```
+
 浏览器绑定hosts ，这里 192.168.3.9 是node-master1的ip
 192.168.3.9 web.linkerd-viz.svc
 在浏览器访问 http://web.linkerd-viz.svc:8084/ 就打开了viz dashboard
 因为 [暴露viz监控面板](https://linkerd.io/2.10/tasks/exposing-dashboard/#dns-rebinding-protection) 有写，为防止 DNS-rebinding 攻击， 仪表板拒绝任何 Host header 不是 localhost、127.0.0.1或 服务名称不是 web.linkerd-viz.svc 的请求,所以简单来说，用web.linkerd-viz.svc作为web的访问域名
 
 否则会遇到linkerd viz dashboard访问浏览器有报错，
+
 ```
 It appears that you are trying to reach this service with a host of '192.168.3.9:50750'.
 This does not match /^(localhost|127\.0\.0\.1|web\.linkerd-viz\.svc\.cluster\.local|web\.linkerd-viz\.svc|\[::1\])(:\d+)?$/ and has been denied for security reasons.
 Please see https://linkerd.io/dns-rebinding for an explanation of what is happening and how to fix it.
 ```
+
 ![viz-dashboard](../images/2022/07/viz-dashboard.png)
 
 **安装jaeger插件**
