@@ -245,5 +245,49 @@ location ~.*\(htm|html|gif|jpg|jpeg|png|bmp|swf|js|css)$ {
   }
 ```
 
+有些时候rewrite的功能可以用proxy_pss实现，比如
+
+```
+rewrite ^/a/(.*)$ http://b.com/abcd/a/$1 permanent;
+```
+
+```
+location  /a/ {
+        proxy_pass http://b.com/abcd/a/;
+    }
+
+```
+
+nginx中配置proxy_pass代理转发，如果在proxy_pass后面的url加/，表示绝对根路径
+如果没有/，表示相对路径，把匹配的路径部分也给代理
+
+下面四种情况都用 http://127.0.0.1/proxy/test.html 进行访问
+
+第一种：
+location /proxy/ {
+proxy_pass http://127.0.0.1/;
+}
+代理到URL：http://127.0.0.1/test.html
+
+第二种 相对于第一种，最后少一个 / 
+location /proxy/ {
+proxy_pass http://127.0.0.1;
+}
+代理到URL：http://127.0.0.1/proxy/test.html
+
+第三种：
+location /proxy/ {
+proxy_pass http://127.0.0.1/aaa/;
+}
+代理到URL：http://127.0.0.1/aaa/test.html
+
+第四种 相对于第三种，最后少一个 / 
+location /proxy/ {
+proxy_pass http://127.0.0.1/aaa;
+}
+代理到URL：http://127.0.0.1/aaatest.html
+
+
+
 2016年03月01日 于 [linux工匠](https://bbotte.github.io/) 发表
 
