@@ -1858,7 +1858,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
-  - host: traefik.pxxclass.com
+  - host: traefik.bbotte.github.io
     http:
       paths:
       - pathType: Prefix
