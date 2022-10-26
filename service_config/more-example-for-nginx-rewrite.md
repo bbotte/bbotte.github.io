@@ -264,27 +264,43 @@ nginx中配置proxy_pass代理转发，如果在proxy_pass后面的url加/，表
 下面四种情况都用 http://127.0.0.1/proxy/test.html 进行访问
 
 第一种：
+
+```
 location /proxy/ {
 proxy_pass http://127.0.0.1/;
 }
+```
+
 代理到URL：http://127.0.0.1/test.html
 
 第二种 相对于第一种，最后少一个 / 
+
+```
 location /proxy/ {
 proxy_pass http://127.0.0.1;
 }
+```
+
 代理到URL：http://127.0.0.1/proxy/test.html
 
 第三种：
+
+```
 location /proxy/ {
 proxy_pass http://127.0.0.1/aaa/;
 }
+```
+
 代理到URL：http://127.0.0.1/aaa/test.html
 
 第四种 相对于第三种，最后少一个 / 
+
+```
 location /proxy/ {
 proxy_pass http://127.0.0.1/aaa;
 }
+```
+
 代理到URL：http://127.0.0.1/aaatest.html
 
 
