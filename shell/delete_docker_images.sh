@@ -3,7 +3,7 @@
 
 下面 2022 需要修改
 
-docker images|sort -rn|awk '{print $1,$2,$3}'|awk  'gsub(/[[:blank:]]*/,"",$2){print $1,$2,"    ",$NF}'|grep 2022|while read i;do if [[ $NAME == $(echo $i|awk '{print $1}') ]];then echo $i;fi;NAME=$(echo $i|awk '{print $1}');done|awk '{print $NF}'|xargs docker rmi
+docker images|sort -rn|awk '{print $1,$2,$3}'|awk  'gsub(/[[:blank:]]*/,"",$2){print $1,$2,"    ",$NF}'|while read i;do if [[ $NAME == $(echo $i|awk '{print $1}') ]];then echo $i;fi;NAME=$(echo $i|awk '{print $1}');done|awk '{print $NF}'|xargs docker rmi
 
 删除 none的镜像
 docker images|sort -rn|awk '{print $1,$2,$3}'|awk  'gsub(/[[:blank:]]*/,"",$2){print $1,$2,"    ",$NF}'|grep none|awk '{print $NF}'|xargs docker rmi
