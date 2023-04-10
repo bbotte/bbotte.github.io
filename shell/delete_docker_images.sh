@@ -1,8 +1,6 @@
 #!/bin/bash
 # 删除多余的docker包，每个镜像名称只保留最新的一个，docker 镜像格式为  名称-时间戳-git commitid ，排序和筛选都用到了时间戳，所以镜像tag中需要包含时间戳，比如 harbor.bbotte.com/dev/system:uat-7a84b40118-20220819174427
 
-下面 2022 需要修改
-
 docker images|sort -rn|awk '{print $1,$2,$3}'|awk  'gsub(/[[:blank:]]*/,"",$2){print $1,$2,"    ",$NF}'|while read i;do if [[ $NAME == $(echo $i|awk '{print $1}') ]];then echo $i;fi;NAME=$(echo $i|awk '{print $1}');done|awk '{print $NF}'|xargs docker rmi
 
 删除 none的镜像
