@@ -4,6 +4,8 @@ layout: default
 
 ## [**服务配置**](https://bbotte.github.io/service_config/)
 
+[由docker-compose导致的网络故障--网络不可达](https://bbotte.github.io/service_config/docker-compose-network-failure)
+
 [在kubernetes中部署skywalking(elasticsearch7集群)](https://bbotte.github.io/service_config/skywalking-deploy-on-kubernetes-with-elasticsearch7)
 
 [在kubernetes中statefu方式安装elasticsearch-6集群](https://bbotte.github.io/service_config/kubernetes-install-elasticsearch-6-with-statefulset)
