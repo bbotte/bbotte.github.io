@@ -2,7 +2,8 @@
 layout: default
 ---
 
-#### 由docker-compose导致的网络故障
+# 由docker-compose导致的网络故障
+
 
 环境说明：
 
@@ -42,9 +43,9 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 查询docker的ip地址，看看是哪个docker-compose引起的，找172.23.0.0这个网段，等会改动docker-compose的网络。找到这个服务，先停止
 
 ```
-docker ps|awk 'NR>1{print $1}'|xargs docker inspect -f '{{.Name}} {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+docker ps|awk 'NR>1{print $1}'|xargs docker inspect -f '\{\{.Name\}\} \{\{range .NetworkSettings.Networks\}\}\{\{.IPAddress\}\}\{\{end\}\}'
 
-# 先停止服务
+
 docker-compose down
 ```
 
