@@ -8,6 +8,8 @@ RUN yum makecache && \
     yum list mysql-community-server --showduplicates && \
     rm -f /etc/localtime && \
     ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql && \
+    rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022 && \
     yum remove -y mariadb-libs mariadb-libs && \
     yum install mysql-community-server-5.7.21-1.el7 -y && \
     yum clean all && \
