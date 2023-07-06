@@ -80,7 +80,6 @@ route -n 查询已经没有了
 
 最后更改docker-compose的网段
 
-
 ```
 version: '3'
 services:
@@ -104,7 +103,11 @@ networks:
       - subnet: 192.168.20.0/24
 ```
 
+也可以更干脆些，network_mode: "host" ，使用主机网络模式，这样不会产生这个问题
+
 更改网络配置后，再docker-compose up -d，查看服务的ip
+
+
 
 参考 
 - [network-tutorial-overlay](https://docs.docker.com/network/network-tutorial-overlay/)
