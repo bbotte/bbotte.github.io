@@ -323,4 +323,8 @@ $ docker-compose start
 
 这时候再df -h 查看磁盘空间
 
+新版本的harbor在 项目 中删除镜像后，点击 垃圾清理 就可以了
+
+[harbor仓库简单配置说明-pic3](../images/2018/01/harbor-clean.png)
+
 2018年01月18日 于 [linux工匠](https://bbotte.github.io/) 发表
