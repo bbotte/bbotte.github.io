@@ -94,7 +94,7 @@ location ~ /www/log/123.log {
      }
 ```
 
-13, 将http://bbotte.com/news/activies/2014-08-26/123.html 跳转为 http://a.com/news/activies/123.html
+13, 将http://test.com/news/activies/2014-08-26/123.html 跳转为 http://a.com/news/activies/123.html
 
 ```
 rewrite ^/news/activies/2014\-([0-9]+)\-([0-9]+)/(.*)$ http://a.com/news/activies/$3 permanent;
@@ -132,7 +132,7 @@ location / {
     }
 ```
 
-17,访问http://www.abc.com?url=https://bbotte.github.io 301到 https://bbotte.github.io
+17,访问http://www.abc.com?url=https://test.github.io 301到 https://test.github.io
 
 ```
 if ($request_uri ~ "/\?url\=(.*)"){ return 301 $1 ;}
@@ -176,8 +176,8 @@ if ($request_filename ~ "m.a.com/wap/"){rewrite ^/(.*)$  http://wap.a.com/ perma
 ```
 server {
         listen  80;
-        server_name bbotte.com www.bbotte.com;
-        return 301 http://bbotte.com$request_uri;
+        server_name test.com www.test.com;
+        return 301 https://test.com$request_uri;
 }
 ```
 
@@ -193,13 +193,13 @@ server {
 
 ```
        location / {
-            if ($bbotte ~* '^abcd$|^xyz$') {
-                 proxy_pass http://bbotte_com;
+            if ($test ~* '^abcd$|^xyz$') {
+                 proxy_pass http://test_com;
             }
         }
 ```
 
-curl -H “bbotte:abcd” http://localhost
+curl -H "test:abcd" http://localhost
 
 正则表达式匹配，其中：
 
@@ -306,5 +306,5 @@ proxy_pass http://127.0.0.1/aaa;
 
 
 
-2016年03月01日 于 [linux工匠](https://bbotte.github.io/) 发表
+2016年03月01日 于 [linux工匠](https://test.github.io/) 发表
 
