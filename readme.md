@@ -19,6 +19,8 @@ layout: default
 
 # [**服务配置**](https://bbotte.github.io/service_config/)
 
+[主机的虚拟化系统之proxmox](https://bbotte.github.io/service_config/virtualization-system-of-the-host-proxmox)
+
 [k8s使用http的harbor](https://bbotte.github.io/service_config/kubernetes-with-harbor-no-https)
 
 [由docker-compose导致的网络故障--网络不可达](https://bbotte.github.io/service_config/docker-compose-network-failure)
