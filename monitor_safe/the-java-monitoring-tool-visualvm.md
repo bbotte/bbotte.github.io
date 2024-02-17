@@ -6,55 +6,41 @@ layout: default
 
 对java来说，自带查看进程、调试、监控的工具挺丰富的，下面是官方介绍
 
+```
 **Standard JDK Tools and Utilities**
 
 Basic Tools                                 (javac, java, javadoc, apt, appletviewer, jar, jdb, javah, javap, extcheck)
-
 Security Tools                              (keytool, jarsigner, policytool, kinit, klist, ktab)
-
 Internationalization Tools                  (native2ascii)
-
 Remote Method Invocation (RMI) Tools        (rmic, rmiregistry, rmid, serialver)
-
 Java IDL and RMI-IIOP Tools                 (tnameserv, idlj, orbd, servertool)
-
 Java Deployment Tools                       (pack200, unpack200)
-
 Java Plug-in Tools                          (htmlconverter)
-
 Java Web Start Tools                        (javaws)
-
 Java Troubleshooting, Profiling, Monitoring and Management Tools    (JConsole, Java VisualVM)
-
 Java Web Services Tools                     (schemagen, wsgen, wsimport, xjc)
+
 
 **Experimental JDK Tools and Utilities**
 
-Monitoring Tools：
-
+Monitoring Tools：  
 Tool Name       Brief Description
 
 jps             Experimental: JVM Process Status Tool – Lists instrumented HotSpot Java virtual machines on a target system.
-
 jstat           Experimental: JVM Statistics Monitoring Tool – Attaches to an instrumented HotSpot Java virtual machine and collects and logs performance statistics as specified by the command line options.
-
 jstatd          Experimental: JVM jstat Daemon – Launches an RMI server application that monitors for the creation and termination of instrumented HotSpot Java virtual machines and provides a interface to allow remote monitoring tools to attach to Java virtual machines running on the local system.
 
 
 **Troubleshooting Tools**
 
-Tool Name              Brief Description
+Tool Name:           Brief Description:
 
-jinfo                  Experimental – Configuration Info for Java – Prints configuration information for a given process or core file or a remote debug server.
-
+jinfo               Experimental – Configuration Info for Java – Prints configuration information for a given process or core file or a remote debug server.
 jhat                   Experimental – Heap Dump Browser – Starts a web server on a heap dump file (eg, produced by jmap -dump), allowing the heap to be browsed.
-
 jmap                   Experimental – Memory Map for Java – Prints shared object memory maps or heap memory details of a given process or core file or a remote debug server.
-
 jsadebugd              Experimental – Serviceability Agent Debug Daemon for Java – Attaches to a process or core file and acts as a debug server.
-
 jstack                 Experimental – Stack Trace for Java – Prints a stack trace of threads for a given process or core file or remote debug server.
-
+```
 
 上面一段来自oracle官网，可以由此链接查看<http://docs.oracle.com/javase/8/docs/technotes/tools/index.html>
 
