@@ -110,7 +110,7 @@ export JAVA_OPTS="$JAVA_OPTS -Dcom.sun.management.jmxremote.port=9998 \
 
 6，并且我们可以对应用服务做快照，再详细分析cpu、内存、threads。
 
-对java程序的zabbix监控请看这里 [小议java的zabbix监控](https://bbotte.github.io/monitor_safe/talking-about-zabbixs-java-monitoring/)
+对java程序的zabbix监控请看这里 [小议java的zabbix监控](https://bbotte.github.io/monitor_safe/talking-about-zabbixs-java-monitoring)
 
 2016年04月07日 于 [linux工匠](https://bbotte.github.io/) 发表
 
