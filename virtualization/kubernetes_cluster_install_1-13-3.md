@@ -229,6 +229,9 @@ ip a
 
 #### 生成证书(仅需其中一台，在master1操作)
 
+k8s_1.13.3.tar.gz度娘网盘: https://pan.baidu.com/s/1OsIQErnhPMkWvY7VM_BQjA 提取码: ifiu 
+
+
 ```
 tar -xf k8s_1.13.3.tar.gz
 cp k8s/ssl/cfssl* /usr/bin/
