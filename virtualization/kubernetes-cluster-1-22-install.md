@@ -167,6 +167,8 @@ export ETCDCTL_API=3
 EOF
 systemctl enable etcd
 systemctl start etcd
+
+cp /etc/etcd/ssl/* /etc/kubernetes/ssl/
 ```
 
 参考 https://bbotte.github.io/service_config/etcd-v3.4_install/etcd-install
@@ -179,7 +181,9 @@ https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/7/x86_64/stable/Pack
 
 ```
 cat <<EOF>> /etc/docker/daemon.json
-"exec-opts": ["native.cgroupdriver=systemd"]
+{
+    "exec-opts": ["native.cgroupdriver=systemd"]
+}
 EOF
 ```
 
@@ -252,7 +256,7 @@ localAPIEndpoint:
   advertiseAddress: 192.168.3.12 #api VIP
   bindPort: 6443
 nodeRegistration:
-  criSocket: /var/run/dockershim.sock
+  criSocket: /var/run/dockershim.sock # 路径不对的话，看一下 /var/run/docker.sock
   name: k8s-master01                  #master1 名字
   taints:
   - effect: NoSchedule
@@ -303,7 +307,10 @@ scheduler: {}
 EOF
 ```
 
-使用上面编译的kubeadm初始化集群
+使用上面编译的kubeadm初始化集群，如果初始化有错误，rm -f /etc/containerd/config.toml && kubeadm reset 重置一下
+
+crictl info 查看报错
+
 
 ```
 kubeadm init --config initk8s.yaml 
