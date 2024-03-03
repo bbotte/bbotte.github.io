@@ -490,7 +490,7 @@ k8s-master01 kubelet: "Error adding pod to network" err="open /run/flannel/subne
 
 ### 安装flannel
 
-flannel文件 https://github.com/flannel-io/flannel/blob/master/Documentation/kube-flannel.yml
+flannel文件 https://github.com/flannel-io/flannel/blob/v0.22.2/Documentation/kube-flannel.yml
 
 kubectl get po -n kube-system  查看组件状态
 
@@ -509,6 +509,8 @@ deployment.apps/coredns edited
 [root@k8s-master01 tmp]# kubectl get po -n kube-system 
 
 ```
+traefik 
 
+https://github.com/traefik/traefik/blob/v1.7/docs/user-guide/kubernetes.md
 
 2021年10月29日 于 [linux工匠](https://bbotte.github.io/) 发表

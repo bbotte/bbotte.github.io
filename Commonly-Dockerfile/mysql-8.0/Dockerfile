@@ -1,8 +1,6 @@
 FROM centos:centos7
+ENV TZ="Asia/Shanghai"
 COPY mysql-community.repo /etc/yum.repos.d/mysql-community.repo
-#COPY CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
-#https://mirror.tuna.tsinghua.edu.cn/help/mysql/
-#https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
 RUN yum makecache && \
     yum install -y epel-release && \
     yum list mysql-community-server --showduplicates && \
@@ -28,6 +26,7 @@ VOLUME /var/lib/mysql
 WORKDIR /
 RUN mkdir -p /etc/mysql
 COPY my.cnf /etc/mysql/my.cnf
+RUN chmod 644 /etc/mysql/my.cnf
 
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh

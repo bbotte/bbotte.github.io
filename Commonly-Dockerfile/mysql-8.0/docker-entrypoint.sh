@@ -8,14 +8,14 @@ file_env() {
   local fileVar="${var}_FILE"
   local def="${2:-}"
   if [ "${!var:-}" ] && [ "${!fileVar:-}" ]; then
-  	echo >&2 "error: both $var and $fileVar are set (but are exclusive)"
-  	exit 1
+        echo >&2 "error: both $var and $fileVar are set (but are exclusive)"
+        exit 1
   fi
   local val="$def"
   if [ "${!var:-}" ]; then
-  	val="${!var}"
+        val="${!var}"
   elif [ "${!fileVar:-}" ]; then
-  	val="$(< "${!fileVar}")"
+        val="$(< "${!fileVar}")"
   fi
   export "$var"="$val"
   unset "$fileVar"
@@ -54,19 +54,21 @@ if [ "$1" = 'mysqld' ]; then
         chown -R mysql.mysql $DATADIR
         echo "mysql data dir is $DATADIR"
     else
-        mkdir -p /var/lib/mysql/{data,log} && chown -R mysql.mysql /var/lib/mysql
+#        mkdir -p /var/lib/mysql/{data,log} && chown -R mysql.mysql /var/lib/mysql
         echo "mysql data dir is /var/lib/mysql"
     fi
-    if [ ! -d "$DATADIR/data/mysql" ] && [ ! -d "/var/lib/mysql/data/mysql" ]; then
+    chown -R mysql.mysql /var/lib/mysql
+    if [ ! -d "$DATADIR/mysql" ] && [ ! -d "/var/lib/mysql/mysql" ]; then
         file_env 'MYSQL_ROOT_PASSWORD'
         if [ -z "$MYSQL_ROOT_PASSWORD" -a -z "$MYSQL_ALLOW_EMPTY_PASSWORD" -a -z "$MYSQL_RANDOM_ROOT_PASSWORD" ]; then
-        	echo >&2 'error: database is uninitialized and password option is not specified '
-        	echo >&2 '  You need to specify one of MYSQL_ROOT_PASSWORD, MYSQL_ALLOW_EMPTY_PASSWORD and MYSQL_RANDOM_ROOT_PASSWORD'
-        	exit 1
+                echo >&2 'error: database is uninitialized and password option is not specified '
+                echo >&2 '  You need to specify one of MYSQL_ROOT_PASSWORD, MYSQL_ALLOW_EMPTY_PASSWORD and MYSQL_RANDOM_ROOT_PASSWORD'
+                exit 1
         fi
         
         echo 'Initializing database'
-        "$@" --lower-case-table-names=1 --skip-symbolic-links --initialize-insecure
+        "$@" --lower-case-table-names=1 --initialize-insecure
+        #"$@" --lower-case-table-names=1 --skip-symbolic-links --initialize-insecure
         echo 'Database initialized, cnf file is /etc/mysql/my.cnf'
   
         SOCKET="/var/lib/mysql/mysql.sock"
@@ -77,28 +79,28 @@ if [ "$1" = 'mysqld' ]; then
         mysql=( mysql -uroot -hlocalhost -S "${SOCKET}" )
         
         for i in {10..0}; do
-        	if echo 'SELECT 1' | "${mysql[@]}" &> /dev/null; then
-        		break
-        	fi
-        	echo 'MySQL init process in progress...'
-        	sleep 1
+                if echo 'SELECT 1' | "${mysql[@]}" &> /dev/null; then
+                        break
+                fi
+                echo 'MySQL init process in progress...'
+                sleep 1
         done
         if [ "$i" = 0 ]; then
-        	echo >&2 'MySQL init process failed.'
-        	exit 1
+                echo >&2 'MySQL init process failed.'
+                exit 1
         fi
         
         if [ ! -z "$MYSQL_RANDOM_ROOT_PASSWORD" ]; then
-        	export MYSQL_ROOT_PASSWORD="$(tr -dc '.;_A-Za-z0-9' </dev/urandom | head -c 20)"
-        	echo "GENERATED ROOT PASSWORD: $MYSQL_ROOT_PASSWORD"
+                export MYSQL_ROOT_PASSWORD="$(tr -dc '.;_A-Za-z0-9' </dev/urandom | head -c 20)"
+                echo "GENERATED ROOT PASSWORD: $MYSQL_ROOT_PASSWORD"
         fi
         
         rootCreate=
         # default root to listen for connections from anywhere
         file_env 'MYSQL_ROOT_HOST' '%'
         if [ ! -z "$MYSQL_ROOT_HOST" -a "$MYSQL_ROOT_HOST" != 'localhost' ]; then
-        	# no, we don't care if read finds a terminating character in this heredoc
-        	# https://unix.stackexchange.com/questions/265149/why-is-set-o-errexit-breaking-this-read-heredoc-expression/265151#265151
+                # no, we don't care if read finds a terminating character in this heredoc
+                # https://unix.stackexchange.com/questions/265149/why-is-set-o-errexit-breaking-this-read-heredoc-expression/265151#265151
               read -r -d '' rootCreate <<-EOSQL || true
 CREATE USER 'root'@'${MYSQL_ROOT_HOST}' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' ;
 GRANT ALL ON *.* TO 'root'@'${MYSQL_ROOT_HOST}' WITH GRANT OPTION ;
@@ -114,35 +116,35 @@ SELECT user, authentication_string FROM mysql.user;
 EOSQL
         
         if [ ! -z "$MYSQL_ROOT_PASSWORD" ]; then
-        	mysql+=( -p"${MYSQL_ROOT_PASSWORD}" )
+                mysql+=( -p"${MYSQL_ROOT_PASSWORD}" )
         fi
         
         file_env 'MYSQL_DATABASE'
         if [ "$MYSQL_DATABASE" ]; then
-        	echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` ;" | "${mysql[@]}"
-        	mysql+=( "$MYSQL_DATABASE" )
+                echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` ;" | "${mysql[@]}"
+                mysql+=( "$MYSQL_DATABASE" )
         fi
         
         file_env 'MYSQL_USER'
         file_env 'MYSQL_PASSWORD'
         if [ "$MYSQL_USER" -a "$MYSQL_PASSWORD" ]; then
-        	echo "CREATE USER '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD' ;" | "${mysql[@]}"
+                echo "CREATE USER '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD' ;" | "${mysql[@]}"
         
-        	if [ "$MYSQL_DATABASE" ]; then
-        		echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* TO '$MYSQL_USER'@'%' ;" | "${mysql[@]}"
-        	fi
+                if [ "$MYSQL_DATABASE" ]; then
+                        echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* TO '$MYSQL_USER'@'%' ;" | "${mysql[@]}"
+                fi
         
-        	echo 'FLUSH PRIVILEGES ;' | "${mysql[@]}"
+                echo 'FLUSH PRIVILEGES ;' | "${mysql[@]}"
         fi
         
         if [ ! -z "$MYSQL_ONETIME_PASSWORD" ]; then
-        	"${mysql[@]}" <<-EOSQL
+                "${mysql[@]}" <<-EOSQL
   ALTER USER "root"@"%" PASSWORD EXPIRE NEVER;
 EOSQL
         fi
         if ! kill -s TERM "$pid" || ! wait "$pid"; then
-        	echo >&2 'MySQL init process failed.'
-        	exit 1
+                echo >&2 'MySQL init process failed.'
+                exit 1
         fi
         
             echo "root passwd is $MYSQL_ROOT_PASSWORD"
@@ -152,4 +154,4 @@ EOSQL
     fi
 fi
 
-exec "$@" 
+exec "$@"
