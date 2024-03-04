@@ -38,8 +38,6 @@ spec:
           value: "12345678"
         - name: MYSQL_INNODB_BUFFER_POOL_SIZE
           value: "2G"
-        - name: DATADIR
-          value: /var/lib/mysql/mysql
         - name: MYSQL_INNODB_THREAD_CONCURRENCY
           value: '4'
 #        volumeMounts:

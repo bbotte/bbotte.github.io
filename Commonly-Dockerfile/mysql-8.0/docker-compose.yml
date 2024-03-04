@@ -13,7 +13,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "bbotte"
       MYSQL_INNODB_BUFFER_POOL_SIZE: "128M"
-      DATADIR: "/var/lib/mysql"
       MYSQL_INNODB_THREAD_CONCURRENCY: "4"
 
   db2-com:
@@ -31,7 +30,6 @@ services:
       MYSQL_INNODB_THREAD_CONCURRENCY: 2
       MYSQL_INNODB_BUFFER_POOL_SIZE: "128M"
       MYSQL_INNODB_THREAD_CONCURRENCY: "4"
-      DATADIR: "/var/lib/mysql"
       MYSQL_SERVER_ID: 2   # db2-com is a slave mysql
 
 
