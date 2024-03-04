@@ -47,18 +47,10 @@ if [ "$1" = 'mysqld' ]; then
 fi
 
 if [ "$1" = 'mysqld' ]; then
-    dataDir=`grep datadir /etc/mysql/my.cnf|awk -F'=' '{print $2}'|xargs dirname`
-    if [ "$DATADIR" ] && [ $dataDir != "$DATADIR" ];then
-        sed -i "s#$dataDir#$DATADIR#g" /etc/mysql/my.cnf
-        mkdir -p $DATADIR/{data,log}
-        chown -R mysql.mysql $DATADIR
-        echo "mysql data dir is $DATADIR"
-    else
-#        mkdir -p /var/lib/mysql/{data,log} && chown -R mysql.mysql /var/lib/mysql
-        echo "mysql data dir is /var/lib/mysql"
-    fi
+    dataDir=`grep datadir /etc/mysql/my.cnf|awk -F'=' '{print $2}'`
     chown -R mysql.mysql /var/lib/mysql
-    if [ ! -d "$DATADIR/mysql" ] && [ ! -d "/var/lib/mysql/mysql" ]; then
+    
+    if [ ! -d "$dataDir/mysql" ]; then
         file_env 'MYSQL_ROOT_PASSWORD'
         if [ -z "$MYSQL_ROOT_PASSWORD" -a -z "$MYSQL_ALLOW_EMPTY_PASSWORD" -a -z "$MYSQL_RANDOM_ROOT_PASSWORD" ]; then
                 echo >&2 'error: database is uninitialized and password option is not specified '

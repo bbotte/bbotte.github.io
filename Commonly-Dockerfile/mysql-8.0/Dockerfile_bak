@@ -1,0 +1,36 @@
+FROM centos:centos7
+ENV TZ="Asia/Shanghai"
+ENV MYSQL_VERSION="8.0.18"
+RUN yum install wget -y && \
+  wget http://repo.mysql.com/yum/mysql-8.0-community/el/7/x86_64/mysql-community-client-${MYSQL_VERSION}-1.el7.x86_64.rpm && \
+  wget http://repo.mysql.com/yum/mysql-8.0-community/el/7/x86_64/mysql-community-common-${MYSQL_VERSION}-1.el7.x86_64.rpm && \
+  wget http://repo.mysql.com/yum/mysql-8.0-community/el/7/x86_64/mysql-community-devel-${MYSQL_VERSION}-1.el7.x86_64.rpm && \
+  wget http://repo.mysql.com/yum/mysql-8.0-community/el/7/x86_64/mysql-community-libs-${MYSQL_VERSION}-1.el7.x86_64.rpm && \
+  wget http://repo.mysql.com/yum/mysql-8.0-community/el/7/x86_64/mysql-community-server-${MYSQL_VERSION}-1.el7.x86_64.rpm && \
+  yum localinstall -y *.rpm && \
+  rm -f *.rpm 
+#COPY mysql-community.repo /etc/yum.repos.d/mysql-community.repo
+RUN yum makecache && \
+    yum install -y epel-release && \
+    rm -rf /var/cache/yum/* && \
+#    yum list mysql-community-server --showduplicates && \
+    rm -f /etc/localtime && \
+    ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+#    rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql && \
+#    rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022 && \
+#    yum remove -y mariadb-libs mariadb-libs mysql-community-client && \
+   # yum install mysql-community-server-8.0.18-1.el7 -y && \
+    yum clean all
+
+VOLUME /var/lib/mysql
+WORKDIR /
+RUN mkdir -p /etc/mysql
+COPY my.cnf /etc/mysql/my.cnf
+RUN chmod 644 /etc/mysql/my.cnf
+
+COPY docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+EXPOSE 3306
+CMD ["mysqld","--defaults-file=/etc/mysql/my.cnf"]

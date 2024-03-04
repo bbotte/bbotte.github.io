@@ -1,5 +1,6 @@
 FROM centos:centos7
 ENV TZ="Asia/Shanghai"
+ENV MYSQL_VERSION="8.0.35"
 COPY mysql-community.repo /etc/yum.repos.d/mysql-community.repo
 RUN yum makecache && \
     yum install -y epel-release && \
@@ -9,7 +10,7 @@ RUN yum makecache && \
     rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql && \
     rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022 && \
     yum remove -y mariadb-libs mariadb-libs && \
-    yum install mysql-community-server-8.0.35-1.el7 -y && \
+    yum install mysql-community-server-${MYSQL_VERSION}-1.el7 -y && \
     yum clean all && \
     rm -rf /usr/sbin/mysqld-debug \
     /usr/bin/mysql_config_editor \
