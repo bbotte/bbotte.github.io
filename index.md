@@ -252,6 +252,8 @@ layout: default
 
 # [**其他**](https://bbotte.github.io/others)
 
+[Windows10内存释放经验](https://bbotte.github.io/others/windows-10-memory-manager)
+
 [ELK5完整部署](https://bbotte.github.io/others/elasticsearch-logstash-kibana-version5-install-and-configure)
 
 [elasticsearch5安装和配置](https://bbotte.github.io/others/elasticsearch-5-install-and-config)
