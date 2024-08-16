@@ -313,7 +313,13 @@ virtual host选自建的，下面name名字随意起的，pattern 为 ^ 表示�
 
 ha-sync-mode 选automatic，默认新加入的镜像不会同步消息，即默认的选项是manual，如果不加此选项，rabbitmq node节点重启后，会提示unsynchronised mirrors
 
+### 设置rabbitmq的内存水位线high watermark 
 
+vm_memory_high_watermark 默认值为0.4，就是说2G的内存，可以使用的是2G * 0.4 = 800M，超过800M，就会限制生产者，[rabbitmq 内存告警阈值](https://rabbitmq.org.cn/docs/memory)
+
+```
+rabbitmqctl set_vm_memory_high_watermark 0.8
+```
 
 2016年04月29日 于 [linux工匠](https://bbotte.github.io/) 发表
 
