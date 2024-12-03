@@ -44,4 +44,9 @@ C:\Users\user\Downloads\RAMMap\RAMMap64.exe -Et
 上面3种方法没有什么副作用，可以放心使用
 
 
+我的Windows运行54天了，还好吧，2个月重启一次
+
+![Windows运行时间](../images/2024/06/Windows运行时间.png)
+
+
 2024年06月1日 于 [linux工匠](https://bbotte.github.io/) 发表
