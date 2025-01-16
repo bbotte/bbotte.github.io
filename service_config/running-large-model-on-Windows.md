@@ -2,11 +2,11 @@
 layout: default
 ---
 
-#### 使用windows WSL本地主机运行大模型
+# 使用windows WSL本地主机运行大模型
 
 现在流行LLM大模型,GPT,下面是在windows 10主机上运行阿里的千问Qwen，wsl可以理解为windows主机上运行着linux内核，比如安装ubuntu系统后，就是linux系统。步骤简要如下
 
-条件：不用梯子，磁盘空间要10G，空闲内存6G，
+条件：不用梯子，最低配 磁盘空间10G，空闲内存6G，
 
 ##### 第一步 安装wsl，配置环境
 
@@ -30,7 +30,7 @@ wsl              # 进入上面安装的ubuntu系统
 
 ubuntu使用清华源，提高安装速度
 
-https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
+[ubuntu清华源](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
 
 安装pip3，建Python虚拟环境
 
@@ -42,7 +42,8 @@ source myenv/bin/activate
 ```
 
 pip使用清华源，提高安装速度
-https://mirrors.tuna.tsinghua.edu.cn/help/pypi/
+
+[pip清华源](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)
 
 ##### 第二步 安装依赖包，下载大数据模型
 
@@ -62,18 +63,22 @@ huggingface_hub是huggingface网站的包，网站提供机器学习模型和数
 ModelScope是一个由阿里巴巴集团推出的开源模型即服务共享平台，是流行大模型集合的平台，我们需要把大模型仓库下载到本地，用这个包就可以不使用到github的梯子
 
 transformers 是一个由 Hugging Face 开发的 Python 库，用于自然语言处理（NLP）和计算机视觉（CV）任务。它提供了许多预训练的模型和工具，使得研究人员和开发者能够快速构建、微调和部署复杂的机器学习模型
-主要功能：
+
+```
+transformers 主要功能：
     预训练模型：提供多种预训练的Transformer模型，如BERT、GPT、RoBERTa等，适用于各种NLP任务。
     数据集加载器：支持从Hugging Face Hub加载和处理各种NLP和CV数据集。
     Tokenizers：提供多种分词器（tokenizers），用于将文本转换为模型可以理解的输入格式。
     Pipeline API：简化了常见NLP任务的实现，如文本分类、问答、翻译等。
     分布式训练：支持在多GPU和TPU上进行分布式训练。
     模型转换：可以将模型转换为ONNX、TensorFlow和PyTorch等不同框架。
+```
+
 Datasets：Hugging Face提供了一个数据集库，其中包含了大量的NLP和CV数据集，供用户在训练和评估模型时使用
 
 安装上面包后，要下载大模型，我下载的是Qwen2.5-1.5B-Instruct(3G大小)，因为笔记本配置较低，intel i5 1135G7,内存（24G）,显卡(Nvidia MX450)，Qwen2.5-7B-Instruct(16G大小)这个模型跑不动
 
-https://www.modelscope.cn/models/Qwen/Qwen2.5-1.5B-Instruct
+[Qwen2.5-1.5B下载](https://www.modelscope.cn/models/Qwen/Qwen2.5-1.5B-Instruct)
 
 命令行直接下载：
 
@@ -97,7 +102,7 @@ Fri Jan 10 16:10:26 2025
 |=========================================+========================+======================|
 ```
 
-打开pytorch官网 https://pytorch.org/get-started/locally/，下载链接已经标注了,2.5G大小
+打开pytorch官网 [pytorch下载](https://pytorch.org/get-started/locally/)，下载链接已经标注了,2.5G大小
 ![pytorch-install](../images/2025/01/pytorch-install.png)
 
 ```
@@ -108,7 +113,7 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 
 ##### 第三步 运行大模型，测试一下
 
-按照文档 https://www.modelscope.cn/models/Qwen/Qwen2.5-1.5B-Instruct 测试一下
+按照文档 [Qwen2.5-1.5B模型](https://www.modelscope.cn/models/Qwen/Qwen2.5-1.5B-Instruct) 测试一下
 
 ```
 from modelscope import AutoModelForCausalLM, AutoTokenizer
@@ -204,12 +209,14 @@ Examples of LLMs include:
 These models have revolutionized various fields such as natural language processing, machine translation, question answering, and more. However, they also raise ethical concerns about privacy, bias, and potential misuse.
 ```
 
-如果出现错误
+如果出现错误：
 1，OSError: 页面文件太小，无法完成操作。 (os error 1455)       原因是电脑可以使用的内存太小了
-2，Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
-Process finished with exit code -1073741819 (0xC0000005)     这是模型太大了，或者内存不够，关闭其他程序再试
 
-可是上面的问题是写死的，prompt = "Give me a short introduction to large language model."，只有这么一个问题，输出了回答。得部署一个平台，能够持续的问答
+2，Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+
+Process finished with exit code -1073741819 (0xC0000005)     这是模型太大了，或者内存不够，或模型没找到，关闭其他程序再试
+
+可是上面问千问模型的问题是写死的，prompt = "Give me a short introduction to large language model."，只有这么一个问题，输出了回答。得部署一个平台，能够持续的问答
 
 ##### 第四步 使用vllm框架运行大模型
 
@@ -283,7 +290,11 @@ Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:48<00:00, 48.88s
 INFO 01-15 18:37:22 model_runner.py:1099] Loading model weights took 2.8875 GB
 ```
 
+也可以指定其他参数，比如端口号，禁用swap
+
+```
 python -m vllm.entrypoints.openai.api_server --model "/home/user/.cache/modelscope/hub/Qwen/Qwen2___5-1___5B-Instruct" --disable-frontend-multiprocessing --dtype=half --host 0.0.0.0 --port 9000 --swap_space 0
+```
 
 ##### 第五步 在web端使用大模型
 
@@ -295,12 +306,14 @@ docker run --name one-api -d --restart always -p 5000:3000 -e TZ=Asia/Shanghai -
 
 http://IP_address:5000
 
-用户名 root  密码 123456，登录后更改密码。点击渠道，增加自己部署的vllm。普通用户没有"渠道"
+用户名 root  密码 123456，登录后更改密码。点击渠道，增加自己部署的vllm。普通用户不会显示"渠道"
+
 ![one api配置渠道](../images/2025/01/one-api-conf.png)
 
-
 使用总结：
+
 1，运行vllm还是遇到不少错误，安装需要对linux系统熟悉
+
 2，主机配置低的话，不好运行起来，LLM对内存，GPU，GPU内存都有要求
 
 参考文档：

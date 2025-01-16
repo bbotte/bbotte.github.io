@@ -2,7 +2,7 @@
 layout: default
 ---
 
-#### 使用ollama运行大模型Qwen千问
+# 使用ollama运行大模型Qwen千问
 
 使用ollama是运行大模型最简单的方法。下面使用ollama运行阿里的千问Qwen。[ollama下载](https://ollama.com/download)
 
@@ -37,9 +37,9 @@ systemctl start ollama
 
 ollama-linux-amd64.tgz 网盘链接: https://pan.baidu.com/s/1iYch51-RGRiggxwD8e449w?pwd=echy 提取码: echy 复制这段内容后打开百度网盘手机App，操作更方便哦
 
-阿里千问模型 https://modelscope.cn/models?name=Qwen2.5&page=1
-
 ##### 第二步，拉取模型，启动模型即可问答
+
+[阿里千问模型](https://modelscope.cn/models?name=Qwen2.5&page=1)
 
 使用modelscope安装相当快，并且不用梯子。直接拉取模型就可以，不用离线下载
 
@@ -52,9 +52,9 @@ ollama list
 
 获取的模型在这个目录 /usr/share/ollama/.ollama/models/blobs/
 
-模型获取可以看这个链接 https://ollama.com/search
+模型获取可以看这个链接 [ollama模型](https://ollama.com/search)
 
-国内DeepSeek-V3开源大模型，https://www.modelscope.cn/models/unsloth/DeepSeek-V3-GGUF
+国内DeepSeek-V3开源大模型，[modelscope中DeepSeek-V3模型](https://www.modelscope.cn/models/unsloth/DeepSeek-V3-GGUF)
 
 ```
 ollama pull deepseek-v2:16b  8.9G磁盘
@@ -114,6 +114,7 @@ docker logs --tail 10 -f open-webui
 ![运行open-webui](../images/2025/01/run-webui.png)
 
 浏览器打开 http://IP_address:8080  输入用户名  admin,邮箱 admin@123.com, 密码123456，就能登录到后台。这样直接在web端聊天
+
 ![open-webui登录](../images/2025/01/webui.png)
 
 ![open-webui聊天](../images/2025/01/webui-chat.png)
@@ -135,7 +136,9 @@ ollama rm qwen2.5:7b
 
 使用总结：
 1，ollama是管理大模型的consul控制台，支持主流的LLM，安装简单，入门平滑，并且有web端，还不出错
+
 2，linux、windows都支持，用户体验很好
+
 3，除了这个已用的客户端，还有 [LM Studio](https://lmstudio.ai/)，功能较为全面且偏向于应用层面。它提供了发现、下载和运行本地大型语言模型（LLM）的功能，用户可以通过其直观的图形用户界面轻松管理模型，无需编写代码即可在本地测试模型性能。还支持文本生成、模型微调和文档交互等操作。这个是闭源的，ollama是开源的，这个工具也是挺好用，可以试试
 
 参考：

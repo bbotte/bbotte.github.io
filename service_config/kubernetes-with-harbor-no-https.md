@@ -2,7 +2,7 @@
 layout: default
 ---
 
-#### harbor是http的前提下使用kubernetes
+# harbor是http的前提下使用kubernetes
 
 k8s 使用新版本1.28，harbor使用的http，没有使用证书。
 

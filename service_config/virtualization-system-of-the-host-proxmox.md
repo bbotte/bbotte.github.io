@@ -2,7 +2,7 @@
 layout: default
 ---
 
-#### 主机的虚拟化系统之proxmox
+#  主机的虚拟化系统之proxmox
 
 公司有3台配置服务器，准备做成虚拟机，有考虑VMware，毕竟有图形化界面方便操作，可是没有license，找个开源的proxmox，发现安装过程简单，安装后配置也没那么麻烦，底层是qemu，安装Windows、MAC都没问题，并且操控虚拟机和VMware、Openstack同样方便,顺便记录一下过程
 
