@@ -19,6 +19,8 @@ layout: default
 
 # [**服务配置**](https://bbotte.github.io/service_config/)
 
+[使用windows WSL运行大模型Qwen千问](https://bbotte.github.io/service_config/running-large-model-on-Windows)
+
 [使用ollama运行大模型Qwen千问](https://bbotte.github.io/service_config/use-ollama-running-large-model)
 
 [主机的虚拟化系统之proxmox](https://bbotte.github.io/service_config/virtualization-system-of-the-host-proxmox)

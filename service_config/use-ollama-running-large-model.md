@@ -4,9 +4,9 @@ layout: default
 
 #### 使用ollama运行大模型Qwen千问
 
-使用ollama是运行大模型最简单的方法。下面使用ollama运行阿里的千问Qwen。https://ollama.com/download
+使用ollama是运行大模型最简单的方法。下面使用ollama运行阿里的千问Qwen。[ollama下载](https://ollama.com/download)
 
-第一步，下载并启动服务
+##### 第一步，下载并启动服务
 
 ```
 wget https://github.com/ollama/ollama/releases/download/v0.5.5/ollama-linux-amd64.tgz
@@ -39,7 +39,7 @@ ollama-linux-amd64.tgz 网盘链接: https://pan.baidu.com/s/1iYch51-RGRiggxwD8e
 
 阿里千问模型 https://modelscope.cn/models?name=Qwen2.5&page=1
 
-第二步，拉取模型，启动模型即可问答
+##### 第二步，拉取模型，启动模型即可问答
 
 使用modelscope安装相当快，并且不用梯子。直接拉取模型就可以，不用离线下载
 
@@ -51,6 +51,15 @@ ollama list
 ```
 
 获取的模型在这个目录 /usr/share/ollama/.ollama/models/blobs/
+
+模型获取可以看这个链接 https://ollama.com/search
+
+国内DeepSeek-V3开源大模型，https://www.modelscope.cn/models/unsloth/DeepSeek-V3-GGUF
+
+```
+ollama pull deepseek-v2:16b  8.9G磁盘
+ollama pull deepseek-v3      模型404G磁盘,40G内存运行，这个太大了
+```
 
 启动服务，开始问答模式
 
@@ -86,9 +95,9 @@ $ ollama stop qwen2.5:0.5b
 
 我电脑配置低，所以运行qwen2.5:0.5b回复速度很快，这个模型qwen2.5:7b就特别慢
 
-第三步，使用浏览器web端与模型互动
+##### 第三步，使用浏览器web端与模型互动
 
-https://github.com/open-webui/open-webui  Open WebUI是一个可扩展、功能丰富、用户友好的自托管AI平台，旨在完全离线运行。使用这个web界面聊天
+[open-webui仓库地址](https://github.com/open-webui/open-webui)  Open WebUI是一个可扩展、功能丰富、用户友好的自托管AI平台，旨在完全离线运行。使用这个web界面聊天
 ghcr.io/open-webui/open-webui:v0.5.4 
 使用国内镜像链接 swr.cn-north-4.myhuaweicloud.com/ddn-k8s/ghcr.io/open-webui/open-webui:v0.5.4，因为没有梯子，所以 OPENAI_API_BASE_URL=None
 
@@ -109,7 +118,7 @@ docker logs --tail 10 -f open-webui
 
 ![open-webui聊天](../images/2025/01/webui-chat.png)
 
-清理环境
+##### 第四步 清理环境
 
 ```
 docker stop open-webui
@@ -127,9 +136,12 @@ ollama rm qwen2.5:7b
 使用总结：
 1，ollama是管理大模型的consul控制台，支持主流的LLM，安装简单，入门平滑，并且有web端，还不出错
 2，linux、windows都支持，用户体验很好
+3，除了这个已用的客户端，还有 [LM Studio](https://lmstudio.ai/)，功能较为全面且偏向于应用层面。它提供了发现、下载和运行本地大型语言模型（LLM）的功能，用户可以通过其直观的图形用户界面轻松管理模型，无需编写代码即可在本地测试模型性能。还支持文本生成、模型微调和文档交互等操作。这个是闭源的，ollama是开源的，这个工具也是挺好用，可以试试
 
-参考
+参考：
+
 [Ollama 安装与使用笔记](https://zhuanlan.zhihu.com/p/14231377407)
+
 [ollama部署常见问题解答](https://linxkon.github.io/ollama%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97.html)
 
 2025年1月13日 于 [linux工匠](https://bbotte.github.io/) 发表
