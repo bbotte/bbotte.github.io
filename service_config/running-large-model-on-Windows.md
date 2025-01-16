@@ -76,7 +76,7 @@ transformers 主要功能：
 
 Datasets：Hugging Face提供了一个数据集库，其中包含了大量的NLP和CV数据集，供用户在训练和评估模型时使用
 
-安装上面包后，要下载大模型，我下载的是Qwen2.5-1.5B-Instruct(3G大小)，因为笔记本配置较低，intel i5 1135G7,内存（24G）,显卡(Nvidia MX450)，Qwen2.5-7B-Instruct(16G大小)这个模型跑不动
+安装上面包后，要下载大模型，我下载的是Qwen2.5-1.5B-Instruct(3G大小)，因为笔记本配置较低，intel i5 1135 G7,内存（24G）,显卡(Nvidia MX450,2G显存)，Qwen2.5-7B-Instruct(16G大小)这个模型跑不动
 
 [Qwen2.5-1.5B下载](https://www.modelscope.cn/models/Qwen/Qwen2.5-1.5B-Instruct)
 
@@ -268,7 +268,7 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0xf8 in position 0: invalid 
 
 驱动更新后：
 ValueError: Bfloat16 is only supported on GPUs with compute capability of at least 8.0. Your NVIDIA GeForce MX450 GPU has compute capability 7.5. You can use float16 instead by explicitly setting the`dtype` flag in CLI, for example: --dtype=half.
-这个是笔记本显卡不支持，加参数 --dtype=half
+这个是笔记本显卡NVIDIA MX450不支持，加参数 --dtype=half
 vllm serve Qwen/Qwen2.5-1.5B-Instruct --disable-frontend-multiprocessing  --dtype=half
 
 最终运行起来
