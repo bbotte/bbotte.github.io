@@ -12,19 +12,26 @@ layout: default
 
 "模型类别" 中有千问、DeepSeek、Llama、ocr、百川等模型。
 
-![eas创建服务]](../images/2025/01/eas-创建.png)
+![eas创建服务](../images/2025/01/eas-创建.png)
 
 主要是资源部署这点，需要创建主机/GPU资源。因为大模型支持gn7及以上型号，所以选ecs.gn7i-c8g1.2xlarge规格，这个规格只能运行DeepSeek-R1-Distill-Qwen-1.5B，7B会报错
 
-![资源组创建]](../images/2025/01/资源组创建.png)
+![资源组创建](../images/2025/01/资源组创建.png)
 
-![购买资源]](../images/2025/01/购买资源.png)
+![购买资源](../images/2025/01/购买资源.png)
 
 随后等服务运行成功，如果失败查看日志，一般是资源不够用。这时候需要进入资源组，清空节点，并且停止EAS服务。再更改eas主机为重新调度，启动或更新模型
 
 服务正常运行后，查看调用信息
 
-![eas-调用]](../images/2025/01/eas-调用.png)
+![eas-调用](../images/2025/01/eas-调用.png)
+
+
+可以不用下面的2步操作，模型部署后，本地启动一个 Web 应用进行推理。下载 Web UI 代码：[webui_client](https://github.com/aliyun/pai-examples/blob/master/model-gallery/deploy/llm/vLLM/webui_client.py) ，在本地运行，即可通过 UI 界面进行推理
+
+```
+python webui_client.py --eas_endpoint "<EAS API Endpoint>" --eas_token "<EAS API Token>"
+```
 
 ##### 第二步，使用one-api，获取兼容gpt的令牌
 
@@ -59,9 +66,9 @@ networks:
 
 模型重定向是把deepseek认为是gpt-4，这样多数web客户端认得，因为每个大模型的api是不一样的，这里给统一成gpt-4。再配置令牌，复制生成的sk开头的字符串
 
-![one-api-config]](../images/2025/01/one-api-config.png)
+![one-api-config](../images/2025/01/one-api-config.png)
 
-![one-api-token]](../images/2025/01/one-api-token.png)
+![one-api-token](../images/2025/01/one-api-token.png)
 
 
 ##### 第三步，在web端访问大模型
@@ -96,7 +103,8 @@ networks:
       - subnet: 192.168.102.0/24
 ```
 
-![chatgpt-web]](../images/2025/01/chatgpt-web.png)
+![chatgpt-web](../images/2025/01/chatgpt-web.png)
+
 
 使用总结：
 1，在阿里云的人工智能平台PAI 运行一个模型在线服务 (EAS)，模型是DeepSeek-R1-Distill-Qwen-1.5B，主机规格为ecs.gn7i-c8g1.2xlarge，7B的模型需要更高的配置，价格也更高
