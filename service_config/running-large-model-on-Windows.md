@@ -308,7 +308,16 @@ http://IP_address:5000
 
 用户名 root  密码 123456，登录后更改密码。点击渠道，增加自己部署的vllm。普通用户不会显示"渠道"
 
-![one api配置渠道](../images/2025/01/one-api-conf.png)
+![one api配置渠道](../images/2025/01/one-api-for-qwen.png)
+
+模型重定向这里需要配置，是对千问模型做一个gpt-4的映射，让其他客户端认为是gpt-4（实际上是千问），因为多数客户端都支持gpt-4的api接口
+
+```
+{
+  "gpt-4": "DeepSeek-R1-Distill-Qwen-1.5B"
+}
+```
+
 
 使用总结：
 
