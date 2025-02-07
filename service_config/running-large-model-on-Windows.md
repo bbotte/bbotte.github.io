@@ -314,10 +314,11 @@ http://IP_address:5000
 
 ```
 {
-  "gpt-4": "DeepSeek-R1-Distill-Qwen-1.5B"
+  "gpt-4": "Qwen2.5-1.5B-Instruct"
 }
 ```
 
+使用web界面客户端，比如chatgpt-next-web、chatgpt-web，模型那里都要写 gpt-4，而不是其他的，因为这些客户端支持gpt-4的api接口，one-api是把gpt-4映射为实际运行的千问模型
 
 使用总结：
 
