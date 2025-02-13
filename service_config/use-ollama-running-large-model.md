@@ -26,6 +26,8 @@ Restart=always
 RestartSec=3
 Environment="PATH=$PATH"
 Environment="OLLAMA_HOST=0.0.0.0"
+Environment="OLLAMA_NUM_PARALLEL=3"
+Environment="OLLAMA_MAX_LOADED_MODELS=3"
 
 [Install]
 WantedBy=default.target
