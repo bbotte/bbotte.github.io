@@ -210,11 +210,13 @@ These models have revolutionized various fields such as natural language process
 ```
 
 如果出现错误：
+
+```
 1，OSError: 页面文件太小，无法完成操作。 (os error 1455)       原因是电脑可以使用的内存太小了
 
-2，Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
-
+2，Loading checkpoint shards:   0%  0/4 [00:00<?, ?it/s
 Process finished with exit code -1073741819 (0xC0000005)     这是模型太大了，或者内存不够，或模型没找到，关闭其他程序再试
+```
 
 可是上面问千问模型的问题是写死的，prompt = "Give me a short introduction to large language model."，只有这么一个问题，输出了回答。得部署一个平台，能够持续的问答
 
