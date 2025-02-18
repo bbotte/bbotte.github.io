@@ -60,6 +60,8 @@ accelerate
 
 huggingface_hub是huggingface网站的包，网站提供机器学习模型和数据集的开源平台
 
+[huggingface镜像站 hf-mirror](https://hf-mirror.com)   export HF_ENDPOINT=https://hf-mirror.com
+
 ModelScope是一个由阿里巴巴集团推出的开源模型即服务共享平台，是流行大模型集合的平台，我们需要把大模型仓库下载到本地，用这个包就可以不使用到github的梯子
 
 transformers 是一个由 Hugging Face 开发的 Python 库，用于自然语言处理（NLP）和计算机视觉（CV）任务。它提供了许多预训练的模型和工具，使得研究人员和开发者能够快速构建、微调和部署复杂的机器学习模型
