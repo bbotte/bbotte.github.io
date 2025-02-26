@@ -4,6 +4,8 @@ layout: default
 
 ## [**服务配置**](https://bbotte.github.io/service_config/)
 
+[使用llama.app转换模型文件后在ollama运行](https://bbotte.github.io/service_config/use-llama-trans-safetensors-for-ollama)
+
 [在linux上运行大模型deepseek r1](https://bbotte.github.io/service_config/running-deepseek-in-linux)
 
 [阿里云运行大模型deepseek r1](https://bbotte.github.io/service_config/running-deepseek-in-aliyun)
