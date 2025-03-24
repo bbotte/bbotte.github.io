@@ -136,6 +136,17 @@ ollama rm qwen2.5:3b
 ollama rm qwen2.5:7b
 ```
 
+##### 第五步 使用oneapi（可选）
+
+oneapi是把各个LLM模型的api key映射为一个通用（openapi）格式，这样其他软件都能够识别
+
+需要注意的是，模型写 重定向设置的模型名称，因为测试是按照重定向模型的api发起请求的，下面截图是把千问2.5:7b的模型映射为 gpt-4，秘钥随便输空格或者123就可以
+
+![one-api-qwen](../images/2025/01/one-api-qwen.png)
+![oneapi-test](../images/2025/01/oneapi-test.png)
+
+
+
 使用总结：
 1，ollama是管理大模型的consul控制台，支持主流的LLM，安装简单，入门平滑，并且有web端，还不出错
 
