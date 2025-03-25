@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# 使用windows WSL本地主机运行大模型
+# 使用windows WSL本地主机运行大模型(vLLM)
 
 现在流行LLM大模型,GPT,下面是在windows 10主机上运行阿里的千问Qwen，wsl可以理解为windows主机上运行着linux内核，比如安装ubuntu系统后，就是linux系统。步骤简要如下
 

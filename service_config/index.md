@@ -10,7 +10,7 @@ layout: default
 
 [阿里云运行大模型deepseek r1](https://bbotte.github.io/service_config/running-deepseek-in-aliyun)
 
-[使用windows WSL运行大模型Qwen千问](https://bbotte.github.io/service_config/running-large-model-on-Windows)
+[使用windows WSL运行大模型(vLLM)](https://bbotte.github.io/service_config/running-large-model-on-Windows)
 
 [使用ollama运行大模型Qwen千问](https://bbotte.github.io/service_config/use-ollama-running-large-model)
 
