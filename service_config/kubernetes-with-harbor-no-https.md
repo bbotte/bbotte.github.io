@@ -70,6 +70,28 @@ ctr和docker对镜像的管理命令对比：
 ```
 
 
+完整步骤如下：
+
+```
+containerd config default>/etc/containerd/config.toml
+systemctl restart containerd
+sed -i 's#registry.k8s.io/pause:3.6#registry.aliyuncs.com/google_containers/pause:3.6#g' /etc/containerd/config.toml 
+sed -i '/registry.configs/a\
+    [plugins."io.containerd.grpc.v1.cri".registry.configs."harbor.bbotte.com:9000"]\
+    [plugins."io.containerd.grpc.v1.cri".registry.configs."harbor.bbotte.com:9000".tls]\
+        ca_file = ""\
+        cert_file = ""\
+        insecure_skip_verify = true\
+        key_file = ""'  /etc/containerd/config.toml
+sed -i '/registry.mirrors/a\
+[plugins."io.containerd.grpc.v1.cri".registry.mirrors."harbor.bbotte.com:9000"]\
+          endpoint = ["http://harbor.bbotte.com:9000"]' /etc/containerd/config.toml
+systemctl restart containerd
+systemctl status containerda
+systemctl status containerd
+```
+
+
 参考[kubernetes-with-containerd-http-server](https://stackoverflow.com/questions/65724285/kubernetes-with-containerd-http-server-gave-http-response-to-https-client)
 
 2023年12月12日 于 [linux工匠](https://bbotte.github.io/) 发表
