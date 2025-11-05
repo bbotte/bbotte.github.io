@@ -48,5 +48,7 @@ C:\Users\user\Downloads\RAMMap\RAMMap64.exe -Et
 
 ![Windows运行时间](../images/2024/06/Windows运行时间.png)
 
+![Windows运行时间](../images/2025/01/windows-100days.png)
+
 
 2024年06月1日 于 [linux工匠](https://bbotte.github.io/) 发表
